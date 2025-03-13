@@ -6,229 +6,185 @@
   <title>株式会社Basic</title>
   <style>
   /* リセット */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #121212;
-  color: #fff;
-}
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #fff;
+  }
 
-/* サイドバー (PC用) */
-.sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 200px;
-  height: 100%;
-  background-color: #1a1a1a;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 10px;
-  color: #fff;
-}
-
-.nav ul {
-  list-style: none;
-}
-
-.nav ul li {
-  margin: 20px 0;
-}
-
-.nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-
-.nav ul li a:hover {
-  color: #1abc9c;
-}
-
-/* ハンバーガーメニュー (非表示 by default) */
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 24px;
-  cursor: pointer;
-}
-
-.hamburger span {
-  display: block;
-  width: 30px;
-  height: 3px;
-  background: #fff;
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* ハンバーガーアイコンのアニメーション */
-.hamburger.open span:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
-}
-
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.open span:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
-}
-
-.nav {
-  display: flex;
-  flex-direction: column;
-}
-
-/* メインコンテンツ */
-.main-content {
-  margin-left: 220px;
-  padding: 40px;
-}
-
-.hero {
-  text-align: center;
-  padding: 100px 10px;
-  background: #121212;
-  color: #fff;
-}
-
-.hero h2 {
-  font-size: 120px;
-  margin-bottom: 20px;
-}
-
-.hero p {
-  font-size: 18px;
-}
-
-.section {
-  margin-bottom: 60px;
-}
-
-.section-title {
-  font-size: 45px;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #1abc9c;
-  display: inline-block;
-}
-
-.mission-list,
-.business-list {
-  list-style: none;
-  margin-top: 20px;
-}
-
-.mission-list li,
-.business-list li {
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.company-details p {
-  margin-bottom: 10px;
-  font-size: 16px;
-}
-
-/* フッター */
-.footer {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #1a1a1a;
-  color: #fff;
-}
-
-/* --- レスポンシブデザイン --- */
-
-/* ハンバーガーメニュー表示 (モバイル用) */
-@media (max-width: 768px) {
+  /* サイドバー (PC用) */
   .sidebar {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px 20px;
-    transform: translateY(0);
-  }
-
-  .nav {
-    position: absolute;
-    top: 60px;
+    position: fixed;
     left: 0;
-    width: 100%;
-    height: calc(100vh - 60px);
+    top: 0;
+    width: 200px;
+    height: 100%;
     background-color: #1a1a1a;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 900;
-  }
-
-  .nav.open {
-    transform: translateX(0);
-  }
-
-  .hamburger {
-    display: flex;
-  }
-
-  .main-content {
-    margin-left: 0;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 10px;
+    color: #fff;
+  }
+
+  .nav ul {
+    list-style: none;
+  }
+
+  .nav ul li {
+    margin: 20px 0;
+  }
+
+  .nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+
+  .nav ul li a:hover {
+    color: #1abc9c;
+  }
+
+  /* ハンバーガーメニュー */
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+
+  /* メインコンテンツ */
+  .main-content {
+    margin-left: 220px;
+    padding: 40px;
+    max-width: 1000px;
+  }
+
+  .hero {
+    text-align: center;
+    padding: 80px 20px;
+    background: #121212;
+    color: #fff;
   }
 
   .hero h2 {
-    font-size: 120px;
+    font-size: clamp(40px, 8vw, 100px);
+    margin-bottom: 20px;
   }
 
   .hero p {
-    font-size: 16px;
+    font-size: 18px;
+  }
+
+  .section {
+    margin-bottom: 60px;
   }
 
   .section-title {
-    font-size: 40px;
+    font-size: clamp(28px, 5vw, 45px);
+    margin-bottom: 20px;
+    border-bottom: 2px solid #1abc9c;
+    display: inline-block;
   }
 
-  .mission-list li,
-  .business-list li {
-    font-size: 16px;
-  }
-}
-
-/* PC用 (優先的に適用される) */
-@media (min-width: 769px) {
-  .nav {
-    transform: none;
+  .mission-content,
+  .vision-content,
+  .values-content {
+    font-size: clamp(16px, 3vw, 20px);
+    line-height: 1.6;
+    margin-top: 20px;
   }
 
-  .hamburger {
-    display: none;
+  .values-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
   }
-}
 
+  .values-item {
+    background: #1a1a1a;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    border-left: 4px solid #1abc9c;
+  }
+
+  /* フッター */
+  .footer {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #1a1a1a;
+    color: #fff;
+  }
+
+  /* --- レスポンシブデザイン --- */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+
+    .nav {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      height: calc(100vh - 60px);
+      background-color: rgba(26, 26, 26, 0.95);
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .nav.open {
+      transform: translateX(0);
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    .main-content {
+      margin-left: 0;
+      padding: 20px;
+    }
+  }
   </style>
 </head>
 <body>
-  <!-- サイドナビ (ハンバーガーメニュー含む) -->
   <aside class="sidebar">
     <h1 class="logo">Basic</h1>
     <button class="hamburger" aria-label="Toggle navigation">
@@ -239,66 +195,48 @@ body {
     <nav class="nav">
       <ul>
         <li><a href="#mission">Mission</a></li>
-        <li><a href="#business">Business</a></li>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#values">Values</a></li>
         <li><a href="#company">Company</a></li>
       </ul>
     </nav>
   </aside>
 
-  <!-- メインコンテンツ -->
   <main class="main-content">
-    <!-- ヒーローセクション -->
     <section class="hero">
       <h2>Basic inc.</h2>
       <p>常識に囚われない、新しい飲食体験を。</p>
     </section>
 
-    <!-- ミッションセクション -->
     <section id="mission" class="section">
-      <h2 class="section-title">Mission</h2>
-      <ul class="mission-list">
-        <li>常識に囚われない、新しくイノベーティブな飲食体験を</li>
-        <li>地域に愛され、持続可能な楽しい社交場を創る</li>
-        <li>飲食ビジネス経営のモダナイズと雇用の改善／安定を</li>
-      </ul>
+      <h2 class="section-title">Mission（使命）</h2>
+      <p class="mission-content">「食の未来をつなぎ、広げる」</p>
     </section>
 
-    <!-- ビジネスセクション -->
-    <section id="business" class="section">
-      <h2 class="section-title">Business</h2>
-      <ul class="business-list">
-        <li ><a style="color:white;" href= "https://bolero.basic-fnb.com/" >中目黒 Bistro Bolero</a>の運営</li>
-        <li>飲食店企業様へのコンサルティング</li>
-        <li>次の店舗Coming soon…</li>
-      </ul>
+    <section id="vision" class="section">
+      <h2 class="section-title">Vision（目指す未来）</h2>
+      <p class="vision-content">「飲食業を、もっと誇れる仕事に」</p>
     </section>
 
-    <!-- 会社概要セクション -->
-    <section id="company" class="section">
-      <h2 class="section-title">Company</h2>
-      <div class="company-details">
-        <p><strong>会社名:</strong> 株式会社Basic</p>
-        <p><strong>代表取締役:</strong> 福田雄太</p>
-        <p><strong>設立:</strong> 2024年1月</p>
-        <p><strong>住所:</strong> 東京都目黒区駒場2丁目9-9</p>
-        <p><strong>事業内容:</strong> 飲食店の運営およびコンサルティング</p>
+    <section id="values" class="section">
+      <h2 class="section-title">Values（価値観・行動指針）</h2>
+      <div class="values-list">
+        <div class="values-item">継承 × 進化</div>
+        <div class="values-item">人を大切にする</div>
+        <div class="values-item">挑戦を恐れない</div>
+        <div class="values-item">世界に誇れる食文化の創造</div>
       </div>
     </section>
   </main>
 
-  <!-- フッター -->
   <footer class="footer">
     <p>&copy; 2024 株式会社Basic. All Rights Reserved.</p>
   </footer>
 
-  <!-- JavaScript -->
   <script>
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('.nav');
-
-    hamburger.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      hamburger.classList.toggle('open');
+    document.querySelector('.hamburger').addEventListener('click', function () {
+      document.querySelector('.nav').classList.toggle('open');
+      this.classList.toggle('open');
     });
   </script>
 </body>

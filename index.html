@@ -59,28 +59,30 @@ body {
 .nav ul li a:hover {
   color: #1abc9c;
 }
-/* ハンバーガーメニュー */
+/* ハンバーガーメニュー (モバイル用で表示) */
 .hamburger {
-  display: none;
-  background: none;
-  border: none;
+  display: flex;  /* 修正: モバイルでは表示する */
   flex-direction: column;
   justify-content: space-between;
+  width: 30px;
   height: 24px;
+  background: none;
+  border: none;
   cursor: pointer;
+  z-index: 1100;  /* 他の要素の上に表示 */
 }
 
-/* ハンバーガーの線を白に変更 */
+/* ハンバーガーの線を白にする */
 .hamburger span {
   display: block;
   width: 30px;
   height: 3px;
-  background: #fff;  /* ここを白に変更 */
+  background: #fff;  /* 修正: 白に変更 */
   border-radius: 2px;
   transition: all 0.3s ease;
 }
 
-/* 開いた時のアニメーション */
+/* ハンバーガーが開いたときのアニメーション */
 .hamburger.open span:nth-child(1) {
   transform: translateY(10px) rotate(45deg);
 }
@@ -92,6 +94,7 @@ body {
 .hamburger.open span:nth-child(3) {
   transform: translateY(-10px) rotate(-45deg);
 }
+
 
     
 /* ===== メインコンテンツ ===== */
@@ -209,6 +212,9 @@ body {
     padding: 10px 20px;
   }
 
+   .hamburger {
+    display: flex;  /* ここでしっかり表示する */
+  }
   .nav {
     position: absolute;
     top: 60px;

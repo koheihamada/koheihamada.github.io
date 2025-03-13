@@ -59,26 +59,6 @@
     color: #1abc9c;
   }
 
-  /* ハンバーガーメニュー */
-  .hamburger {
-    display: none;
-    background: none;
-    border: none;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 24px;
-    cursor: pointer;
-  }
-
-  .hamburger span {
-    display: block;
-    width: 30px;
-    height: 3px;
-    background: #fff;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
   /* メインコンテンツ */
   .main-content {
     margin-left: 220px;
@@ -113,9 +93,7 @@
     display: inline-block;
   }
 
-  .mission-content,
-  .vision-content,
-  .values-content {
+  .content {
     font-size: clamp(16px, 3vw, 20px);
     line-height: 1.6;
     margin-top: 20px;
@@ -135,6 +113,34 @@
     text-align: center;
     font-size: 18px;
     border-left: 4px solid #1abc9c;
+  }
+
+  .business-list {
+    list-style: none;
+    margin-top: 20px;
+  }
+
+  .business-list li {
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  .business-link {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    background: #1abc9c;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+  }
+
+  .company-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 18px;
   }
 
   /* フッター */
@@ -173,10 +179,6 @@
       transform: translateX(0);
     }
 
-    .hamburger {
-      display: flex;
-    }
-
     .main-content {
       margin-left: 0;
       padding: 20px;
@@ -187,16 +189,12 @@
 <body>
   <aside class="sidebar">
     <h1 class="logo">Basic</h1>
-    <button class="hamburger" aria-label="Toggle navigation">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
     <nav class="nav">
       <ul>
         <li><a href="#mission">Mission</a></li>
         <li><a href="#vision">Vision</a></li>
         <li><a href="#values">Values</a></li>
+        <li><a href="#business">Business</a></li>
         <li><a href="#company">Company</a></li>
       </ul>
     </nav>
@@ -210,12 +208,12 @@
 
     <section id="mission" class="section">
       <h2 class="section-title">Mission（使命）</h2>
-      <p class="mission-content">「食の未来をつなぎ、広げる」</p>
+      <p class="content">「食の未来をつなぎ、広げる」</p>
     </section>
 
     <section id="vision" class="section">
       <h2 class="section-title">Vision（目指す未来）</h2>
-      <p class="vision-content">「飲食業を、もっと誇れる仕事に」</p>
+      <p class="content">「飲食業を、もっと誇れる仕事に」</p>
     </section>
 
     <section id="values" class="section">
@@ -227,17 +225,30 @@
         <div class="values-item">世界に誇れる食文化の創造</div>
       </div>
     </section>
+
+    <section id="business" class="section">
+      <h2 class="section-title">Business</h2>
+      <ul class="business-list">
+        <li><a class="business-link" href="https://bolero.basic-fnb.com/">中目黒 Bistro Bolero</a>の運営</li>
+        <li>飲食店企業様へのコンサルティング</li>
+        <li>次の店舗Coming soon…</li>
+      </ul>
+    </section>
+
+    <section id="company" class="section">
+      <h2 class="section-title">Company</h2>
+      <div class="company-details">
+        <p><strong>会社名:</strong> 株式会社Basic</p>
+        <p><strong>代表取締役:</strong> 福田雄太</p>
+        <p><strong>設立:</strong> 2024年1月</p>
+        <p><strong>住所:</strong> 東京都目黒区駒場2丁目9-9</p>
+        <p><strong>事業内容:</strong> 飲食店の運営およびコンサルティング</p>
+      </div>
+    </section>
   </main>
 
   <footer class="footer">
     <p>&copy; 2024 株式会社Basic. All Rights Reserved.</p>
   </footer>
-
-  <script>
-    document.querySelector('.hamburger').addEventListener('click', function () {
-      document.querySelector('.nav').classList.toggle('open');
-      this.classList.toggle('open');
-    });
-  </script>
 </body>
 </html>

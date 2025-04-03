@@ -2,251 +2,226 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>株式会社Basic</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>清田焼肉店 | 下北沢のモダン焼肉</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
-/* ===== リセット ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background-color: #f8f8f8;
+      color: #333;
+    }
 
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #121212;
-  color: #fff;
-  line-height: 1.6;
-}
+    header {
+      background-color: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
 
-/* ===== サイドバー (PC用) ===== */
-.sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 200px;
-  height: 100%;
-  background-color: #1a1a1a;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1000;
-}
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: 2px;
+    }
 
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 10px;
-  color: #fff;
-}
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
 
-.nav ul {
-  list-style: none;
-}
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+    }
 
-.nav ul li {
-  margin: 20px 0;
-}
+    nav a:hover {
+      text-decoration: underline;
+    }
 
-.nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
 
-.nav ul li a:hover {
-  color: #1abc9c;
-}
-/* ハンバーガーメニュー (モバイル用で表示) */
-.hamburger {
-  display: flex;  /* 修正: モバイルでは表示する */
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1100;  /* 他の要素の上に表示 */
-}
+    .section {
+      margin-bottom: 60px;
+    }
 
-/* ハンバーガーの線を白にする */
-.hamburger span {
-  display: block;
-  width: 30px;
-  height: 3px;
-  background: #fff;  /* 修正: 白に変更 */
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
+    .section h2 {
+      font-size: 1.5rem;
+      border-left: 6px solid #c00;
+      padding-left: 10px;
+      margin-bottom: 20px;
+    }
 
-/* ハンバーガーが開いたときのアニメーション */
-.hamburger.open span:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
-}
+    .section p {
+      line-height: 1.8;
+    }
 
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
+    .photo-frame {
+      width: 100%;
+      height: 300px;
+      background-color: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
 
-.hamburger.open span:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
-}
+    .photo-frame-small {
+      width: 100%;
+      height: 200px;
+      background-color: #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
 
+    .reserve-button {
+      display: inline-block;
+      background-color: #c00;
+      color: #fff;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
 
-    
-/* ===== メインコンテンツ ===== */
-.main-content {
-  margin-left: 220px;
-  padding: 40px;
-  max-width: 1000px;
-}
+    .reserve-button:hover {
+      background-color: #a00;
+    }
 
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-  background: #121212;
-}
+    .sns-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 10px;
+      font-size: 1.1rem;
+    }
 
-.hero h2 {
-  font-size: clamp(40px, 8vw, 100px);
-  margin-bottom: 20px;
-}
+    .sns-link i {
+      font-size: 1.5rem;
+      color: #e1306c;
+    }
 
-.section {
-  margin-bottom: 60px;
-}
+    .footer {
+      background-color: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+    }
 
-.section-title {
-  font-size: clamp(28px, 5vw, 45px);
-  margin-bottom: 20px;
-  border-bottom: 2px solid #1abc9c;
-  display: inline-block;
-}
-
-.content {
-  font-size: clamp(16px, 3vw, 20px);
-  line-height: 1.6;
-  margin-top: 20px;
-}
-
-/* ===== Values セクション ===== */
-.values-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.value-item {
-  display: flex;
-  align-items: flex-start;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.value-icon {
-  width: 40px;
-  height: 40px;
-  margin-right: 15px;
-}
-
-.value-content h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.value-content p {
-  font-size: 14px;
-  color: #ddd;
-}
-
-/* ===== Business リンク ===== */
-.business-list {
-  list-style: none;
-  margin-top: 20px;
-}
-
-.business-list li {
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.business-link {
-  color: #1abc9c;
-  text-decoration: underline;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.business-link:hover {
-  color: #16a085;
-}
-
-/* ===== 会社情報 ===== */
-.company-details {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 18px;
-}
-
-/* ===== フッター ===== */
-.footer {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #1a1a1a;
-}
-
-/* ===== レスポンシブデザイン (スマホ用) ===== */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px 20px;
-  }
-
-   .hamburger {
-    display: flex;  /* ここでしっかり表示する */
-  }
-  .nav {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 60px);
-    background-color: rgba(26, 26, 26, 0.95);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .nav.open {
-    transform: translateX(0);
-  }
-
-  .main-content {
-    margin-left: 0;
-    padding: 20px;
-  }
-
-  /* スマホ時に Values を 1カラムに */
-  .values-container {
-    grid-template-columns: 1fr;
-  }
-}
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.5rem;
+      }
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
   </style>
-
-  
 </head>
 <body>
-<h1>hello world</h1>
+
+  <header>
+    <h1>清田焼肉店</h1>
+    <p>昔ながらの焼肉屋を、モダナイズして。</p>
+  </header>
+
+  <nav>
+    <a href="#about">コンセプト</a>
+    <a href="#menu">推しの肉</a>
+    <a href="#store">店舗紹介</a>
+    <a href="#access">アクセス</a>
+    <a href="#reserve">予約</a>
+    <a href="#contact">SNS</a>
+  </nav>
+
+  <div class="container">
+
+    <section id="about" class="section">
+      <h2>コンセプト</h2>
+      <p>
+        昔ながらの焼肉屋を現代風にモダナイズ。<br>
+        国産和牛とプライム・アンガスビーフの“いいところだけ”を厳選。<br>
+        一度も冷凍していない、フレッシュな肉を、コストパフォーマンス良くご提供。<br>
+        モクモクを抑えた清潔な店内で、大阪焼肉の魅力を東京・下北沢で体験してください。
+      </p>
+    </section>
+
+    <section id="menu" class="section">
+      <h2>推しの肉</h2>
+      <div class="photo-frame">ここに写真が入ります（ハラミ・タンなど）</div>
+      <p>
+        看板メニューはハラミとタン。<br>
+        ジューシーかつあっさりとした味わいで、何枚でも食べられると好評です。<br>
+        冷凍なしのフレッシュなお肉のみを使用しています。
+      </p>
+    </section>
+
+    <section id="store" class="section">
+      <h2>店舗紹介</h2>
+      <div class="photo-frame-small">外観の写真が入ります</div>
+      <div class="photo-frame-small">内装の写真が入ります</div>
+      <p>
+        清潔感と温かみのある内装、そして入りやすく落ち着いた外観が特徴です。<br>
+        焼肉屋の“煙たい”イメージを払拭する、現代的な空間づくりにこだわりました。
+      </p>
+    </section>
+
+    <section id="access" class="section">
+      <h2>アクセス</h2>
+      <p>
+        東京都世田谷区北沢2-25-4<br>
+        毎日営業（ランチ営業予定）<br>
+        小田急線・京王井の頭線「下北沢駅」から徒歩数分
+      </p>
+    </section>
+
+    <section id="reserve" class="section">
+      <h2>ご予約</h2>
+      <p>
+        ご予約は食べログから簡単に可能です。<br>
+        混雑しやすい週末は事前のご予約をおすすめします。
+      </p>
+      <a href="https://tabelog.com/tokyo/A1318/A131802/13260427/table/" class="reserve-button" target="_blank">
+        予約はこちら
+      </a>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>SNS</h2>
+      <p>最新情報やおすすめメニューはInstagramで発信中。</p>
+      <div class="sns-link">
+        <i class="fab fa-instagram"></i>
+        <a href="https://www.instagram.com/shimokita_yakiniku/" target="_blank">
+          @shimokita_yakiniku
+        </a>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="footer">
+    &copy; 2025 清田焼肉店 - All rights reserved.
+  </div>
+
 </body>
+</html>

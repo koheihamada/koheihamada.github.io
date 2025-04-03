@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社Basic</title>
+  <style>
+/* ===== リセット ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #121212;
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* ===== サイドバー (PC用) ===== */
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 200px;
+  height: 100%;
+  background-color: #1a1a1a;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 10px;
+  color: #fff;
+}
+
+.nav ul {
+  list-style: none;
+}
+
+.nav ul li {
+  margin: 20px 0;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav ul li a:hover {
+  color: #1abc9c;
+}
+/* ハンバーガーメニュー (モバイル用で表示) */
+.hamburger {
+  display: flex;  /* 修正: モバイルでは表示する */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;  /* 他の要素の上に表示 */
+}
+
+/* ハンバーガーの線を白にする */
+.hamburger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #fff;  /* 修正: 白に変更 */
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ハンバーガーが開いたときのアニメーション */
+.hamburger.open span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+}
+
+
+    
+/* ===== メインコンテンツ ===== */
+.main-content {
+  margin-left: 220px;
+  padding: 40px;
+  max-width: 1000px;
+}
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: #121212;
+}
+
+.hero h2 {
+  font-size: clamp(40px, 8vw, 100px);
+  margin-bottom: 20px;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: clamp(28px, 5vw, 45px);
+  margin-bottom: 20px;
+  border-bottom: 2px solid #1abc9c;
+  display: inline-block;
+}
+
+.content {
+  font-size: clamp(16px, 3vw, 20px);
+  line-height: 1.6;
+  margin-top: 20px;
+}
+
+/* ===== Values セクション ===== */
+.values-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.value-item {
+  display: flex;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.value-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 15px;
+}
+
+.value-content h3 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.value-content p {
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* ===== Business リンク ===== */
+.business-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.business-list li {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.business-link {
+  color: #1abc9c;
+  text-decoration: underline;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.business-link:hover {
+  color: #16a085;
+}
+
+/* ===== 会社情報 ===== */
+.company-details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 18px;
+}
+
+/* ===== フッター ===== */
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  background-color: #1a1a1a;
+}
+
+/* ===== レスポンシブデザイン (スマホ用) ===== */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+   .hamburger {
+    display: flex;  /* ここでしっかり表示する */
+  }
+  .nav {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 60px);
+    background-color: rgba(26, 26, 26, 0.95);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav.open {
+    transform: translateX(0);
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px;
+  }
+
+  /* スマホ時に Values を 1カラムに */
+  .values-container {
+    grid-template-columns: 1fr;
+  }
+}
+  </style>
+
+  
+</head>
+<body>
+<h1>hello world</h1>
+</body>

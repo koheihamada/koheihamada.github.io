@@ -3,9 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>清田焼肉店 | KINTAN風モダン焼肉</title>
+  <title>清田焼肉店 | 下北沢のモダン焼肉</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Noto Sans JP', sans-serif;
@@ -49,31 +53,69 @@
     }
 
     nav {
-      position: absolute;
+      position: fixed;
       top: 0;
       width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 20px 40px;
-      z-index: 3;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
     }
 
+    .nav-toggle {
+      display: none;
+      font-size: 1.5rem;
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
 
-    
-    nav a {
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .nav-links a {
       color: white;
       text-decoration: none;
-      display: inline-block;
-      line-height: 1.5;
       margin-left: 20px;
       font-size: 0.9rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #c00;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 70px;
+        right: 20px;
+        padding: 10px;
+        border-radius: 6px;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
     }
 
     .container {
       max-width: 960px;
       margin: auto;
-      padding: 60px 20px;
+      padding: 100px 20px 60px;
     }
 
     .section-title {
@@ -94,6 +136,7 @@
       justify-content: center;
       align-items: center;
       color: #aaa;
+      font-size: 1.2rem;
     }
 
     .footer {
@@ -103,38 +146,54 @@
       padding: 40px 20px;
       font-size: 0.9rem;
     }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
   <header>
     <nav>
       <div><strong>清田焼肉店</strong></div>
-      <div>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links">
         <a href="#concept">コンセプト</a>
         <a href="#meat">お肉</a>
         <a href="#store">店舗</a>
         <a href="#access">アクセス</a>
         <a href="#reserve">予約</a>
         <a href="https://basic-fnb.com/" target="_blank">会社概要</a>
-        <a href="https://www.instagram.com/shimokita_yakiniku/" target="_blank">SNS</a>
+        <a href="https://www.instagram.com/shimokita_yakiniku/" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
       </div>
     </nav>
     <h1>清田焼肉店</h1>
-    <p>大阪焼肉の新時代に合わせて。</p>
+    <p>昔ながらの焼肉屋を、モダナイズして。</p>
   </header>
 
   <div class="container">
-    <section id="concept">
+    <section id="concept" class="fade-in">
       <h2 class="section-title">CONCEPT</h2>
       <p>
-        昔ながらの大阪焼肉屋を現代風にアレンジ。<br>
-        国産黒毛和牛とプライム・アンガスビーフの“いいところだけ”を厳選。<br>
-        一度も冷凍していない、新鮮な肉をコスとパフォーマンスよくご提供。<br>
+        昔ながらの焼肉屋を現代風にモダナイズ。<br>
+        国産和牛とプライム・アンガスビーフの“いいところだけ”を厳選。<br>
+        一度も冷凍していない、フレッシュな肉を、コストパフォーマンス良くご提供。<br>
         モクモクを抑えた清潔な店内で、大阪焼肉の魅力を東京・下北沢で体験してください。
       </p>
     </section>
 
-    <section id="meat">
+    <section id="meat" class="fade-in">
       <h2 class="section-title">OUR MEAT</h2>
       <div class="photo">ハラミやタンの写真</div>
       <p>
@@ -143,7 +202,7 @@
       </p>
     </section>
 
-    <section id="store">
+    <section id="store" class="fade-in">
       <h2 class="section-title">STORE</h2>
       <div class="photo">外観写真</div>
       <div class="photo">内装写真</div>
@@ -153,16 +212,16 @@
       </p>
     </section>
 
-    <section id="access">
+    <section id="access" class="fade-in">
       <h2 class="section-title">ACCESS</h2>
       <p>
         東京都世田谷区北沢2-25-4<br>
         毎日営業（ランチ営業あり）<br>
-        小田急線・京王井の頭線「下北沢駅」より徒歩3分
+        小田急線・京王井の頭線「下北沢駅」より徒歩2分
       </p>
     </section>
 
-    <section id="reserve">
+    <section id="reserve" class="fade-in">
       <h2 class="section-title">RESERVE</h2>
       <p>ご予約は下記リンクよりお願いします。</p>
       <p><a href="https://tabelog.com/tokyo/A1318/A131802/13260427/table/" target="_blank">▶ 予約ページへ</a></p>
@@ -172,5 +231,26 @@
   <div class="footer">
     &copy; 2025 清田焼肉店 - All rights reserved.
   </div>
+
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+
+    const appearOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, appearOptions);
+
+    faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+    });
+  </script>
 </body>
 </html>

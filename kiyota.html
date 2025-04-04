@@ -59,9 +59,16 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 40px;
+      padding: 20px;
       background: rgba(0, 0, 0, 0.6);
       z-index: 1000;
+    }
+
+    .nav-brand {
+      color: white;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-left: 10px;
     }
 
     .nav-toggle {
@@ -71,18 +78,18 @@
       background: none;
       border: none;
       cursor: pointer;
+      margin-right: 10px;
     }
 
     .nav-links {
       display: flex;
-      flex-wrap: wrap;
+      gap: 20px;
       align-items: center;
     }
 
     .nav-links a {
       color: white;
       text-decoration: none;
-      margin-left: 20px;
       font-size: 0.9rem;
       transition: color 0.3s;
     }
@@ -91,22 +98,45 @@
       color: #c00;
     }
 
+    /* フルスクリーンメニュー */
+    .fullscreen-menu {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.95);
+      z-index: 2000;
+    }
+
+    .fullscreen-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      margin: 15px 0;
+    }
+
+    .fullscreen-menu a:hover {
+      color: #c00;
+    }
+
+    .fullscreen-menu .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+
     @media (max-width: 768px) {
       .nav-links {
         display: none;
-        flex-direction: column;
-        background: rgba(0, 0, 0, 0.9);
-        position: absolute;
-        top: 70px;
-        right: 20px;
-        padding: 10px;
-        border-radius: 6px;
       }
-
-      .nav-links.active {
-        display: flex;
-      }
-
       .nav-toggle {
         display: block;
       }
@@ -162,8 +192,8 @@
 <body>
   <header>
     <nav>
-      <div><strong>清田焼肉店</strong></div>
-      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+      <div class="nav-brand">清田焼肉店</div>
+      <button class="nav-toggle" onclick="openMenu()">
         <i class="fas fa-bars"></i>
       </button>
       <div class="nav-links">
@@ -178,8 +208,22 @@
         </a>
       </div>
     </nav>
+
+    <div class="fullscreen-menu" id="fullscreenMenu">
+      <div class="close-btn" onclick="closeMenu()">&times;</div>
+      <a href="#concept" onclick="closeMenu()">コンセプト</a>
+      <a href="#meat" onclick="closeMenu()">お肉</a>
+      <a href="#store" onclick="closeMenu()">店舗</a>
+      <a href="#access" onclick="closeMenu()">アクセス</a>
+      <a href="#reserve" onclick="closeMenu()">予約</a>
+      <a href="https://basic-fnb.com/" target="_blank" onclick="closeMenu()">会社概要</a>
+      <a href="https://www.instagram.com/shimokita_yakiniku/" target="_blank" onclick="closeMenu()">
+        Instagram <i class="fab fa-instagram"></i>
+      </a>
+    </div>
+
     <h1>清田焼肉店</h1>
-    <p>昔ながらの焼肉屋を、モダナイズして。</p>
+    <p>和牛とプライムビーフを、モダンな空間で。</p>
   </header>
 
   <div class="container">
@@ -234,7 +278,6 @@
 
   <script>
     const faders = document.querySelectorAll('.fade-in');
-
     const appearOptions = {
       threshold: 0.1,
       rootMargin: "0px 0px -50px 0px"
@@ -251,6 +294,14 @@
     faders.forEach(fader => {
       appearOnScroll.observe(fader);
     });
+
+    function openMenu() {
+      document.getElementById('fullscreenMenu').style.display = 'flex';
+    }
+
+    function closeMenu() {
+      document.getElementById('fullscreenMenu').style.display = 'none';
+    }
   </script>
 </body>
 </html>

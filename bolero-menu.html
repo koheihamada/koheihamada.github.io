@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>メニュー - Bistro Bolero</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 0.5em 1em;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1em;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5em;
+    }
+    nav a:hover {
+      background-color: #555;
+      border-radius: 4px;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      height: 3px;
+      background: white;
+      margin: 4px 0;
+      width: 25px;
+    }
+    header {
+      background-color: #444;
+      color: white;
+      padding: 2em;
+      text-align: center;
+    }
+    section {
+      padding: 2em;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      border-bottom: 2px solid #ccc;
+      padding-bottom: 0.5em;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 0.75em;
+    }
+    .menu-image {
+      width: 100%;
+      border-radius: 8px;
+      margin: 1.5em 0;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="/bolero">ホーム</a>
+      <a href="/bolero-menu">メニュー</a>
+      <a href="/contact">お問い合わせ</a>
+      <a href="/">会社概要</a>
+      <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13182463">ご予約</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>メニュー</h1>
+  </header>
+
+  <section>
+    <img src="20250328Bolero_00801.jpg" alt="コース" class="menu-image" />
+    <h2>コース</h2>
+    <ul>
+      <li>おまかせコース 5,500円（税込）<br>前菜6皿＋パスタ＋メイン＋デザートの構成です。</li>
+      <li>おまかせコース 6,600円（税込）<br>前菜7皿＋パスタ＋メイン＋デザートの構成です。</li>
+      <li>おまかせコース 7,700円（税込）<br>前菜7皿＋パスタ＋肉魚のWメイン＋デザートの構成です。</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>ディナーメニュー</h2>
+    <img src="20250328Bolero_00348.jpg" alt="カルパッチョ" class="menu-image" />
+    <ul>
+      <li><strong>◆APPETIZER</strong></li>
+      <li>前菜3種盛り合わせ - 1,650円</li>
+      <li>赤キャベツとクミンのピクルス - 580円</li>
+      <li>ニンジンとオレンジのラペ - 580円</li>
+      <li>パテ・ド・カンパーニュ - 980円</li>
+      <li>越後もち豚のリエット - 880円</li>
+      <li>マスカルポーネとラムレーズン - 780円</li>
+      <li><strong>COLD DISHES</strong></li>
+      <li>鮮魚のカルパッチョ - 1,700円</li>
+      <li>タコとアボカドのわさびマリネ - 1,350円</li>
+      <li>国産牛ハツのカルパッチョ - 1,600円</li>
+      <li>ブラータチーズと季節のフルーツ - 2,400円</li>
+      <li>生牡蠣の2種盛り - 1,000円</li>
+      <li>ツブ貝とフルーツトマトのサラダ仕立て - 1,500円</li>
+    </ul>
+    <ul>
+      <li><strong>HOT DISHES</strong></li>
+      <li>グリーンアスパラの香草フリット - 1,450円</li>
+      <li>トリュフオムレツ - 1,950円</li>
+      <li>ホタテのグリル ブールブランソース - 1,650円</li>
+      <li>銘柄和牛とじゃがいものパン粉焼き - 1,500円</li>
+      <li>本日の魚料理 - 2,200円</li>
+      <li>バケット - 200円</li>
+    </ul>
+    <ul>
+    <img src="20250328Bolero_00673.jpg" alt="メイン" class="menu-image" />
+      <li><strong>MAIN</strong></li>
+      <li>銘柄和牛ランプのステーキ - 3,800円</li>
+      <li>鴨肉と蓮根のステーキ - 3,400円</li>
+      <li>NZ産ラムラックのロースト - 3,800円</li>
+    </ul>
+    <img src="20250328Bolero_00514.jpg" alt="しめ" class="menu-image" />
+    <ul>
+      <li><strong>ビストロの〆</strong></li>
+      <li>国産レモンとカチョ・エ・ぺぺ - 1,550円</li>
+      <li>激辛アラビアータ - 1,350円</li>
+    </ul>
+    <ul>
+      <li><strong>DESSERT</strong></li>
+      <li>季節のアイス2種盛り - 580円</li>
+      <li>アールグレイのクレームブリュレ - 880円</li>
+      <li>ココナッツのブランマンジェ - 680円</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Bistro Bolero. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

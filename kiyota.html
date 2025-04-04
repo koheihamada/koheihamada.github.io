@@ -3,264 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>清田焼肉店 | 下北沢のモダン焼肉</title>
+  <title>清田焼肉店 | KINTAN風モダン焼肉</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background-color: #111;
-      color: #eee;
+      font-family: 'Noto Sans JP', sans-serif;
+      color: #333;
+      background-color: #fff;
     }
 
     header {
-      background: url('header-bg.jpg') center/cover no-repeat;
-      color: #fff;
-      padding: 60px 20px;
+      background: url('hero-image.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
       text-align: center;
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.4);
+      z-index: 1;
+    }
+
+    header h1, header p {
+      z-index: 2;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      letter-spacing: 3px;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      letter-spacing: 0.2rem;
     }
 
     header p {
       font-size: 1.2rem;
-      margin-top: 10px;
-      color: #ccc;
     }
 
-    .navbar {
-      background-color: #000;
+    nav {
+      position: absolute;
+      top: 0;
+      width: 100%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 24px;
-      position: relative;
+      padding: 20px 40px;
+      z-index: 3;
     }
 
-    .nav-links {
-      display: flex;
-      gap: 20px;
-    }
 
-    .navbar a {
-      color: #fff;
+    
+    nav a {
+      color: white;
       text-decoration: none;
-      font-size: 1rem;
       display: inline-block;
       line-height: 1.5;
-      vertical-align: middle;
-    }
-    .navbar a:hover {
-      background-color: #c00;
-      border-radius: 4px;
-    }
-
-    .hamburger {
-      display: none;
-      color: #fff;
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background-color: #000;
-        width: 100%;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        padding: 10px 0;
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
-      }
+      margin-left: 20px;
+      font-size: 0.9rem;
     }
 
     .container {
       max-width: 960px;
-      margin: 0 auto;
-      padding: 40px 20px;
+      margin: auto;
+      padding: 60px 20px;
     }
 
-    .section {
-      margin-bottom: 60px;
-    }
-
-    .section h2 {
-      font-size: 1.8rem;
-      border-left: 6px solid #c00;
-      padding-left: 10px;
-      margin-bottom: 20px;
-    }
-
-    .section p {
-      line-height: 1.8;
-      color: #ccc;
-    }
-
-    .photo-frame, .photo-frame-small {
-      width: 100%;
-      background-color: #333;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #aaa;
-      margin-bottom: 20px;
-      font-size: 1rem;
-    }
-
-    .photo-frame {
-      height: 300px;
-    }
-
-    .photo-frame-small {
-      height: 200px;
-    }
-
-    .reserve-button {
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      border-bottom: 2px solid #ccc;
       display: inline-block;
-      background-color: #c00;
-      color: #fff;
-      padding: 12px 24px;
-      text-decoration: none;
-      border-radius: 5px;
-      font-weight: bold;
-      transition: background-color 0.3s;
-      margin-top: 20px;
+      padding-bottom: 10px;
     }
 
-    .reserve-button:hover {
-      background-color: #a00;
-    }
-
-    .sns-link {
+    .photo {
+      width: 100%;
+      height: 400px;
+      background-color: #eee;
+      margin-bottom: 20px;
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 10px;
-      margin-top: 10px;
-      font-size: 1.1rem;
-    }
-
-    .sns-link i {
-      font-size: 1.5rem;
-      color: #e1306c;
+      color: #aaa;
     }
 
     .footer {
-      background-color: #000;
-      color: #888;
+      background-color: #222;
+      color: #aaa;
       text-align: center;
-      padding: 30px 20px;
+      padding: 40px 20px;
       font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
-
   <header>
+    <nav>
+      <div><strong>清田焼肉店</strong></div>
+      <div>
+        <a href="#concept">コンセプト</a>
+        <a href="#meat">お肉</a>
+        <a href="#store">店舗</a>
+        <a href="#access">アクセス</a>
+        <a href="#reserve">予約</a>
+        <a href="https://basic-fnb.com/" target="_blank">会社概要</a>
+        <a href="https://www.instagram.com/shimokita_yakiniku/" target="_blank">SNS</a>
+      </div>
+    </nav>
     <h1>清田焼肉店</h1>
-    <p>昔ながらの焼肉屋を、モダナイズして。</p>
+    <p>大阪焼肉の新時代に合わせて。</p>
   </header>
 
-  <nav class="navbar">
-    <div class="hamburger" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i>
-    </div>
-    <div class="nav-links" id="navLinks">
-      <a href="#about">コンセプト</a>
-      <a href="#menu">推しの肉</a>
-      <a href="#store">店舗紹介</a>
-      <a href="#access">アクセス</a>
-      <a href="#reserve">予約</a>
-      <a href="#contact">SNS</a>
-      <a href="https://basic-fnb.com/" target="_blank">会社概要</a>
-    </div>
-  </nav>
-
   <div class="container">
-    <section id="about" class="section">
-      <h2>コンセプト</h2>
+    <section id="concept">
+      <h2 class="section-title">CONCEPT</h2>
       <p>
-        昔ながらの焼肉屋を現代風にモダナイズ。<br>
-        国産和牛とプライム・アンガスビーフの“いいところだけ”を厳選。<br>
-        一度も冷凍していない、フレッシュな肉を、コストパフォーマンス良くご提供。<br>
+        昔ながらの大阪焼肉屋を現代風にアレンジ。<br>
+        国産黒毛和牛とプライム・アンガスビーフの“いいところだけ”を厳選。<br>
+        一度も冷凍していない、新鮮な肉をコスとパフォーマンスよくご提供。<br>
         モクモクを抑えた清潔な店内で、大阪焼肉の魅力を東京・下北沢で体験してください。
       </p>
     </section>
 
-    <section id="menu" class="section">
-      <h2>推しの肉</h2>
-      <div class="photo-frame">ここに写真が入ります（ハラミ・タンなど）</div>
+    <section id="meat">
+      <h2 class="section-title">OUR MEAT</h2>
+      <div class="photo">ハラミやタンの写真</div>
       <p>
-        看板メニューはハラミとタン。<br>
-        ジューシーかつあっさりとした味わいで、何枚でも食べられると好評です。<br>
-        冷凍なしのフレッシュなお肉のみを使用しています。
+        自慢のハラミ・タンは、肉の旨味と柔らかさが際立つ逸品。<br>
+        フレッシュで上質なお肉を、驚きのコストパフォーマンスでご提供します。
       </p>
     </section>
 
-    <section id="store" class="section">
-      <h2>店舗紹介</h2>
-      <div class="photo-frame-small">外観の写真が入ります</div>
-      <div class="photo-frame-small">内装の写真が入ります</div>
+    <section id="store">
+      <h2 class="section-title">STORE</h2>
+      <div class="photo">外観写真</div>
+      <div class="photo">内装写真</div>
       <p>
-        清潔感と温かみのある内装、そして入りやすく落ち着いた外観が特徴です。<br>
-        焼肉屋の“煙たい”イメージを払拭する、現代的な空間づくりにこだわりました。
+        無煙ロースターを完備し、煙を抑えた清潔感のある空間。<br>
+        木目と黒を基調にした落ち着いた内装で、居心地の良さを演出しています。
       </p>
     </section>
 
-    <section id="access" class="section">
-      <h2>アクセス</h2>
+    <section id="access">
+      <h2 class="section-title">ACCESS</h2>
       <p>
         東京都世田谷区北沢2-25-4<br>
-        毎日営業（ランチ営業予定）<br>
-        小田急線・京王井の頭線「下北沢駅」から徒歩数分
+        毎日営業（ランチ営業あり）<br>
+        小田急線・京王井の頭線「下北沢駅」より徒歩3分
       </p>
     </section>
 
-    <section id="reserve" class="section">
-      <h2>ご予約</h2>
-      <p>
-        ご予約は食べログから簡単に可能です。<br>
-        混雑しやすい週末は事前のご予約をおすすめします。
-      </p>
-      <a href="https://tabelog.com/tokyo/A1318/A131802/13260427/table/" class="reserve-button" target="_blank">
-        予約はこちら
-      </a>
-    </section>
-
-    <section id="contact" class="section">
-      <h2>SNS</h2>
-      <p>最新情報やおすすめメニューはInstagramで発信中。</p>
-      <div class="sns-link">
-        <i class="fab fa-instagram"></i>
-        <a href="https://www.instagram.com/shimokita_yakiniku/" target="_blank">
-          @shimokita_yakiniku
-        </a>
-      </div>
+    <section id="reserve">
+      <h2 class="section-title">RESERVE</h2>
+      <p>ご予約は下記リンクよりお願いします。</p>
+      <p><a href="https://tabelog.com/tokyo/A1318/A131802/13260427/table/" target="_blank">▶ 予約ページへ</a></p>
     </section>
   </div>
 
   <div class="footer">
     &copy; 2025 清田焼肉店 - All rights reserved.
   </div>
-
-  <script>
-    function toggleMenu() {
-      document.getElementById('navLinks').classList.toggle('active');
-    }
-  </script>
-
 </body>
 </html>

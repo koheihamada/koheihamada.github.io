@@ -46,7 +46,7 @@
       width: 25px;
     }
     header {
-      background-image: url('20250328Bolero_00801.jpg');
+      background-image: url('20250328Bolero_00657.jpg');
       background-size: cover;
       background-position: center;
       height: 60vh;
@@ -71,6 +71,21 @@
     }
     .gallery img {
       width: 100%;
+      border-radius: 8px;
+    }
+    .responsive-map {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+    .responsive-map iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
       border-radius: 8px;
     }
     footer {
@@ -128,8 +143,9 @@
 <section>
     <h2>住所</h2>
     <p>東京都目黒区上目黒2-47-11</p>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.030437924189!2d139.6949510757936!3d35.645317731353996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b4455c9b3c7%3A0x34650a36d5478d0a!2z44CSMTUzLTAwNDUg5p2x5Lqs6YO95LiW55Sw5Yy65p2x5p2R5LiK5aSn5a2m5p2x77yR5LiB55uu77yR77yZ4oiS77yR77yZ!5e0!3m2!1sja!2sjp!4v1712216729797!5m2!1sja!2sjp" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
+    <div class="responsive-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.455524857457!2d139.69440699999998!3d35.641147!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b4a4ce0b531%3A0xa0f677cdd3e1ca90!2z5Lit55uu6buSIOODk-OCueODiOODreODnOODrOODrSDvvIhOYWthbWVndXJvIEJpc3RybyBCb2xlcm_vvIk!5e0!3m2!1sja!2ssg!4v1743734344427!5m2!1sja!2ssg" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
     <h2>営業時間</h2>
     <ul>
       <li>月曜：定休日</li>

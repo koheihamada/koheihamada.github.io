@@ -8,30 +8,37 @@
   <style>
     body {
       margin: 0;
-      font-family: "Helvetica Neue", sans-serif;
-      background-color: #f8f8f8;
-      color: #333;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #111;
+      color: #eee;
     }
 
     header {
-      background-color: #111;
+      background: url('header-bg.jpg') center/cover no-repeat;
       color: #fff;
-      padding: 20px;
+      padding: 60px 20px;
       text-align: center;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2rem;
-      letter-spacing: 2px;
+      font-size: 2.5rem;
+      letter-spacing: 3px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      color: #ccc;
     }
 
     .navbar {
-      background-color: #222;
+      background-color: #000;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
+      padding: 12px 24px;
       position: relative;
     }
 
@@ -44,12 +51,13 @@
       color: #fff;
       text-decoration: none;
       font-size: 1rem;
-      display: inline-block;
-      line-height: 1.5;
-      vertical-align: middle;
+      padding: 6px 10px;
+      transition: 0.3s;
     }
+
     .navbar a:hover {
-      text-decoration: underline;
+      background-color: #c00;
+      border-radius: 4px;
     }
 
     .hamburger {
@@ -63,7 +71,7 @@
       .nav-links {
         display: none;
         flex-direction: column;
-        background-color: #222;
+        background-color: #000;
         width: 100%;
         position: absolute;
         top: 100%;
@@ -81,7 +89,7 @@
     }
 
     .container {
-      max-width: 1000px;
+      max-width: 960px;
       margin: 0 auto;
       padding: 40px 20px;
     }
@@ -91,7 +99,7 @@
     }
 
     .section h2 {
-      font-size: 1.5rem;
+      font-size: 1.8rem;
       border-left: 6px solid #c00;
       padding-left: 10px;
       margin-bottom: 20px;
@@ -99,15 +107,16 @@
 
     .section p {
       line-height: 1.8;
+      color: #ccc;
     }
 
     .photo-frame, .photo-frame-small {
       width: 100%;
-      background-color: #ddd;
+      background-color: #333;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #888;
+      color: #aaa;
       margin-bottom: 20px;
       font-size: 1rem;
     }
@@ -150,8 +159,8 @@
     }
 
     .footer {
-      background-color: #111;
-      color: #ccc;
+      background-color: #000;
+      color: #888;
       text-align: center;
       padding: 30px 20px;
       font-size: 0.9rem;
@@ -181,7 +190,6 @@
   </nav>
 
   <div class="container">
-
     <section id="about" class="section">
       <h2>コンセプト</h2>
       <p>
@@ -242,16 +250,17 @@
         </a>
       </div>
     </section>
-
   </div>
 
   <div class="footer">
     &copy; 2025 清田焼肉店 - All rights reserved.
   </div>
-<script>
+
+  <script>
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('active');
     }
-</script>
+  </script>
+
 </body>
 </html>

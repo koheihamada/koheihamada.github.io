@@ -26,23 +26,56 @@
       letter-spacing: 2px;
     }
 
-    nav {
+    .navbar {
       background-color: #222;
       display: flex;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px 0;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      position: relative;
     }
 
-    nav a {
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar a {
       color: #fff;
       text-decoration: none;
       font-size: 1rem;
     }
 
-    nav a:hover {
+    .navbar a:hover {
       text-decoration: underline;
+    }
+
+    .hamburger {
+      display: none;
+      color: #fff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #222;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 10px 0;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hamburger {
+        display: block;
+      }
     }
 
     .container {
@@ -66,9 +99,8 @@
       line-height: 1.8;
     }
 
-    .photo-frame {
+    .photo-frame, .photo-frame-small {
       width: 100%;
-      height: 300px;
       background-color: #ddd;
       display: flex;
       align-items: center;
@@ -78,16 +110,12 @@
       font-size: 1rem;
     }
 
+    .photo-frame {
+      height: 300px;
+    }
+
     .photo-frame-small {
-      width: 100%;
       height: 200px;
-      background-color: #ddd;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #888;
-      margin-bottom: 20px;
-      font-size: 1rem;
     }
 
     .reserve-button {
@@ -126,16 +154,6 @@
       padding: 30px 20px;
       font-size: 0.9rem;
     }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.5rem;
-      }
-      nav {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -145,13 +163,19 @@
     <p>昔ながらの焼肉屋を、モダナイズして。</p>
   </header>
 
-  <nav>
-    <a href="#about">コンセプト</a>
-    <a href="#menu">推しの肉</a>
-    <a href="#store">店舗紹介</a>
-    <a href="#access">アクセス</a>
-    <a href="#reserve">予約</a>
-    <a href="#contact">SNS</a>
+  <nav class="navbar">
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">コンセプト</a>
+      <a href="#menu">推しの肉</a>
+      <a href="#store">店舗紹介</a>
+      <a href="#access">アクセス</a>
+      <a href="#reserve">予約</a>
+      <a href="#contact">SNS</a>
+      <a href="https://basic-fnb.com/" target="_blank">会社概要</a>
+    </div>
   </nav>
 
   <div class="container">

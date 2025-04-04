@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bistro Bolero</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", sans-serif;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 0.5em 1em;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1em;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5em;
+    }
+    nav a:hover {
+      background-color: #555;
+      border-radius: 4px;
+    }
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .menu-toggle span {
+      height: 3px;
+      background: white;
+      margin: 4px 0;
+      width: 25px;
+    }
+    header {
+      background-image: url('20250328Bolero_00801.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+    }
+    header h1 {
+      font-size: 3em;
+    }
+    section {
+      padding: 2em;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1em;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 1em;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #333;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="nav-links" id="nav-links">
+      <a href="/">ホーム</a>
+      <a href="/menu">メニュー</a>
+      <a href="/contact">お問い合わせ</a>
+      <a href="/ご予約">ご予約</a>
+    </div>
+  </nav>
+  <header>
+    <h1>和のテイストを併せ持った古民家ビストロ</h1>
+  </header>
+  <section>
+    <h2>Bistro Boleroについて</h2>
+    <p>
+      下北沢の路地裏に佇む古民家をリノベーションしたビストロ「Bolero」。
+      四季折々の食材を使った創作料理と自然派ワインを落ち着いた空間でお楽しみください。
+    </p>
+  </section>
+  <section class="gallery">
+    <img src="bistro bolero032.jpg" alt="店内の写真1" />
+    <img src="Untitled (1).jpg" alt="店内の写真2" />
+    <img src="Untitled.jpg" alt="料理の写真" />
+    <img src="20250328Bolero_00657.jpg" alt="外観や雰囲気" />
+  </section>
+  <footer>
+    <p>&copy; 2025 Bistro Bolero. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('nav-links');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>

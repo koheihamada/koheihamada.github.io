@@ -5,326 +5,267 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>株式会社Basic</title>
   <style>
-/* ===== リセット ===== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Arial', sans-serif;
-  background-color: #121212;
-  color: #fff;
-  line-height: 1.6;
-}
-
-/* ===== サイドバー (PC用) ===== */
-.sidebar {
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 200px;
-  height: 100%;
-  background-color: #1a1a1a;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-  margin: 10px;
-  color: #fff;
-}
-
-.nav ul {
-  list-style: none;
-}
-
-.nav ul li {
-  margin: 20px 0;
-}
-
-.nav ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 16px;
-  transition: color 0.3s ease;
-}
-
-.nav ul li a:hover {
-  color: #1abc9c;
-}
-/* ハンバーガーメニュー (モバイル用で表示) */
-.hamburger {
-  display: flex;  /* 修正: モバイルでは表示する */
-  flex-direction: column;
-  justify-content: space-between;
-  width: 30px;
-  height: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1100;  /* 他の要素の上に表示 */
-}
-
-/* ハンバーガーの線を白にする */
-.hamburger span {
-  display: block;
-  width: 30px;
-  height: 3px;
-  background: #fff;  /* 修正: 白に変更 */
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* ハンバーガーが開いたときのアニメーション */
-.hamburger.open span:nth-child(1) {
-  transform: translateY(10px) rotate(45deg);
-}
-
-.hamburger.open span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.open span:nth-child(3) {
-  transform: translateY(-10px) rotate(-45deg);
-}
-
-
-    
-/* ===== メインコンテンツ ===== */
-.main-content {
-  margin-left: 220px;
-  padding: 40px;
-  max-width: 1000px;
-}
-
-.hero {
-  text-align: center;
-  padding: 80px 20px;
-  background: #121212;
-}
-
-.hero h2 {
-  font-size: clamp(40px, 8vw, 100px);
-  margin-bottom: 20px;
-}
-
-.section {
-  margin-bottom: 60px;
-}
-
-.section-title {
-  font-size: clamp(28px, 5vw, 45px);
-  margin-bottom: 20px;
-  border-bottom: 2px solid #1abc9c;
-  display: inline-block;
-}
-
-.content {
-  font-size: clamp(16px, 3vw, 20px);
-  line-height: 1.6;
-  margin-top: 20px;
-}
-
-/* ===== Values セクション ===== */
-.values-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-  margin-top: 20px;
-}
-
-.value-item {
-  display: flex;
-  align-items: flex-start;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.value-icon {
-  width: 40px;
-  height: 40px;
-  margin-right: 15px;
-}
-
-.value-content h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.value-content p {
-  font-size: 14px;
-  color: #ddd;
-}
-
-/* ===== Business リンク ===== */
-.business-list {
-  list-style: none;
-  margin-top: 20px;
-}
-
-.business-list li {
-  margin-bottom: 15px;
-  font-size: 18px;
-}
-
-.business-link {
-  color: #1abc9c;
-  text-decoration: underline;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.business-link:hover {
-  color: #16a085;
-}
-
-/* ===== 会社情報 ===== */
-.company-details {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  font-size: 18px;
-}
-
-/* ===== フッター ===== */
-.footer {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #1a1a1a;
-}
-
-/* ===== レスポンシブデザイン (スマホ用) ===== */
-@media (max-width: 768px) {
-  .sidebar {
-    width: 100%;
-    height: auto;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 10px 20px;
-  }
-
-   .hamburger {
-    display: flex;  /* ここでしっかり表示する */
-  }
-  .nav {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 100%;
-    height: calc(100vh - 60px);
-    background-color: rgba(26, 26, 26, 0.95);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-in-out;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .nav.open {
-    transform: translateX(0);
-  }
-
-  .main-content {
-    margin-left: 0;
-    padding: 20px;
-  }
-
-  /* スマホ時に Values を 1カラムに */
-  .values-container {
-    grid-template-columns: 1fr;
-  }
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #121212;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    .fade-text {
+      opacity: 0;
+      transform: translateX(30px);
+      transition: all 1s ease-out;
+    }
+    .fade-text.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .sidebar {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 200px;
+      height: 100%;
+      background-color: #1a1a1a;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1000;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 10px;
+      color: #fff;
+    }
+    .nav ul {
+      list-style: none;
+    }
+    .nav ul li {
+      margin: 20px 0;
+    }
+    .nav ul li a {
+      text-decoration: none;
+      color: #fff;
+      font-size: 16px;
+      transition: color 0.3s ease;
+    }
+    .nav ul li a:hover {
+      color: #1abc9c;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 24px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 1100;
+    }
+    .hamburger span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(10px) rotate(45deg);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-10px) rotate(-45deg);
+    }
+    .main-content {
+      margin-left: 220px;
+      padding: 40px;
+      max-width: 1000px;
+    }
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      background: #121212;
+    }
+    .hero h2 {
+      font-size: clamp(40px, 8vw, 100px);
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: clamp(18px, 3vw, 28px);
+    }
+    .section {
+      margin-bottom: 60px;
+    }
+    .section-title {
+      font-size: clamp(28px, 5vw, 45px);
+      margin-bottom: 20px;
+      border-bottom: 2px solid #1abc9c;
+      display: inline-block;
+    }
+    .content {
+      font-size: clamp(16px, 3vw, 20px);
+      margin-top: 20px;
+    }
+    .values-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .value-item {
+      display: flex;
+      align-items: flex-start;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .value-content h3 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .value-content p {
+      font-size: 14px;
+      color: #ddd;
+    }
+    .business-list {
+      list-style: none;
+      margin-top: 20px;
+    }
+    .business-list li {
+      margin-bottom: 15px;
+      font-size: 18px;
+    }
+    .business-link {
+      color: #1abc9c;
+      text-decoration: underline;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    .business-link:hover {
+      color: #16a085;
+    }
+    .company-details {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 18px;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #1a1a1a;
+    }
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 10px 20px;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .nav {
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: rgba(26, 26, 26, 0.95);
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in-out;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+      .nav.open {
+        transform: translateX(0);
+      }
+      .main-content {
+        margin-left: 0;
+        padding: 20px;
+      }
+      .values-container {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
-
-  
 </head>
 <body>
-  <!-- サイドナビ（ハンバーガーメニュー含む） -->
-<aside class="sidebar">
-  <h1 class="logo">Basic</h1>
-
-  <!-- ハンバーガーメニュー -->
-  <button class="hamburger" aria-label="Toggle navigation">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-  <!-- ナビゲーション -->
-  <nav class="nav">
-    <ul>
-      <li><a href="#mission">Mission</a></li>
-      <li><a href="#business">Business</a></li>
-      <li><a href="#company">Company</a></li>
-    </ul>
-  </nav>
-</aside>
-
+  <aside class="sidebar">
+    <h1 class="logo">Basic</h1>
+    <button class="hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav">
+      <ul>
+        <li><a href="#mission">Mission</a></li>
+        <li><a href="#business">Business</a></li>
+        <li><a href="#recruit">Recruit</a></li>
+        <li><a href="#company">Company</a></li>
+      </ul>
+    </nav>
+  </aside>
   <main class="main-content">
     <section class="hero">
-      <h2>Basic inc.</h2>
-      <p>常識に囚われない、新しい飲食体験を。</p>
+      <h2 class="fade-text">Basic inc.</h2>
+      <p class="fade-text">常識に囚われない、新しい飲食体験を。</p>
     </section>
-
-    <section id="mission" class="section">
+    <section id="mission" class="section fade-text">
       <h2 class="section-title">Mission（使命）</h2>
       <p class="content">「食の未来をつなぎ、広げる」</p>
     </section>
-
-    <section id="vision" class="section">
+    <section id="vision" class="section fade-text">
       <h2 class="section-title">Vision（目指す未来）</h2>
       <p class="content">「飲食業を、もっと誇れる仕事に」</p>
     </section>
-
-    <section id="values" class="section">
-  <h2 class="section-title">Values（価値観・行動指針）</h2>
-  <div class="values-container">
-    
-    <div class="value-item">
-<!--       <img src="icons/tradition.svg" alt="継承 × 進化" class="value-icon"> -->
-      <div class="value-content">
-        <h3>継承 × 進化</h3>
-        <p>伝統を大切にしながら、新しいアイデアで価値を生み出す。</p>
+    <section id="values" class="section fade-text">
+      <h2 class="section-title">Values（価値観・行動指針）</h2>
+      <div class="values-container">
+        <div class="value-item">
+          <div class="value-content">
+            <h3>継承 × 進化</h3>
+            <p>伝統を大切にしながら、新しいアイデアで価値を生み出す。</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-content">
+            <h3>人を大切にする</h3>
+            <p>社員、お客様、関わるすべての人に誇れる仕事を。</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-content">
+            <h3>挑戦を恐れない</h3>
+            <p>変化を受け入れ、食の可能性を広げる。</p>
+          </div>
+        </div>
+        <div class="value-item">
+          <div class="value-content">
+            <h3>世界に誇れる食文化の創造</h3>
+            <p>日本の食の魅力を、世界へ発信。</p>
+          </div>
+        </div>
       </div>
-    </div>
-
-    <div class="value-item">
-<!--       <img src="icons/people.svg" alt="人を大切にする" class="value-icon"> -->
-      <div class="value-content">
-        <h3>人を大切にする</h3>
-        <p>社員、お客様、関わるすべての人に誇れる仕事を。</p>
-      </div>
-    </div>
-
-    <div class="value-item">
-<!--       <img src="icons/challenge.svg" alt="挑戦を恐れない" class="value-icon"> -->
-      <div class="value-content">
-        <h3>挑戦を恐れない</h3>
-        <p>変化を受け入れ、食の可能性を広げる。</p>
-      </div>
-    </div>
-
-    <div class="value-item">
-<!--       <img src="icons/global.svg" alt="世界に誇れる食文化の創造" class="value-icon"> -->
-      <div class="value-content">
-        <h3>世界に誇れる食文化の創造</h3>
-        <p>日本の食の魅力を、世界へ発信。</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-    <section id="business" class="section">
+    </section>
+    <section id="business" class="section fade-text">
       <h2 class="section-title">Business</h2>
       <ul class="business-list">
         <li>
@@ -334,8 +275,19 @@ body {
         <li>次の店舗Coming soon…</li>
       </ul>
     </section>
-
-    <section id="company" class="section">
+    <section id="recruit" class="section fade-text">
+      <h2 class="section-title">Recruit</h2>
+      <p class="content">現在、以下の職種で新しい仲間を募集しています。</p>
+      <ul class="business-list">
+        <li>・立ち上げメンバー</li>
+        <li>・シェフ</li>
+        <li>・調理スタッフ</li>
+        <li>・ホールスタッフ</li>
+      </ul>
+      <p class="content" style="margin-top: 20px;">ご応募は以下のGoogleフォームよりお願いいたします。</p>
+      <p class="content"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdT-6FJFN-UMQPUdtRw4fm8ZGZWX31EUl0-nG3CJbjxxTkBww/viewform?usp=dialog" target="_blank" class="business-link">応募フォームはこちら</a></p>
+    </section>
+    <section id="company" class="section fade-text">
       <h2 class="section-title">Company</h2>
       <div class="company-details">
         <p><strong>会社名:</strong> 株式会社Basic</p>
@@ -346,22 +298,40 @@ body {
       </div>
     </section>
   </main>
-
   <footer class="footer">
     <p>&copy; 2025 株式会社Basic. All Rights Reserved.</p>
   </footer>
   <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const hamburger = document.querySelector(".hamburger");
-    const nav = document.querySelector(".nav");
+    document.addEventListener("DOMContentLoaded", function () {
+      const hamburger = document.querySelector(".hamburger");
+      const nav = document.querySelector(".nav");
+      const navLinks = document.querySelectorAll(".nav a");
 
-    if (hamburger && nav) {
-      hamburger.addEventListener("click", function () {
-        nav.classList.toggle("open");
-        hamburger.classList.toggle("open");
-      });
-    }
-  });
-</script>
+      if (hamburger && nav) {
+        hamburger.addEventListener("click", function () {
+          nav.classList.toggle("open");
+          hamburger.classList.toggle("open");
+        });
+
+        navLinks.forEach(link => {
+          link.addEventListener("click", function () {
+            nav.classList.remove("open");
+            hamburger.classList.remove("open");
+          });
+        });
+      }
+
+      const fadeTextElements = document.querySelectorAll('.fade-text');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      fadeTextElements.forEach(el => observer.observe(el));
+    });
+  </script>
 </body>
 </html>

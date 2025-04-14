@@ -119,7 +119,6 @@
       color: #c00;
     }
 
-    /* フルスクリーンメニュー */
     .fullscreen-menu {
       display: none;
       flex-direction: column;
@@ -152,6 +151,11 @@
       font-size: 2rem;
       color: white;
       cursor: pointer;
+      display: none;
+    }
+
+    .fullscreen-menu.show .close-btn {
+      display: block;
     }
 
     @media (max-width: 768px) {

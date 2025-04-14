@@ -215,6 +215,26 @@
       opacity: 1;
       transform: translateY(0);
     }
+    .photo-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+
+    .photo-gallery img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+      .photo-gallery img {
+        max-width: 100%;
+    }
   </style>
 </head>
 <body>
@@ -267,11 +287,11 @@
 
     <section id="meat" class="fade-in">
       <h2 class="section-title">OUR MEAT</h2>
-      <div class="photo">
-        <img src="kiyota-2.jpg" alt="gohan" />
-        <img src="kiyota-3.jpg" alt="gohan" />
-        <img src="kiyota-4.jpg" alt="gohan" />
-      </div>
+     <div class="photo-gallery">
+        <img src="kiyota-2.jpg" alt="ハラミ" />
+        <img src="kiyota-3.jpg" alt="タン" />
+        <img src="kiyota-4.jpg" alt="盛り合わせ" />
+    　</div>
       <p>
         自慢のハラミ・タンは、肉の旨味と柔らかさが際立つ逸品。<br>
         フレッシュで上質なお肉を、驚きのコストパフォーマンスでご提供します。
@@ -280,10 +300,10 @@
 
     <section id="store" class="fade-in">
       <h2 class="section-title">STORE</h2>
-      <div class="photo">
-        <img src="kiyota-5.jpg" alt="tatemono" />
-        <img src="kiyota-6.jpg" alt="tatemono" />
-        <img src="kiyota-7.jpg" alt="tatemono" />
+      <div class="photo-gallery">
+        <img src="kiyota-5.jpg" alt="外観1" />
+        <img src="kiyota-6.jpg" alt="内観" />
+        <img src="kiyota-7.jpg" alt="外観2" />
       </div>
       <p>
         無煙ロースターを完備し、煙を抑えた清潔感のある空間。<br>

@@ -25,62 +25,88 @@
   <meta name="twitter:title" content="株式会社Basic | 食の未来をつなぐ" />
   <meta name="twitter:description" content="飲食業の常識にとらわれず、新しい価値を創出。人と食に真摯に向き合う飲食スタートアップです。" />
   <meta name="twitter:image" content="https://www.basic-fnb.com/images/bolero-1.jpg" />
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Arial', sans-serif;
+      font-family: 'Arial', 'Helvetica', 'Noto Sans JP', sans-serif;
       background-color: #121212;
-      color: #fff;
+      color: #ffffff;
       line-height: 1.6;
       overflow-x: hidden;
     }
+
+    /* アニメーション */
     .fade-text {
       opacity: 0;
-      transform: translateX(30px);
-      transition: all 1s ease-out;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
     }
+
     .fade-text.visible {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
     }
+
+    /* サイドバー */
     .sidebar {
       position: fixed;
       left: 0;
       top: 0;
       width: 200px;
-      height: 100%;
+      height: 100vh;
       background-color: #1a1a1a;
       padding: 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
       z-index: 1000;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
     }
+
     .logo {
       font-size: 24px;
       font-weight: bold;
-      margin: 10px;
-      color: #fff;
+      margin: 10px 0 30px 0;
+      color: #ffffff;
+      letter-spacing: 0.1em;
     }
+
     .nav ul {
       list-style: none;
+      width: 100%;
     }
+
     .nav ul li {
       margin: 20px 0;
     }
+
     .nav ul li a {
+      display: block;
       text-decoration: none;
-      color: #fff;
+      color: #ffffff;
       font-size: 16px;
-      transition: color 0.3s ease;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
     }
+
     .nav ul li a:hover {
       color: #1abc9c;
+      background-color: rgba(255, 255, 255, 0.1);
+      transform: translateX(5px);
     }
+
+    /* ハンバーガーメニュー */
     .hamburger {
       display: none;
       flex-direction: column;
@@ -92,137 +118,255 @@
       cursor: pointer;
       z-index: 1100;
     }
+
     .hamburger span {
       display: block;
-      width: 30px;
+      width: 100%;
       height: 3px;
-      background: #fff;
+      background: #ffffff;
       border-radius: 2px;
       transition: all 0.3s ease;
     }
+
     .hamburger.open span:nth-child(1) {
       transform: translateY(10px) rotate(45deg);
     }
+
     .hamburger.open span:nth-child(2) {
       opacity: 0;
     }
+
     .hamburger.open span:nth-child(3) {
       transform: translateY(-10px) rotate(-45deg);
     }
+
+    /* メインコンテンツ */
     .main-content {
       margin-left: 220px;
       padding: 40px;
       max-width: 1000px;
     }
+
+    /* ヒーローセクション */
     .hero {
       text-align: center;
       padding: 80px 20px;
-      background: #121212;
+      background-color: #121212;
+      border-radius: 10px;
+      margin-bottom: 40px;
     }
+
     .hero h2 {
       font-size: clamp(40px, 8vw, 100px);
       margin-bottom: 20px;
+      color: #ffffff;
+      font-weight: bold;
     }
+
     .hero p {
       font-size: clamp(18px, 3vw, 28px);
+      color: #ffffff;
+      font-weight: 300;
     }
+
+    /* セクション */
     .section {
       margin-bottom: 60px;
+      padding: 30px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
+
     .section-title {
       font-size: clamp(28px, 5vw, 45px);
       margin-bottom: 20px;
-      border-bottom: 2px solid #1abc9c;
+      color: #ffffff;
+      font-weight: 600;
+      border-bottom: 3px solid #1abc9c;
       display: inline-block;
+      padding-bottom: 5px;
     }
+
     .content {
       font-size: clamp(16px, 3vw, 20px);
       margin-top: 20px;
+      color: #ffffff;
+      line-height: 1.8;
     }
+
+    /* Values セクション */
     .values-container {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
       margin-top: 20px;
     }
+
     .value-item {
-      display: flex;
-      align-items: flex-start;
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.08);
+      padding: 25px;
       border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
     }
+
+    .value-item:hover {
+      transform: translateY(-5px);
+      background-color: rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+
     .value-content h3 {
       font-size: 18px;
-      font-weight: bold;
-      margin-bottom: 5px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #1abc9c;
     }
+
     .value-content p {
       font-size: 14px;
-      color: #ddd;
+      color: #ffffff;
+      line-height: 1.6;
     }
+
+    /* ビジネスリスト */
     .business-list {
       list-style: none;
       margin-top: 20px;
     }
+
     .business-list li {
       margin-bottom: 15px;
       font-size: 18px;
+      color: #ffffff;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
+
     .business-link {
       color: #1abc9c;
-      text-decoration: underline;
-      font-weight: bold;
+      text-decoration: none;
+      font-weight: 600;
       transition: color 0.3s ease;
     }
+
     .business-link:hover {
       color: #16a085;
+      text-decoration: underline;
     }
+
+    /* 会社詳細 */
     .company-details {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 15px;
       font-size: 18px;
+      margin-top: 20px;
     }
+
+    .company-details p {
+      color: #ffffff;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .company-details strong {
+      color: #1abc9c;
+      font-weight: 600;
+      display: inline-block;
+      min-width: 120px;
+    }
+
+    /* フッター */
     .footer {
       text-align: center;
-      padding: 20px 0;
+      padding: 40px 0;
       background-color: #1a1a1a;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
+
+    .footer p {
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    /* レスポンシブデザイン */
     @media (max-width: 768px) {
       .sidebar {
         width: 100%;
         height: auto;
         flex-direction: row;
         justify-content: space-between;
-        padding: 10px 20px;
+        padding: 15px 20px;
       }
+
       .hamburger {
         display: flex;
       }
+
       .nav {
         position: absolute;
-        top: 60px;
+        top: 100%;
         right: 0;
         width: 100%;
-        height: calc(100vh - 60px);
-        background-color: rgba(26, 26, 26, 0.95);
+        height: calc(100vh - 70px);
+        background-color: rgba(26, 26, 26, 0.98);
         transform: translateX(100%);
-        transition: transform 0.5s ease-in-out;
+        transition: transform 0.4s ease;
         flex-direction: column;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        text-align: center;
+        padding-top: 40px;
       }
+
       .nav.open {
         transform: translateX(0);
       }
+
+      .nav ul li {
+        margin: 20px 0;
+        width: 80%;
+      }
+
+      .nav ul li a {
+        font-size: 18px;
+        text-align: center;
+        padding: 15px;
+        color: #ffffff;
+      }
+
       .main-content {
         margin-left: 0;
+        margin-top: 80px;
         padding: 20px;
       }
+
+      .hero {
+        padding: 60px 20px;
+      }
+
       .values-container {
         grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 40px 15px;
+      }
+
+      .section {
+        padding: 15px;
+      }
+
+      .main-content {
+        padding: 15px;
       }
     }
   </style>
@@ -230,7 +374,7 @@
 <body>
   <aside class="sidebar">
     <h1 class="logo">Basic</h1>
-    <button class="hamburger" aria-label="Toggle navigation">
+    <button class="hamburger" aria-label="メニューを開く">
       <span></span>
       <span></span>
       <span></span>
@@ -238,25 +382,31 @@
     <nav class="nav">
       <ul>
         <li><a href="#mission">Mission</a></li>
+        <li><a href="#vision">Vision</a></li>
+        <li><a href="#values">Values</a></li>
         <li><a href="#business">Business</a></li>
         <li><a href="#recruit">Recruit</a></li>
         <li><a href="#company">Company</a></li>
       </ul>
     </nav>
   </aside>
+
   <main class="main-content">
     <section class="hero">
       <h2 class="fade-text">Basic inc.</h2>
       <p class="fade-text">常識に囚われない、新しい飲食体験を。</p>
     </section>
+
     <section id="mission" class="section fade-text">
       <h2 class="section-title">Mission（使命）</h2>
       <p class="content">「食の未来をつなぎ、広げる」</p>
     </section>
+
     <section id="vision" class="section fade-text">
       <h2 class="section-title">Vision（目指す未来）</h2>
       <p class="content">「飲食業を、もっと誇れる仕事に」</p>
     </section>
+
     <section id="values" class="section fade-text">
       <h2 class="section-title">Values（価値観・行動指針）</h2>
       <div class="values-container">
@@ -286,6 +436,7 @@
         </div>
       </div>
     </section>
+
     <section id="business" class="section fade-text">
       <h2 class="section-title">Business</h2>
       <ul class="business-list">
@@ -299,18 +450,24 @@
         <li>次の店舗Coming soon…</li>
       </ul>
     </section>
+
     <section id="recruit" class="section fade-text">
       <h2 class="section-title">Recruit</h2>
       <p class="content">現在、以下の職種で新しい仲間を募集しています。</p>
       <ul class="business-list">
-        <li>・立ち上げメンバー</li>
-        <li>・シェフ</li>
-        <li>・調理スタッフ</li>
-        <li>・ホールスタッフ</li>
+        <li>立ち上げメンバー</li>
+        <li>シェフ</li>
+        <li>調理スタッフ</li>
+        <li>ホールスタッフ</li>
       </ul>
       <p class="content" style="margin-top: 20px;">ご応募は以下のGoogleフォームよりお願いいたします。</p>
-      <p class="content"><a href="https://docs.google.com/forms/d/e/1FAIpQLSdT-6FJFN-UMQPUdtRw4fm8ZGZWX31EUl0-nG3CJbjxxTkBww/viewform?usp=dialog" target="_blank" class="business-link">応募フォームはこちら</a></p>
+      <p class="content">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdT-6FJFN-UMQPUdtRw4fm8ZGZWX31EUl0-nG3CJbjxxTkBww/viewform?usp=dialog" 
+           target="_blank" 
+           class="business-link">応募フォームはこちら</a>
+      </p>
     </section>
+
     <section id="company" class="section fade-text">
       <h2 class="section-title">Company</h2>
       <div class="company-details">
@@ -322,11 +479,14 @@
       </div>
     </section>
   </main>
+
   <footer class="footer">
     <p>&copy; 2025 株式会社Basic. All Rights Reserved.</p>
   </footer>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      // ナビゲーション
       const hamburger = document.querySelector(".hamburger");
       const nav = document.querySelector(".nav");
       const navLinks = document.querySelectorAll(".nav a");
@@ -338,13 +498,28 @@
         });
 
         navLinks.forEach(link => {
-          link.addEventListener("click", function () {
-            nav.classList.remove("open");
-            hamburger.classList.remove("open");
+          link.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            
+            if (href.startsWith("#")) {
+              e.preventDefault();
+              const target = document.querySelector(href);
+              
+              if (target) {
+                target.scrollIntoView({
+                  behavior: "smooth",
+                  block: "start"
+                });
+                
+                nav.classList.remove("open");
+                hamburger.classList.remove("open");
+              }
+            }
           });
         });
       }
 
+      // スクロールアニメーション
       const fadeTextElements = document.querySelectorAll('.fade-text');
       const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {

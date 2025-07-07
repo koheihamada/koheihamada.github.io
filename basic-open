@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic inc | 飲食開業支援</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+    body {
+      font-family: 'Noto Serif JP', serif;
+      background-color: #fafafa;
+      color: #333;
+      line-height: 1.7;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1541542684-4b1cbbf5c3bb?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    header::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+    .hero-text {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-text h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+    .hero-text p {
+      font-size: 1.2rem;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 960px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      border-left: 5px solid #d18f3d;
+      padding-left: 15px;
+    }
+    .card {
+      background-color: white;
+      padding: 30px;
+      margin-bottom: 30px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .button {
+      background-color: #d18f3d;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    .store-img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-top: 15px;
+    }
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 30px 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="hero-text">
+    <h1>飲食店を出したいあなたへ</h1>
+    <p>出資1,000〜3,000万円 + 経営サポート付き</p>
+    <a href="#contact" class="button">まずは相談してみる</a>
+  </div>
+</header>
+
+<section>
+  <h2>私たちについて</h2>
+  <div class="card">
+    <p>Basic incは、「やってみたい」という想いを支援する出資型飲食開業プラットフォームです。<br>
+    出資・物件取得・採用・経営までワンストップで支援します。</p>
+  </div>
+</section>
+
+<section>
+  <h2>サポート内容</h2>
+  <div class="card">
+    <ul>
+      <li>✅ 出資：1,000〜3,000万円をご提供(店舗によって異なります)</li>
+      <li>✅ 借入サポート（公庫など）</li>
+      <li>✅ 物件・内装・人材・経営をトータルサポート</li>
+      <li>✅ 3年後の買い取り型独立や伴奏も可能</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>成功事例</h2>
+  <div class="card">
+    <h3>清田焼肉店（下北沢｜2025年オープン）</h3>
+    <p>
+      駅徒歩30秒の好立地に開業。<br>
+      Basic incが物件取得から内装、採用、メニュー構成、POS導入まで一貫サポート。<br>
+      オープン初月から予約多数の人気店へ。
+    </p>
+    <img src="https://www.basic-fnb.com/src/kiyota-7.jpg">
+    <a href="https://g.co/kgs/qNUkUBS" target="_blank" class="button">店舗をGoogleマップで見る</a>
+  </div>
+
+  <div class="card">
+    <h3>Bistro Bolero（中目黒｜2024年テイクオーバー）</h3>
+    <p>
+      中目黒の裏路地にある一軒家ビストロを引き継ぎ、テイクオーバー支援を実施。<br>
+      コンセプト刷新・スタッフ再編成・ナチュールワイン強化により、売上V字回復を実現。<br>
+      SNSでも話題の店舗に。
+    </p>
+    <img src="https://www.basic-fnb.com/src/bolero-1.jpg">
+    <a href="https://g.co/kgs/LCrCSk2" target="_blank" class="button">店舗をGoogleマップで見る</a>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>お問い合わせ</h2>
+  <div class="card">
+    <p>「やりたいことはある」「話だけ聞いてみたい」でも構いません。<br>
+    お気軽にご相談ください。</p>
+    <a href="mailto:info@basic-fnb.com" class="button">メールで相談する</a>
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Basic inc. All rights reserved.
+</footer>
+
+</body>
+</html>

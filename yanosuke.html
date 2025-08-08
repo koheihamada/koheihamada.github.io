@@ -27,13 +27,39 @@
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:baseline;gap:12px;font-weight:800}
     .brand__jp{font-family:"Kouzan", serif;font-weight:700;letter-spacing:.2em}
-    .brand__en{font-family:"Kouzan",opacity:.7;font-size:.9rem}
+    .brand__en{
+      font-family: Inter, system-ui, -apple-system, "Noto Sans JP", sans-serif;
+      opacity:.7;
+      font-size:.9rem;
+    }
     .nav-links{display:flex;gap:22px;font-weight:600}
     .nav.scrolled{background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
     .nav a{position:relative}
     .nav a:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform .25s}
     .nav a:hover:after,.nav a.active:after{transform:scaleX(1)}
-
+    
+    /* メニューOPEN中はナビを不透明に */
+    .nav.menu-open{
+      background:rgba(255,255,255,.98);
+      backdrop-filter:saturate(180%) blur(8px);
+      box-shadow:0 6px 18px rgba(0,0,0,.12);
+    }
+    
+    /* OPEN中はハンバーガーの線を黒に統一 */
+    .nav.menu-open .hamburger span{ background:var(--ink) !important; }
+    
+    /* 黒幕スクリーン */
+    @media (max-width:860px){
+      .nav-scrim{
+        position:fixed; inset:64px 0 0 0;     /* ヘッダー分を除いて全画面 */
+        background:rgba(0,0,0,.25);
+        opacity:0; pointer-events:none;
+        transition:opacity .2s ease;
+        z-index:999;                           /* メニュー(.nav-links=1000)の下、ページの上 */
+      }
+      .nav-scrim.show{ opacity:1; pointer-events:auto; }
+    }
+    
     /* MOBILE */
     .hamburger{
       position: relative;              /* ← これが無いと線がずれる */
@@ -65,6 +91,8 @@
     /* ==== Mobileメニュー（そのままでOKだが念のため前面とタップ感） ==== */
     @media (max-width:860px){
       .nav-links{
+        max-height: calc(100dvh - 64px);
+        overflow:auto; 
         position:fixed; inset:64px 0 0 0;
         display:grid; gap:10px; padding:18px 20px 28px;
         background:rgba(255,255,255,.98);
@@ -274,8 +302,52 @@
     };
     setScrolled();
     window.addEventListener('scroll', setScrolled);
-    spyLinks.forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
-
+    // スクリーン(黒幕)生成 ※最初の1回だけ
+    let scrim = document.querySelector('.nav-scrim');
+    if(!scrim){
+      scrim = document.createElement('div');
+      scrim.className = 'nav-scrim';
+      document.body.appendChild(scrim);
+    }
+    
+    // ハンバーガー開閉
+    hamburger.addEventListener('click', ()=>{
+      const open = !navLinks.classList.contains('open');
+      navLinks.classList.toggle('open', open);
+      hamburger.classList.toggle('is-open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+    
+      // ★ ここが追加：ヘッダーを不透明化 & 黒幕ON
+      nav.classList.toggle('menu-open', open);
+      scrim.classList.toggle('show', open);
+    
+      // 背面スクロール固定
+      document.documentElement.classList.toggle('no-scroll', open);
+      document.body.classList.toggle('no-scroll', open);
+    });
+    
+    // 黒幕タップで閉じる
+    scrim.addEventListener('click', ()=>{
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded','false');
+      nav.classList.remove('menu-open');
+      scrim.classList.remove('show');
+      document.documentElement.classList.remove('no-scroll');
+      document.body.classList.remove('no-scroll');
+    });
+    
+    // ナビ内リンク押下で閉じる（既存を置き換え）
+    spyLinks.forEach(a=>a.addEventListener('click',()=>{
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded','false');
+      nav.classList.remove('menu-open');
+      scrim.classList.remove('show');
+      document.documentElement.classList.remove('no-scroll');
+      document.body.classList.remove('no-scroll');
+    }));
+    
     // Scrollspy
     const sections = Array.from(spyLinks).map(a=>document.querySelector(a.getAttribute('href')));
     const spyObserver = new IntersectionObserver((entries)=>{

@@ -385,7 +385,6 @@
       console.group('%cYANOSUKE UI Tests','color:#d6a154;font-weight:bold');
       expectKeys.forEach(k=>console.assert(Array.isArray(MENU[k]), `MENU category missing: ${k}`));
       console.assert(grid.children.length === MENU.otsumami.length, `Default menu render mismatch`);
-      const reisaBtn = document.querySelector('[data-tab="reisa"]'); reisaBtn.click();
       console.assert(grid.children.length === MENU.reisa.length, `Reisa tab mismatch`);
       console.assert(grid.textContent.includes('鉄板焼き野菜サラダ'), 'Reisa items not found');
       console.groupEnd();

@@ -82,7 +82,7 @@
     .floating-reserve{position:fixed;right:18px;bottom:18px;padding:14px 18px;border-radius:999px;background:var(--accent);font-weight:800;box-shadow:0 12px 24px rgba(0,0,0,.18);z-index:1001}
 
     /* reveal */
-    .reveal{margin-bottom:10px; opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}
+    .reveal{; opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}
     .reveal.on{opacity:1;transform:none}
 
     @media (prefers-reduced-motion: reduce){
@@ -126,7 +126,7 @@
   </section>
 
   <!-- CONCEPT -->
-  <section id="concept" class="container">
+  <section id="concept" class="container" style="margin-top:15px;">
     <h2 class="section-title">コンセプト</h2>
     <p class="subtitle">18席のカウンターと個室に集まる熱と匂い、職人の手元まで愉しむ“ライブ”が主役。</p>
     <div class="concept reveal">
@@ -183,20 +183,6 @@
       <iframe class="map" title="Google Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220.09590755595204!2d139.6963294861533!3d35.64272169397791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b89aea61fad%3A0x5dbec2dfc54862c3!2z5Lit55uu6buSIOW8peS5i-WKqQ!5e0!3m2!1sen!2ssg!4v1754615121260!5m2!1sen!2ssg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
-
-  <!-- COMPANY -->
-  <section id="company" class="container">
-    <h2 class="section-title">会社概要</h2>
-    <div class="card reveal" style="padding:18px">
-      <p><strong>会社名：</strong>株式会社Basic</p>
-      <p><strong>代表取締役：</strong>福田 雄太</p>
-      <p><strong>設立：</strong>2024年1月</p>
-      <p><strong>住所：</strong>東京都目黒区駒場2丁目9-9</p>
-      <p><strong>事業内容：</strong>飲食店の運営およびコンサルティング</p>
-      <p style="font-size:.9rem;color:#6a6a6a">出典：<a href="https://www.basic-fnb.com/" target="_blank" rel="noopener">株式会社Basic 公式サイト</a></p>
-    </div>
-  </section>
-
   <!-- RESERVATION -->
   <section id="reservation" class="container">
     <h2 class="section-title">予約</h2>
@@ -205,6 +191,18 @@
       <p><strong>TEL：</strong><a href="tel:03-0000-0000">03-0000-0000</a></p>
       <p><a class="btn btn--primary" href="https://yoyaku.example.com" target="_blank" rel="noopener">WEB予約へ</a></p>
       <p style="font-size:.88rem;color:#6a6a6a">※コース／アレルギー等のご要望は備考欄へ。18席のためキャンセルは前日までにご連絡ください。</p>
+    </div>
+  </section>
+
+   <!-- COMPANY -->
+  <section id="company" class="container" style="margin-bottom:10px">
+    <h2 class="section-title">会社概要</h2>
+    <div class="card reveal" style="padding:18px">
+      <p><strong>会社名：</strong>株式会社Basic</p>
+      <p><strong>代表取締役：</strong>福田 雄太</p>
+      <p><strong>設立：</strong>2024年1月</p>
+      <p><strong>住所：</strong>東京都目黒区駒場2丁目9-9</p>
+      <p><strong>事業内容：<a href="https://www.basic-fnb.com/" target="_blank" rel="noopener">詳しくはこちら</a></p>
     </div>
   </section>
 

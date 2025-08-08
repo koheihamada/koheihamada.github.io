@@ -361,25 +361,6 @@
       });
     },{rootMargin:'-50% 0px -45% 0px', threshold:0});
     sections.forEach(s=>s && spyObserver.observe(s));
-    // 開閉の状態をボタンに反映（X化＆スクロール固定）
-    hamburger.addEventListener('click', ()=>{
-      const open = !navLinks.classList.contains('open');
-      navLinks.classList.toggle('open', open);
-      hamburger.classList.toggle('is-open', open);
-      hamburger.setAttribute('aria-expanded', String(open));
-      document.documentElement.classList.toggle('no-scroll', open);
-      document.body.classList.toggle('no-scroll', open);
-    });
-    
-    // 既存の各リンククリック時の閉じる処理はそのまま活用
-    spyLinks.forEach(a=>a.addEventListener('click',()=>{
-      navLinks.classList.remove('open');
-      hamburger.classList.remove('is-open');
-      hamburger.setAttribute('aria-expanded','false');
-      document.documentElement.classList.remove('no-scroll');
-      document.body.classList.remove('no-scroll');
-    }));
-
     
     // Reveal on scroll
     const reveal = document.querySelectorAll('.reveal');

@@ -20,96 +20,45 @@
       font-weight: normal;
       font-style: normal;
     }
-    
-    
+
     /* NAV */
     .nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;z-index:1000;transition:background .3s, box-shadow .3s}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:baseline;gap:12px;font-weight:800}
     .brand__jp{font-family:"Kouzan", serif;font-weight:700;letter-spacing:.2em}
-    .brand__en{
-      font-family: Inter, system-ui, -apple-system, "Noto Sans JP", sans-serif;
-      opacity:.7;
-      font-size:.9rem;
-    }
+    .brand__en{font-family:Inter, system-ui, -apple-system, "Noto Sans JP", sans-serif;opacity:.7;font-size:.9rem}
     .nav-links{display:flex;gap:22px;font-weight:600}
     .nav.scrolled{background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
     .nav a{position:relative}
     .nav a:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform .25s}
     .nav a:hover:after,.nav a.active:after{transform:scaleX(1)}
-    
+
     /* メニューOPEN中はナビを不透明に */
-    .nav.menu-open{
-      background:rgba(255,255,255,.98);
-      backdrop-filter:saturate(180%) blur(8px);
-      box-shadow:0 6px 18px rgba(0,0,0,.12);
-    }
-    
-    /* OPEN中はハンバーガーの線を黒に統一 */
+    .nav.menu-open{background:rgba(255,255,255,.98);backdrop-filter:saturate(180%) blur(8px);box-shadow:0 6px 18px rgba(0,0,0,.12)}
     .nav.menu-open .hamburger span{ background:var(--ink) !important; }
-    
-    /* 黒幕スクリーン */
-    @media (max-width:860px){
-      .nav-scrim{
-        position:fixed; inset:64px 0 0 0;     /* ヘッダー分を除いて全画面 */
-        background:rgba(0,0,0,.25);
-        opacity:0; pointer-events:none;
-        transition:opacity .2s ease;
-        z-index:999;                           /* メニュー(.nav-links=1000)の下、ページの上 */
-      }
-      .nav-scrim.show{ opacity:1; pointer-events:auto; }
-    }
-    
-    /* MOBILE */
+
+    /* MOBILE: ハンバーガー */
     .hamburger{
-      position: relative;              /* ← これが無いと線がずれる */
-      display:flex;align-items:center;justify-content:center;
+      position:relative;display:flex;align-items:center;justify-content:center;
       width:44px;height:44px;padding:0;border:none;background:transparent;
-      border-radius:12px;cursor:pointer;outline:none;
-      transition:background .2s, box-shadow .2s;
-      z-index:1001;                    /* モバイルメニューより前面に */
+      border-radius:12px;cursor:pointer;outline:none;transition:background .2s, box-shadow .2s;z-index:1001;
     }
     .hamburger:active{transform:translateY(1px)}
     .hamburger span{
       position:absolute;left:50%;width:22px;height:2px;border-radius:2px;
-      transform:translateX(-50%);
-      transition:transform .25s ease, opacity .2s ease, top .25s ease, background .2s ease;
+      transform:translateX(-50%);transition:transform .25s ease, opacity .2s ease, top .25s ease, background .2s ease;
     }
-    
-    /* ヒーロー上は白、スクロール後は濃色 */
     .nav:not(.scrolled) .hamburger span{ background:#fff; }
     .nav.scrolled .hamburger span{ background:var(--ink); }
-    
     .hamburger span:nth-child(1){ top:16px; }
     .hamburger span:nth-child(2){ top:21px; }
     .hamburger span:nth-child(3){ top:26px; }
-    
     .hamburger.is-open span:nth-child(1){ top:21px; transform:translateX(-50%) rotate(45deg); }
     .hamburger.is-open span:nth-child(2){ opacity:0; }
     .hamburger.is-open span:nth-child(3){ top:21px; transform:translateX(-50%) rotate(-45deg); }
-    
-    /* ==== Mobileメニュー（そのままでOKだが念のため前面とタップ感） ==== */
-    @media (max-width:860px){
-      .nav-links{
-        max-height: calc(100dvh - 64px);
-        overflow:auto; 
-        position:fixed; inset:64px 0 0 0;
-        display:grid; gap:10px; padding:18px 20px 28px;
-        background:rgba(255,255,255,.98);
-        box-shadow:0 20px 40px rgba(0,0,0,.12);
-        transform:translateY(-8px); opacity:0; pointer-events:none;
-        transition:opacity .2s ease, transform .2s ease;
-        z-index:1000;
-      }
-      .nav-links a{ padding:14px 2px; font-weight:700; }
-      .nav-links.open{ opacity:1; transform:none; pointer-events:auto; }
-      html.no-scroll, body.no-scroll{ overflow:hidden; }
-    }
 
     /* HERO */
     .hero{background:#000;height:88vh;min-height:560px;position:relative;display:grid;place-items:center;overflow:hidden}
-/*     .hero::before { content:"";position:absolute;inset:0; background:#000; transform:translateY(0);will-change:transform; } */
-/*     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.15) 40%, rgba(250,248,243,.9))} */
     .hero-content{position:relative;text-align:left;color:#fff;max-width:1100px;padding:0 20px;}
     .hero h1{font-family:"Kouzan", serif;font-weight:700;letter-spacing:.18em;font-size:clamp(28px,4vw,44px);margin:0 0 10px}
     .hero p{max-width:680px;margin:0 0 24px;opacity:.95}
@@ -153,12 +102,45 @@
     .floating-reserve{position:fixed;right:18px;bottom:18px;padding:14px 18px;border-radius:999px;background:var(--accent);font-weight:800;box-shadow:0 12px 24px rgba(0,0,0,.18);z-index:1001}
 
     /* reveal */
-    .reveal{; opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}
+    .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}
     .reveal.on{opacity:1;transform:none}
 
     @media (prefers-reduced-motion: reduce){
       .reveal{transition:none}
       .nav a:after{display:none}
+    }
+
+    /* --- モバイル: メニュー/黒幕/スクロール制御（iOS対策つき） --- */
+    @media (max-width:860px){
+      .nav{ z-index:3000; }
+
+      /* 黒幕 */
+      .nav-scrim{
+        position:fixed; inset:64px 0 0 0;
+        background:rgba(0,0,0,.25);
+        opacity:0; pointer-events:none;
+        transition:opacity .2s ease;
+        z-index:2000; /* メニュー(2500)より下、ページより上 */
+      }
+      .nav-scrim.show{ opacity:1; pointer-events:auto; }
+
+      /* メニュー本体（nav内/ポータル先の両方に適用） */
+      .nav-links, #mobileMenu{
+        position:fixed; inset:64px 0 0 0;
+        max-height: calc(100dvh - 64px);
+        overflow:auto;
+        display:grid; gap:10px; padding:18px 20px 28px;
+        background:rgba(255,255,255,.98);
+        box-shadow:0 20px 40px rgba(0,0,0,.12);
+        transform:translateY(-8px); opacity:0; pointer-events:none;
+        transition:opacity .2s ease, transform .2s ease;
+        z-index:2500;
+      }
+      .nav-links a, #mobileMenu a{ padding:14px 2px; font-weight:700; }
+      .nav-links.open, #mobileMenu.open{ opacity:1; transform:none; pointer-events:auto; }
+
+      /* 背面スクロール禁止 */
+      html.no-scroll, body.no-scroll{ overflow:hidden; }
     }
   </style>
 </head>
@@ -178,7 +160,7 @@
         <a href="#company" data-spy>会社概要</a>
         <a href="#reservation" data-spy>予約</a>
       </div>
-      <button class="hamburger" id="hamburger" aria-label="メニュー">
+      <button class="hamburger" id="hamburger" aria-label="メニュー" aria-controls="navLinks" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -254,6 +236,7 @@
       <iframe class="map" title="Google Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220.09590755595204!2d139.6963294861533!3d35.64272169397791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b89aea61fad%3A0x5dbec2dfc54862c3!2z5Lit55uu6buSIOW8peS5i-WKqQ!5e0!3m2!1sen!2ssg!4v1754615121260!5m2!1sen!2ssg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
+
   <!-- RESERVATION -->
   <section id="reservation" class="container">
     <h2 class="section-title">予約</h2>
@@ -265,7 +248,7 @@
     </div>
   </section>
 
-   <!-- COMPANY -->
+  <!-- COMPANY -->
   <section id="company" class="container" style="margin-bottom:10px">
     <h2 class="section-title">会社概要</h2>
     <div class="card reveal" style="padding:18px">
@@ -290,65 +273,58 @@
 
   <!-- JS -->
   <script>
-    // NAV behavior
+    // ===== 基本参照 =====
     const nav = document.getElementById('nav');
-    const navLinks = document.getElementById('navLinks');
     const hamburger = document.getElementById('hamburger');
-    const spyLinks = document.querySelectorAll('[data-spy]');
 
-    const setScrolled = () => {
-      if (window.scrollY > 10) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
-    };
-    setScrolled();
-    window.addEventListener('scroll', setScrolled);
-    // スクリーン(黒幕)生成 ※最初の1回だけ
+    // ===== SP時: メニューをbody直下へポータル化（iOSのfixed/backdrop描画崩れ対策） =====
+    let navLinks = document.getElementById('navLinks');
+    if (window.matchMedia('(max-width: 860px)').matches) {
+      let mobileMenu = document.getElementById('mobileMenu');
+      if (!mobileMenu) {
+        mobileMenu = document.createElement('div');
+        mobileMenu.id = 'mobileMenu';
+        mobileMenu.className = 'nav-links';
+        mobileMenu.innerHTML = navLinks.innerHTML;
+        document.body.appendChild(mobileMenu);
+        navLinks.remove();
+      }
+      navLinks = document.getElementById('mobileMenu'); // 以降これを使う
+    }
+
+    // ===== 黒幕 =====
     let scrim = document.querySelector('.nav-scrim');
     if(!scrim){
       scrim = document.createElement('div');
       scrim.className = 'nav-scrim';
       document.body.appendChild(scrim);
     }
-    
-    // ハンバーガー開閉
-    hamburger.addEventListener('click', ()=>{
-      const open = !navLinks.classList.contains('open');
+
+    // ===== 開閉ヘルパ =====
+    function setMenu(open){
       navLinks.classList.toggle('open', open);
       hamburger.classList.toggle('is-open', open);
       hamburger.setAttribute('aria-expanded', String(open));
-    
-      // ★ ここが追加：ヘッダーを不透明化 & 黒幕ON
       nav.classList.toggle('menu-open', open);
       scrim.classList.toggle('show', open);
-    
-      // 背面スクロール固定
       document.documentElement.classList.toggle('no-scroll', open);
       document.body.classList.toggle('no-scroll', open);
-    });
-    
-    // 黒幕タップで閉じる
-    scrim.addEventListener('click', ()=>{
-      navLinks.classList.remove('open');
-      hamburger.classList.remove('is-open');
-      hamburger.setAttribute('aria-expanded','false');
-      nav.classList.remove('menu-open');
-      scrim.classList.remove('show');
-      document.documentElement.classList.remove('no-scroll');
-      document.body.classList.remove('no-scroll');
-    });
-    
-    // ナビ内リンク押下で閉じる（既存を置き換え）
-    spyLinks.forEach(a=>a.addEventListener('click',()=>{
-      navLinks.classList.remove('open');
-      hamburger.classList.remove('is-open');
-      hamburger.setAttribute('aria-expanded','false');
-      nav.classList.remove('menu-open');
-      scrim.classList.remove('show');
-      document.documentElement.classList.remove('no-scroll');
-      document.body.classList.remove('no-scroll');
-    }));
-    
-    // Scrollspy
+    }
+    function closeMenu(){ setMenu(false); }
+
+    // ===== 挙動 =====
+    hamburger.addEventListener('click', ()=> setMenu(!navLinks.classList.contains('open')));
+    scrim.addEventListener('click', closeMenu);
+    window.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
+    window.addEventListener('resize', ()=>{ if (window.innerWidth>860) closeMenu(); });
+
+    // ===== スクロール時のヘッダー色切替 =====
+    const setScrolled = () => { if (window.scrollY > 10) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
+    setScrolled();
+    window.addEventListener('scroll', setScrolled);
+
+    // ===== Scrollspy =====
+    const spyLinks = document.querySelectorAll('[data-spy]');
     const sections = Array.from(spyLinks).map(a=>document.querySelector(a.getAttribute('href')));
     const spyObserver = new IntersectionObserver((entries)=>{
       entries.forEach(e=>{
@@ -361,89 +337,54 @@
       });
     },{rootMargin:'-50% 0px -45% 0px', threshold:0});
     sections.forEach(s=>s && spyObserver.observe(s));
-    
-    // Reveal on scroll
+
+    // メニュー内リンクや[data-spy]クリックで閉じる（委任）
+    document.addEventListener('click', (e)=>{
+      const link = e.target.closest('[data-spy]');
+      if (link) closeMenu();
+    });
+
+    // ===== Reveal on scroll =====
     const reveal = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('on')), {threshold:.15});
     reveal.forEach(r=>io.observe(r));
 
-    // Parallax hero
+    // ===== Parallax hero（軽微） =====
     const hero = document.querySelector('.hero');
     window.addEventListener('scroll',()=>{
-      const y = window.scrollY * 0.25; // parallax subtle
+      const y = window.scrollY * 0.25;
       hero.style.setProperty('--y', y+'px');
       hero.style.setProperty('transform','translateZ(0)');
-      hero.style.setProperty('--dummy','1');
-      hero.style.setProperty('--notused','1');
-      hero.style.willChange = 'transform';
-      hero.style.setProperty('--parallax', y);
-      hero.style.setProperty('--nothing','');
-      hero.style.setProperty('--translate', '');
-      hero.style.setProperty('--x','0');
     }, {passive:true});
 
-    // MENU data & tabs
+    // ===== MENU data & tabs =====
     const MENU = {
-      otsumami:[
-        '沖縄 ざるもずく','山形 だだちゃ豆','お新香 盛り合わせ','自家製豆腐 薬味冷奴','トリュフフライドポテト'
-      ],
-      reisa:[
-        '鉄板焼き野菜サラダ','ローストビーフサラダ','季節の味覚 白和え','豆鯵 南蛮漬け','牛つらみ刺し'
-      ],
-      onsai:[
-        '出汁巻き玉子 揚げ出し','鶏はらみ 柚子塩麹煮込み','もち豚肩ロース 梅角煮','浅利と豆苗 包み酒蒸し','アスパラときのこ バター醤油焼き'
-      ],
-      age:[
-        '塩なめろうアジフライ','手羽先 スパイス唐揚げ','山椒しぐれ煮 コロッケ','季節の味覚 かき揚げ','厳選部位 牛カツ'
-      ],
-      yaki:[
-        '岩手鴨 黒七味焼き','鉄板焼き 本日の魚介','鉄板焼き 和牛','鉄板焼き 野菜'
-      ],
-      shokuji:[
-        '玉蜀黍と小柱 土鍋ご飯','梅紫蘇 ガーリックライス','鉄板焼きおにぎり','赤だし'
-      ],
-      sweet:[
-        '塩ミルクジェラート','自家製 杏仁豆腐'
-      ]
+      otsumami:['沖縄 ざるもずく','山形 だだちゃ豆','お新香 盛り合わせ','自家製豆腐 薬味冷奴','トリュフフライドポテト'],
+      reisa:['鉄板焼き野菜サラダ','ローストビーフサラダ','季節の味覚 白和え','豆鯵 南蛮漬け','牛つらみ刺し'],
+      onsai:['出汁巻き玉子 揚げ出し','鶏はらみ 柚子塩麹煮込み','もち豚肩ロース 梅角煮','浅利と豆苗 包み酒蒸し','アスパラときのこ バター醤油焼き'],
+      age:['塩なめろうアジフライ','手羽先 スパイス唐揚げ','山椒しぐれ煮 コロッケ','季節の味覚 かき揚げ','厳選部位 牛カツ'],
+      yaki:['岩手鴨 黒七味焼き','鉄板焼き 本日の魚介','鉄板焼き 和牛','鉄板焼き 野菜'],
+      shokuji:['玉蜀黍と小柱 土鍋ご飯','梅紫蘇 ガーリックライス','鉄板焼きおにぎり','赤だし'],
+      sweet:['塩ミルクジェラート','自家製 杏仁豆腐']
     };
-
     const grid = document.getElementById('menuGrid');
-    function renderMenu(key){
-      grid.innerHTML = MENU[key].map(item=>`<div class="menu-item"><span>${item}</span><span></span></div>`).join('');
-    }
+    function renderMenu(key){ grid.innerHTML = MENU[key].map(item=>`<div class="menu-item"><span>${item}</span><span></span></div>`).join(''); }
     renderMenu('otsumami');
-
     document.getElementById('tabs').addEventListener('click', (e)=>{
-      const btn = e.target.closest('.chip');
-      if(!btn) return;
+      const btn = e.target.closest('.chip'); if(!btn) return;
       document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
-      btn.classList.add('active');
-      renderMenu(btn.dataset.tab);
+      btn.classList.add('active'); renderMenu(btn.dataset.tab);
     });
 
-    // Lightbox for gallery
-    const gallery = document.getElementById('gallery');
-    const overlay = document.createElement('div');
-    overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.8);display:none;place-items:center;z-index:1002';
-    const img = document.createElement('img');
-    img.style.maxWidth = '92vw'; img.style.maxHeight = '90vh'; img.style.borderRadius='10px';
-    overlay.appendChild(img); document.body.appendChild(overlay);
-    overlay.addEventListener('click',()=>overlay.style.display='none');
-    gallery.addEventListener('click',e=>{ if(e.target.tagName==='IMG'){ img.src = e.target.src; overlay.style.display='grid'; }});
-
-    // --- Lightweight runtime tests (console) ---
+    // ===== 簡易テスト（console） =====
     function runTests(){
       const expectKeys = ['otsumami','reisa','onsai','age','yaki','shokuji','sweet'];
       console.group('%cYANOSUKE UI Tests','color:#d6a154;font-weight:bold');
-      // Test 1: keys exist
-      expectKeys.forEach(k=>console.assert(Array.isArray(MENU[k]), `MENU category missing or not array: ${k}`));
-      // Test 2: default render
-      console.assert(grid.children.length === MENU.otsumami.length, `Default menu render mismatch: expected ${MENU.otsumami.length}, got ${grid.children.length}`);
-      // Test 3: tab switch to 冷菜
-      const reisaBtn = document.querySelector('[data-tab="reisa"]');
-      reisaBtn.click();
-      console.assert(grid.children.length === MENU.reisa.length, `Reisa tab render mismatch: expected ${MENU.reisa.length}, got ${grid.children.length}`);
-      console.assert(grid.textContent.includes('鉄板焼き野菜サラダ'), 'Reisa items not found in DOM');
+      expectKeys.forEach(k=>console.assert(Array.isArray(MENU[k]), `MENU category missing: ${k}`));
+      console.assert(grid.children.length === MENU.otsumami.length, `Default menu render mismatch`);
+      const reisaBtn = document.querySelector('[data-tab="reisa"]'); reisaBtn.click();
+      console.assert(grid.children.length === MENU.reisa.length, `Reisa tab mismatch`);
+      console.assert(grid.textContent.includes('鉄板焼き野菜サラダ'), 'Reisa items not found');
       console.groupEnd();
     }
     window.addEventListener('DOMContentLoaded', () => setTimeout(runTests, 50));

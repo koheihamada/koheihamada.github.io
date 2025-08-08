@@ -27,13 +27,44 @@
     .nav a:hover:after,.nav a.active:after{transform:scaleX(1)}
 
     /* MOBILE */
-    .hamburger{display:none;flex-direction:column;gap:4px}
-    .hamburger span{width:24px;height:2px;background:var(--ink)}
-    @media (max-width:860px){
-      .nav-links{position:fixed;top:64px;right:16px;flex-direction:column;background:var(--card);padding:14px 18px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.1);display:none}
-      .nav-links.open{display:flex}
-      .hamburger{display:flex}
-    }
+    .hamburger{
+  display:flex;align-items:center;justify-content:center;
+  width:44px;height:44px;padding:0;border:none;background:transparent;
+  border-radius:12px;cursor:pointer;outline:none;transition:background .2s, box-shadow .2s;
+}
+.hamburger:active{transform:translateY(1px)}
+.hamburger span{
+  position:absolute;left:50%;width:22px;height:2px;border-radius:2px;
+  transform:translateX(-50%);transition:transform .25s ease, opacity .2s ease, top .25s ease, background .2s ease;
+}
+/* 初期は白ライン（ヒーロー黒背景で視認性UP） */
+.nav:not(.scrolled) .hamburger span{ background:#fff; }
+/* スクロール後は濃色ライン */
+.nav.scrolled .hamburger span{ background:var(--ink); }
+
+.hamburger span:nth-child(1){ top:16px; }
+.hamburger span:nth-child(2){ top:21px; }
+.hamburger span:nth-child(3){ top:26px; }
+
+.hamburger.is-open span:nth-child(1){ top:21px; transform:translateX(-50%) rotate(45deg); }
+.hamburger.is-open span:nth-child(2){ opacity:0; }
+.hamburger.is-open span:nth-child(3){ top:21px; transform:translateX(-50%) rotate(-45deg); }
+
+/* ==== Mobileメニュー: 全幅ドロワーに変更 ==== */
+@media (max-width:860px){
+  .nav-links{
+    position:fixed; inset:64px 0 0 0; /* ナビ高さ分下げる */
+    display:grid; gap:10px; padding:18px 20px 28px;
+    background:rgba(255,255,255,.98);
+    border-radius:0; box-shadow:0 20px 40px rgba(0,0,0,.12);
+    transform:translateY(-8px); opacity:0; pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease;
+  }
+  .nav-links a{ padding:14px 2px; font-weight:700; }
+  .nav-links.open{ opacity:1; transform:none; pointer-events:auto; }
+  /* メニュー展開中は背面スクロール固定 */
+  html.no-scroll, body.no-scroll{ overflow:hidden; }
+}
 
     /* HERO */
     .hero{background:#000;height:88vh;min-height:560px;position:relative;display:grid;place-items:center;overflow:hidden}
@@ -119,7 +150,7 @@
       <h1>14席カウンターと個室、職人が躍る夜。</h1>
       <p>火の音、包丁の走る音、立ちのぼる香り。弥之助はライブキッチンの臨場感と、四季の味覚を楽しむ大人の居酒屋です。</p>
       <div class="cta">
-        <a href="#reservation" class="btn btn--primary">予約する</a>
+        <a href="https://tabelog.com/tokyo/A1317/A131701/13312586/" class="btn btn--primary">予約する</a>
         <a href="#menu" class="btn btn--ghost">メニューを見る</a>
       </div>
     </div>
@@ -215,7 +246,7 @@
     </div>
   </footer>
 
-  <a href="#reservation" class="floating-reserve">予約する</a>
+  <a href="https://tabelog.com/tokyo/A1317/A131701/13312586/" class="floating-reserve">予約する</a>
 
   <!-- JS -->
   <script>
@@ -248,7 +279,26 @@
       });
     },{rootMargin:'-50% 0px -45% 0px', threshold:0});
     sections.forEach(s=>s && spyObserver.observe(s));
+    // 開閉の状態をボタンに反映（X化＆スクロール固定）
+    hamburger.addEventListener('click', ()=>{
+      const open = !navLinks.classList.contains('open');
+      navLinks.classList.toggle('open', open);
+      hamburger.classList.toggle('is-open', open);
+      hamburger.setAttribute('aria-expanded', String(open));
+      document.documentElement.classList.toggle('no-scroll', open);
+      document.body.classList.toggle('no-scroll', open);
+    });
+    
+    // 既存の各リンククリック時の閉じる処理はそのまま活用
+    spyLinks.forEach(a=>a.addEventListener('click',()=>{
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded','false');
+      document.documentElement.classList.remove('no-scroll');
+      document.body.classList.remove('no-scroll');
+    }));
 
+    
     // Reveal on scroll
     const reveal = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('on')), {threshold:.15});

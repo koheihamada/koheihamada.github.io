@@ -14,6 +14,19 @@
     a{color:inherit;text-decoration:none}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
 
+    @font-face {
+      font-family: 'Kouzan';
+      src: url('/fonts/KouzanMouhituFontOTF.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    body {
+      margin: 0;
+      font-family: 'Kouzan', 'Noto Sans JP', sans-serif;
+      color: #333;
+      background-color: #fff;
+    }
+    
     /* NAV */
     .nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;z-index:1000;transition:background .3s, box-shadow .3s}
     .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
@@ -28,29 +41,29 @@
 
     /* MOBILE */
     .hamburger{
-  display:flex;align-items:center;justify-content:center;
-  width:44px;height:44px;padding:0;border:none;background:transparent;
-  border-radius:12px;cursor:pointer;outline:none;transition:background .2s, box-shadow .2s;
-}
-.hamburger:active{transform:translateY(1px)}
-.hamburger span{
-  position:absolute;left:50%;width:22px;height:2px;border-radius:2px;
-  transform:translateX(-50%);transition:transform .25s ease, opacity .2s ease, top .25s ease, background .2s ease;
-}
-/* 初期は白ライン（ヒーロー黒背景で視認性UP） */
-.nav:not(.scrolled) .hamburger span{ background:#fff; }
-/* スクロール後は濃色ライン */
-.nav.scrolled .hamburger span{ background:var(--ink); }
-
-.hamburger span:nth-child(1){ top:16px; }
-.hamburger span:nth-child(2){ top:21px; }
-.hamburger span:nth-child(3){ top:26px; }
-
-.hamburger.is-open span:nth-child(1){ top:21px; transform:translateX(-50%) rotate(45deg); }
-.hamburger.is-open span:nth-child(2){ opacity:0; }
-.hamburger.is-open span:nth-child(3){ top:21px; transform:translateX(-50%) rotate(-45deg); }
-
-/* ==== Mobileメニュー: 全幅ドロワーに変更 ==== */
+      display:flex;align-items:center;justify-content:center;
+      width:44px;height:44px;padding:0;border:none;background:transparent;
+      border-radius:12px;cursor:pointer;outline:none;transition:background .2s, box-shadow .2s;
+    }
+    .hamburger:active{transform:translateY(1px)}
+    .hamburger span{
+      position:absolute;left:50%;width:22px;height:2px;border-radius:2px;
+      transform:translateX(-50%);transition:transform .25s ease, opacity .2s ease, top .25s ease, background .2s ease;
+    }
+    /* 初期は白ライン（ヒーロー黒背景で視認性UP） */
+    .nav:not(.scrolled) .hamburger span{ background:#fff; }
+    /* スクロール後は濃色ライン */
+    .nav.scrolled .hamburger span{ background:var(--ink); }
+    
+    .hamburger span:nth-child(1){ top:16px; }
+    .hamburger span:nth-child(2){ top:21px; }
+    .hamburger span:nth-child(3){ top:26px; }
+    
+    .hamburger.is-open span:nth-child(1){ top:21px; transform:translateX(-50%) rotate(45deg); }
+    .hamburger.is-open span:nth-child(2){ opacity:0; }
+    .hamburger.is-open span:nth-child(3){ top:21px; transform:translateX(-50%) rotate(-45deg); }
+    
+    /* ==== Mobileメニュー: 全幅ドロワーに変更 ==== */
 @media (max-width:860px){
   .nav-links{
     position:fixed; inset:64px 0 0 0; /* ナビ高さ分下げる */

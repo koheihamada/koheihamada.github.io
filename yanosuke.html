@@ -37,11 +37,7 @@
 
     /* HERO */
     .hero{height:88vh;min-height:560px;position:relative;display:grid;place-items:center;overflow:hidden}
-    .hero::before {
-      content:"";position:absolute;inset:0;
-      background:#000; /* 背景を黒に変更 */
-      transform:translateY(0);will-change:transform;
-    }
+    .hero::before { content:"";position:absolute;inset:0; background:#000; transform:translateY(0);will-change:transform; }
     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.15) 40%, rgba(250,248,243,.9))}
     .hero-content{position:relative;text-align:left;color:#fff;max-width:1100px;padding:0 20px;}
     .hero h1{font-family:"Noto Serif JP", serif;font-weight:700;letter-spacing:.18em;font-size:clamp(28px,4vw,44px);margin:0 0 10px}
@@ -108,6 +104,7 @@
         <a href="#interior" data-spy>店内紹介</a>
         <a href="#menu" data-spy>メニュー</a>
         <a href="#access" data-spy>アクセス</a>
+        <a href="#company" data-spy>会社概要</a>
         <a href="#reservation" data-spy>予約</a>
       </div>
       <button class="hamburger" id="hamburger" aria-label="メニュー">
@@ -184,6 +181,19 @@
         <p><strong>席数</strong>：カウンター18席</p>
       </div>
       <iframe class="map" title="Google Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220.09590755595204!2d139.6963294861533!3d35.64272169397791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b89aea61fad%3A0x5dbec2dfc54862c3!2z5Lit55uu6buSIOW8peS5i-WKqQ!5e0!3m2!1sen!2ssg!4v1754615121260!5m2!1sen!2ssg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- COMPANY -->
+  <section id="company" class="container">
+    <h2 class="section-title">会社概要</h2>
+    <div class="card reveal" style="padding:18px">
+      <p><strong>会社名：</strong>株式会社Basic</p>
+      <p><strong>代表取締役：</strong>福田 雄太</p>
+      <p><strong>設立：</strong>2024年1月</p>
+      <p><strong>住所：</strong>東京都目黒区駒場2丁目9-9</p>
+      <p><strong>事業内容：</strong>飲食店の運営およびコンサルティング</p>
+      <p style="font-size:.9rem;color:#6a6a6a">出典：<a href="https://www.basic-fnb.com/" target="_blank" rel="noopener">株式会社Basic 公式サイト</a></p>
     </div>
   </section>
 

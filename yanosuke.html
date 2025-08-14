@@ -86,7 +86,59 @@
     .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
     .gallery img{width:100%;height:100%;object-fit:cover;border-radius:14px;cursor:pointer}
     @media (max-width:900px){.gallery{grid-template-columns:1fr 1fr}}
+    .carousel-btn{ display:none; }
 
+    /* === PC（≥901px）だけ横カルーセル化 === */
+    @media (min-width: 901px){
+      .gallery-wrap{
+        position: relative;
+      }
+    
+      .gallery{
+        display:flex;                /* grid → 横並び */
+        gap:16px;
+        overflow-x:auto;
+        scroll-snap-type:x mandatory;/* スクロールが心地よく止まる */
+        -webkit-overflow-scrolling: touch;
+        -webkit-mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
+        padding: 6px 8px 10px;
+        mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
+      }
+    
+      .gallery img{
+        flex:0 0 auto;
+        height: 360px;               /* 見映えサイズ */
+        aspect-ratio: 4 / 3;         /* 形が暴れない */
+        width: auto;
+        object-fit: cover;
+        border-radius:14px;
+        scroll-snap-align:start;
+      }
+    
+      /* ナビボタン */
+      .carousel-btn{
+        position:absolute;
+        top:50%; translate:0 -50%;
+        width:40px; height:40px; border:0;
+        border-radius:999px;
+        background:rgba(255,255,255,.9);
+        box-shadow:0 8px 20px rgba(0,0,0,.12);
+        font-size:22px; font-weight:700; line-height:40px;
+        cursor:pointer;
+        transition:transform .12s ease, background .2s ease;
+      }
+      .carousel-btn:hover{ transform:translateY(-50%) scale(1.05); }
+      .carousel-btn:active{ transform:translateY(-50%) scale(.97); }
+      .carousel-btn.prev{ left:-6px; }
+      .carousel-btn.next{ right:-6px; }
+    
+      /* スクロールバー控えめ（対応ブラウザのみ） */
+      .gallery::-webkit-scrollbar{ height:8px; }
+      .gallery::-webkit-scrollbar-thumb{ background:#ddd; border-radius:8px; }
+      .gallery{ scrollbar-color:#ddd transparent; scrollbar-width:thin; }
+    }
+    
+    
     /* MENU (tabs) */
     .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
     .chip{padding:8px 12px;border-radius:999px;background:#f1ece3;border:1px solid #e3dacb;font-weight:600;cursor:pointer}
@@ -199,15 +251,23 @@
     </div>
   </section>
 
-  <!-- INTERIOR / GALLERY -->
+ <!-- INTERIOR / GALLERY -->
   <section id="interior" class="container">
     <h2 class="section-title">店内紹介</h2>
     <p class="subtitle">木の温もりと柔らかな陰影。14席のカウンターで、熱の“最前列”へ。</p>
-    <div class="gallery reveal" id="gallery">
-      <img src="/src/counter-seat.jpg" alt="カウンター全景">
-      <img src="/src/donabe.jpg" alt="料理の並び">
-      <img src="src/mackrel-fry.jpg" alt="キッチンの様子">
-      <img src="src/private-seat.jpg" alt="個室の写真">
+  
+    <!-- 追加：wrap（PC時のナビボタン用）-->
+    <div class="gallery-wrap">
+      <button class="carousel-btn prev" type="button" aria-label="前へ" data-gallery-btn="prev">‹</button>
+  
+      <div class="gallery reveal" id="gallery">
+        <img src="/src/counter-seat.jpg" alt="カウンター全景">
+        <img src="/src/donabe.jpg" alt="料理の並び">
+        <img src="/src/mackrel-fry.jpg" alt="キッチンの様子">
+        <img src="/src/private-seat.jpg" alt="個室の写真">
+      </div>
+  
+      <button class="carousel-btn next" type="button" aria-label="次へ" data-gallery-btn="next">›</button>
     </div>
   </section>
 
@@ -378,6 +438,27 @@
       btn.classList.add('active'); renderMenu(btn.dataset.tab);
     });
 
+    // === Gallery carousel (PCのみ見た目が変わる) ===
+    (() => {
+      const gallery = document.getElementById('gallery');
+      if (!gallery) return;
+    
+      // ボタン操作（左右へスムーズスクロール）
+      const step = () => Math.max(280, Math.floor(gallery.clientWidth * 0.9));
+      document.querySelectorAll('[data-gallery-btn]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const dir = btn.dataset.galleryBtn === 'next' ? 1 : -1;
+          gallery.scrollBy({ left: dir * step(), behavior:'smooth' });
+        });
+      });
+    
+      // キーボード操作（フォーカス時の左右キー）
+      gallery.setAttribute('tabindex','0');
+      gallery.addEventListener('keydown',e=>{
+        if(e.key === 'ArrowRight'){ gallery.scrollBy({left: step(), behavior:'smooth'}); }
+        if(e.key === 'ArrowLeft'){ gallery.scrollBy({left:-step(), behavior:'smooth'}); }
+      });
+    })();
     // ===== 簡易テスト（console） =====
     function runTests(){
       const expectKeys = ['otsumami','reisa','onsai','age','yaki','shokuji','sweet'];

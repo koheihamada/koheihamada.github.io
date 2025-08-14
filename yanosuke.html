@@ -73,7 +73,15 @@
       overflow: hidden;
       color: #fff;                 /* テキスト色はここで一括 */
     }
+    /* 初期はposter（静止画）が見える状態。動画は透明→読み込みでフェードIN */
+    .hero-video{ opacity:0; transition:opacity .35s ease; }
+    .hero-video.is-ready{ opacity:1; }
     
+    /* 省データ派や重い回線は動画消して静止画だけ */
+    @media (prefers-reduced-data: reduce){
+      .hero-video{ display:none; }
+      .hero{ background: url('/src/hero-fallback.jpg') center/cover no-repeat; }
+    }
     /* 背景動画 & オーバーレイは全面フィット */
     .hero-video,
     .hero-overlay{
@@ -177,6 +185,8 @@
 
     /* === PC（≥901px）だけ横カルーセル化 === */
     @media (min-width: 901px){
+    .carousel-btn{ display:block; }
+
       .gallery-wrap{
         position: relative;
       }
@@ -310,10 +320,15 @@
 
   <!-- HERO -->
   <section class="hero" aria-label="Hero">
-    <video autoplay muted loop playsinline class="hero-video">
-      <source src="/src/donabe.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay"></div>
+    <video
+    class="hero-video"
+    autoplay muted loop playsinline
+    preload="metadata"
+    poster="/src/donabe-2.jpg">
+    <source src="/src/donabe.webm" type="video/webm">
+    <source src="/src/donabe.mp4"  type="video/mp4">
+  </video>
+  <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>14席カウンターと個室、職人が躍る夜。</h1>
       <p style="font-family:Kouzan;">火の音、包丁の走る音、立ちのぼる香り。弥之助はライブキッチンの臨場感と、四季の味覚を楽しむ大人の居酒屋です。</p>
@@ -451,6 +466,13 @@
       scrim = document.createElement('div');
       scrim.className = 'nav-scrim';
       document.body.appendChild(scrim);
+    }
+    // 読み込みできたら表示
+    const hv = document.querySelector('.hero-video');
+    if (hv){
+      const show = ()=> hv.classList.add('is-ready');
+      hv.addEventListener('loadeddata', show, { once:true });
+      hv.addEventListener('canplay', show, { once:true });
     }
 
     // ===== 開閉ヘルパ =====

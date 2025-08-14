@@ -473,6 +473,8 @@
       const show = ()=> hv.classList.add('is-ready');
       hv.addEventListener('loadeddata', show, { once:true });
       hv.addEventListener('canplay', show, { once:true });
+      setTimeout(()=>{ if (hv.readyState >= 2) show(); }, 1200); // 保険（任意）
+
     }
 
     // ===== 開閉ヘルパ =====

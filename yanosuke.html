@@ -61,14 +61,101 @@
     }
     
     /* HERO */
-    .hero{background:#000;height:88vh;min-height:560px;position:relative;display:grid;place-items:center;overflow:hidden}
-    .hero-content{position:relative;text-align:left;color:#fff;max-width:1100px;padding:0 20px;}
-    .hero h1{font-family:"Kouzan", serif;font-weight:700;letter-spacing:.18em;font-size:clamp(28px,4vw,44px);margin:0 0 10px}
-    .hero p{max-width:680px;margin:0 0 24px;opacity:.95}
-    .cta{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-block;padding:12px 18px;border-radius:999px;font-weight:700;border:1px solid transparent}
-    .btn--primary{background:var(--accent);color:#1b1207}
-    .btn--ghost{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.35);color:#fff}
+    /* =========================
+     HERO (video background)
+     ========================= */
+    .hero{
+      position: relative;
+      display: grid;
+      place-items: center;
+      height: 88vh;
+      min-height: 560px;
+      overflow: hidden;
+      color: #fff;                 /* テキスト色はここで一括 */
+    }
+    
+    /* 背景動画 & オーバーレイは全面フィット */
+    .hero-video,
+    .hero-overlay{
+      position: absolute;
+      inset: 0;
+    }
+    
+    .hero-video{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    
+    .hero-overlay{
+      z-index: 1;
+      background: rgba(0,0,0,.45); /* 読みやすさ用の暗幕 */
+    }
+    
+    /* コンテンツ本体 */
+    .hero-content{
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      padding: 0 20px;             /* 安全な横マージン */
+    }
+    
+    /* タイトル/テキスト */
+    .hero h1{
+      font-family: "Kouzan", serif;
+      font-weight: 700;
+      letter-spacing: .18em;
+      font-size: clamp(28px, 4vw, 44px);
+      margin: 0 0 10px;
+    }
+    
+    .hero p{
+      max-width: 680px;
+      margin: 0 0 24px;
+      opacity: .95;
+    }
+    
+    /* CTA ボタン */
+    .cta{
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    
+    .btn{
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      line-height: 1;              /* 垂直中央を安定化 */
+    }
+    
+    .btn--primary{
+      background: var(--accent);
+      color: #1b1207;
+    }
+    .btn--ghost{
+      background: rgba(255,255,255,.1);
+      border-color: rgba(255,255,255,.35);
+      color: #fff;
+    }
+    
+    /* フォーカス/ホバー（わずかに視覚的フィードバック） */
+    .btn:focus-visible{
+      outline: 2px solid rgba(255,255,255,.8);
+      outline-offset: 2px;
+    }
+    .btn:hover{
+      filter: brightness(1.05);
+    }
+    
+    /* 省エネ設定の端末では動画を停止（静止画フォールバックがあると尚良し） */
+    @media (prefers-reduced-motion: reduce){
+      .hero-video{ display:none; }
+      .hero-overlay{ background: rgba(0,0,0,.55); }
+    }
 
     /* SECTIONS */
     section{padding:80px 0}
@@ -223,6 +310,10 @@
 
   <!-- HERO -->
   <section class="hero" aria-label="Hero">
+    <video autoplay muted loop playsinline class="hero-video">
+      <source src="/src/donabe.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>14席カウンターと個室、職人が躍る夜。</h1>
       <p style="font-family:Kouzan;">火の音、包丁の走る音、立ちのぼる香り。弥之助はライブキッチンの臨場感と、四季の味覚を楽しむ大人の居酒屋です。</p>
@@ -246,7 +337,7 @@
         </ul>
       </div>
       <div class="image">
-        <img src="/mnt/data/A_photograph_showcases_a_Japanese_cuisine_spread_f.png" alt="料理イメージ">
+        <img src="/src/aji-fry.jpg" alt="料理イメージ">
       </div>
     </div>
   </section>

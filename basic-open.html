@@ -435,6 +435,93 @@
       margin-right: 6px;
     }
 
+    /* ---- Case (Success stories) ---- */
+
+    .case-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 18px;
+    }
+
+    .case-card {
+      background-color: var(--surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 18px 18px 14px;
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .case-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .case-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+
+    .case-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .case-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background-color: var(--accent-soft);
+      color: var(--accent-text);
+      white-space: nowrap;
+    }
+
+    .case-text {
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    .case-media {
+      margin-top: 4px;
+    }
+
+    .case-card .store-img {
+      margin-top: 8px;
+      margin-bottom: 6px;
+      border-radius: 12px;
+    }
+
+    .case-footer {
+      margin-top: 2px;
+    }
+
+    .case-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      text-decoration: none;
+      color: var(--accent-text);
+    }
+
+    .case-link span {
+      font-size: 15px;
+    }
+
+    .case-card:hover {
+      border-color: #fed7aa;
+      box-shadow: 0 16px 34px rgba(217, 119, 6, 0.18);
+      transform: translateY(-1px);
+      transition: all 0.15s ease;
+    }
+
     /* ---- Success cases ---- */
 
     .case-title {
@@ -491,6 +578,26 @@
     }
 
     /* ---- Responsive ---- */
+
+    /* PC時のみカードのテキスト高さを揃える */
+    @media (min-width: 768px) {
+      .case-text {
+        min-height: 120px;  /* ← ここで高さを揃える（調整可能） */
+        display: flex;
+        align-items: flex-start;
+      }
+    }
+
+    /* カード全体の縦並びを安定させる */
+    .case-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .case-media {
+      margin-top: auto; /* ← テキスト量が違っても画像を下揃え */
+    }
+
 
     @media (max-width: 900px) {
       .hero-inner {
@@ -748,54 +855,88 @@
             </p>
           </div>
 
-          <div class="card">
-            <h3 class="case-title">Bistro Bolero（中目黒｜2024年テイクオーバー）</h3>
-            <div class="case-meta">
-              中目黒・裏路地の一軒家ビストロ / テイクオーバー支援
-            </div>
-            <p>
-              中目黒の裏路地にある一軒家ビストロを引き継ぎ、テイクオーバー支援を実施。<br>
-              コンセプト刷新・スタッフ再編成・ナチュールワイン強化により、売上V字回復を実現。<br>
-              SNSでも話題の店舗に。
-            </p>
-            <img src="https://www.basic-fnb.com/src/bolero-1.jpg" alt="Bistro Bolero" class="store-img">
-            <a href="https://g.co/kgs/LCrCSk2" target="_blank" class="case-link">
-              店舗をGoogleマップで見る <span>↗</span>
-            </a>
-          </div>
+          <div class="case-grid">
+            <!-- Bistro Bolero -->
+            <article class="case-card">
+              <header class="case-header">
+                <div>
+                  <h3 class="case-title">Bistro Bolero</h3>
+                  <div class="case-meta">中目黒 / 一軒家ビストロ</div>
+                </div>
+                <div class="case-tag">2024 テイクオーバー</div>
+              </header>
 
-          <div class="card">
-            <h3 class="case-title">清田焼肉店（下北沢｜2025年オープン）</h3>
-            <div class="case-meta">
-              下北沢駅徒歩30秒 / 焼肉店新規開業
-            </div>
-            <p>
-              駅徒歩30秒の好立地に開業。<br>
-              Basicが物件取得から内装、採用、メニュー構成、POS導入まで一貫サポート。<br>
-              オープン初月から予約多数の人気店へ。
-            </p>
-            <img src="https://www.basic-fnb.com/src/kiyota-7.jpg" alt="清田焼肉店" class="store-img">
-            <a href="https://g.co/kgs/qNUkUBS" target="_blank" class="case-link">
-              店舗をGoogleマップで見る <span>↗</span>
-            </a>
-          </div>
+              <p class="case-text">
+                中目黒の裏路地にある一軒家ビストロを引き継ぎ、テイクオーバー支援を実施。<br>
+                コンセプト刷新・スタッフ再編成・ナチュールワイン強化により、売上V字回復を実現。
+              </p>
 
-          <div class="card">
-            <h3 class="case-title">中目黒 弥之助（中目黒｜2025年オープン）</h3>
-            <div class="case-meta">
-              中目黒 / 土鍋ご飯と和食のネオ居酒屋
-            </div>
-            <p>
-              14席のカウンターと個室に集まる熱と匂い、職人の手元まで愉しむ“ライブ”が主役。<br>
-              代表者が料理に自信はあるが、物件の取得や経営に不安するところをBasicがフルサポート。<br>
-            </p>
-            <img src="https://www.basic-fnb.com/src/counter-seat.jpg" alt="中目黒 弥之助" class="store-img">
-            <a href="https://maps.app.goo.gl/XMEoHShZvLbXgmfHA" target="_blank" class="case-link">
-              店舗をGoogleマップで見る <span>↗</span>
-            </a>
+              <div class="case-media">
+                <img src="https://www.basic-fnb.com/src/bolero-1.jpg" alt="Bistro Bolero" class="store-img">
+              </div>
+
+              <div class="case-footer">
+                <a href="https://g.co/kgs/LCrCSk2" target="_blank" class="case-link">
+                  店舗をGoogleマップで見る <span>↗</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- 清田焼肉店 -->
+            <article class="case-card">
+              <header class="case-header">
+                <div>
+                  <h3 class="case-title">清田焼肉店</h3>
+                  <div class="case-meta">下北沢 / 焼肉</div>
+                </div>
+                <div class="case-tag">2025 新規オープン</div>
+              </header>
+
+              <p class="case-text">
+                駅徒歩30秒の好立地に開業。Basicが物件取得から内装、採用、メニュー構成、
+                POS導入まで一貫サポート。オープン初月から予約多数の人気店へ。
+              </p>
+
+              <div class="case-media">
+                <img src="https://www.basic-fnb.com/src/kiyota-7.jpg" alt="清田焼肉店" class="store-img">
+              </div>
+
+              <div class="case-footer">
+                <a href="https://g.co/kgs/qNUkUBS" target="_blank" class="case-link">
+                  店舗をGoogleマップで見る <span>↗</span>
+                </a>
+              </div>
+            </article>
+
+            <!-- 弥之助 -->
+            <article class="case-card">
+              <header class="case-header">
+                <div>
+                  <h3 class="case-title">中目黒 弥之助</h3>
+                  <div class="case-meta">中目黒 / ネオ居酒屋</div>
+                </div>
+                <div class="case-tag">2025 新規オープン</div>
+              </header>
+
+              <p class="case-text">
+                14席のカウンターと個室に集まる熱と匂い、職人の手元まで愉しむ“ライブ”が主役の店舗。<br>
+                物件取得や経営に不安のあったオーナーを、Basicがフルサポートしました。
+              </p>
+
+              <div class="case-media">
+                <img src="https://www.basic-fnb.com/src/counter-seat.jpg" alt="中目黒 弥之助" class="store-img">
+              </div>
+
+              <div class="case-footer">
+                <a href="https://maps.app.goo.gl/XMEoHShZvLbXgmfHA" target="_blank" class="case-link">
+                  店舗をGoogleマップで見る <span>↗</span>
+                </a>
+              </div>
+            </article>
           </div>
         </div>
       </section>
+
 
       <!-- Contact -->
       <section id="contact">

@@ -17,7 +17,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 
-
   <!-- OGP Meta Tags -->
   <meta property="og:title" content="株式会社Basic | 食の未来をつなぐ" />
   <meta property="og:description" content="飲食店の価値を高め、人を大切にし、次の世代へ食文化をつなぐ。飲食M&A・新規立ち上げ・コンサルティングなら株式会社Basic。" />
@@ -54,8 +53,9 @@
       --surface-soft: #f9fafb;
       --border-subtle: #e5e7eb;
       --border-strong: #d1d5db;
-      --accent: #16a34a;
-      --accent-soft: #dcfce7;
+      --accent: #D97706;            /* 濃いオレンジ */
+      --accent-soft: #FEF3C7;       /* オレンジ系の薄背景 */
+      --accent-text: #7C2D12;       /* 濃い茶色になる */
       --text-main: #111827;
       --text-muted: #6b7280;
       --text-strong: #020617;
@@ -115,13 +115,15 @@
       gap: 10px;
     }
 
-    .nav-logo-mark {
+    .nav-logo-mark-img {
       width: 32px;
       height: 32px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, #16a34a, #22c55e);
-      box-shadow: 0 10px 20px rgba(22, 163, 74, 0.35);
+      border-radius: 6px;  /* ここだけでOK */
+      object-fit: cover;
+      display: block;
     }
+
+
 
     .nav-logo-text {
       font-size: 18px;
@@ -152,20 +154,19 @@
     }
 
     .nav-cta {
+      background-color: var(--accent-soft);   /* 薄いオレンジ背景 */
+      color: var(--accent-text);              /* 濃い茶色/エンジ文字 */
       text-decoration: none;
       padding: 7px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(22, 163, 74, 0.7);
-      color: #166534;
+      border: 1px solid rgba(217, 119, 6, 0.7); /* ← オレンジ系に統一 */
       font-size: 12px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background-color: #dcfce7;
-      transition: background-color 0.15s ease, box-shadow 0.15s ease,
-        transform 0.15s ease;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
     }
 
     .nav-cta span {
@@ -173,8 +174,8 @@
     }
 
     .nav-cta:hover {
-      background-color: #bbf7d0;
-      box-shadow: 0 10px 25px rgba(22, 163, 74, 0.2);
+      background-color: #FDE68A; /* 明るいオレンジ */
+      box-shadow: 0 10px 25px rgba(217, 119, 6, 0.2);
       transform: translateY(-1px);
     }
 
@@ -256,7 +257,7 @@
       width: 14px;
       height: 14px;
       border-radius: 999px;
-      background-color: #16a34a;
+      background-color: var(--accent);
     }
 
     .hero-title {
@@ -268,7 +269,7 @@
 
     .hero-title span {
       display: inline-block;
-      color: #16a34a;
+      color: #881337;
     }
 
     .hero-sub {
@@ -299,7 +300,7 @@
       padding: 10px 20px;
       border-radius: 999px;
       border: none;
-      background-color: #16a34a;
+      background-color: var(--accent);
       color: #f9fafb;
       font-size: 13px;
       letter-spacing: 0.06em;
@@ -308,7 +309,7 @@
       align-items: center;
       gap: 8px;
       cursor: pointer;
-      box-shadow: 0 12px 28px rgba(22, 163, 74, 0.35);
+      box-shadow: 0 12px 28px rgba(217, 119, 6, 0.35);
       transition: background-color 0.15s ease, transform 0.15s ease,
         box-shadow 0.15s ease;
     }
@@ -318,9 +319,9 @@
     }
 
     .btn-primary:hover {
-      background-color: #15803d;
+      background-color: #B45309;
       transform: translateY(-1px);
-      box-shadow: 0 18px 36px rgba(22, 163, 74, 0.4);
+      box-shadow: 0 18px 36px rgba(217, 119, 6, 0.4);
     }
 
     .btn-secondary {
@@ -358,8 +359,8 @@
     .hero-tag {
       padding: 4px 9px;
       border-radius: 999px;
-      background-color: #e5e7eb;
-      color: #374151;
+      background-color: #FDE68A;
+      color: #7C2D12;
     }
 
     /* Hero right: Portfolio mini */
@@ -390,7 +391,7 @@
       padding: 3px 8px;
       border-radius: 999px;
       background-color: var(--accent-soft);
-      color: #166534;
+      color: var(--accent-text);
     }
 
     .hero-portfolio-text {
@@ -402,7 +403,7 @@
     .hero-portfolio-list {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
       margin-bottom: 10px;
     }
 
@@ -412,33 +413,75 @@
       border: 1px solid #e5e7eb;
       background-color: #f9fafb;
       display: flex;
-      flex-direction: column;
-      gap: 2px;
+      align-items: center;
+      gap: 10px;
+      transition: background-color 0.15s ease, border-color 0.15s ease,
+        box-shadow 0.15s ease, transform 0.15s ease;
+    }
+
+    .hero-portfolio-item:hover {
+      background-color: #eef2ff;
+      border-color: #c7d2fe;
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.1);
+      transform: translateY(-1px);
+    }
+
+    /* 左の丸アイコン */
+    .hero-portfolio-icon {
+     width: 18px;
+     height: 18px;
+     border-radius: 999px;
+     background: radial-gradient(circle at 30% 30%, #FDE68A, #D97706);
+     box-shadow: 0 0 0 1px rgba(180, 83, 9, 0.4);
+    }
+
+    /* 中央のテキスト部分 */
+    .hero-portfolio-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .hero-portfolio-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 1px;
     }
 
     .hero-portfolio-brand {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 600;
       color: var(--text-main);
     }
 
+    .hero-portfolio-label {
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: 999px;
+      background-color: #e5e7eb;
+      color: #4b5563;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
     .hero-portfolio-meta {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-muted);
     }
 
+    /* 右側のリンク */
     .hero-portfolio-link {
+      font-size: 11px;
+      color: var(--accent-text);
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 4px;
-      font-size: 12px;
-      color: #166534;
-      margin-top: 4px;
-      text-decoration: none;
+      gap: 3px;
+      white-space: nowrap;
     }
 
     .hero-portfolio-link span {
-      font-size: 14px;
+      font-size: 13px;
     }
 
     /* ---------- Sections ---------- */
@@ -465,7 +508,7 @@
     }
 
     .section-title span {
-      color: #16a34a;
+      color: #881337;
     }
 
     .section-body {
@@ -524,7 +567,7 @@
     }
 
     .link-inline {
-      color: #166534;
+      color: var(--accent-text);
       text-decoration: underline;
       text-decoration-thickness: 1px;
       text-underline-offset: 2px;
@@ -716,6 +759,13 @@
       .nav-inner {
         padding-inline: 16px;
       }
+      .hero-portfolio {
+        display: none;
+      }
+      .hero-actions {
+        justify-content: center;
+        text-align: center;
+      }
 
       .nav-menu {
         display: none;
@@ -774,7 +824,7 @@
     <header class="nav">
       <div class="nav-inner">
         <div class="nav-logo">
-          <div class="nav-logo-mark"></div>
+          <img src="/src/basic-logo.png" alt="Basic inc. logo" class="nav-logo-mark-img">
           <div class="nav-logo-text">Basic inc.</div>
         </div>
 
@@ -808,6 +858,7 @@
       </nav>
     </header>
 
+
     <!-- Main -->
     <main>
       <!-- Hero -->
@@ -826,7 +877,7 @@
             「食の未来をつなぎ、広げる」ことに挑戦し続ける飲食スタートアップです。
           </p>
           <p class="hero-meta">
-            <strong>中目黒・下北沢を中心に、</strong>
+            <strong>日本国内を中心に、</strong>
             既存店舗を引き継ぎながら、新しいブランドと働き方をつくっています。
           </p>
 
@@ -861,26 +912,47 @@
 
           <div class="hero-portfolio-list">
             <div class="hero-portfolio-item">
-              <div class="hero-portfolio-brand">Bistro Bolero</div>
-              <div class="hero-portfolio-meta">中目黒 / ビストロ</div>
+              <div class="hero-portfolio-icon"></div>
+              <div class="hero-portfolio-info">
+                <div class="hero-portfolio-brand-row">
+                  <div class="hero-portfolio-brand">Bistro Bolero</div>
+                  <span class="hero-portfolio-label">ビストロ</span>
+                </div>
+                <div class="hero-portfolio-meta">中目黒 / 路地裏ビストロ</div>
+              </div>
               <a href="/bolero" class="hero-portfolio-link">
-                店舗ページへ <span>↗</span>
+                詳細 <span>↗</span>
               </a>
             </div>
+
             <div class="hero-portfolio-item">
-              <div class="hero-portfolio-brand">清田焼肉店</div>
-              <div class="hero-portfolio-meta">下北沢 / 焼肉</div>
+              <div class="hero-portfolio-icon"></div>
+              <div class="hero-portfolio-info">
+                <div class="hero-portfolio-brand-row">
+                  <div class="hero-portfolio-brand">清田焼肉店</div>
+                  <span class="hero-portfolio-label">焼肉</span>
+                </div>
+                <div class="hero-portfolio-meta">下北沢 / 街に根づく焼肉</div>
+              </div>
               <a href="/kiyota" class="hero-portfolio-link">
-                店舗ページへ <span>↗</span>
+                詳細 <span>↗</span>
               </a>
             </div>
+
             <div class="hero-portfolio-item">
-              <div class="hero-portfolio-brand">弥之助</div>
-              <div class="hero-portfolio-meta">中目黒 / 居酒屋</div>
+              <div class="hero-portfolio-icon"></div>
+              <div class="hero-portfolio-info">
+                <div class="hero-portfolio-brand-row">
+                  <div class="hero-portfolio-brand">弥之助</div>
+                  <span class="hero-portfolio-label">居酒屋</span>
+                </div>
+                <div class="hero-portfolio-meta">中目黒 / 土鍋ご飯と和食</div>
+              </div>
               <a href="/yanosuke" class="hero-portfolio-link">
-                店舗ページへ <span>↗</span>
+                詳細 <span>↗</span>
               </a>
             </div>
+          </div>
           </div>
         </aside>
       </section>
@@ -964,7 +1036,7 @@
           <h2 class="section-title">Basicが手がけるブランド</h2>
         </div>
         <div class="section-body">
-          中目黒・下北沢を起点に、既存店の承継と新規ブランド立ち上げを両輪で進めています。
+          既存店の承継と新規ブランド立ち上げを両輪で進めています。</br>
           写真やストーリーを通して、「現場の温度感」が伝わるブランドを増やしていきます。
         </div>
 
@@ -1012,10 +1084,6 @@
             </div>
           </article>
         </div>
-
-        <p class="portfolio-note">
-          ※ 写真はイメージです。各ブランドの世界観が分かるビジュアルを順次追加予定です。
-        </p>
       </section>
 
       <!-- Business -->

@@ -3,167 +3,924 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basic inc | 飲食開業支援</title>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+  <title>Basic inc | 飲食開業支援「Basic Support」</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+
   <style>
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
+
+    :root {
+      --bg: #f5f5f4;
+      --surface: #ffffff;
+      --surface-soft: #f9fafb;
+      --border-subtle: #e5e7eb;
+      --border-strong: #d4d4d4;
+      --accent: #d97706;
+      --accent-soft: #fef3c7;
+      --accent-text: #7c2d12;
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --max-width: 960px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Noto Serif JP', serif;
-      background-color: #fafafa;
-      color: #333;
-      line-height: 1.7;
+      font-family: "Inter", "Noto Sans JP", system-ui, -apple-system,
+        BlinkMacSystemFont, "Helvetica Neue", sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.8;
     }
-    header {
-      background: url('https://images.unsplash.com/photo-1541542684-4b1cbbf5c3bb?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      height: 100vh;
+
+    a {
+      color: inherit;
+    }
+
+    /* ---- Global layout ---- */
+
+    .page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 56px 20px 0px 20px;
+    }
+
+    section {
+      margin-bottom: 15px;
+    }
+
+    /* ---- Top nav ---- */
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 40;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      background: rgba(250, 250, 249, 0.96);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.9);
+    }
+
+    .top-nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 8px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .nav-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-brand-main {
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .nav-brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .nav-cta {
+      text-decoration: none;
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(217, 119, 6, 0.7);
+      background-color: var(--accent-soft);
+      color: var(--accent-text);
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease,
+        transform 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .nav-cta span {
+      font-size: 14px;
+    }
+
+    .nav-cta:hover {
+      background-color: #fde68a;
+      box-shadow: 0 10px 24px rgba(217, 119, 6, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* ---- Hero ---- */
+
+    header.hero {
+      position: relative;
+      height: 85vh;
+      min-height: 520px;
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      color: white;
-      position: relative;
+      padding: 0 20px;
+      color: #f9fafb;
+      overflow: hidden;
     }
-    header::after {
-      content: "";
+
+    .hero-bg {
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.5);
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(88, 28, 14, 0.88)),
+        url("https://images.unsplash.com/photo-1541542684-4b1cbbf5c3bb?auto=format&fit=crop&w=1600&q=80")
+          center/cover no-repeat;
+      z-index: -2;
     }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(254, 243, 199, 0.25), transparent 55%);
+      z-index: -1;
+    }
+
+    .hero-inner {
+      max-width: var(--max-width);
+      width: 100%;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 32px;
+      align-items: center;
+    }
+
     .hero-text {
-      position: relative;
-      z-index: 2;
+      max-width: 520px;
     }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 10px 3px 6px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(254, 243, 199, 0.4);
+      font-size: 11px;
+      color: #e5e7eb;
+      margin-bottom: 14px;
+    }
+
+    .hero-kicker-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #fde68a, #d97706);
+    }
+
     .hero-text h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1.3;
+      margin-bottom: 10px;
+      letter-spacing: 0.02em;
     }
+
+    .hero-text h1 span {
+      color: #facc15;
+    }
+
     .hero-text p {
-      font-size: 1.2rem;
+      font-size: 15px;
+      color: #e5e7eb;
+      margin-bottom: 18px;
     }
-    section {
-      padding: 60px 20px;
-      max-width: 960px;
-      margin: auto;
-    }
-    h2 {
-      font-size: 2rem;
+
+    .hero-meta {
+      font-size: 13px;
+      color: #e5e7eb;
       margin-bottom: 20px;
-      border-left: 5px solid #d18f3d;
-      padding-left: 15px;
     }
-    .card {
-      background-color: white;
-      padding: 30px;
-      margin-bottom: 30px;
-      border-radius: 10px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+    .hero-meta strong {
+      color: #fef3c7;
     }
-    .button {
-      background-color: #d18f3d;
-      color: white;
-      padding: 12px 25px;
-      border-radius: 30px;
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .btn-primary {
+      background-color: var(--accent);
+      color: #fefce8;
+      padding: 10px 20px;
+      border-radius: 999px;
       text-decoration: none;
-      display: inline-block;
-      margin-top: 20px;
-      font-weight: bold;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      box-shadow: 0 12px 30px rgba(217, 119, 6, 0.5);
+      transition: background-color 0.15s ease, transform 0.15s ease,
+        box-shadow 0.15s ease;
     }
+
+    .btn-primary span {
+      font-size: 16px;
+    }
+
+    .btn-primary:hover {
+      background-color: #b45309;
+      transform: translateY(-1px);
+      box-shadow: 0 16px 36px rgba(217, 119, 6, 0.6);
+    }
+
+    .btn-secondary {
+      background-color: rgba(15, 23, 42, 0.7);
+      color: #e5e7eb;
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-secondary span {
+      font-size: 16px;
+    }
+
+    .btn-secondary:hover {
+      background-color: rgba(15, 23, 42, 0.9);
+      border-color: #e5e7eb;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 11px;
+    }
+
+    .hero-tag {
+      padding: 4px 9px;
+      border-radius: 999px;
+      background-color: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(249, 250, 251, 0.2);
+    }
+
+    /* Hero side card */
+
+    .hero-side-card {
+      background-color: rgba(15, 23, 42, 0.78);
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 16px;
+      border: 1px solid rgba(248, 250, 252, 0.2);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
+    }
+
+    .hero-side-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .hero-side-sub {
+      font-size: 12px;
+      color: #e5e7eb;
+      margin-bottom: 10px;
+    }
+
+    .hero-side-list {
+      list-style: none;
+      font-size: 12px;
+      color: #e5e7eb;
+      display: grid;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+
+    .hero-side-note {
+      font-size: 11px;
+      color: #cbd5f5;
+      margin-top: 4px;
+    }
+
+    /* ---- Section headings / cards ---- */
+
+    .section-head {
+      margin-bottom: 20px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    h2.section-title {
+      font-size: 22px;
+      border-left: none;
+      padding-left: 0;
+      color: var(--text-main);
+    }
+
+    .section-title span {
+      color: var(--accent);
+    }
+
+    .section-lead {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      max-width: 640px;
+    }
+
+    .card {
+      background-color: var(--surface);
+      padding: 24px 22px;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.06);
+      border: 1px solid var(--border-subtle);
+      font-size: 14px;
+    }
+
+    .card + .card {
+      margin-top: 22px;
+    }
+
+    .button {
+      background-color: var(--accent);
+      color: #fefce8;
+      padding: 10px 22px;
+      border-radius: 999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      box-shadow: 0 10px 24px rgba(217, 119, 6, 0.4);
+      transition: background-color 0.15s ease, box-shadow 0.15s ease,
+        transform 0.15s ease;
+    }
+
+    .button:hover {
+      background-color: #b45309;
+      box-shadow: 0 14px 30px rgba(217, 119, 6, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .button span {
+      font-size: 16px;
+    }
+
+    .support-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .support-list li {
+      margin-bottom: 8px;
+      padding-left: 0;
+    }
+
+    .support-list li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 700;
+      margin-right: 6px;
+    }
+
+    /* ---- Success cases ---- */
+
+    .case-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .case-meta {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
     .store-img {
       width: 100%;
       height: auto;
       aspect-ratio: 16 / 9;
       object-fit: cover;
-      border-radius: 8px;
-      margin-top: 15px;
+      border-radius: 10px;
+      margin-top: 14px;
+      margin-bottom: 10px;
     }
+
+    .case-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      text-decoration: none;
+      color: var(--accent-text);
+    }
+
+    .case-link span {
+      font-size: 16px;
+    }
+
+    /* ---- Contact ---- */
+
+    .contact-text {
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    /* ---- Footer ---- */
+
     footer {
-      background-color: #333;
-      color: white;
+      background-color: #111827;
+      color: #9ca3af;
       text-align: center;
-      padding: 30px 20px;
+      padding: 20px 20px 26px;
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    /* ---- Responsive ---- */
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+      }
+
+      .hero-side-card {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-nav-inner {
+        padding-inline: 16px;
+      }
+
+      header.hero {
+        height: auto;
+        padding-top: 80px;
+        padding-bottom: 40px;
+      }
+
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-actions {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .hero-text {
+        text-align: center;
+        margin: 0 auto;
+      }
+
+      .hero-tags {
+        justify-content: center;
+      }
+
+      .container {
+        padding-inline: 16px;
+        padding-top: 40px;
+      }
+
+      .card {
+        padding: 20px 18px;
+      }
+    }
+    /* FAQ section */
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .faq-item {
+      background-color: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.04);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 18px 20px;
+      font-size: 15px;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .faq-icon {
+      font-size: 22px;
+      line-height: 1;
+      color: var(--accent);
+      transition: transform 0.2s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      padding: 0 20px;
+      transition: max-height 0.25s ease, padding 0.25s ease;
+      color: var(--text-main);
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 400px;
+      padding: 0 20px 20px;
+    }
+
+    .faq-answer p {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+
+    @media (max-width: 480px) {
+      .nav-brand-sub {
+        display: none;
+      }
+
+      .hero-text h1 {
+        font-size: 24px;
+      }
+
+      .hero-text p {
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="page">
+    <!-- Top nav -->
+    <header class="top-nav">
+      <div class="top-nav-inner">
+        <div class="nav-brand">
+          <div class="nav-brand-main">Basic Support</div>
+          <div class="nav-brand-sub">飲食開業支援プログラム / Basic inc.</div>
+        </div>
+        <a
+          href="#contact"
+          class="nav-cta"
+        >
+          相談する <span>→</span>
+        </a>
+      </div>
+    </header>
 
-<header>
-  <div class="hero-text">
-    <h1>飲食店を出したいあなたへ</h1>
-    <p>Basicからの出資1,000〜5,000万円 + 経営サポート付き</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdw74qlwZKj0KCV3iJ3zdfxGNgyHy5xSYryhpblZABSUNT39Q/viewform?usp=dialog" class="button">まずは相談してみる</a>
-  </div>
-</header>
+    <!-- Hero -->
+    <header class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
 
-<section>
-  <h2>私たちについて</h2>
-  <div class="card">
-    <p>Basic incは、「やってみたい」という想いを支援する出資型飲食開業プラットフォームです。<br>
-    出資・物件取得・採用・経営までワンストップで支援します。</p>
-  </div>
-</section>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-kicker">
+            <div class="hero-kicker-dot"></div>
+            出資型 飲食開業プログラム
+          </div>
+          <h1>
+            飲食店を出したいあなたへ。<br />
+            <span>出資1,000〜5,000万円 + 経営サポート</span>
+          </h1>
+          <p>
+            「やってみたい」を実現するために、Basicが資金とノウハウの両方で伴走します。
+          </p>
+          <p class="hero-meta">
+            <strong>Basicからの出資1,000〜5,000万円</strong> に加え、<br />
+            物件取得・採用・経営までワンストップで支援します。
+          </p>
 
-<section>
-  <h2>サポート内容</h2>
-  <div class="card">
-    <ul>
-      <li>✅ 店舗オープンにかかる費用：1,000〜5,000万円を出資(店舗によって異なります)</li>
-      <li>✅ 借入サポート（公庫など）</li>
-      <li>✅ 物件・内装・人材・経営をトータルサポート</li>
-      <li>✅ 3年後に完全独立に向け買取型独立や、永劫伴奏も可能</li>
-    </ul>
-  </div>
-</section>
+          <div class="hero-actions">
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdw74qlwZKj0KCV3iJ3zdfxGNgyHy5xSYryhpblZABSUNT39Q/viewform?usp=dialog"
+              class="btn-primary"
+              target="_blank"
+            >
+              まずは相談してみる <span>↗</span>
+            </a>
+            <a href="#cases" class="btn-secondary">
+              成功事例を見る <span>→</span>
+            </a>
+          </div>
 
-<section>
-  <h2>成功事例</h2>
-  <div class="card">
-    <h3>Bistro Bolero（中目黒｜2024年テイクオーバー）</h3>
-    <p>
-      中目黒の裏路地にある一軒家ビストロを引き継ぎ、テイクオーバー支援を実施。<br>
-      コンセプト刷新・スタッフ再編成・ナチュールワイン強化により、売上V字回復を実現。<br>
-      SNSでも話題の店舗に。
-    </p>
-    <img src="https://www.basic-fnb.com/src/bolero-1.jpg" alt="Bistro Bolero" class="store-img">
-    <a href="https://g.co/kgs/LCrCSk2" target="_blank" class="button">店舗をGoogleマップで見る</a>
-  </div>
-  
-  <div class="card">
-    <h3>清田焼肉店（下北沢｜2025年オープン）</h3>
-    <p>
-      駅徒歩30秒の好立地に開業。<br>
-      Basicが物件取得から内装、採用、メニュー構成、POS導入まで一貫サポート。<br>
-      オープン初月から予約多数の人気店へ。
-    </p>
-    <img src="https://www.basic-fnb.com/src/kiyota-7.jpg" alt="清田焼肉店" class="store-img">
-    <a href="https://g.co/kgs/qNUkUBS" target="_blank" class="button">店舗をGoogleマップで見る</a>
-  </div>
-  <div class="card">
-    <h3>中目黒 弥之助（中目黒｜2025年オープン）</h3>
-    <p>
-      14席のカウンターと個室に集まる熱と匂い、職人の手元まで愉しむ“ライブ”が主役。<br>
-      代表者が料理に自信はあるが、物件の取得や経営に不安するところをBasicがフルサポート。<br>
-    </p>
-    <img src="https://www.basic-fnb.com/src/counter-seat.jpg" alt="中目黒 弥之助" class="store-img">
-    <a href="https://maps.app.goo.gl/XMEoHShZvLbXgmfHA" target="_blank" class="button">店舗をGoogleマップで見る</a>
-  </div>
+          <div class="hero-tags">
+            <div class="hero-tag">出資型開業</div>
+            <div class="hero-tag">物件サポート</div>
+            <div class="hero-tag">経営伴走</div>
+          </div>
+        </div>
 
-  
-</section>
+        <aside class="hero-side-card">
+          <div class="hero-side-title">Basic Support でできること</div>
+          <div class="hero-side-sub">「ひとりでは難しい」を一緒に乗り越えます。</div>
+          <ul class="hero-side-list">
+            <li>出資 1,000〜5,000万円（店舗規模に応じて）</li>
+            <li>借入サポート（日本政策金融公庫など）</li>
+            <li>物件・内装・採用・メニュー・オペレーション支援</li>
+            <li>3年後の買取独立 or 継続パートナーも選択可</li>
+          </ul>
+          <div class="hero-side-note">
+            「とりあえず話だけ聞きたい」「まだ構想レベル」という段階から歓迎しています。
+          </div>
+        </aside>
+      </div>
+    </header>
 
-<section id="contact">
-  <h2>お問い合わせ</h2>
-  <div class="card">
-    <p>「やりたいことはある」「話だけ聞いてみたい」でも構いません。<br>
-    お気軽にご相談ください。</p>
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdw74qlwZKj0KCV3iJ3zdfxGNgyHy5xSYryhpblZABSUNT39Q/viewform?usp=dialog" class="button">相談する</a>
+    <main>
+      <!-- About -->
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">About</div>
+            <h2 class="section-title">
+              私たちについて
+            </h2>
+          </div>
+          <div class="card">
+            <p>
+              Basic incは、「やってみたい」という想いを支援する出資型飲食開業プラットフォームです。<br />
+              出資・物件取得・採用・経営までワンストップで支援します。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Support -->
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Support</div>
+            <h2 class="section-title">サポート内容</h2>
+            <p class="section-lead">
+              「資金が不安」「経営が分からない」「物件の探し方が分からない」——
+              そんな状態からでもスタートできる設計にしています。
+            </p>
+          </div>
+          <div class="card">
+            <ul class="support-list">
+              <li>店舗オープンにかかる費用：1,000〜5,000万円を出資（店舗によって異なります）</li>
+              <li>借入サポート（公庫など）</li>
+              <li>物件・内装・人材・経営をトータルサポート</li>
+              <li>3年後に完全独立に向け買取型独立や、永劫伴奏も可能</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Success cases -->
+      <section id="cases">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Case Studies</div>
+            <h2 class="section-title">成功事例</h2>
+            <p class="section-lead">
+              実際にBasicが関わっている店舗の一部をご紹介します。
+            </p>
+          </div>
+
+          <div class="card">
+            <h3 class="case-title">Bistro Bolero（中目黒｜2024年テイクオーバー）</h3>
+            <div class="case-meta">
+              中目黒・裏路地の一軒家ビストロ / テイクオーバー支援
+            </div>
+            <p>
+              中目黒の裏路地にある一軒家ビストロを引き継ぎ、テイクオーバー支援を実施。<br>
+              コンセプト刷新・スタッフ再編成・ナチュールワイン強化により、売上V字回復を実現。<br>
+              SNSでも話題の店舗に。
+            </p>
+            <img src="https://www.basic-fnb.com/src/bolero-1.jpg" alt="Bistro Bolero" class="store-img">
+            <a href="https://g.co/kgs/LCrCSk2" target="_blank" class="case-link">
+              店舗をGoogleマップで見る <span>↗</span>
+            </a>
+          </div>
+
+          <div class="card">
+            <h3 class="case-title">清田焼肉店（下北沢｜2025年オープン）</h3>
+            <div class="case-meta">
+              下北沢駅徒歩30秒 / 焼肉店新規開業
+            </div>
+            <p>
+              駅徒歩30秒の好立地に開業。<br>
+              Basicが物件取得から内装、採用、メニュー構成、POS導入まで一貫サポート。<br>
+              オープン初月から予約多数の人気店へ。
+            </p>
+            <img src="https://www.basic-fnb.com/src/kiyota-7.jpg" alt="清田焼肉店" class="store-img">
+            <a href="https://g.co/kgs/qNUkUBS" target="_blank" class="case-link">
+              店舗をGoogleマップで見る <span>↗</span>
+            </a>
+          </div>
+
+          <div class="card">
+            <h3 class="case-title">中目黒 弥之助（中目黒｜2025年オープン）</h3>
+            <div class="case-meta">
+              中目黒 / 土鍋ご飯と和食のネオ居酒屋
+            </div>
+            <p>
+              14席のカウンターと個室に集まる熱と匂い、職人の手元まで愉しむ“ライブ”が主役。<br>
+              代表者が料理に自信はあるが、物件の取得や経営に不安するところをBasicがフルサポート。<br>
+            </p>
+            <img src="https://www.basic-fnb.com/src/counter-seat.jpg" alt="中目黒 弥之助" class="store-img">
+            <a href="https://maps.app.goo.gl/XMEoHShZvLbXgmfHA" target="_blank" class="case-link">
+              店舗をGoogleマップで見る <span>↗</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">Contact</div>
+            <h2 class="section-title">お問い合わせ</h2>
+          </div>
+          <div class="card">
+            <p class="contact-text">
+              「やりたいことはある」「話だけ聞いてみたい」でも構いません。<br>
+              お気軽にご相談ください。
+            </p>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdw74qlwZKj0KCV3iJ3zdfxGNgyHy5xSYryhpblZABSUNT39Q/viewform?usp=dialog"
+              class="button"
+              target="_blank"
+            >
+              相談する <span>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+      <!-- FAQ Section -->
+      <section id="faq">
+        <div class="container">
+          <div class="section-head">
+            <div class="section-kicker">FAQ</div>
+            <h2 class="section-title">よくあるご質問</h2>
+            <p class="section-lead">
+              初めての開業でも安心していただけるよう、よくいただく質問をまとめました。
+            </p>
+          </div>
+
+          <div class="faq-list">
+
+            <!-- FAQ item -->
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>本当に未経験でも飲食店を開業できますか？</span>
+                <div class="faq-icon">+</div>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  はい、可能です。Basic Supportでは、経験の浅い方のために
+                  「採用」「メニュー」「オペレーション」「経営数字」まで
+                  すべて伴走支援します。
+                  現在運営中の店舗にも“飲食未経験からスタートしたオーナー”がいます。
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>出資1,000〜5,000万円は返済の必要がありますか？</span>
+                <div class="faq-icon">+</div>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  出資部分は借入と異なり「返済義務はありません」。
+                  利益配分や買取型独立（3年後）など、事業の成長に合わせて柔軟に設計します。
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>どのくらいの期間でオープンできますか？</span>
+                <div class="faq-icon">+</div>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  平均すると「1.5〜4ヶ月」でオープンできます。
+                  コンセプト設計 → 物件 → 内装 → 採用 → テストオープン
+                  までワンストップでサポートします。
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>失敗した場合はどうなりますか？</span>
+                <div class="faq-icon">+</div>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  オープン前に綿密に計画を立てます。
+                  もし収益改善が必要な場合は、メニュー改修・販促・人員計画など、
+                  一緒に改善策を実行します。
+                  “途中で見放される”ことはありません。
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-question">
+                <span>応募は早い者勝ちですか？</span>
+                <div class="faq-icon">+</div>
+              </button>
+              <div class="faq-answer">
+                <p>
+                  毎月の対応枠に限りがあり、
+                  基本的には「先着 + 適性」を見て進めています。
+                  まずは気軽に面談でご相談ください。
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      &copy; 2025 Basic inc. All rights reserved.
+    </footer>
   </div>
-</section>
-
-<footer>
-  &copy; 2025 Basic inc. All rights reserved.
-</footer>
+  <script>
+  document.querySelectorAll(".faq-question").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const item = btn.parentElement;
+      item.classList.toggle("open");
+    });
+  });
+</script>
 
 </body>
 </html>

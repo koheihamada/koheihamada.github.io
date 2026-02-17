@@ -46,14 +46,15 @@
   </style>
 </head>
 
-<body class="min-h-screen bg-amber-50 menu-collapsed">
+<body class="min-h-screen bg-amber-50 menu-collapsed overflow-x-hidden">
 
   <!-- Header -->
-  <header class="bg-gradient-to-r from-amber-900 to-amber-800 text-white sticky top-0 z-50 shadow-lg relative">
+  <header class="bg-gradient-to-r from-amber-900 to-amber-800 text-white sticky top-0 z-50 shadow-lg">
+    <!-- 上段：ロゴとハンバーガー -->
     <div class="container mx-auto px-4 py-4">
       <div class="flex justify-between items-center">
         <h1 class="text-3xl tracking-wider font-kouzan">恒之助</h1>
-
+  
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex gap-8">
           <a href="#home" class="hover:text-amber-300 transition-colors">ホーム</a>
@@ -61,7 +62,7 @@
           <a href="#about" class="hover:text-amber-300 transition-colors">店舗情報</a>
           <a href="#access" class="hover:text-amber-300 transition-colors">アクセス</a>
         </nav>
-
+  
         <!-- Mobile Menu Button -->
         <button class="md:hidden" id="mobile-menu-btn" aria-label="メニューを開く">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -71,16 +72,17 @@
           </svg>
         </button>
       </div>
-
-      <!-- Mobile Navigation -->
-      <nav class="mobile-menu md:hidden absolute left-0 right-0 top-full bg-amber-900 px-6 py-6 flex flex-col gap-6 shadow-lg"
-     id="mobile-menu">
+    </div>
+  
+    <!-- 下段：モバイルメニュー（背景は全幅 / 中身はcontainer） -->
+    <nav class="mobile-menu md:hidden bg-amber-900/95" id="mobile-menu">
+      <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
         <a href="#home" class="text-left hover:text-amber-300 transition-colors mobile-link">ホーム</a>
         <a href="#menu" class="text-left hover:text-amber-300 transition-colors mobile-link">メニュー</a>
         <a href="#about" class="text-left hover:text-amber-300 transition-colors mobile-link">店舗情報</a>
         <a href="#access" class="text-left hover:text-amber-300 transition-colors mobile-link">アクセス</a>
-      </nav>
-    </div>
+      </div>
+    </nav>
   </header>
 
   <!-- Hero Section -->

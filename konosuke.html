@@ -7,9 +7,9 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     /* Fonts */
@@ -38,10 +38,13 @@
     @media (min-width: 768px) {
       .menu-img { aspect-ratio: 16 / 9; }
     }
+
+    /* menu collapse */
+    .menu-collapsed [data-menu-more] { display: none; }
   </style>
 </head>
 
-<body class="min-h-screen bg-amber-50">
+<body class="min-h-screen bg-amber-50 menu-collapsed">
 
   <!-- Header -->
   <header class="bg-gradient-to-r from-amber-900 to-amber-800 text-white sticky top-0 z-50 shadow-lg">
@@ -101,122 +104,7 @@
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
 
-        <!-- ヒレかつ御膳 -->
-        <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/hirekatsu.jpg" alt="ヒレかつ御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,420円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900 leading-tight">ヒレかつ御膳</h3>
-          </div>
-        </div>
-
-        <!-- ロースかつ御膳 -->
-        <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/jokatsu.jpg" alt="ロースかつ御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,420円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900 leading-tight">ロースかつ御膳</h3>
-          </div>
-        </div>
-
-        <!-- 上ヒレかつ御膳 -->
-        <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/jo-hirekatsu.jpg" alt="上ヒレかつ御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,970円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900 leading-tight">上ヒレかつ御膳</h3>
-          </div>
-        </div>
-
-        <!-- 上ロースかつ御膳 -->
-        <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/jokatsu.jpg" alt="上ロースかつ御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,970円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900 leading-tight">上ロースかつ御膳</h3>
-          </div>
-        </div>
-
-        <!-- 黒毛和牛かつ御膳 -->
-        <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/wagyukatsu.jpg" alt="黒毛和牛かつ御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              3,630円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900 leading-tight">黒毛和牛かつ御膳</h3>
-          </div>
-        </div>
-
-        <!-- 鶏親子かつ御膳 -->
-        <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/oyakokatsu.jpg" alt="鶏親子かつ御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,420円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900 leading-tight">鶏親子かつ御膳</h3>
-            <p class="text-sm text-gray-600 mt-2">鶏手羽先、鶏ささみ、半熟卵が入っております。</p>
-          </div>
-        </div>
-
-        <!-- ミックス御膳 -->
-        <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/mixkatsu.jpg" alt="ミックス御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,915円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900 leading-tight">ミックス御膳</h3>
-            <p class="text-sm text-gray-600 mt-2">ヒレ、海老、茄子、半熟卵が入っております。</p>
-          </div>
-        </div>
-
-        <!-- たれかつ丼 -->
-        <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/donkatsu.jpg" alt="たれかつ丼"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,200円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900 leading-tight">たれかつ丼</h3>
-            <p class="text-sm text-gray-600 mt-2">ヒレ、海老、茄子、半熟卵が入っております。</p>
-          </div>
-        </div>
-
-        <!-- 二人前 特上ロースかつ御膳（強調） -->
+        <!-- 代表① 二人前 特上ロース（トマホーク） -->
         <div class="bg-amber-50 rounded-xl overflow-hidden border border-amber-200 hover:shadow-lg transition-shadow lg:col-span-3">
           <div class="relative overflow-hidden">
             <img src="src/tomahawk.jpg" alt="二人前 特上ロースかつ御膳"
@@ -229,11 +117,138 @@
             </div>
           </div>
           <div class="p-6">
-            <h3 class="text-xl md:text-2xl text-amber-900 leading-tight">二人前 特上ロースかつ御膳</h3>
-            <p class="text-sm text-gray-700 mt-2">一日数量限定です。事前予約で500g以上も可能です。</p>
+            <h3 class="text-xl md:text-2xl text-amber-900 leading-tight">
+              二人前 特上ロースかつ御膳
+            </h3>
+            <p class="text-sm text-gray-700 mt-2">
+              一日数量限定です。事前予約で500g以上も可能です。
+            </p>
           </div>
         </div>
 
+        <!-- 代表② 上ヒレかつ御膳 -->
+        <div class="bg-amber-50 rounded-xl overflow-hidden border border-amber-200 hover:shadow-lg transition-shadow">
+          <div class="relative overflow-hidden">
+            <img src="src/jo-hirekatsu.jpg" alt="上ヒレかつ御膳"
+                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
+              2,970円
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl text-amber-900 leading-tight">上ヒレかつ御膳</h3>
+          </div>
+        </div>
+
+        <!-- 以下は折りたたみ -->
+        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
+          <div class="relative overflow-hidden">
+            <img src="src/hirekatsu.jpg" alt="ヒレかつ御膳"
+                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
+              2,420円
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl text-amber-900">ヒレかつ御膳</h3>
+          </div>
+        </div>
+
+        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
+          <div class="relative overflow-hidden">
+            <img src="src/rosukatsu.jpg" alt="ロースかつ御膳"
+                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
+              2,420円
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl text-amber-900">ロースかつ御膳</h3>
+          </div>
+        </div>
+
+        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
+          <div class="relative overflow-hidden">
+            <img src="src/jo-rosukatsu.jpg" alt="上ロースかつ御膳"
+                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
+              2,970円
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl text-amber-900">上ロースかつ御膳</h3>
+          </div>
+        </div>
+
+        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
+          <div class="relative overflow-hidden">
+            <img src="src/wagyukatsu.jpg" alt="黒毛和牛かつ御膳"
+                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
+              3,630円
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl text-amber-900">黒毛和牛かつ御膳</h3>
+          </div>
+        </div>
+
+        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
+          <div class="relative overflow-hidden">
+            <img src="src/oyakokatsu.jpg" alt="鶏親子かつ御膳"
+                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
+              2,420円
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl text-amber-900">鶏親子かつ御膳</h3>
+            <p class="text-sm text-gray-600 mt-2">
+              鶏手羽先、鶏ささみ、半熟卵が入っております。
+            </p>
+          </div>
+        </div>
+
+        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
+          <div class="relative overflow-hidden">
+            <img src="src/mixkatsu.jpg" alt="ミックス御膳"
+                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
+              2,915円
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl text-amber-900">ミックス御膳</h3>
+            <p class="text-sm text-gray-600 mt-2">
+              ヒレ、海老、茄子、半熟卵が入っております。
+            </p>
+          </div>
+        </div>
+
+        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
+          <div class="relative overflow-hidden">
+            <img src="src/donkatsu.jpg" alt="たれかつ丼"
+                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
+            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
+              2,200円
+            </div>
+          </div>
+          <div class="p-5">
+            <h3 class="text-xl text-amber-900">たれかつ丼</h3>
+            <p class="text-sm text-gray-600 mt-2">
+              ヒレ、海老、茄子、半熟卵が入っております。
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- もっと見る -->
+      <div class="mt-10 text-center">
+        <button id="menu-toggle"
+          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-900 text-white hover:bg-amber-800 transition-colors">
+          メニューをもっと見る ↓
+        </button>
       </div>
 
       <div class="mt-12 text-center text-gray-600">
@@ -317,7 +332,7 @@
 
           <div class="w-full h-96 rounded-lg overflow-hidden shadow-sm">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.4497248865223!2d139.79289839999998!3d35.7151567!2m3!1f0!2f0!3f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188faceedca5ab%3A0x6c96f9ee611e979b!2z5rWF6I2JIOOBi-OBpOOChCDmgZLkuYvliqk!5e0!3m2!1sja!2ssg!4v1770869164740!5m2!1sja!2ssg"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.4497248865223!2d139.79289839999998!3d35.7151567!2m3!1f0!2f0!3f0!4f13.1!3m3!1m2!1s0x60188faceedca5ab%3A0x6c96f9ee611e979b!2z5rWF6I2JIOOBi-OBpOOChCDmgZLkuYvliqk!5e0!3m2!1sja!2ssg!4v1770869164740!5m2!1sja!2ssg"
               class="w-full h-full border-0"
               loading="lazy"
               allowfullscreen
@@ -336,11 +351,12 @@
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl mb-4 tracking-wider font-kouzan">恒之助</h2>
       <p class="text-amber-200 mb-2">とんかつ専門店</p>
-      <p class="text-sm text-amber-300 mt-6">© 2026 Tsunenosuke. All rights reserved.</p>
+      <p class="text-sm text-amber-300 mt-6">© 2026 Konosuke. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
+    // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -354,6 +370,18 @@
         mobileMenu.classList.remove('open');
       });
     });
+
+    // Menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        document.body.classList.toggle('menu-collapsed');
+        const collapsed = document.body.classList.contains('menu-collapsed');
+        menuToggle.textContent = collapsed
+          ? 'メニューをもっと見る ↓'
+          : 'メニューを閉じる ↑';
+      });
+    }
   </script>
 </body>
 </html>

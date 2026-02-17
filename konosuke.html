@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>恒之助 - とんかつ専門店</title>
+
   <script src="https://cdn.tailwindcss.com"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    @custom-variant dark (&:is(.dark *));
 
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
-    
+  <style>
+    /* Fonts */
     @font-face {
       font-family: 'KouzanBrushFONT';
       src: url('https://cdn.jsdelivr.net/npm/kouzanbrushotf@1.0.0/KouzanBrushFontOTF.otf') format('opentype');
@@ -20,240 +20,35 @@
       font-style: normal;
       font-display: swap;
     }
-    
-    :root {
-      --font-size: 16px;
-      --background: #ffffff;
-      --foreground: oklch(0.145 0 0);
-      --card: #ffffff;
-      --card-foreground: oklch(0.145 0 0);
-      --popover: oklch(1 0 0);
-      --popover-foreground: oklch(0.145 0 0);
-      --primary: #030213;
-      --primary-foreground: oklch(1 0 0);
-      --secondary: oklch(0.95 0.0058 264.53);
-      --secondary-foreground: #030213;
-      --muted: #ececf0;
-      --muted-foreground: #717182;
-      --accent: #e9ebef;
-      --accent-foreground: #030213;
-      --destructive: #d4183d;
-      --destructive-foreground: #ffffff;
-      --border: rgba(0, 0, 0, 0.1);
-      --input: transparent;
-      --input-background: #f3f3f5;
-      --switch-background: #cbced4;
-      --font-weight-medium: 500;
-      --font-weight-normal: 400;
-      --ring: oklch(0.708 0 0);
-      --chart-1: oklch(0.646 0.222 41.116);
-      --chart-2: oklch(0.6 0.118 184.704);
-      --chart-3: oklch(0.398 0.07 227.392);
-      --chart-4: oklch(0.828 0.189 84.429);
-      --chart-5: oklch(0.769 0.188 70.08);
-      --radius: 0.625rem;
-      --sidebar: oklch(0.985 0 0);
-      --sidebar-foreground: oklch(0.145 0 0);
-      --sidebar-primary: #030213;
-      --sidebar-primary-foreground: oklch(0.985 0 0);
-      --sidebar-accent: oklch(0.97 0 0);
-      --sidebar-accent-foreground: oklch(0.205 0 0);
-      --sidebar-border: oklch(0.922 0 0);
-      --sidebar-ring: oklch(0.708 0 0);
-    }
-    
-    .dark {
-      --background: oklch(0.145 0 0);
-      --foreground: oklch(0.985 0 0);
-      --card: oklch(0.145 0 0);
-      --card-foreground: oklch(0.985 0 0);
-      --popover: oklch(0.145 0 0);
-      --popover-foreground: oklch(0.985 0 0);
-      --primary: oklch(0.985 0 0);
-      --primary-foreground: oklch(0.205 0 0);
-      --secondary: oklch(0.269 0 0);
-      --secondary-foreground: oklch(0.985 0 0);
-      --muted: oklch(0.269 0 0);
-      --muted-foreground: oklch(0.708 0 0);
-      --accent: oklch(0.269 0 0);
-      --accent-foreground: oklch(0.985 0 0);
-      --destructive: oklch(0.396 0.141 25.723);
-      --destructive-foreground: oklch(0.637 0.237 25.331);
-      --border: oklch(0.269 0 0);
-      --input: oklch(0.269 0 0);
-      --ring: oklch(0.439 0 0);
-      --font-weight-medium: 500;
-      --font-weight-normal: 400;
-      --chart-1: oklch(0.488 0.243 264.376);
-      --chart-2: oklch(0.696 0.17 162.48);
-      --chart-3: oklch(0.769 0.188 70.08);
-      --chart-4: oklch(0.627 0.265 303.9);
-      --chart-5: oklch(0.645 0.246 16.439);
-      --sidebar: oklch(0.205 0 0);
-      --sidebar-foreground: oklch(0.985 0 0);
-      --sidebar-primary: oklch(0.488 0.243 264.376);
-      --sidebar-primary-foreground: oklch(0.985 0 0);
-      --sidebar-accent: oklch(0.269 0 0);
-      --sidebar-accent-foreground: oklch(0.985 0 0);
-      --sidebar-border: oklch(0.269 0 0);
-      --sidebar-ring: oklch(0.439 0 0);
-    }
-    
-    @theme inline {
-      --color-background: var(--background);
-      --color-foreground: var(--foreground);
-      --color-card: var(--card);
-      --color-card-foreground: var(--card-foreground);
-      --color-popover: var(--popover);
-      --color-popover-foreground: var(--popover-foreground);
-      --color-primary: var(--primary);
-      --color-primary-foreground: var(--primary-foreground);
-      --color-secondary: var(--secondary);
-      --color-secondary-foreground: var(--secondary-foreground);
-      --color-muted: var(--muted);
-      --color-muted-foreground: var(--muted-foreground);
-      --color-accent: var(--accent);
-      --color-accent-foreground: var(--accent-foreground);
-      --color-destructive: var(--destructive);
-      --color-destructive-foreground: var(--destructive-foreground);
-      --color-border: var(--border);
-      --color-input: var(--input);
-      --color-input-background: var(--input-background);
-      --color-switch-background: var(--switch-background);
-      --color-ring: var(--ring);
-      --color-chart-1: var(--chart-1);
-      --color-chart-2: var(--chart-2);
-      --color-chart-3: var(--chart-3);
-      --color-chart-4: var(--chart-4);
-      --color-chart-5: var(--chart-5);
-      --radius-sm: calc(var(--radius) - 4px);
-      --radius-md: calc(var(--radius) - 2px);
-      --radius-lg: var(--radius);
-      --radius-xl: calc(var(--radius) + 4px);
-      --color-sidebar: var(--sidebar);
-      --color-sidebar-foreground: var(--sidebar-foreground);
-      --color-sidebar-primary: var(--sidebar-primary);
-      --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-      --color-sidebar-accent: var(--sidebar-accent);
-      --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-      --color-sidebar-border: var(--sidebar-border);
-      --color-sidebar-ring: var(--sidebar-ring);
-    }
-    
-    @layer base {
-      * {
-        @apply border-border outline-ring/50;
-      }
-    
-      body {
-        @apply bg-background text-foreground;
-        font-family: 'Noto Serif JP', serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-      }
-      
-      .font-kouzan {
-        font-family: 'KouzanBrushFONT', 'Noto Serif JP', serif;
-      }
-    }
-    
-    /**
-     * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
-     */
-    @layer base {
-      :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
-        h1 {
-          font-size: var(--text-2xl);
-          font-weight: var(--font-weight-medium);
-          line-height: 1.5;
-        }
-    
-        h2 {
-          font-size: var(--text-xl);
-          font-weight: var(--font-weight-medium);
-          line-height: 1.5;
-        }
-    
-        h3 {
-          font-size: var(--text-lg);
-          font-weight: var(--font-weight-medium);
-          line-height: 1.5;
-        }
-    
-        h4 {
-          font-size: var(--text-base);
-          font-weight: var(--font-weight-medium);
-          line-height: 1.5;
-        }
-    
-        label {
-          font-size: var(--text-base);
-          font-weight: var(--font-weight-medium);
-          line-height: 1.5;
-        }
-    
-        button {
-          font-size: var(--text-base);
-          font-weight: var(--font-weight-medium);
-          line-height: 1.5;
-        }
-    
-        input {
-          font-size: var(--text-base);
-          font-weight: var(--font-weight-normal);
-          line-height: 1.5;
-        }
-      }
-    }
-    
-    html {
-      font-size: var(--font-size);
-    }
-    @font-face {
-      font-family: 'KouzanBrushFONT';
-      src: url('/fonts/KouzanMouhituFontOTF.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-      font-display: swap;
-    }
 
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Noto Serif JP', serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .menu-card-img { aspect-ratio: 4 / 3; }         /* 縦長になりにくい */
-    @media (min-width: 768px){
-      .menu-card-img { aspect-ratio: 1 / 1; }       /* PCは正方形で品良く */
-    }
-    .menu-img { aspect-ratio: 16 / 10; } /* “見せたい”けど縦長にならない比率 */
-    @media (min-width: 768px){
+    .font-kouzan { font-family: 'KouzanBrushFONT','Noto Serif JP',serif; }
+
+    /* Mobile menu */
+    .mobile-menu { max-height: 0; overflow: hidden; transition: max-height .3s ease-out; }
+    .mobile-menu.open { max-height: 320px; }
+
+    /* Menu images: show well but avoid vertical heaviness */
+    .menu-img { aspect-ratio: 16 / 10; }
+    @media (min-width: 768px) {
       .menu-img { aspect-ratio: 16 / 9; }
-    }
-    .font-kouzan {
-      font-family: 'KouzanBrushFONT', 'Noto Serif JP', serif;
-    }
-
-    .mobile-menu {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
-    }
-
-    .mobile-menu.open {
-      max-height: 300px;
-    }
-
-    html {
-      scroll-behavior: smooth;
     }
   </style>
 </head>
+
 <body class="min-h-screen bg-amber-50">
+
   <!-- Header -->
   <header class="bg-gradient-to-r from-amber-900 to-amber-800 text-white sticky top-0 z-50 shadow-lg">
     <div class="container mx-auto px-4 py-4">
       <div class="flex justify-between items-center">
         <h1 class="text-3xl tracking-wider font-kouzan">恒之助</h1>
-        
+
         <!-- Desktop Navigation -->
         <nav class="hidden md:flex gap-8">
           <a href="#home" class="hover:text-amber-300 transition-colors">ホーム</a>
@@ -263,7 +58,7 @@
         </nav>
 
         <!-- Mobile Menu Button -->
-        <button class="md:hidden" id="mobile-menu-btn">
+        <button class="md:hidden" id="mobile-menu-btn" aria-label="メニューを開く">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="3" y1="12" x2="21" y2="12"></line>
             <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -284,23 +79,28 @@
 
   <!-- Hero Section -->
   <section id="home" class="relative h-[600px] flex items-center justify-center">
-    <div class="absolute inset-0 bg-black/40 z-10"></div>
+    <div class="absolute inset-0 bg-black/45 z-10"></div>
     <img
-      src="https://images.unsplash.com/photo-1562560471-cb5b5f96c1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxqYXBhbmVzZSUyMHJlc3RhdXJhbnQlMjBpbnRlcmlvcnxlbnwxfHx8fDE3NzA4NTMxODN8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-      alt="恒之助店内"
+      src="https://images.unsplash.com/photo-1562560471-cb5b5f96c1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600"
+      alt="恒之助 店内"
       class="absolute inset-0 w-full h-full object-cover"
+      loading="lazy"
     />
     <div class="relative z-20 text-center text-white px-4">
       <h2 class="text-5xl md:text-7xl mb-6 tracking-wider font-kouzan">恒之助</h2>
       <p class="text-xl md:text-2xl mb-4">伝統の味を守り続けて三十年</p>
-      <p class="text-lg">厳選された豚肉と職人の技が生み出す、こだわりのとんかつ</p>
+      <p class="text-lg">厳選された素材と職人の技が生み出す、こだわりのとんかつ</p>
     </div>
   </section>
 
   <!-- Menu Section -->
   <section id="menu" class="py-20 bg-white">
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        <!-- template: menu card -->
+    <div class="container mx-auto px-4">
+      <h2 class="text-4xl text-center mb-4 text-amber-900">メニュー</h2>
+      <p class="text-center text-gray-600 mb-12">Menu</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
         <!-- ヒレかつ御膳 -->
         <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
           <div class="relative overflow-hidden">
@@ -314,7 +114,7 @@
             <h3 class="text-xl text-amber-900 leading-tight">ヒレかつ御膳</h3>
           </div>
         </div>
-      
+
         <!-- ロースかつ御膳 -->
         <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
           <div class="relative overflow-hidden">
@@ -328,7 +128,7 @@
             <h3 class="text-xl text-amber-900 leading-tight">ロースかつ御膳</h3>
           </div>
         </div>
-      
+
         <!-- 上ヒレかつ御膳 -->
         <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
           <div class="relative overflow-hidden">
@@ -342,7 +142,7 @@
             <h3 class="text-xl text-amber-900 leading-tight">上ヒレかつ御膳</h3>
           </div>
         </div>
-      
+
         <!-- 上ロースかつ御膳 -->
         <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
           <div class="relative overflow-hidden">
@@ -356,7 +156,7 @@
             <h3 class="text-xl text-amber-900 leading-tight">上ロースかつ御膳</h3>
           </div>
         </div>
-      
+
         <!-- 黒毛和牛かつ御膳 -->
         <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
           <div class="relative overflow-hidden">
@@ -370,7 +170,7 @@
             <h3 class="text-xl text-amber-900 leading-tight">黒毛和牛かつ御膳</h3>
           </div>
         </div>
-      
+
         <!-- 鶏親子かつ御膳 -->
         <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
           <div class="relative overflow-hidden">
@@ -385,7 +185,7 @@
             <p class="text-sm text-gray-600 mt-2">鶏手羽先、鶏ささみ、半熟卵が入っております。</p>
           </div>
         </div>
-      
+
         <!-- ミックス御膳 -->
         <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
           <div class="relative overflow-hidden">
@@ -400,7 +200,7 @@
             <p class="text-sm text-gray-600 mt-2">ヒレ、海老、茄子、半熟卵が入っております。</p>
           </div>
         </div>
-      
+
         <!-- たれかつ丼 -->
         <div class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
           <div class="relative overflow-hidden">
@@ -415,11 +215,11 @@
             <p class="text-sm text-gray-600 mt-2">ヒレ、海老、茄子、半熟卵が入っております。</p>
           </div>
         </div>
-      
-        <!-- 二人前 トマホークかつ(特上ロース)御膳（強調） -->
+
+        <!-- 二人前 特上ロースかつ御膳（強調） -->
         <div class="bg-amber-50 rounded-xl overflow-hidden border border-amber-200 hover:shadow-lg transition-shadow lg:col-span-3">
           <div class="relative overflow-hidden">
-            <img src="src/tomahawk.jpg" alt="二人前 トマホーク(特上ロース)かつ御膳"
+            <img src="src/tomahawk.jpg" alt="二人前 特上ロースかつ御膳"
                  class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
             <div class="absolute top-3 right-3 bg-white/95 text-amber-900 px-3 py-1 rounded-full text-sm font-bold">
               6,490円
@@ -433,8 +233,9 @@
             <p class="text-sm text-gray-700 mt-2">一日数量限定です。事前予約で500g以上も可能です。</p>
           </div>
         </div>
-      
+
       </div>
+
       <div class="mt-12 text-center text-gray-600">
         <p>※全ての定食にはご飯、味噌汁、キャベツ、漬物が付きます</p>
         <p class="mt-2">※ご飯・キャベツはおかわり自由です</p>
@@ -447,7 +248,7 @@
     <div class="container mx-auto px-4">
       <h2 class="text-4xl text-center mb-4 text-amber-900">店舗情報</h2>
       <p class="text-center text-gray-600 mb-12">About Us</p>
-      
+
       <div class="max-w-4xl mx-auto">
         <div class="bg-white rounded-lg shadow-lg p-8 md:p-12">
           <div class="prose prose-lg max-w-none">
@@ -482,10 +283,11 @@
               <div>
                 <h3 class="text-xl mb-2 text-amber-900">お問い合わせ</h3>
                 <p class="text-gray-700">03-1234-5678</p>
-                <p class="text-gray-600 mt-2">ご予約承ります</p>
+                <p class="text-gray-600 mt-2">お問い合わせはお電話にて承ります</p>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -496,7 +298,7 @@
     <div class="container mx-auto px-4">
       <h2 class="text-4xl text-center mb-4 text-amber-900">アクセス</h2>
       <p class="text-center text-gray-600 mb-12">Access</p>
-      
+
       <div class="max-w-4xl mx-auto">
         <div class="bg-amber-50 rounded-lg shadow-lg p-8 md:p-12">
           <div class="flex items-start gap-4 mb-8">
@@ -515,7 +317,7 @@
 
           <div class="w-full h-96 rounded-lg overflow-hidden shadow-sm">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.4497248865223!2d139.79289839999998!3d35.7151567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188faceedca5ab%3A0x6c96f9ee611e979b!2z5rWF6I2JIOOBi-OBpOOChCDmgZLkuYvliqk!5e0!3m2!1sja!2ssg!4v1770869164740!5m2!1sja!2ssg"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.4497248865223!2d139.79289839999998!3d35.7151567!2m3!1f0!2f0!3f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188faceedca5ab%3A0x6c96f9ee611e979b!2z5rWF6I2JIOOBi-OBpOOChCDmgZLkuYvliqk!5e0!3m2!1sja!2ssg!4v1770869164740!5m2!1sja!2ssg"
               class="w-full h-full border-0"
               loading="lazy"
               allowfullscreen
@@ -534,14 +336,11 @@
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl mb-4 tracking-wider font-kouzan">恒之助</h2>
       <p class="text-amber-200 mb-2">とんかつ専門店</p>
-      <p class="text-sm text-amber-300 mt-6">
-        © 2026 Tsunenosuke. All rights reserved.
-      </p>
+      <p class="text-sm text-amber-300 mt-6">© 2026 Tsunenosuke. All rights reserved.</p>
     </div>
   </footer>
 
   <script>
-    // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -550,7 +349,6 @@
       mobileMenu.classList.toggle('open');
     });
 
-    // Close mobile menu when clicking on a link
     mobileLinks.forEach(link => {
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('open');

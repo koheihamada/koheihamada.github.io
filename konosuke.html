@@ -3,16 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>恒之助 - とんかつ専門店</title>
-
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
+  <title>恒之助 | Konosuke</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    /* Fonts */
     @font-face {
       font-family: 'KouzanBrushFONT';
       src: url('/fonts/KouzanMouhituFontOTF.otf') format('opentype');
@@ -20,414 +15,498 @@
       font-style: normal;
       font-display: swap;
     }
-
-    html { scroll-behavior: smooth; }
+    :root {
+      --ink: #0d0b0a;
+      --deep: #1d120e;
+      --amber: #c78e4a;
+      --ivory: #f7f1e8;
+      --stone: #b5a38d;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
     body {
-      font-family: 'Noto Serif JP', serif;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden;
-
+      margin: 0;
+      font-family: 'Inter', 'Shippori Mincho', 'Noto Sans JP', sans-serif;
+      background: var(--ink);
+      color: var(--ivory);
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+      transition: color 0.2s ease;
     }
-    .font-kouzan { font-family: 'KouzanBrushFONT','Noto Serif JP',serif; }
-
-    /* Mobile menu */
-    .mobile-menu { max-height: 0; overflow: hidden; transition: max-height .3s ease-out; }
-    .mobile-menu.open { max-height: 320px; }
-
-    /* Menu images: show well but avoid vertical heaviness */
-    .menu-img { aspect-ratio: 16 / 10; }
-    @media (min-width: 768px) {
-      .menu-img { aspect-ratio: 16 / 9; }
+    body[data-lang="ja"] {
+      font-family: 'KouzanBrushFONT', 'Shippori Mincho', 'Noto Sans JP', sans-serif;
     }
-
-    /* menu collapse */
-    .menu-collapsed [data-menu-more] { display: none; }
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      backdrop-filter: blur(12px);
+      background: rgba(13,11,10,0.85);
+      border-bottom: 1px solid rgba(247,241,232,0.08);
+    }
+    .nav {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .brand {
+      font-family: 'KouzanBrushFONT', serif;
+      font-size: 1.8rem;
+      letter-spacing: 0.3em;
+    }
+    body[data-lang="en"] .brand {
+      font-size: 1.6rem;
+    }
+    nav {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+    }
+    nav a {
+      color: var(--ivory);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.2em;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      width: 100%;
+      height: 1px;
+      background: var(--amber);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.2s ease;
+    }
+    nav a:hover::after { transform: scaleX(1); }
+    .lang-toggle {
+      display: inline-flex;
+      gap: 6px;
+      border: 1px solid rgba(247,241,232,0.2);
+      border-radius: 999px;
+      padding: 4px;
+      background: rgba(5,5,5,0.3);
+    }
+    .lang-toggle button {
+      background: transparent;
+      border: none;
+      color: var(--ivory);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      cursor: pointer;
+    }
+    .lang-toggle button.active {
+      background: var(--amber);
+      color: var(--ink);
+    }
+    .hero {
+      min-height: 100vh;
+      background:
+        linear-gradient(120deg, rgba(13,11,10,0.92), rgba(13,11,10,0.45)),
+        url('https://images.unsplash.com/photo-1562560471-cb5b5f96c1ab?auto=format&fit=crop&w=2000&q=80') center/cover;
+      display: flex;
+      align-items: flex-end;
+      padding: 90px 32px 140px;
+    }
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .meta {
+      font-size: 0.85rem;
+      color: var(--stone);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(3rem, 5.6vw, 4.6rem);
+      letter-spacing: 0.2em;
+      margin: 18px 0 12px;
+    }
+    .hero p {
+      max-width: 640px;
+      color: var(--stone);
+    }
+    .cta-row {
+      margin-top: 40px;
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 14px 32px;
+      border: 1px solid var(--amber);
+      color: var(--ivory);
+      text-decoration: none;
+      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+    }
+    .btn.primary { background: var(--amber); color: var(--ink); }
+    .hero-meta {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      font-size: 0.9rem;
+      color: var(--stone);
+    }
+    .section {
+      padding: 100px 32px;
+      border-bottom: 1px solid rgba(247,241,232,0.08);
+    }
+    .section h2 {
+      font-family: 'Shippori Mincho', serif;
+      font-size: 2.4rem;
+      letter-spacing: 0.3em;
+      margin-bottom: 16px;
+      color: var(--amber);
+    }
+    .section p.meta { margin-bottom: 36px; }
+    .signature-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+    }
+    .signature-card {
+      border: 1px solid rgba(247,241,232,0.12);
+      border-radius: 18px;
+      overflow: hidden;
+      background: rgba(19,15,14,0.7);
+    }
+    .signature-card img { width: 100%; height: 240px; object-fit: cover; }
+    .signature-card div { padding: 28px; }
+    .price-tag {
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      color: var(--amber);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .menu-layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+    }
+    @media (max-width: 980px) {
+      nav { display: none; }
+      .menu-layout { grid-template-columns: 1fr; }
+      .nav { flex-wrap: wrap; justify-content: space-between; }
+    }
+    ul.menu-list { list-style: none; margin: 0; padding: 0; }
+    ul.menu-list li {
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(247,241,232,0.08);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    ul.menu-list span { font-size: 1rem; }
+    .note { font-size: 0.85rem; color: var(--stone); margin-top: 18px; }
+    .craft-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 28px;
+    }
+    .craft-card {
+      padding: 28px;
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(247,241,232,0.08);
+      border-radius: 16px;
+    }
+    .space {
+      padding: 140px 32px;
+      background: linear-gradient(135deg, #140e0b, #29180f);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+      align-items: center;
+    }
+    .space img { width: 100%; border-radius: 18px; }
+    .space p { color: var(--stone); }
+    .access {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 40px;
+    }
+    iframe { border: none; width: 100%; border-radius: 18px; min-height: 320px; }
+    footer {
+      padding: 46px 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--stone);
+    }
   </style>
 </head>
-
-<body class="min-h-screen bg-amber-50 menu-collapsed overflow-x-hidden">
-
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-amber-900 to-amber-800 text-white sticky top-0 z-50 shadow-lg">
-    <!-- 上段：ロゴとハンバーガー -->
-    <div class="container mx-auto px-4 py-4">
-      <div class="flex justify-between items-center">
-        <h1 class="text-3xl tracking-wider font-kouzan">恒之助</h1>
-  
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex gap-8">
-          <a href="#home" class="hover:text-amber-300 transition-colors">ホーム</a>
-          <a href="#menu" class="hover:text-amber-300 transition-colors">メニュー</a>
-          <a href="#about" class="hover:text-amber-300 transition-colors">店舗情報</a>
-          <a href="#access" class="hover:text-amber-300 transition-colors">アクセス</a>
-        </nav>
-  
-        <!-- Mobile Menu Button -->
-        <button class="md:hidden" id="mobile-menu-btn" aria-label="メニューを開く">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
+<body data-lang="ja">
+  <header>
+    <div class="nav">
+      <div class="brand" data-l10n="brand">恒之助</div>
+      <nav>
+        <a href="#signature" data-l10n="nav-signature">代表メニュー</a>
+        <a href="#menu" data-l10n="nav-menu">お品書き</a>
+        <a href="#craft" data-l10n="nav-craft">仕立て</a>
+        <a href="#access" data-l10n="nav-access">アクセス</a>
+      </nav>
+      <div class="lang-toggle">
+        <button data-set-lang="ja" class="active">JP</button>
+        <button data-set-lang="en">EN</button>
       </div>
     </div>
-  
-    <!-- 下段：モバイルメニュー（背景は全幅 / 中身はcontainer） -->
-    <nav class="mobile-menu md:hidden bg-amber-900/95" id="mobile-menu">
-      <div class="container mx-auto px-4 py-4 flex flex-col gap-4">
-        <a href="#home" class="text-left hover:text-amber-300 transition-colors mobile-link">ホーム</a>
-        <a href="#menu" class="text-left hover:text-amber-300 transition-colors mobile-link">メニュー</a>
-        <a href="#about" class="text-left hover:text-amber-300 transition-colors mobile-link">店舗情報</a>
-        <a href="#access" class="text-left hover:text-amber-300 transition-colors mobile-link">アクセス</a>
-      </div>
-    </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home" class="relative h-[600px] flex items-center justify-center">
-    <div class="absolute inset-0 bg-black/45 z-10"></div>
-    <img
-      src="https://images.unsplash.com/photo-1562560471-cb5b5f96c1ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1600"
-      alt="恒之助 店内"
-      class="absolute inset-0 w-full h-full object-cover"
-      loading="lazy"
-    />
-    <div class="relative z-20 text-center text-white px-4">
-      <h2 class="text-5xl md:text-7xl mb-6 tracking-wider font-kouzan">恒之助</h2>
-      <p class="text-xl md:text-2xl mb-4">
-      一枚に、覚悟を込める。
-      </p>
-      <p class="text-lg">
-      特上ロースと上ヒレ。素材と火入れで勝負する、とんかつ専門店。
-      </p>
-    </div>
-  </section>
-
-  <!-- Menu Section -->
-  <section id="menu" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl text-center mb-4 text-amber-900">メニュー</h2>
-      <p class="text-center text-gray-600 mb-12">Menu</p>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-
-        <!-- 代表① 二人前 特上ロース（トマホーク） -->
-        <div class="bg-amber-50 rounded-xl overflow-hidden border border-amber-200 hover:shadow-lg transition-shadow lg:col-span-3">
-          <div class="relative overflow-hidden">
-            <img src="src/tomahawk.jpg" alt="トマホークかつ（特上ロース）御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/95 text-amber-900 px-3 py-1 rounded-full text-sm font-bold">
-              6,490円
-            </div>
-            <div class="absolute bottom-3 left-3 bg-black/50 text-white px-3 py-1 rounded-full text-xs">
-              数量限定
-            </div>
-          </div>
-          <div class="p-6">
-            <h3 class="text-xl md:text-2xl text-amber-900 leading-tight">
-              トマホークかつ（特上ロース）御膳
-            </h3>
-            <p class="text-sm text-gray-700 mt-2">
-              一日数量限定です。事前予約で500g以上も可能です。
-            </p>
-          </div>
-        </div>
-
-        <!-- 代表② 上ヒレかつ御膳 -->
-        <div class="bg-amber-50 rounded-xl overflow-hidden border border-amber-200 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/jo-hirekatsu.jpg" alt="上ヒレかつ御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,970円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900 leading-tight">上ヒレかつ御膳</h3>
-          </div>
-        </div>
-
-        <!-- 以下は折りたたみ -->
-        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/hirekatsu.jpg" alt="ヒレかつ御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,420円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900">ヒレかつ御膳</h3>
-          </div>
-        </div>
-
-        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/rosekatsu.jpg" alt="ロースかつ御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,420円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900">ロースかつ御膳</h3>
-          </div>
-        </div>
-
-        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/jokatsu.jpg" alt="上ロースかつ御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,970円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900">上ロースかつ御膳</h3>
-          </div>
-        </div>
-
-        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/wagyukatsu.jpg" alt="黒毛和牛かつ御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              3,630円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900">黒毛和牛かつ御膳</h3>
-          </div>
-        </div>
-
-        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/oyakokatsu.jpg" alt="鶏親子かつ御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,420円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900">鶏親子かつ御膳</h3>
-            <p class="text-sm text-gray-600 mt-2">
-              鶏手羽先、鶏ささみ、半熟卵が入っております。
-            </p>
-          </div>
-        </div>
-
-        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/mixkatsu.jpg" alt="ミックス御膳"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,915円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900">ミックス御膳</h3>
-            <p class="text-sm text-gray-600 mt-2">
-              ヒレ、海老、茄子、半熟卵が入っております。
-            </p>
-          </div>
-        </div>
-
-        <div data-menu-more class="bg-white rounded-xl overflow-hidden border border-amber-100 hover:shadow-lg transition-shadow">
-          <div class="relative overflow-hidden">
-            <img src="src/donkatsu.jpg" alt="たれかつ丼"
-                 class="menu-img w-full object-cover hover:scale-105 transition-transform duration-300" loading="lazy">
-            <div class="absolute top-3 right-3 bg-white/90 text-amber-900 px-3 py-1 rounded-full text-sm font-semibold">
-              2,200円
-            </div>
-          </div>
-          <div class="p-5">
-            <h3 class="text-xl text-amber-900">たれかつ丼</h3>
-            <p class="text-sm text-gray-600 mt-2">
-              ヒレ、海老、茄子、半熟卵が入っております。
-            </p>
-          </div>
-        </div>
-
+  <section class="hero">
+    <div class="hero-inner">
+      <p class="meta" data-l10n="hero-badge">浅草 / モダンとんかつ</p>
+      <h1 data-l10n="hero-title" style='font-gamily:KouzanBrushFONT';>一枚に、覚悟を込める。</h1>
+      <p data-l10n="hero-copy">特上ロースと上ヒレ。素材・温度・油・休ませ方までを設計し、揚げものの概念を塗り替える14席のとんかつ専門店です。浅草・伝法院通りから少し入った静かな路地で、余韻の残る一皿をお届けします。</p>
+      <div class="cta-row">
+        <a class="btn primary" href="tel:0300000000" data-l10n="hero-cta-primary">ご予約 03-0000-0000</a>
+        <a class="btn" href="#menu" data-l10n="hero-cta-secondary">お品書きを見る</a>
       </div>
-
-      <!-- もっと見る -->
-      <div class="mt-10 text-center">
-        <button id="menu-toggle"
-          class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-900 text-white hover:bg-amber-800 transition-colors">
-          メニューをもっと見る ↓
-        </button>
-      </div>
-
-      <div class="mt-12 text-center text-gray-600">
-        <p>※全ての定食にはご飯、味噌汁、キャベツ、漬物が付きます</p>
-        <p class="mt-2">※ご飯・キャベツはおかわり自由です</p>
+      <div class="hero-meta">
+        <div data-l10n="hero-meta-1">席数 14席（カウンター主体）</div>
+        <div data-l10n="hero-meta-2">ランチ 11:00-15:00</div>
+        <div data-l10n="hero-meta-3">ディナー 17:00-21:00</div>
+        <div data-l10n="hero-meta-4">定休日：水曜日</div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-    <section id="about" class="py-20 bg-gradient-to-b from-amber-50 to-amber-100">
-      <div class="container mx-auto px-4">
-        <h2 class="text-4xl text-center mb-4 text-amber-900">店舗について</h2>
-        <p class="text-center text-gray-600 mb-12">About Tsunenosuke</p>
-        
-        <div class="max-w-4xl mx-auto">
-          <div class="bg-white rounded-lg shadow-lg p-8 md:p-12">
-    
-            <!-- コンセプト -->
-            <div class="space-y-6 text-gray-700 leading-relaxed">
-    
-              <p>
-                恒之助は、特上ロースと上ヒレに特化したとんかつ専門店です。
-                部位ごとの個性を最大限に引き出すため、温度管理、揚げ時間、休ませ方までを徹底的に設計しています。
-              </p>
-    
-              <p>
-                名物の「トマホークかつ（特上ロース）御膳」は、
-                豪快さと繊細さを併せ持つ一皿。
-                上ヒレかつは、驚くほどしっとりとした食感と軽やかな余韻を追求しています。
-              </p>
-    
-              <p>
-                揚げ物でありながら重くない。
-                それが恒之助の目指すとんかつです。
-              </p>
-    
-            </div>
-    
-            <hr class="border-amber-200 my-10">
-              <!-- 店舗情報 -->
-              <div class="grid md:grid-cols-2 gap-10 text-gray-700">
-            
-                <!-- 営業時間 -->
-                <div class="space-y-2">
-                  <h3 class="text-xl text-amber-900 mb-2">営業時間</h3>
-                  <p>ランチ：11:00 - 15:00</p>
-                  <p>ディナー：17:00 - 21:00</p>
-                  <p class="mt-2">定休日：水曜日</p>
-                  <p>ラストオーダー：特になし</p>
-                </div>
-              
-                <!-- ご案内 -->
-                <div class="space-y-2">
-                  <h3 class="text-xl text-amber-900 mb-2">ご案内</h3>
-                  <p>席数：14席</p>
-                  <p>
-                    ご予約：電話のみ承っております<br>
-                    <a href="tel:0300000000" class="text-amber-900 underline font-semibold">
-                      03-0000-0000
-                    </a>
-                  </p>
-                  <p>お支払い：現金 / 各種クレジットカード / QR決済対応</p>
-                </div>
-              
-              </div>
-
-    
-            </div>
-    
-          </div>
+  <section id="signature" class="section">
+    <h2 data-l10n="signature-heading">代表作</h2>
+    <p class="meta" data-l10n="signature-meta">Signature Cuts</p>
+    <div class="signature-grid">
+      <article class="signature-card">
+        <img src="src/tomahawk.jpg" alt="Tomahawk">
+        <div>
+          <div class="price-tag" data-l10n="signature-card1-price">6,490円 / 限定</div>
+          <h3 data-l10n="signature-card1-title">トマホークかつ（特上ロース）御膳</h3>
+          <p data-l10n="signature-card1-body">骨付きカットを低温でゆっくり火入れし、仕上げに高温で香りを纏わせる一枚。事前予約で500g以上も対応。</p>
         </div>
+      </article>
+      <article class="signature-card">
+        <img src="src/jo-hirekatsu.jpg" alt="Premium Tenderloin">
+        <div>
+          <div class="price-tag" data-l10n="signature-card2-price">2,970円</div>
+          <h3 data-l10n="signature-card2-title">上ヒレかつ御膳</h3>
+          <p data-l10n="signature-card2-body">火入れ温度と休ませ時間を1℃単位で管理。驚くほどしっとりとした食感と、軽い余韻が続きます。</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="menu" class="section">
+    <h2 data-l10n="menu-heading">お品書き</h2>
+    <p class="meta" data-l10n="menu-meta">全ての定食にご飯・味噌汁・キャベツ・漬物が付きます。ご飯とキャベツはおかわり自由。</p>
+    <div class="menu-layout">
+      <div>
+        <ul class="menu-list">
+          <li><span data-l10n="menu-item-1">ヒレかつ御膳</span><span>2,420円</span></li>
+          <li><span data-l10n="menu-item-2">ロースかつ御膳</span><span>2,420円</span></li>
+          <li><span data-l10n="menu-item-3">上ロースかつ御膳</span><span>2,970円</span></li>
+          <li><span data-l10n="menu-item-4">黒毛和牛かつ御膳</span><span>3,630円</span></li>
+          <li><span data-l10n="menu-item-5">鶏親子かつ御膳</span><span>2,420円</span></li>
+          <li><span data-l10n="menu-item-6">ミックス御膳（ヒレ/海老/茄子/半熟卵）</span><span>2,915円</span></li>
+          <li><span data-l10n="menu-item-7">たれかつ丼</span><span>2,200円</span></li>
+        </ul>
+        <p class="note" data-l10n="menu-note">価格は税込。限定のトマホークかつは事前予約にて承ります。</p>
       </div>
-    </section>
-
-
-  <!-- Access Section -->
-  <section id="access" class="py-20 bg-white">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl text-center mb-4 text-amber-900">アクセス</h2>
-      <p class="text-center text-gray-600 mb-12">Access</p>
-
-      <div class="max-w-4xl mx-auto">
-        <div class="bg-amber-50 rounded-lg shadow-lg p-8 md:p-12">
-          <div class="flex items-start gap-4 mb-8">
-            <svg class="text-amber-700 flex-shrink-0 mt-1" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-              <circle cx="12" cy="10" r="3"></circle>
-            </svg>
-            <div>
-              <h3 class="text-xl mb-2 text-amber-900">住所</h3>
-              <p class="text-gray-700">〒100-0001</p>
-              <p class="text-gray-700">東京都台東区浅草2-12-6</p>
-              <p class="text-gray-700 mt-4">つくばエクスプレス【浅草駅】徒歩1分</p>
-              <p class="text-gray-700">東武伊勢崎線・東京メトロ銀座線【浅草駅】徒歩10分</p>
-            </div>
-          </div>
-
-          <div class="w-full h-96 rounded-lg overflow-hidden shadow-sm">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.4497248865223!2d139.79289839999998!3d35.7151567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188faceedca5ab%3A0x6c96f9ee611e979b!2z5rWF6I2JIOOBi-OBpOOChCDmgZLkuYvliqk!5e0!3m2!1sja!2ssg!4v1770869164740!5m2!1sja!2ssg"
-              class="w-full h-full border-0"
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-              title="恒之助 地図"
-            ></iframe>
-          </div>
-
-        </div>
+      <div>
+        <h3 data-l10n="menu-hours-heading">営業時間</h3>
+        <p data-l10n="menu-hours-body">ランチ 11:00-15:00<br>ディナー 17:00-21:00<br>定休日：水曜日<br>ラストオーダー設定なし</p>
+        <h3 style="margin-top:28px;" data-l10n="menu-guide-heading">ご案内</h3>
+        <p data-l10n="menu-guide-body">席数 14席（カウンター主体）<br>ご予約：お電話のみ<br>お支払い：現金 / 各種クレジット / QR決済</p>
       </div>
     </div>
   </section>
 
-  <section class="py-14 bg-amber-900 text-white">
-    <div class="container mx-auto px-4 text-center space-y-4">
-      <h3 class="text-2xl font-semibold tracking-wide">ご来店案内</h3>
-      <p>
-        席数14席 / 定休日：水曜日 / ラストオーダーなし
-      </p>
-      <p>
-        ご予約はお電話にて承っております
-      </p>
-      <a href="tel:0300000000"
-         class="inline-block mt-3 px-6 py-3 bg-white text-amber-900 rounded-full font-semibold hover:bg-amber-100 transition">
-         03-0000-0000
-      </a>
-      <p class="text-sm text-amber-200 mt-3">
-        お支払い：現金 / クレジットカード / QR決済対応
-      </p>
+  <section id="craft" class="section">
+    <h2 data-l10n="craft-heading">仕立て</h2>
+    <p class="meta" data-l10n="craft-meta">Craft</p>
+    <div class="craft-grid">
+      <article class="craft-card">
+        <h3 data-l10n="craft-card1-title">低温 × 高温</h3>
+        <p data-l10n="craft-card1-body">火入れの前後で油温を切り替え、中心温度と衣の香りを分離。揚げもの特有の重さを取り払います。</p>
+      </article>
+      <article class="craft-card">
+        <h3 data-l10n="craft-card2-title">休ませの設計</h3>
+        <p data-l10n="craft-card2-body">肉を休ませる時間を gram ごとに定義。提供直前に再度火入れを入れ、旨味を閉じ込めます。</p>
+      </article>
+      <article class="craft-card">
+        <h3 data-l10n="craft-card3-title">仕込みの透明化</h3>
+        <p data-l10n="craft-card3-body">下拵えから盛り付けまでを温度ログで管理。誰が立っても同じ仕上がりになるようナレッジ化。</p>
+      </article>
+      <article class="craft-card">
+        <h3 data-l10n="craft-card4-title">器と空間</h3>
+        <p data-l10n="craft-card4-body">金属×木のコントラストを効かせた14席。余白のある和モダン空間で、一皿に集中できます。</p>
+      </article>
     </div>
   </section>
 
-  
-  <!-- Footer -->
-  <footer class="bg-gradient-to-r from-amber-900 to-amber-800 text-white py-12">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl mb-4 tracking-wider font-kouzan">恒之助</h2>
-      <p class="text-amber-200 mb-2">とんかつ専門店</p>
-      <p class="text-sm text-amber-300 mt-6">© 2026 Konosuke. All rights reserved.</p>
+  <section class="space">
+    <div>
+      <h2 style="color: var(--amber);" data-l10n="space-heading">空間</h2>
+      <p data-l10n="space-body">浅草・伝法院通りの喧騒から一歩離れた、14席限定のカウンター。木曽檜と鉄・石を組み合わせた静かな設えでお迎えします。</p>
     </div>
-  </footer>
+    <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1400&q=80" alt="Interior">
+  </section>
+
+  <section id="access" class="section">
+    <h2 data-l10n="access-heading">アクセス</h2>
+    <p class="meta" data-l10n="access-meta">Access</p>
+    <div class="access">
+      <div>
+        <h3 data-l10n="access-address-title">所在地</h3>
+        <p data-l10n="access-address-body">〒111-0032<br>東京都台東区浅草2-12-6</p>
+        <p data-l10n="access-transport">つくばエクスプレス「浅草駅」徒歩1分<br>銀座線 / 東武「浅草駅」徒歩10分</p>
+        <p style="margin-top: 22px;" data-l10n="access-reservation">ご予約：<a href="tel:0300000000" style="color: var(--amber); text-decoration: none;">03-0000-0000</a></p>
+      </div>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.4497248865223!2d139.79289839999998!3d35.7151567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188faceedca5ab%3A0x6c96f9ee611e979b!2z5rWF6I2JIOOBi-OBpOOChCDmgZLkuYvliqk!5e0!3m2!1sja!2ssg!4v1770869164740!5m2!1sja!2ssg" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <footer data-l10n="footer">© 2026 恒之助 - Asakusa Tonkatsu</footer>
 
   <script>
-    // Mobile menu toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
+    const translations = {
+      brand: { ja: '恒之助', en: 'KONOSUKE' },
+      'nav-signature': { ja: '代表メニュー', en: 'Signature' },
+      'nav-menu': { ja: 'お品書き', en: 'Menu' },
+      'nav-craft': { ja: '仕立て', en: 'Craft' },
+      'nav-access': { ja: 'アクセス', en: 'Visit' },
+      'hero-badge': { ja: '浅草 / モダンとんかつ', en: 'ASAKUSA / MODERN TONKATSU' },
+      'hero-title': { ja: '一枚に、覚悟を込める。', en: 'One plate, infinite intent.' },
+      'hero-copy': {
+        ja: '特上ロースと上ヒレ。素材・温度・油・休ませ方までを設計し、揚げものの概念を塗り替える14席のとんかつ専門店です。浅草・伝法院通りから少し入った静かな路地で、余韻の残る一皿をお届けします。',
+        en: 'Premium loin and tenderloin, engineered through temperature curves, oil profiles, and resting time. A fourteen-seat tonkatsu counter tucked off Denboin Street in Asakusa, delivering plates that linger without heaviness.'
+      },
+      'hero-cta-primary': { ja: 'ご予約 03-0000-0000', en: 'Call +81-3-0000-0000' },
+      'hero-cta-secondary': { ja: 'お品書きを見る', en: 'View Menu' },
+      'hero-meta-1': { ja: '席数 14席（カウンター主体）', en: '14 seats · counter focused' },
+      'hero-meta-2': { ja: 'ランチ 11:00-15:00', en: 'Lunch 11:00–15:00' },
+      'hero-meta-3': { ja: 'ディナー 17:00-21:00', en: 'Dinner 17:00–21:00' },
+      'hero-meta-4': { ja: '定休日：水曜日', en: 'Closed on Wednesdays' },
+      'signature-heading': { ja: '代表作', en: 'Signature Cuts' },
+      'signature-meta': { ja: 'Signature Cuts', en: 'Hero dishes' },
+      'signature-card1-price': { ja: '6,490円 / 限定', en: '¥6,490 / Limited' },
+      'signature-card1-title': { ja: 'トマホークかつ（特上ロース）御膳', en: 'Tomahawk Loin Set' },
+      'signature-card1-body': {
+        ja: '骨付きカットを低温でゆっくり火入れし、仕上げに高温で香りを纏わせる一枚。事前予約で500g以上も対応。',
+        en: 'Bone-in premium loin fried low and slow, finished hot for aroma. Advance bookings allow 500g+ portions.'
+      },
+      'signature-card2-price': { ja: '2,970円', en: '¥2,970' },
+      'signature-card2-title': { ja: '上ヒレかつ御膳', en: 'Premium Tenderloin Set' },
+      'signature-card2-body': {
+        ja: '火入れ温度と休ませ時間を1℃単位で管理。驚くほどしっとりとした食感と、軽い余韻が続きます。',
+        en: 'Temperature and resting time managed to the degree for a silk-like interior and clean finish.'
+      },
+      'menu-heading': { ja: 'お品書き', en: 'Menu' },
+      'menu-meta': {
+        ja: '全ての定食にご飯・味噌汁・キャベツ・漬物が付きます。ご飯とキャベツはおかわり自由。',
+        en: 'All sets include rice, miso soup, shredded cabbage, and pickles. Complimentary refills on rice & cabbage.'
+      },
+      'menu-item-1': { ja: 'ヒレかつ御膳', en: 'Tenderloin Set' },
+      'menu-item-2': { ja: 'ロースかつ御膳', en: 'Loin Set' },
+      'menu-item-3': { ja: '上ロースかつ御膳', en: 'Premium Loin Set' },
+      'menu-item-4': { ja: '黒毛和牛かつ御膳', en: 'Japanese Black Wagyu Katsu' },
+      'menu-item-5': { ja: '鶏親子かつ御膳', en: 'Chicken “Oyakatsu” Set' },
+      'menu-item-6': { ja: 'ミックス御膳（ヒレ/海老/茄子/半熟卵）', en: 'Mixed Set (tenderloin / prawn / eggplant / soft-boiled egg)' },
+      'menu-item-7': { ja: 'たれかつ丼', en: 'Sauce Katsu Bowl' },
+      'menu-note': { ja: '価格は税込。限定のトマホークかつは事前予約にて承ります。', en: 'Prices include tax. Limited tomahawk portions available with reservation.' },
+      'menu-hours-heading': { ja: '営業時間', en: 'Hours & Booking' },
+      'menu-hours-body': {
+        ja: 'ランチ 11:00-15:00<br>ディナー 17:00-21:00<br>定休日：水曜日<br>ラストオーダー設定なし',
+        en: 'Lunch 11:00–15:00<br>Dinner 17:00–21:00<br>Closed Wednesdays<br>No strict last orders.'
+      },
+      'menu-guide-heading': { ja: 'ご案内', en: 'Seats & Payment' },
+      'menu-guide-body': {
+        ja: '席数 14席（カウンター主体）<br>ご予約：お電話のみ<br>お支払い：現金 / 各種クレジット / QR決済',
+        en: '14 seats, counter-driven.<br>Reservations by phone only.<br>Cash / major credit cards / QR payments accepted.'
+      },
+      'craft-heading': { ja: '仕立て', en: 'Craft Notes' },
+      'craft-meta': { ja: 'Craft', en: 'Behind the plate' },
+      'craft-card1-title': { ja: '低温 × 高温', en: 'Two-stage Frying' },
+      'craft-card1-body': {
+        ja: '火入れの前後で油温を切り替え、中心温度と衣の香りを分離。揚げもの特有の重さを取り払います。',
+        en: 'Low heat sets the core, flash heat blooms aroma. Weightless crust, juicy center.'
+      },
+      'craft-card2-title': { ja: '休ませの設計', en: 'Resting Protocols' },
+      'craft-card2-body': {
+        ja: '肉を休ませる時間を gram ごとに定義。提供直前に再度火入れを入れ、旨味を閉じ込めます。',
+        en: 'Resting time defined by gram. Reheated before slicing to seal in juices.'
+      },
+      'craft-card3-title': { ja: '仕込みの透明化', en: 'Transparent Prep' },
+      'craft-card3-body': {
+        ja: '下拵えから盛り付けまでを温度ログで管理。誰が立っても同じ仕上がりになるようナレッジ化。',
+        en: 'Every step logged by temperature so recipes stay consistent regardless of the cook.'
+      },
+      'craft-card4-title': { ja: '器と空間', en: 'Space & Tableware' },
+      'craft-card4-body': {
+        ja: '金属×木のコントラストを効かせた14席。余白のある和モダン空間で、一皿に集中できます。',
+        en: 'Metal meets wood across a calm room of fourteen seats, keeping focus on the cut in front of you.'
+      },
+      'space-heading': { ja: '空間', en: 'The Room' },
+      'space-body': {
+        ja: '浅草・伝法院通りの喧騒から一歩離れた、14席限定のカウンター。木曽檜と鉄・石を組み合わせた静かな設えでお迎えします。',
+        en: 'Steps away from Denboin Street, a fourteen-seat counter lined with cypress, iron, and stone invites quiet focus.'
+      },
+      'access-heading': { ja: 'アクセス', en: 'Visit' },
+      'access-meta': { ja: 'Access', en: 'Access' },
+      'access-address-title': { ja: '所在地', en: 'Address' },
+      'access-address-body': { ja: '〒111-0032<br>東京都台東区浅草2-12-6', en: '2-12-6 Asakusa, Taito-ku, Tokyo 111-0032' },
+      'access-transport': {
+        ja: 'つくばエクスプレス「浅草駅」徒歩1分<br>銀座線 / 東武「浅草駅」徒歩10分',
+        en: 'TX Asakusa Station · 1 min walk<br>Ginza Line / Tobu Asakusa · 10 min'
+      },
+      'access-reservation': {
+        ja: 'ご予約：<a href="tel:0300000000" style="color: var(--amber); text-decoration: none;">03-0000-0000</a>',
+        en: 'Reservations: <a href="tel:+81300000000" style="color: var(--amber); text-decoration: none;">+81-3-0000-0000</a>'
+      },
+      footer: { ja: '© 2026 恒之助 - Asakusa Tonkatsu', en: '© 2026 Konosuke — Asakusa Tonkatsu' }
+    };
 
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('open');
-    });
+    const buttons = document.querySelectorAll('[data-set-lang]');
+    const elements = document.querySelectorAll('[data-l10n]');
 
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
+    function applyLanguage(lang) {
+      document.documentElement.setAttribute('lang', lang === 'ja' ? 'ja' : 'en');
+      document.body.dataset.lang = lang;
+      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.setLang === lang));
+      elements.forEach(el => {
+        const key = el.dataset.l10n;
+        const translation = translations[key]?.[lang];
+        if (translation !== undefined) {
+          el.innerHTML = translation;
+        }
       });
-    });
-
-    // Menu toggle
-    const menuToggle = document.getElementById('menu-toggle');
-    if (menuToggle) {
-      menuToggle.addEventListener('click', () => {
-        document.body.classList.toggle('menu-collapsed');
-        const collapsed = document.body.classList.contains('menu-collapsed');
-        menuToggle.textContent = collapsed
-          ? 'メニューをもっと見る ↓'
-          : 'メニューを閉じる ↑';
-      });
+      localStorage.setItem('konosuke-lang', lang);
     }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => applyLanguage(btn.dataset.setLang));
+    });
+
+    const saved = localStorage.getItem('konosuke-lang');
+    applyLanguage(saved === 'en' ? 'en' : 'ja');
   </script>
 </body>
 </html>

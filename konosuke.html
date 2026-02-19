@@ -32,9 +32,6 @@
       letter-spacing: 0.02em;
       transition: color 0.2s ease;
     }
-    body[data-lang="ja"] {
-      font-family: 'Shippori Mincho', 'Noto Sans JP', 'KouzanBrushFONT', sans-serif;
-    }
     header {
       position: sticky;
       top: 0;
@@ -53,9 +50,12 @@
       gap: 24px;
     }
     .brand {
-      font-family: 'KouzanBrushFONT', serif;
+      font-family: 'Shippori Mincho', serif;
       font-size: 1.8rem;
       letter-spacing: 0.3em;
+    }
+    body[data-lang="ja"] .brand {
+      font-family: 'KouzanBrushFONT', 'Shippori Mincho', serif;
     }
     body[data-lang="en"] .brand {
       font-size: 1.6rem;
@@ -131,6 +131,9 @@
       font-size: clamp(3rem, 5.6vw, 4.6rem);
       letter-spacing: 0.2em;
       margin: 18px 0 12px;
+    }
+    body[data-lang="ja"] .hero h1 {
+      font-family: 'KouzanBrushFONT', 'Shippori Mincho', serif;
     }
     .hero p {
       max-width: 640px;

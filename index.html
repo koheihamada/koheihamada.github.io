@@ -518,6 +518,44 @@
       max-width: 680px;
     }
 
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .metric-card {
+      background-color: var(--surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .metric-value {
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--text-strong);
+      letter-spacing: 0.05em;
+    }
+
+    .metric-label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .metric-card p {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-top: 6px;
+    }
+
     .section-card-row {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -904,6 +942,7 @@
         </div>
 
         <nav class="nav-menu" aria-label="Primary">
+          <a href="#highlights" class="nav-link">Highlights</a>
           <a href="#mission" class="nav-link">Mission</a>
           <a href="#vision" class="nav-link">Vision</a>
           <a href="#values" class="nav-link">Values</a>
@@ -922,6 +961,7 @@
       </div>
 
       <nav class="nav-menu-sp" aria-label="Primary mobile">
+        <a href="#highlights" class="nav-link">Highlights</a>
         <a href="#mission" class="nav-link">Mission</a>
         <a href="#vision" class="nav-link">Vision</a>
         <a href="#values" class="nav-link">Values</a>
@@ -941,19 +981,19 @@
         <div class="hero-copy">
           <div class="hero-kicker">
             <div class="hero-kicker-dot"></div>
-            FOOD &amp; BEVERAGE STARTUP
+            FOOD &amp; BEVERAGE GROUP
           </div>
           <h1 class="hero-title">
-            常識に囚われない、<br />
-            <span>新しい飲食体験を。</span>
+            継承と再発明で、<br />
+            <span>飲食モデルを設計する。</span>
           </h1>
           <p class="hero-sub">
-            株式会社Basicは、飲食店の運営・M&amp;A・新規立ち上げ・コンサルティングを通して、
-            「食の未来をつなぎ、広げる」ことに挑戦し続ける飲食スタートアップです。
+            株式会社Basicは、飲食店の承継・M&amp;A・新規立ち上げ・コンサルティングを一体化し、
+            「食の価値を磨き、構造で持続させる」ことにコミットするF&amp;Bカンパニーです。
           </p>
           <p class="hero-meta">
-            <strong>日本国内を中心に、</strong>
-            既存店舗を引き継ぎながら、新しいブランドと働き方をつくっています。
+            <strong>現場起点で数字を動かす。</strong>
+            オペレーションとファイナンスを両立させ、次の世代へ食文化をつなぎます。
           </p>
 
           <div class="hero-actions">
@@ -969,9 +1009,10 @@
 
           <div class="hero-tags">
             <div class="hero-tag">飲食M&amp;A</div>
-            <div class="hero-tag">店舗運営</div>
-            <div class="hero-tag">立ち上げ支援</div>
-            <div class="hero-tag">コンサルティング</div>
+            <div class="hero-tag">ブランド再生</div>
+            <div class="hero-tag">独立支援</div>
+            <div class="hero-tag">コーポレートPMI</div>
+            <div class="hero-tag">多店舗オペレーション</div>
           </div>
         </div>
 
@@ -1031,6 +1072,39 @@
         </aside>
       </section>
 
+      <!-- Highlights -->
+      <section id="highlights" class="section fade">
+        <div class="section-header">
+          <div class="section-kicker">Highlights</div>
+          <h2 class="section-title">数字で見るBasic</h2>
+        </div>
+        <div class="section-body">
+          承継と立ち上げを両輪に、現場と経営の距離を縮める仕組みを構築しています。
+        </div>
+        <div class="metric-grid">
+          <div class="metric-card">
+            <div class="metric-value">3拠点</div>
+            <div class="metric-label">TOKYO BASE</div>
+            <p>浅草・中目黒・下北沢でポートフォリオを展開。</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">41名</div>
+            <div class="metric-label">TEAM SIZE</div>
+            <p>HQ 5名 / 各店舗12名、全員が数値を共有するチーム設計。</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">¥10M+</div>
+            <div class="metric-label">MONTHLY SALES OPS</div>
+            <p>月商1,000万円規模のマネジメント経験を持つリーダー陣。</p>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value">4事業</div>
+            <div class="metric-label">SERVICE LINE</div>
+            <p>運営 / M&A / 新規立ち上げ / コンサルティングを一気通貫で提供。</p>
+          </div>
+        </div>
+      </section>
+
       <!-- Mission -->
       <section id="mission" class="section fade">
         <div class="section-header">
@@ -1038,8 +1112,8 @@
           <h2 class="section-title">「<span>食の未来をつなぎ、広げる</span>」</h2>
         </div>
         <div class="section-body">
-          株式会社Basicは、既存の飲食店を引き継ぎながら新しい価値を加え、
-          働く人も利用する人も誇りを持てる飲食業のかたちを追求します。
+          受け継いだ店舗の価値を守りながら、ナレッジ・デザイン・数字を再構築し、
+          「食の未来をつなぎ、広げる」ための仕組みをつくり続けます。
         </div>
       </section>
 
@@ -1050,10 +1124,8 @@
           <h2 class="section-title">「<span>飲食業を、もっと誇れる仕事に</span>」</h2>
         </div>
         <div class="section-body">
-          日本の外食は世界に誇れるクオリティでありながら、
-          現場では長時間労働や低賃金が当たり前になっている。<br />
-          Basicは、このギャップを埋めるために、
-          収益性と働きやすさの両立を前提とした店舗づくり・組織づくりに取り組んでいます。
+          労働環境と収益性のギャップをなくし、飲食を誇り高い専門職に戻す。
+          現場の技術と経営指標を同じテーブルに載せることで、持続可能なモデルを世界へ輸出します。
         </div>
       </section>
 
@@ -1160,6 +1232,20 @@
             </div>
           </article>
 
+          <article class="portfolio-card">
+            <div class="portfolio-image" style="background-image: url('/src/jo-hirekatsu.jpg');"></div>
+            <div class="portfolio-body">
+              <div class="portfolio-tag">浅草 / とんかつ</div>
+              <div class="portfolio-name">恒之助</div>
+              <div class="portfolio-meta">
+                一枚に、覚悟を込める。特上ロースと上ヒレ。素材と火入れで勝負する、とんかつ専門店。
+              </div>
+              <a href="/konosuke" class="portfolio-link">
+                店舗ページへ <span>↗</span>
+              </a>
+            </div>
+          </article>
+
           <article class="portfolio-card coming-soon">
             <div class="portfolio-image coming-soon-img">
               <div class="coming-soon-label">Coming Soon</div>
@@ -1214,6 +1300,9 @@
               </li>
               <li>
                 <a href="/yanosuke" class="link-inline">中目黒 弥之助</a> の運営
+              </li>
+              <li>
+                <a href="/konosuke" class="link-inline">浅草 恒之助</a> の運営
               </li>
               <li>次の店舗 Coming soon…</li>
             </ul>

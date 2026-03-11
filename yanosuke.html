@@ -7,10 +7,32 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+   <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CV445LCX0"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-5CV445LCX0');
+    </script>
+
   <style>
-    :root{ --ink:#1b1b1b; --bg:#faf8f3; --card:#ffffff; --accent:#d6a154; --accent-2:#7a5530; }
+    :root{
+      --ink:#1b1b1b;
+      --bg:#faf8f3;
+      --card:#ffffff;
+      --accent:#d6a154;
+      --accent-2:#7a5530;
+      --line:#eee7db;
+    }
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter, system-ui, -apple-system, "Noto Sans JP", sans-serif;}
+    html,body{
+      margin:0;
+      padding:0;
+      background:var(--bg);
+      color:var(--ink);
+      font-family:Inter, system-ui, -apple-system, "Noto Sans JP", sans-serif;
+    }
     a{color:inherit;text-decoration:none}
     .container{max-width:1100px;margin:0 auto;padding:0 20px}
 
@@ -22,31 +44,67 @@
     }
 
     /* NAV */
-    .nav{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;z-index:1000;transition:background .3s, box-shadow .3s}
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .nav{
+      position:fixed;
+      top:0;left:0;right:0;
+      height:64px;
+      display:flex;
+      align-items:center;
+      z-index:3000;
+      transition:background .3s, box-shadow .3s;
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      width:100%;
+    }
     .brand{display:flex;align-items:baseline;gap:12px;font-weight:800}
     .brand__jp{font-family:"Kouzan", serif;font-weight:700;letter-spacing:.2em}
-    .brand__en{font-family:Inter, system-ui, -apple-system, "Noto Sans JP", sans-serif;opacity:.7;font-size:.9rem}
+    .brand__en{opacity:.7;font-size:.9rem}
     .nav-links{display:flex;gap:22px;font-weight:600}
-    .nav.scrolled{background:rgba(255,255,255,.9);backdrop-filter:saturate(180%) blur(8px);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+    .nav.scrolled{
+      background:rgba(255,255,255,.92);
+      backdrop-filter:saturate(180%) blur(8px);
+      box-shadow:0 6px 18px rgba(0,0,0,.08);
+    }
     .nav a{position:relative}
-    .nav a:after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:linear-gradient(90deg,var(--accent),transparent);transform:scaleX(0);transform-origin:left;transition:transform .25s}
+    .nav a:after{
+      content:"";
+      position:absolute;
+      left:0;right:0;bottom:-6px;height:2px;
+      background:linear-gradient(90deg,var(--accent),transparent);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .25s;
+    }
     .nav a:hover:after,.nav a.active:after{transform:scaleX(1)}
-
-    /* メニューOPEN中はナビを不透明に */
-    .nav.menu-open{background:rgba(255,255,255,.98);backdrop-filter:saturate(180%) blur(8px);box-shadow:0 6px 18px rgba(0,0,0,.12)}
+    .nav.menu-open{
+      background:rgba(255,255,255,.98);
+      backdrop-filter:saturate(180%) blur(8px);
+      box-shadow:0 6px 18px rgba(0,0,0,.12);
+    }
     .nav.menu-open .hamburger span{ background:var(--ink) !important; }
 
-    /* MOBILE: ハンバーガー */
+    /* HAMBURGER */
     .hamburger{
-      position:relative;display:flex;align-items:center;justify-content:center;
-      width:44px;height:44px;padding:0;border:none;background:transparent;
-      border-radius:12px;cursor:pointer;outline:none;transition:background .2s, box-shadow .2s;z-index:1001;
+      position:relative;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      width:44px;height:44px;
+      padding:0;border:none;background:transparent;
+      border-radius:12px;cursor:pointer;outline:none;
+      transition:background .2s, box-shadow .2s;
+      z-index:3100;
     }
     .hamburger:active{transform:translateY(1px)}
     .hamburger span{
-      position:absolute;left:50%;width:22px;height:2px;border-radius:2px;
-      transform:translateX(-50%);transition:transform .25s ease, opacity .2s ease, top .25s ease, background .2s ease;
+      position:absolute;left:50%;
+      width:22px;height:2px;border-radius:2px;
+      transform:translateX(-50%);
+      transition:transform .25s ease, opacity .2s ease, top .25s ease, background .2s ease;
     }
     .nav:not(.scrolled) .hamburger span{ background:#fff; }
     .nav.scrolled .hamburger span{ background:var(--ink); }
@@ -56,14 +114,8 @@
     .hamburger.is-open span:nth-child(1){ top:21px; transform:translateX(-50%) rotate(45deg); }
     .hamburger.is-open span:nth-child(2){ opacity:0; }
     .hamburger.is-open span:nth-child(3){ top:21px; transform:translateX(-50%) rotate(-45deg); }
-    @media (min-width: 861px){
-      .hamburger { display: none; }
-    }
-    
+
     /* HERO */
-    /* =========================
-     HERO (video background)
-     ========================= */
     .hero{
       position: relative;
       display: grid;
@@ -71,45 +123,38 @@
       height: 88vh;
       min-height: 560px;
       overflow: hidden;
-      color: #fff;                 /* テキスト色はここで一括 */
+      color: #fff;
     }
-    /* 初期はposter（静止画）が見える状態。動画は透明→読み込みでフェードIN */
     .hero-video{ opacity:0; transition:opacity .35s ease; }
     .hero-video.is-ready{ opacity:1; }
-    
-    /* 省データ派や重い回線は動画消して静止画だけ */
+
     @media (prefers-reduced-data: reduce){
       .hero-video{ display:none; }
       .hero{ background: url('/src/hero-fallback.jpg') center/cover no-repeat; }
     }
-    /* 背景動画 & オーバーレイは全面フィット */
+
     .hero-video,
     .hero-overlay{
       position: absolute;
       inset: 0;
     }
-    
     .hero-video{
       width: 100%;
       height: 100%;
       object-fit: cover;
       z-index: 0;
     }
-    
     .hero-overlay{
       z-index: 1;
-      background: rgba(0,0,0,.45); /* 読みやすさ用の暗幕 */
+      background: rgba(0,0,0,.45);
     }
-    
-    /* コンテンツ本体 */
     .hero-content{
       position: relative;
       z-index: 2;
       max-width: 1100px;
-      padding: 0 20px;             /* 安全な横マージン */
+      width:100%;
+      padding: 0 20px;
     }
-    
-    /* タイトル/テキスト */
     .hero h1{
       font-family: "Kouzan", serif;
       font-weight: 700;
@@ -117,49 +162,36 @@
       font-size: clamp(28px, 4vw, 44px);
       margin: 0 0 10px;
     }
-    
     .hero p{
       max-width: 680px;
       margin: 0 0 24px;
       opacity: .95;
     }
-    
-    /* CTA ボタン */
     .cta{
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
     }
-    
     .btn{
-      display: inline-block;
-      padding: 12px 18px;
-      border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid transparent;
-      line-height: 1;              /* 垂直中央を安定化 */
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:999px;
+      font-weight:700;
+      border:1px solid transparent;
+      line-height:1;
     }
-    
-    .btn--primary{
-      background: var(--accent);
-      color: #1b1207;
-    }
+    .btn--primary{ background:var(--accent); color:#1b1207; }
     .btn--ghost{
-      background: rgba(255,255,255,.1);
-      border-color: rgba(255,255,255,.35);
-      color: #fff;
+      background:rgba(255,255,255,.1);
+      border-color:rgba(255,255,255,.35);
+      color:#fff;
     }
-    
-    /* フォーカス/ホバー（わずかに視覚的フィードバック） */
     .btn:focus-visible{
-      outline: 2px solid rgba(255,255,255,.8);
-      outline-offset: 2px;
+      outline:2px solid rgba(255,255,255,.8);
+      outline-offset:2px;
     }
-    .btn:hover{
-      filter: brightness(1.05);
-    }
-    
-    /* 省エネ設定の端末では動画を停止（静止画フォールバックがあると尚良し） */
+    .btn:hover{ filter:brightness(1.05); }
+
     @media (prefers-reduced-motion: reduce){
       .hero-video{ display:none; }
       .hero-overlay{ background: rgba(0,0,0,.55); }
@@ -167,9 +199,18 @@
 
     /* SECTIONS */
     section{padding:80px 0}
-    h2.section-title{font-family:"Noto Serif JP", serif;font-weight:700;letter-spacing:.18em;}
-    .subtitle{color:#6a6a6a;margin-bottom:28px}
-    .card{background:var(--card);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+    h2.section-title{
+      font-family:"Noto Serif JP", serif;
+      font-weight:700;
+      letter-spacing:.18em;
+      margin:0 0 10px;
+    }
+    .subtitle{color:#6a6a6a;margin:0 0 28px}
+    .card{
+      background:var(--card);
+      border-radius:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+    }
 
     /* CONCEPT */
     .concept{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
@@ -177,50 +218,47 @@
     .concept img{width:100%;height:100%;object-fit:cover;display:block}
     @media (max-width:900px){.concept{grid-template-columns:1fr}}
 
-    /* INTERIOR / GALLERY */
+    /* GALLERY */
     .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
     .gallery img{width:100%;height:100%;object-fit:cover;border-radius:14px;cursor:pointer}
-    @media (max-width:900px){.gallery{grid-template-columns:1fr 1fr}}
     .carousel-btn{ display:none; }
 
-    /* === PC（≥901px）だけ横カルーセル化 === */
-    @media (min-width: 901px){
-    .carousel-btn{ display:block; }
+    @media (max-width:900px){
+      .gallery{grid-template-columns:1fr 1fr}
+    }
 
-      .gallery-wrap{
-        position: relative;
-      }
-    
+    @media (min-width: 901px){
+      .carousel-btn{ display:block; }
+
+      .gallery-wrap{ position: relative; }
       .gallery{
-        display:flex;                /* grid → 横並び */
+        display:flex;
         gap:16px;
         overflow-x:auto;
-        scroll-snap-type:x mandatory;/* スクロールが心地よく止まる */
+        scroll-snap-type:x mandatory;
         -webkit-overflow-scrolling: touch;
+        padding:6px 8px 10px;
         -webkit-mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
-        padding: 6px 8px 10px;
         mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
       }
-    
       .gallery img{
         flex:0 0 auto;
-        height: 360px;               /* 見映えサイズ */
-        aspect-ratio: 4 / 3;         /* 形が暴れない */
-        width: auto;
-        object-fit: cover;
+        height:360px;
+        aspect-ratio:4 / 3;
+        width:auto;
+        object-fit:cover;
         border-radius:14px;
         scroll-snap-align:start;
       }
-    
-      /* ナビボタン */
       .carousel-btn{
         position:absolute;
-        top:50%; translate:0 -50%;
-        width:40px; height:40px; border:0;
+        top:50%;
+        translate:0 -50%;
+        width:40px;height:40px;border:0;
         border-radius:999px;
         background:rgba(255,255,255,.9);
         box-shadow:0 8px 20px rgba(0,0,0,.12);
-        font-size:22px; font-weight:700; line-height:40px;
+        font-size:22px;font-weight:700;line-height:40px;
         cursor:pointer;
         transition:transform .12s ease, background .2s ease;
       }
@@ -228,33 +266,101 @@
       .carousel-btn:active{ transform:translateY(-50%) scale(.97); }
       .carousel-btn.prev{ left:-6px; }
       .carousel-btn.next{ right:-6px; }
-    
-      /* スクロールバー控えめ（対応ブラウザのみ） */
+
       .gallery::-webkit-scrollbar{ height:8px; }
       .gallery::-webkit-scrollbar-thumb{ background:#ddd; border-radius:8px; }
       .gallery{ scrollbar-color:#ddd transparent; scrollbar-width:thin; }
     }
-    
-    
-    /* MENU (tabs) */
+
+    /* MENU */
+    .featured-menu{margin-bottom:22px}
+    .featured-grid{display:grid;gap:14px}
     .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-    .chip{padding:8px 12px;border-radius:999px;background:#f1ece3;border:1px solid #e3dacb;font-weight:600;cursor:pointer}
+    .chip{
+      padding:8px 12px;
+      border-radius:999px;
+      background:#f1ece3;
+      border:1px solid #e3dacb;
+      font-weight:600;
+      cursor:pointer;
+    }
     .chip.active{background:var(--accent);color:#20150b}
+
     .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .menu-item{padding:14px 16px;border-radius:14px;background:var(--card);display:flex;justify-content:space-between;gap:12px;border:1px solid #eee}
-    @media (max-width:760px){.menu-grid{grid-template-columns:1fr}}
+    .menu-item{
+      padding:14px 16px;
+      border-radius:14px;
+      background:var(--card);
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      border:1px solid var(--line);
+    }
+    .menu-item__body{flex:1;min-width:0}
+    .menu-item__name{
+      font-weight:700;
+      line-height:1.55;
+      word-break:break-word;
+    }
+    .menu-item__desc{
+      font-size:.88rem;
+      color:#6a6a6a;
+      margin-top:6px;
+      line-height:1.7;
+    }
+    .menu-item__price{
+      white-space:nowrap;
+      font-weight:700;
+      padding-left:8px;
+    }
+    .menu-badge{
+      display:inline-block;
+      font-size:.72rem;
+      font-weight:700;
+      color:#b7791f;
+      background:#fff7e8;
+      border:1px solid #f0dfba;
+      border-radius:999px;
+      padding:4px 8px;
+      margin-bottom:8px;
+    }
+    @media (max-width:760px){
+      .menu-grid{grid-template-columns:1fr}
+    }
 
     /* ACCESS */
     .access-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .map{border:0;width:100%;height:320px;border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
-    @media (max-width:900px){.access-grid{grid-template-columns:1fr}}
+    .map{
+      border:0;
+      width:100%;
+      height:320px;
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+    }
+    @media (max-width:900px){
+      .access-grid{grid-template-columns:1fr}
+    }
 
-    /* FOOTER + floating reserve */
+    /* FOOTER */
     footer{padding:60px 0;background:#13100d;color:#f1ebe2}
-    .floating-reserve{position:fixed;right:18px;bottom:18px;padding:14px 18px;border-radius:999px;background:var(--accent);font-weight:800;box-shadow:0 12px 24px rgba(0,0,0,.18);z-index:1001}
+    .floating-reserve{
+      position:fixed;
+      right:18px;bottom:18px;
+      padding:14px 18px;
+      border-radius:999px;
+      background:var(--accent);
+      font-weight:800;
+      box-shadow:0 12px 24px rgba(0,0,0,.18);
+      z-index:2500;
+    }
 
-    /* reveal */
-    .reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease, transform .6s ease}
+    /* REVEAL */
+    .reveal{
+      opacity:0;
+      transform:translateY(22px);
+      transition:opacity .6s ease, transform .6s ease;
+    }
     .reveal.on{opacity:1;transform:none}
 
     @media (prefers-reduced-motion: reduce){
@@ -262,48 +368,59 @@
       .nav a:after{display:none}
     }
 
-    /* --- モバイル: メニュー/黒幕/スクロール制御（iOS対策つき） --- */
+    /* MOBILE NAV */
+    .nav-scrim{
+      display:none;
+    }
+
     @media (max-width:860px){
-      .nav{ z-index:3000; }
-
-      /* 黒幕 */
-      .nav-scrim{
-        position:fixed; inset:64px 0 0 0;
-        background:rgba(0,0,0,.25);
-        opacity:0; pointer-events:none;
-        transition:opacity .2s ease;
-        z-index:2000; /* メニュー(2500)より下、ページより上 */
-      }
-      .nav-scrim.show{ opacity:1; pointer-events:auto; }
-
-      /* メニュー本体（nav内/ポータル先の両方に適用） */
-      .nav-links, #mobileMenu{
-        position:fixed; inset:64px 0 0 0;
-        max-height: calc(100dvh - 64px);
-        overflow:auto;
-        display:grid; gap:10px; padding:18px 20px 28px;
+      .hamburger{display:flex}
+      .nav-links{
+        position:fixed;
+        inset:64px 0 auto 0;
+        display:grid;
+        gap:10px;
+        padding:18px 20px 28px;
         background:rgba(255,255,255,.98);
         box-shadow:0 20px 40px rgba(0,0,0,.12);
-        transform:translateY(-8px); opacity:0; pointer-events:none;
+        transform:translateY(-8px);
+        opacity:0;
+        pointer-events:none;
         transition:opacity .2s ease, transform .2s ease;
-        z-index:2500;
+        z-index:2900;
       }
-      .nav-links a, #mobileMenu a{ padding:14px 2px; font-weight:700; }
-      .nav-links.open, #mobileMenu.open{ opacity:1; transform:none; pointer-events:auto; }
-
-      /* 背面スクロール禁止 */
+      .nav-links a{padding:14px 2px;font-weight:700}
+      .nav-links.open{
+        opacity:1;
+        transform:none;
+        pointer-events:auto;
+      }
+      .nav-scrim{
+        position:fixed;
+        inset:64px 0 0 0;
+        background:rgba(0,0,0,.25);
+        opacity:0;
+        pointer-events:none;
+        transition:opacity .2s ease;
+        z-index:2800;
+        display:block;
+      }
+      .nav-scrim.show{
+        opacity:1;
+        pointer-events:auto;
+      }
       html.no-scroll, body.no-scroll{ overflow:hidden; }
     }
   </style>
 </head>
 <body>
-  <!-- NAV -->
   <div class="nav" id="nav">
     <div class="container nav-inner">
       <div class="brand">
         <div class="brand__jp">弥之助</div>
         <div class="brand__en">Yanosuke</div>
       </div>
+
       <div class="nav-links" id="navLinks">
         <a href="#concept" data-spy>コンセプト</a>
         <a href="#interior" data-spy>店内紹介</a>
@@ -312,34 +429,39 @@
         <a href="#company" data-spy>店舗概要</a>
         <a href="#reservation" data-spy>予約</a>
       </div>
+
       <button class="hamburger" id="hamburger" aria-label="メニュー" aria-controls="navLinks" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
     </div>
   </div>
 
-  <!-- HERO -->
+  <div class="nav-scrim" id="navScrim"></div>
+
   <section class="hero" aria-label="Hero">
     <video
-    class="hero-video"
-    autoplay muted loop playsinline
-    preload="metadata"
-    poster="/src/donabe-2.jpg">
-    <source src="/src/donabe.webm" type="video/webm">
-    <source src="/src/donabe.mp4"  type="video/mp4">
-  </video>
-  <div class="hero-overlay"></div>
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="metadata"
+      poster="/src/donabe-2.jpg"
+    >
+      <source src="/src/donabe.webm" type="video/webm">
+      <source src="/src/donabe.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1>14席カウンターと個室、職人が躍る夜。</h1>
       <p style="font-family:Kouzan;">火の音、包丁の走る音、立ちのぼる香り。弥之助はライブキッチンの臨場感と、四季の味覚を楽しむ大人の居酒屋です。</p>
       <div class="cta">
-        <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13312586" class="btn btn--primary">予約する</a>
+        <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13312586" class="btn btn--primary" target="_blank" rel="noopener">予約する</a>
         <a href="#menu" class="btn btn--ghost">メニューを見る</a>
       </div>
     </div>
   </section>
 
-  <!-- CONCEPT -->
   <section id="concept" class="container" style="margin-top:15px;">
     <h2 class="section-title">コンセプト</h2>
     <p class="subtitle">14席のカウンターと個室に集まる熱と匂い、職人の手元まで愉しむ“ライブ”が主役。</p>
@@ -348,7 +470,7 @@
         <p>弥之助は、料理人の所作がそのままご馳走になる店。旬の食材を、鉄板・出汁で端正に。肩肘張らず、それでいて記憶に残る一皿を目指しています。</p>
         <ul>
           <li>目の前で仕上がる <strong>鉄板焼き・出汁仕事</strong></li>
-          <li>土鍋で炊き上げる <strong>とうもろこしと小柱のご飯</strong></li>
+          <li>季節の食材を愉しむ <strong>土鍋ご飯</strong></li>
         </ul>
       </div>
       <div class="image">
@@ -357,42 +479,46 @@
     </div>
   </section>
 
- <!-- INTERIOR / GALLERY -->
   <section id="interior" class="container">
     <h2 class="section-title">店内紹介</h2>
     <p class="subtitle">木の温もりと柔らかな陰影。14席のカウンターで、熱の“最前列”へ。</p>
-  
-    <!-- 追加：wrap（PC時のナビボタン用）-->
+
     <div class="gallery-wrap">
       <button class="carousel-btn prev" type="button" aria-label="前へ" data-gallery-btn="prev">‹</button>
-  
+
       <div class="gallery reveal" id="gallery">
         <img src="/src/counter-seat.jpg" alt="カウンター全景">
         <img src="/src/donabe.jpg" alt="料理の並び">
         <img src="/src/mackrel-fry.jpg" alt="キッチンの様子">
         <img src="/src/private-seat.jpg" alt="個室の写真">
       </div>
-  
+
       <button class="carousel-btn next" type="button" aria-label="次へ" data-gallery-btn="next">›</button>
     </div>
   </section>
 
-  <!-- MENU (Tabs) -->
   <section id="menu" class="container">
     <h2 class="section-title">メニュー</h2>
-    <div class="tabs" id="tabs">
-      <button class="chip active" data-tab="otsumami">おつまみ</button>
-      <button class="chip" data-tab="reisa">冷菜</button>
-      <button class="chip" data-tab="onsai">温菜</button>
-      <button class="chip" data-tab="age">揚げ物</button>
-      <button class="chip" data-tab="yaki">焼き物</button>
-      <button class="chip" data-tab="shokuji">お食事</button>
-      <button class="chip" data-tab="sweet">甘味</button>
+
+    <div class="card reveal featured-menu" style="padding:18px;">
+      <h3 style="margin:0 0 14px;font-family:'Noto Serif JP', serif;">おすすめ</h3>
+      <div class="featured-grid" id="featuredGrid"></div>
     </div>
+
+    <div class="tabs" id="tabs">
+      <button class="chip active" data-tab="otsumami" type="button">肴</button>
+      <button class="chip" data-tab="reisa" type="button">冷</button>
+      <button class="chip" data-tab="onsai" type="button">温</button>
+      <button class="chip" data-tab="age" type="button">揚</button>
+      <button class="chip" data-tab="yaki" type="button">焼</button>
+      <button class="chip" data-tab="shokuji" type="button">〆</button>
+      <button class="chip" data-tab="sweet" type="button">甘</button>
+    </div>
+
+    <p class="subtitle" style="margin-bottom:16px;">※メニュー内容は季節やその日の仕入れ状況により変更する場合がございます。</p>
     <div class="menu-grid reveal" id="menuGrid"></div>
   </section>
 
-  <!-- ACCESS -->
   <section id="access" class="container">
     <h2 class="section-title">アクセス</h2>
     <div class="access-grid reveal">
@@ -402,11 +528,17 @@
         <p><strong>営業時間</strong><br>17:30〜23:00（L.O.22:00）／<strong>定休</strong>：日曜</p>
         <p><strong>席数</strong>：カウンター14席、テーブル席2席と個室3部屋あり</p>
       </div>
-      <iframe class="map" title="Google Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220.09590755595204!2d139.6963294861533!3d35.64272169397791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b89aea61fad%3A0x5dbec2dfc54862c3!2z5Lit55uu6buSIOW8peS5i-WKqQ!5e0!3m2!1sen!2ssg!4v1754615121260!5m2!1sen!2ssg" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      <iframe
+        class="map"
+        title="Google Map"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220.09590755595204!2d139.6963294861533!3d35.64272169397791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b89aea61fad%3A0x5dbec2dfc54862c3!2z5Lit55uu6buSIOW8peS5i-WKqQ!5e0!3m2!1sen!2ssg!4v1754615121260!5m2!1sen!2ssg"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
     </div>
   </section>
 
-  <!-- RESERVATION -->
   <section id="reservation" class="container">
     <h2 class="section-title">予約</h2>
     <div class="card reveal" style="padding:18px">
@@ -417,174 +549,240 @@
     </div>
   </section>
 
-  <!-- COMPANY -->
   <section id="company" class="container" style="margin-bottom:10px">
     <h2 class="section-title">店舗概要</h2>
     <div class="card reveal" style="padding:18px">
       <p><strong>店舗名：</strong>中目黒 弥之助</p>
       <p><strong>オープン日：</strong>2025年8月18日</p>
       <p><strong>住所：</strong>東京都目黒区上目黒3-32-5 カーサデラソル 2F</p>
-      <p><strong>運営会社：<a href="https://www.basic-fnb.com/" target="_blank" rel="noopener">こちら</a></p>
+      <p><strong>運営会社：</strong><a href="https://www.basic-fnb.com/" target="_blank" rel="noopener">こちら</a></p>
     </div>
   </section>
 
   <footer>
     <div class="container">
       <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
-        <div class="brand"><div class="brand__jp">弥之助</div><div class="brand__en">Yanosuke</div></div>
+        <div class="brand">
+          <div class="brand__jp">弥之助</div>
+          <div class="brand__en">Yanosuke</div>
+        </div>
         <div style="opacity:.7">© 2025 YANOSUKE</div>
       </div>
     </div>
   </footer>
 
-  <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13312586" class="floating-reserve">予約する</a>
+  <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13312586" class="floating-reserve" target="_blank" rel="noopener">予約する</a>
 
-  <!-- JS -->
   <script>
-    // ===== 基本参照 =====
     const nav = document.getElementById('nav');
+    const navLinks = document.getElementById('navLinks');
     const hamburger = document.getElementById('hamburger');
+    const navScrim = document.getElementById('navScrim');
+    const heroVideo = document.querySelector('.hero-video');
+    const menuGrid = document.getElementById('menuGrid');
+    const featuredGrid = document.getElementById('featuredGrid');
 
-    // ===== SP時: メニューをbody直下へポータル化（iOSのfixed/backdrop描画崩れ対策） =====
-    let navLinks = document.getElementById('navLinks');
-    if (window.matchMedia('(max-width: 860px)').matches) {
-      let mobileMenu = document.getElementById('mobileMenu');
-      if (!mobileMenu) {
-        mobileMenu = document.createElement('div');
-        mobileMenu.id = 'mobileMenu';
-        mobileMenu.className = 'nav-links';
-        mobileMenu.innerHTML = navLinks.innerHTML;
-        document.body.appendChild(mobileMenu);
-        navLinks.remove();
-      }
-      navLinks = document.getElementById('mobileMenu'); // 以降これを使う
+    const MENU = {
+      featured: [
+        {
+          name: '手羽先 “赤”“白” 唐揚げ',
+          price: '418円',
+          desc: '王道にカリッとジューシーな手羽先を特製のスパイスであえた、人気No.1メニューです！'
+        },
+        {
+          name: '厚切り牛タンの鉄板焼き',
+          price: '2,948円',
+          desc: '贅沢な厚切り牛タンを熟練の火入れでご提供いたします。正直、居酒屋のクオリティではないです！'
+        },
+        {
+          name: '弥之助の土鍋飯',
+          price: '2,840円',
+          desc: '季節の食材を使った土鍋ご飯です。2人前で提供しております。'
+        }
+      ],
+      otsumami: [
+        { name: '長芋のあまから揚げ', price: '594円', desc: '', recommended: true },
+        { name: '沖縄 ざるもずく', price: '594円', desc: '', recommended: false },
+        { name: '牡蠣のアーリオ・オーリオ', price: '748円', desc: '', recommended: false },
+        { name: 'オクラの山葵漬け', price: '715円', desc: '', recommended: false },
+        { name: 'おつまみ 自家製生八味', price: '539円', desc: '', recommended: true }
+      ],
+      reisa: [
+        { name: '弥之助特製 塩だれサラダ', price: '1,089円', desc: '', recommended: false },
+        { name: '弥之助の刺盛り 三種（一人前）', price: '979円', desc: '', recommended: true },
+        { name: '弥之助の刺盛り 五種（一人前）', price: '1,639円', desc: '', recommended: true },
+        { name: 'せとか蜜柑と菜花の白和え', price: '858円', desc: '', recommended: false },
+        { name: '和牛の炙り刺し', price: '1,419円', desc: '', recommended: false },
+        { name: '茄子と生八味のお浸し', price: '858円', desc: '', recommended: false },
+        { name: '特製 炙り〆鯖', price: '946円', desc: '', recommended: false },
+        { name: '真鯵のなめろう', price: '748円', desc: '', recommended: false }
+      ],
+      onsai: [
+        { name: '揚げ出汁玉子', price: '748円', desc: '', recommended: false },
+        { name: '自家製おでんの盛り合わせ', price: '1,628円', desc: '', recommended: false },
+        { name: 'レタスと香味野菜の胡椒しゃぶしゃぶ', price: '979円', desc: '', recommended: false },
+        { name: '白子と唐墨のグラタン仕立て', price: '1,364円', desc: '', recommended: true },
+        { name: '鮮魚とアサリの煎り酒蒸し', price: '1,298円', desc: '', recommended: true }
+      ],
+      age: [
+        { name: '弥之助アジフライ', price: '1,419円', desc: '', recommended: false },
+        { name: '手羽先スパイス唐揚げ "赤" 一ヶ〜', price: '418円', desc: '1個あたりの値段です', recommended: true },
+        { name: '手羽先スパイス唐揚げ "白" 一ヶ〜', price: '418円', desc: '1個あたりの値段です', recommended: true },
+        { name: '特選 和牛カツ', price: '1,749円', desc: '', recommended: false },
+        { name: 'ヤゲン軟骨の唐揚げ', price: '836円', desc: '', recommended: false }
+      ],
+      yaki: [
+        { name: '黒毛和牛ウチモモの鉄板焼', price: '2,618円', desc: '', recommended: false },
+        { name: '厚切り牛タンの鉄板焼', price: '2,948円', desc: '贅沢な厚切り牛タンを熟練の火入れでご提供いたします。正直、居酒屋のクオリティではないです！', recommended: true },
+        { name: '熟成豚の鉄板焼き 香味だれと黒にんにく', price: '1,518円', desc: '', recommended: true },
+        { name: '岩手鴨の黒七味焼', price: '1,859円', desc: '', recommended: false }
+      ],
+      shokuji: [
+        { name: '土鍋飯 ズワイ蟹とセリのばらちらし', price: '2,840円', desc: '今月はこちらをご用意しています。', recommended: true },
+        { name: '岩手鴨と九条ねぎの土鍋飯', price: '2,178円', desc: '', recommended: true },
+        { name: '土鍋飯 季節食材と黒毛和牛', price: '4,048円', desc: '', recommended: true }
+      ],
+      sweet: [
+        { name: '塩ミルクアイスとオリーブオイル', price: '550円', desc: '', recommended: false },
+        { name: '黒糖の杏仁豆富', price: '550円', desc: '', recommended: true }
+      ]
+    };
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
     }
 
-    // ===== 黒幕 =====
-    let scrim = document.querySelector('.nav-scrim');
-    if(!scrim){
-      scrim = document.createElement('div');
-      scrim.className = 'nav-scrim';
-      document.body.appendChild(scrim);
-    }
-    // 読み込みできたら表示
-    const hv = document.querySelector('.hero-video');
-    if (hv){
-      const show = ()=> hv.classList.add('is-ready');
-      hv.addEventListener('loadeddata', show, { once:true });
-      hv.addEventListener('canplay', show, { once:true });
-      setTimeout(()=>{ if (hv.readyState >= 2) show(); }, 1200); // 保険（任意）
-
+    function menuItemTemplate(item, isFeatured = false) {
+      return `
+        <div class="menu-item">
+          <div class="menu-item__body">
+            <div class="menu-badge">${isFeatured || item.recommended ? 'おすすめ' : ''}</div>
+            <div class="menu-item__name">${escapeHtml(item.name)}</div>
+            ${item.desc ? `<div class="menu-item__desc">${escapeHtml(item.desc)}</div>` : ''}
+          </div>
+          <div class="menu-item__price">${escapeHtml(item.price)}</div>
+        </div>
+      `.replace('<div class="menu-badge"></div>', '');
     }
 
-    // ===== 開閉ヘルパ =====
-    function setMenu(open){
+    function renderFeatured() {
+      featuredGrid.innerHTML = MENU.featured.map(item => menuItemTemplate(item, true)).join('');
+    }
+
+    function renderMenu(key) {
+      menuGrid.innerHTML = MENU[key].map(item => menuItemTemplate(item, false)).join('');
+    }
+
+    function setMenu(open) {
       navLinks.classList.toggle('open', open);
       hamburger.classList.toggle('is-open', open);
       hamburger.setAttribute('aria-expanded', String(open));
       nav.classList.toggle('menu-open', open);
-      scrim.classList.toggle('show', open);
+      navScrim.classList.toggle('show', open);
       document.documentElement.classList.toggle('no-scroll', open);
       document.body.classList.toggle('no-scroll', open);
     }
-    function closeMenu(){ setMenu(false); }
 
-    // ===== 挙動 =====
-    hamburger.addEventListener('click', ()=> setMenu(!navLinks.classList.contains('open')));
-    scrim.addEventListener('click', closeMenu);
-    window.addEventListener('keydown', e=>{ if(e.key==='Escape') closeMenu(); });
-    window.addEventListener('resize', ()=>{ if (window.innerWidth>860) closeMenu(); });
+    function closeMenu() {
+      setMenu(false);
+    }
 
-    // ===== スクロール時のヘッダー色切替 =====
-    const setScrolled = () => { if (window.scrollY > 10) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); };
-    setScrolled();
-    window.addEventListener('scroll', setScrolled);
-
-    // ===== Scrollspy =====
-    const spyLinks = document.querySelectorAll('[data-spy]');
-    const sections = Array.from(spyLinks).map(a=>document.querySelector(a.getAttribute('href')));
-    const spyObserver = new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{
-        const id = '#'+e.target.id;
-        const link = document.querySelector(`a[href="${id}"]`);
-        if(e.isIntersecting){
-          document.querySelectorAll('.nav a').forEach(el=>el.classList.remove('active'));
-          if(link) link.classList.add('active');
-        }
-      });
-    },{rootMargin:'-50% 0px -45% 0px', threshold:0});
-    sections.forEach(s=>s && spyObserver.observe(s));
-
-    // メニュー内リンクや[data-spy]クリックで閉じる（委任）
-    document.addEventListener('click', (e)=>{
-      const link = e.target.closest('[data-spy]');
-      if (link) closeMenu();
+    hamburger.addEventListener('click', () => {
+      setMenu(!navLinks.classList.contains('open'));
     });
 
-    // ===== Reveal on scroll =====
-    const reveal = document.querySelectorAll('.reveal');
-    const io = new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('on')), {threshold:.15});
-    reveal.forEach(r=>io.observe(r));
+    navScrim.addEventListener('click', closeMenu);
+    window.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeMenu();
+    });
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 860) closeMenu();
+    });
 
-    // ===== Parallax hero（軽微） =====
-    const hero = document.querySelector('.hero');
-    window.addEventListener('scroll',()=>{
-      const y = window.scrollY * 0.25;
-      hero.style.setProperty('--y', y+'px');
-      hero.style.setProperty('transform','translateZ(0)');
-    }, {passive:true});
-
-    // ===== MENU data & tabs =====
-    const MENU = {
-      otsumami:['沖縄 ざるもずく','山形 だだちゃ豆','お新香 盛り合わせ','自家製豆腐 薬味冷奴','トリュフフライドポテト'],
-      reisa:['鉄板焼き野菜サラダ','ローストビーフサラダ','季節の味覚 白和え','豆鯵 南蛮漬け','牛つらみ刺し'],
-      onsai:['出汁巻き玉子 揚げ出し','鶏はらみ 柚子塩麹煮込み','もち豚肩ロース 梅角煮','浅利と豆苗 包み酒蒸し','アスパラときのこ バター醤油焼き'],
-      age:['塩なめろうアジフライ','手羽先 スパイス唐揚げ','山椒しぐれ煮 コロッケ','季節の味覚 かき揚げ','厳選部位 牛カツ'],
-      yaki:['岩手鴨 黒七味焼き','鉄板焼き 本日の魚介','鉄板焼き 和牛','鉄板焼き 野菜'],
-      shokuji:['玉蜀黍と小柱 土鍋ご飯','梅紫蘇 ガーリックライス','鉄板焼きおにぎり','赤だし'],
-      sweet:['塩ミルクジェラート','自家製 杏仁豆腐']
+    const setScrolled = () => {
+      if (window.scrollY > 10) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
     };
-    const grid = document.getElementById('menuGrid');
-    function renderMenu(key){ grid.innerHTML = MENU[key].map(item=>`<div class="menu-item"><span>${item}</span><span></span></div>`).join(''); }
-    renderMenu('otsumami');
-    document.getElementById('tabs').addEventListener('click', (e)=>{
-      const btn = e.target.closest('.chip'); if(!btn) return;
-      document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
-      btn.classList.add('active'); renderMenu(btn.dataset.tab);
+    setScrolled();
+    window.addEventListener('scroll', setScrolled, { passive: true });
+
+    if (heroVideo) {
+      const showVideo = () => heroVideo.classList.add('is-ready');
+      heroVideo.addEventListener('loadeddata', showVideo, { once: true });
+      heroVideo.addEventListener('canplay', showVideo, { once: true });
+      setTimeout(() => {
+        if (heroVideo.readyState >= 2) showVideo();
+      }, 1200);
+    }
+
+    const spyLinks = document.querySelectorAll('[data-spy]');
+    const sections = Array.from(spyLinks)
+      .map(a => document.querySelector(a.getAttribute('href')))
+      .filter(Boolean);
+
+    const spyObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = '#' + entry.target.id;
+        document.querySelectorAll('.nav a').forEach(el => el.classList.remove('active'));
+        const link = document.querySelector(`.nav a[href="${id}"]`);
+        if (link) link.classList.add('active');
+      });
+    }, {
+      rootMargin: '-50% 0px -45% 0px',
+      threshold: 0
     });
 
-    // === Gallery carousel (PCのみ見た目が変わる) ===
+    sections.forEach(section => spyObserver.observe(section));
+
+    document.addEventListener('click', (e) => {
+      const link = e.target.closest('[data-spy]');
+      if (link && window.innerWidth <= 860) closeMenu();
+    });
+
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('on');
+      });
+    }, { threshold: 0.15 });
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    document.getElementById('tabs').addEventListener('click', (e) => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      document.querySelectorAll('.chip').forEach(chip => chip.classList.remove('active'));
+      btn.classList.add('active');
+      renderMenu(btn.dataset.tab);
+    });
+
     (() => {
       const gallery = document.getElementById('gallery');
       if (!gallery) return;
-    
-      // ボタン操作（左右へスムーズスクロール）
+
       const step = () => Math.max(280, Math.floor(gallery.clientWidth * 0.9));
-      document.querySelectorAll('[data-gallery-btn]').forEach(btn=>{
-        btn.addEventListener('click', ()=>{
+
+      document.querySelectorAll('[data-gallery-btn]').forEach(btn => {
+        btn.addEventListener('click', () => {
           const dir = btn.dataset.galleryBtn === 'next' ? 1 : -1;
-          gallery.scrollBy({ left: dir * step(), behavior:'smooth' });
+          gallery.scrollBy({ left: dir * step(), behavior: 'smooth' });
         });
       });
-    
-      // キーボード操作（フォーカス時の左右キー）
-      gallery.setAttribute('tabindex','0');
-      gallery.addEventListener('keydown',e=>{
-        if(e.key === 'ArrowRight'){ gallery.scrollBy({left: step(), behavior:'smooth'}); }
-        if(e.key === 'ArrowLeft'){ gallery.scrollBy({left:-step(), behavior:'smooth'}); }
+
+      gallery.setAttribute('tabindex', '0');
+      gallery.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') gallery.scrollBy({ left: step(), behavior: 'smooth' });
+        if (e.key === 'ArrowLeft') gallery.scrollBy({ left: -step(), behavior: 'smooth' });
       });
     })();
-    // ===== 簡易テスト（console） =====
-    function runTests(){
-      const expectKeys = ['otsumami','reisa','onsai','age','yaki','shokuji','sweet'];
-      console.group('%cYANOSUKE UI Tests','color:#d6a154;font-weight:bold');
-      expectKeys.forEach(k=>console.assert(Array.isArray(MENU[k]), `MENU category missing: ${k}`));
-      console.assert(grid.children.length === MENU.otsumami.length, `Default menu render mismatch`);
-      console.assert(grid.children.length === MENU.reisa.length, `Reisa tab mismatch`);
-      console.assert(grid.textContent.includes('鉄板焼き野菜サラダ'), 'Reisa items not found');
-      console.groupEnd();
-    }
-    window.addEventListener('DOMContentLoaded', () => setTimeout(runTests, 50));
+
+    renderFeatured();
+    renderMenu('otsumami');
   </script>
 </body>
 </html>

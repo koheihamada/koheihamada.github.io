@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>恒之助 | Konosuke</title>
+  <title>恒之助 | 黒と白のとんかつ</title>
+  <meta name="description" content="浅草のとんかつ専門店 恒之助。黒胡麻を纏った“黒”と、軽やかに仕上げる“白”。選ぶ楽しさのある一皿をご提供します。" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     @font-face {
       font-family: 'KouzanBrushFONT';
@@ -15,510 +16,1406 @@
       font-style: normal;
       font-display: swap;
     }
+
     :root {
-      --ink: #0d0b0a;
-      --deep: #1d120e;
-      --amber: #c78e4a;
-      --ivory: #f7f1e8;
-      --stone: #b5a38d;
+      --bg: #0b0a09;
+      --bg-soft: #151210;
+      --panel: rgba(255,255,255,0.04);
+      --panel-strong: rgba(255,255,255,0.08);
+      --text: #f5efe7;
+      --muted: #c2b29c;
+      --line: rgba(255,255,255,0.12);
+      --gold: #c69352;
+      --gold-soft: rgba(198,147,82,0.18);
+      --black-katsu: #141210;
+      --white-katsu: #e8dcc7;
+      --max: 1180px;
+      --radius: 22px;
+      --shadow: 0 30px 80px rgba(0,0,0,0.35);
     }
-    *, *::before, *::after { box-sizing: border-box; }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(198,147,82,0.10), transparent 30%),
+        linear-gradient(180deg, #0a0908 0%, #0d0b0a 100%);
+      color: var(--text);
       font-family: 'Inter', 'Shippori Mincho', 'Noto Sans JP', sans-serif;
-      background: var(--ink);
-      color: var(--ivory);
-      line-height: 1.8;
+      line-height: 1.75;
       letter-spacing: 0.02em;
-      transition: color 0.2s ease;
     }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 104px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 0.82rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      line-height: 1.2;
+      letter-spacing: 0.12em;
+    }
+
+    .section-copy {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
     header {
       position: sticky;
       top: 0;
-      z-index: 30;
-      backdrop-filter: blur(12px);
-      background: rgba(13,11,10,0.85);
-      border-bottom: 1px solid rgba(247,241,232,0.08);
+      z-index: 100;
+      background: rgba(10, 9, 8, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
     }
-    .nav {
-      max-width: 1180px;
+
+    .header-inner {
+      width: min(calc(100% - 32px), var(--max));
+      height: 78px;
       margin: 0 auto;
-      padding: 18px 32px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
+      gap: 16px;
     }
-    .brand {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 1.8rem;
-      letter-spacing: 0.3em;
-    }
-    body[data-lang="ja"] .brand {
-      font-family: 'KouzanBrushFONT', 'Shippori Mincho', serif;
-    }
-    body[data-lang="en"] .brand {
-      font-size: 1.6rem;
-    }
-    nav {
+
+    .brand-wrap {
       display: flex;
-      gap: 22px;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand {
+      font-family: 'KouzanBrushFONT', 'Shippori Mincho', serif;
+      font-size: 1.95rem;
+      letter-spacing: 0.18em;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
       align-items: center;
+      gap: 22px;
     }
-    nav a {
-      color: var(--ivory);
+
+    .nav a {
       text-decoration: none;
-      font-size: 0.95rem;
-      letter-spacing: 0.2em;
+      color: var(--text);
+      font-size: 0.92rem;
+      letter-spacing: 0.18em;
       position: relative;
+      white-space: nowrap;
     }
-    nav a::after {
+
+    .nav a::after {
       content: '';
       position: absolute;
       left: 0;
-      bottom: -4px;
+      bottom: -8px;
       width: 100%;
       height: 1px;
-      background: var(--amber);
+      background: var(--gold);
       transform: scaleX(0);
       transform-origin: left;
       transition: transform 0.2s ease;
     }
-    nav a:hover::after { transform: scaleX(1); }
-    .lang-toggle {
-      display: inline-flex;
-      gap: 6px;
-      border: 1px solid rgba(247,241,232,0.2);
-      border-radius: 999px;
-      padding: 4px;
-      background: rgba(5,5,5,0.3);
-    }
-    .lang-toggle button {
+
+    .nav a:hover::after,
+    .nav a.active::after { transform: scaleX(1); }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
       background: transparent;
-      border: none;
-      color: var(--ivory);
-      padding: 6px 14px;
+      color: var(--text);
       border-radius: 999px;
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      cursor: pointer;
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
     }
-    .lang-toggle button.active {
-      background: var(--amber);
-      color: var(--ink);
-    }
+
     .hero {
-      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      min-height: calc(100vh - 78px);
+      display: flex;
+      align-items: center;
+      padding: 72px 0 56px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
       background:
-        linear-gradient(120deg, rgba(13,11,10,0.92), rgba(13,11,10,0.45)),
-        url('https://images.unsplash.com/photo-1562560471-cb5b5f96c1ab?auto=format&fit=crop&w=2000&q=80') center/cover;
-      display: flex;
-      align-items: flex-end;
-      padding: 90px 32px 140px;
+        linear-gradient(110deg, rgba(9,8,7,0.96) 12%, rgba(9,8,7,0.66) 52%, rgba(9,8,7,0.88) 100%),
+        url('src/tomahawk.jpg') center/cover;
+      filter: saturate(0.78) brightness(0.62);
+      transform: scale(1.03);
     }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: auto -10% -20% 25%;
+      height: 380px;
+      background: radial-gradient(circle, rgba(198,147,82,0.18), transparent 68%);
+      pointer-events: none;
+    }
+
     .hero-inner {
-      max-width: 1100px;
+      position: relative;
+      z-index: 1;
+      width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 34px;
+      align-items: end;
     }
-    .meta {
-      font-size: 0.85rem;
-      color: var(--stone);
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
+
+    .hero-copybox {
+      max-width: 760px;
     }
-    .hero h1 {
-      font-family: 'Shippori Mincho', serif;
-      font-size: clamp(3rem, 5.6vw, 4.6rem);
-      letter-spacing: 0.2em;
-      margin: 18px 0 12px;
-    }
-    body[data-lang="ja"] .hero h1 {
-      font-family: 'KouzanBrushFONT', 'Shippori Mincho', serif;
-    }
-    .hero p {
-      max-width: 640px;
-      color: var(--stone);
-    }
-    .cta-row {
-      margin-top: 40px;
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .btn {
-      padding: 14px 32px;
-      border: 1px solid var(--amber);
-      color: var(--ivory);
-      text-decoration: none;
-      letter-spacing: 0.18em;
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.10);
+      color: var(--muted);
       font-size: 0.8rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
+      margin-bottom: 18px;
     }
-    .btn.primary { background: var(--amber); color: var(--ink); }
+
+    .hero-badge::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 0 8px rgba(198,147,82,0.12);
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-family: 'KouzanBrushFONT', 'Shippori Mincho', serif;
+      font-size: clamp(2.9rem, 7vw, 5.4rem);
+      line-height: 1.04;
+      letter-spacing: 0.08em;
+    }
+
+    .hero h1 .gold {
+      color: var(--gold);
+      display: inline-block;
+    }
+
+    .hero p {
+      margin: 26px 0 0;
+      max-width: 660px;
+      color: #d7c8b2;
+      font-size: 1.04rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.84rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: 1px solid var(--line);
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
     .hero-meta {
       margin-top: 34px;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      font-size: 0.9rem;
-      color: var(--stone);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 700px;
     }
-    .section {
-      padding: 100px 32px;
-      border-bottom: 1px solid rgba(247,241,232,0.08);
-    }
-    .section h2 {
-      font-family: 'Shippori Mincho', serif;
-      font-size: 2.4rem;
-      letter-spacing: 0.3em;
-      margin-bottom: 16px;
-      color: var(--amber);
-    }
-    .section p.meta { margin-bottom: 36px; }
-    .signature-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 32px;
-    }
-    .signature-card {
-      border: 1px solid rgba(247,241,232,0.12);
+
+    .hero-meta-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
       border-radius: 18px;
-      overflow: hidden;
-      background: rgba(19,15,14,0.7);
+      padding: 16px 18px;
     }
-    .signature-card img { width: 100%; height: 240px; object-fit: cover; }
-    .signature-card div { padding: 5px 10px 0px 5px; }
-    .price-tag {
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      color: var(--amber);
-      margin-bottom: 12px;
+
+    .hero-meta-item small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
+      margin-bottom: 4px;
     }
-    .menu-layout {
-      max-width: 1100px;
-      margin: 0 auto;
+
+    .hero-meta-item strong {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .hero-sidecard {
+      justify-self: end;
+      width: min(420px, 100%);
+      padding: 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-sidecard h2 {
+      margin: 0 0 14px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.45rem;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-sidecard p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .choice-pills {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 40px;
+      gap: 12px;
+      margin-top: 18px;
     }
-    @media (max-width: 980px) {
-      nav { display: none; }
-      .menu-layout { grid-template-columns: 1fr; }
-      .nav { flex-wrap: wrap; justify-content: space-between; }
+
+    .choice-pill {
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.18);
+      display: grid;
+      gap: 8px;
     }
-    ul.menu-list { list-style: none; margin: 0; padding: 0; }
-    ul.menu-list li {
-      padding: 16px 0;
-      border-bottom: 1px solid rgba(247,241,232,0.08);
+
+    .choice-top {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       gap: 12px;
-      flex-wrap: wrap;
     }
-    ul.menu-list span { font-size: 1rem; }
-    .note { font-size: 0.85rem; color: var(--stone); margin-top: 18px; }
-    .craft-grid {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 28px;
-    }
-    .craft-card {
-      padding: 28px;
-      background: rgba(255,255,255,0.02);
-      border: 1px solid rgba(247,241,232,0.08);
-      border-radius: 16px;
-    }
-    .space {
-      padding: 140px 32px;
-      background: linear-gradient(135deg, #140e0b, #29180f);
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 32px;
+
+    .choice-name {
+      display: flex;
       align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
     }
-    .space img { width: 100%; border-radius: 18px; }
-    .space p { color: var(--stone); }
-    .access {
-      max-width: 1100px;
-      margin: 0 auto;
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+      border: 1px solid rgba(255,255,255,0.28);
+    }
+
+    .dot.black { background: var(--black-katsu); }
+    .dot.white { background: var(--white-katsu); }
+
+    .taste-tag {
+      color: var(--gold);
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .choice-pill p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .intro-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 40px;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 38px;
+      align-items: center;
+      margin-top: 44px;
     }
-    iframe { border: none; width: 100%; border-radius: 18px; min-height: 320px; }
+
+    .intro-image {
+      position: relative;
+      min-height: 480px;
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.38)),
+        url('src/asakusa-konosuke.jpg') center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 28px;
+      padding: 34px;
+    }
+
+    .intro-card p {
+      margin: 0 0 20px;
+      color: var(--muted);
+    }
+
+    .point-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .point-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .point-num {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      border: 1px solid rgba(198,147,82,0.36);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .point-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .point-item p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .signature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 44px;
+    }
+
+    .signature-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.09);
+      min-height: 100%;
+    }
+
+    .signature-image {
+      aspect-ratio: 4 / 3;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .signature-image::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0;
+      height: 50%;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.42));
+    }
+
+    .signature-card-body {
+      padding: 22px 22px 24px;
+    }
+
+    .signature-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .signature-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.18rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .signature-card p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .price {
+      color: var(--text);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+    }
+
+    .compare-wrap {
+      margin-top: 42px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+    }
+
+    .compare-tabs {
+      display: flex;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+      background: rgba(0,0,0,0.16);
+    }
+
+    .compare-tab {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      flex: 1;
+      min-height: 64px;
+      padding: 0 20px;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .compare-tab.active {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .compare-panels {
+      padding: 30px;
+    }
+
+    .compare-panel {
+      display: none;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .compare-panel.active { display: grid; }
+
+    .compare-visual {
+      min-height: 340px;
+      border-radius: 24px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .compare-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.34));
+    }
+
+    .compare-copy {
+      padding: 10px 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .compare-copy h3 {
+      margin: 0 0 14px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+    }
+
+    .compare-copy p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .compare-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .compare-list-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .compare-list-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.98rem;
+    }
+
+    .compare-list-item span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .menu-section-wrap {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .menu-board {
+      padding: 28px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .menu-group + .menu-group {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .menu-group h3 {
+      margin: 0 0 14px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.08em;
+    }
+
+    .menu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: end;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .menu-item:last-child { border-bottom: 0; }
+
+    .menu-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 1rem;
+    }
+
+    .menu-item small {
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.6;
+    }
+
+    .menu-price {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      white-space: nowrap;
+    }
+
+    .menu-aside {
+      display: grid;
+      gap: 20px;
+    }
+
+    .aside-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .aside-card h3 {
+      margin: 0 0 14px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.16rem;
+      letter-spacing: 0.06em;
+    }
+
+    .aside-card p,
+    .aside-card li {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .aside-card ul {
+      padding-left: 18px;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .craft-grid {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .craft-card {
+      padding: 24px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .craft-card .craft-index {
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-bottom: 14px;
+      font-size: 0.78rem;
+      color: var(--gold);
+      border: 1px solid rgba(198,147,82,0.36);
+      background: rgba(198,147,82,0.12);
+    }
+
+    .craft-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.04rem;
+      line-height: 1.5;
+    }
+
+    .craft-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .access-wrap {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .access-card {
+      padding: 30px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .access-card h3 {
+      margin: 0 0 16px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.28rem;
+      letter-spacing: 0.08em;
+    }
+
+    .access-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .access-card .tel {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .map {
+      min-height: 420px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      min-height: 420px;
+      display: block;
+    }
+
+    .cta-band {
+      padding: 42px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(198,147,82,0.16), rgba(255,255,255,0.04));
+      border: 1px solid rgba(198,147,82,0.28);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+      margin-top: 44px;
+    }
+
+    .cta-band h3 {
+      margin: 0 0 8px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.08em;
+    }
+
+    .cta-band p {
+      margin: 0;
+      color: var(--muted);
+    }
+
     footer {
-      padding: 46px 20px;
+      padding: 34px 0 56px;
+      color: var(--muted);
       text-align: center;
-      font-size: 0.85rem;
-      color: var(--stone);
+      font-size: 0.84rem;
     }
-    @media (max-width: 600px) {
-      .brand {
-        font-size: 1.4rem;
-        letter-spacing: 0.2em;
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-inner,
+      .intro-grid,
+      .compare-panel,
+      .menu-section-wrap,
+      .access-wrap {
+        grid-template-columns: 1fr;
       }
-      body[data-lang="en"] .brand {
-        font-size: 1.3rem;
+
+      .hero-sidecard {
+        justify-self: start;
       }
+
+      .signature-grid { grid-template-columns: 1fr 1fr; }
+      .craft-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .section { padding: 84px 0; }
+      .header-inner { height: 72px; }
+      .nav {
+        position: absolute;
+        top: 72px;
+        right: 16px;
+        left: 16px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 12px;
+        background: rgba(14, 12, 10, 0.97);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 18px;
+      }
+
+      .nav.open { display: flex; }
+      .nav a {
+        width: 100%;
+        padding: 12px 10px;
+      }
+      .nav a::after { display: none; }
+      .menu-toggle { display: inline-flex; }
+
+      .hero { min-height: auto; padding: 58px 0 40px; }
+      .hero-meta { grid-template-columns: 1fr; }
+      .signature-grid,
+      .craft-grid { grid-template-columns: 1fr; }
+      .compare-tabs { flex-direction: column; }
+      .compare-panels { padding: 22px; }
+      .cta-band {
+        grid-template-columns: 1fr;
+        padding: 28px;
+      }
+      .intro-card,
+      .menu-board,
+      .access-card,
+      .aside-card,
+      .hero-sidecard { padding: 22px; }
+      .intro-image { min-height: 320px; }
     }
   </style>
 </head>
-<body data-lang="ja">
+<body>
   <header>
-    <div class="nav">
-      <div class="brand" data-l10n="brand">恒之助</div>
-      <nav>
-        <a href="#signature" data-l10n="nav-signature">代表メニュー</a>
-        <a href="#menu" data-l10n="nav-menu">お品書き</a>
-        <a href="#craft" data-l10n="nav-craft">仕立て</a>
-        <a href="#access" data-l10n="nav-access">アクセス</a>
-      </nav>
-      <div class="lang-toggle">
-        <button data-set-lang="ja" class="active">JP</button>
-        <button data-set-lang="en">EN</button>
+    <div class="header-inner">
+      <div class="brand-wrap">
+        <div class="brand">恒之助</div>
+        <div class="brand-sub">KONOSUKE / KURO & SHIRO TONKATSU</div>
       </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">MENU</button>
+
+      <nav class="nav" id="siteNav">
+        <a href="#concept">コンセプト</a>
+        <a href="#signature">代表メニュー</a>
+        <a href="#compare">黒と白</a>
+        <a href="#menu">お品書き</a>
+        <a href="#access">アクセス</a>
+      </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="hero-inner">
-      <p class="meta" data-l10n="hero-badge">浅草 / モダンとんかつ</p>
-      <h1 data-l10n="hero-title">一枚に、覚悟を込める。</h1>
-      <p data-l10n="hero-copy">特上ロースと上ヒレ。素材・温度・油・休ませ方までを設計し、揚げものの概念を塗り替える14席のとんかつ専門店です。浅草・伝法院通りから少し入った静かな路地で、余韻の残る一皿をお届けします。</p>
-      <div class="cta-row">
-        <a class="btn primary" href="tel:0300000000" data-l10n="hero-cta-primary">ご予約 03-0000-0000</a>
-        <a class="btn" href="#menu" data-l10n="hero-cta-secondary">お品書きを見る</a>
-      </div>
-      <div class="hero-meta">
-        <div data-l10n="hero-meta-1">席数 14席（カウンター主体）</div>
-        <div data-l10n="hero-meta-2">ランチ 11:00-15:00</div>
-        <div data-l10n="hero-meta-3">ディナー 17:00-21:00</div>
-        <div data-l10n="hero-meta-4">定休日：水曜日</div>
-      </div>
-    </div>
-  </section>
-
-  <section id="signature" class="section">
-    <h2 data-l10n="signature-heading">代表作</h2>
-    <p class="meta" data-l10n="signature-meta">Signature Cuts</p>
-    <div class="signature-grid">
-      <article class="signature-card">
-        <img src="src/tomahawk.jpg" alt="Tomahawk">
-        <div>
-          <div class="price-tag" data-l10n="signature-card1-price">6,490円 / 限定</div>
-          <h3 data-l10n="signature-card1-title">トマホークかつ（特上ロース）御膳</h3>
-          <p data-l10n="signature-card1-body">骨付きカットを低温でゆっくり火入れし、仕上げに高温で香りを纏わせる一枚。事前予約で500g以上も対応。</p>
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copybox reveal">
+          <h1>黒で揚げる、<br><span class="gold">という選択。</span></h1>
+          <p>
+            黒胡麻を纏った“黒”と、軽やかに仕上げる“白”。<br>
+            同じとんかつでも、選択で体験が変わる。恒之助は、衣から設計する浅草のとんかつ専門店です。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#menu">お品書きを見る</a>
+            <a class="btn btn-secondary" href="tel:0368218089">03-6821-8089</a>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <small>Seats</small>
+              <strong>14席・カウンター主体</strong>
+            </div>
+            <div class="hero-meta-item">
+              <small>Hours</small>
+              <strong>11:00–15:00 / 17:00–21:00</strong>
+            </div>
+            <div class="hero-meta-item">
+              <small>Style</small>
+              <strong>黒と白、2つの衣から選ぶ</strong>
+            </div>
+            <div class="hero-meta-item">
+              <small>Booking</small>
+              <strong>ご予約はお電話にて</strong>
+            </div>
+          </div>
         </div>
-      </article>
-      <article class="signature-card">
-        <img src="src/jo-hirekatsu.jpg" alt="Premium Tenderloin">
-        <div>
-          <div class="price-tag" data-l10n="signature-card2-price">2,970円</div>
-          <h3 data-l10n="signature-card2-title">上ヒレかつ御膳</h3>
-          <p data-l10n="signature-card2-body">火入れ温度と休ませ時間を1℃単位で管理。驚くほどしっとりとした食感と、軽い余韻が続きます。</p>
+
+        <aside class="hero-sidecard reveal">
+          <h2>最初の一皿は、<br>黒か白か。</h2>
+          <p>
+            恒之助では、見た目だけではなく、香ばしさや余韻まで含めて衣を選びます。
+            まずはお好みの体験からお選びください。
+          </p>
+
+          <div class="choice-pills">
+            <div class="choice-pill">
+              <div class="choice-top">
+                <div class="choice-name"><span class="dot black"></span>黒</div>
+                <div class="taste-tag">Aromatic / Rich</div>
+              </div>
+              <p>黒胡麻の香ばしさとコク。見た目の印象に反して、重たくなりすぎない設計です。</p>
+            </div>
+
+            <div class="choice-pill">
+              <div class="choice-top">
+                <div class="choice-name"><span class="dot white"></span>白</div>
+                <div class="taste-tag">Light / Clean</div>
+              </div>
+              <p>王道の軽さとクリアな余韻。肉の甘みや繊細さをまっすぐ楽しみたい方へ。</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="concept">
+      <div class="container">
+        <span class="eyebrow reveal">Concept</span>
+        <h2 class="section-title reveal">“とんかつを選ぶ”から、<br>“体験を選ぶ”へ。</h2>
+        <p class="section-copy reveal">
+          恒之助の軸は、ただ上質な肉を揚げることではありません。黒胡麻を使った“黒”と、軽やかな“白”。
+          衣の違いで香り、印象、余韻まで変わるからこそ、同じ部位でもまったく違う楽しみ方が生まれます。
+        </p>
+
+        <div class="intro-grid">
+          <div class="intro-image reveal" aria-hidden="true"></div>
+          <div class="intro-card reveal">
+            <p>
+              一口目の印象で惹き込み、食べ進めるほどに軽さで驚かせる。
+              恒之助は、視覚的なフックと食後の納得感を両立させるために、衣・油・温度・時間のバランスを再構築しています。
+            </p>
+
+            <div class="point-list">
+              <div class="point-item">
+                <div class="point-num">01</div>
+                <div>
+                  <strong>黒胡麻を纏う“黒”</strong>
+                  <p>シグネチャーは黒。香ばしさと個性が立ち、SNSでも一目で伝わる一皿です。</p>
+                </div>
+              </div>
+              <div class="point-item">
+                <div class="point-num">02</div>
+                <div>
+                  <strong>王道の魅力を磨いた“白”</strong>
+                  <p>軽やかでクリアな後味。肉そのものの甘みや繊細さを引き出します。</p>
+                </div>
+              </div>
+              <div class="point-item">
+                <div class="point-num">03</div>
+                <div>
+                  <strong>選べるから、記憶に残る</strong>
+                  <p>ただ美味しいだけではなく、「次は白も食べたい」と思える導線をつくります。</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="menu" class="section">
-    <h2 data-l10n="menu-heading">お品書き</h2>
-    <p class="meta" data-l10n="menu-meta">全ての定食にご飯・味噌汁・キャベツ・漬物が付きます。ご飯とキャベツはおかわり自由。</p>
-    <div class="menu-layout">
-      <div>
-        <ul class="menu-list">
-          <li><span data-l10n="menu-item-1">ヒレかつ御膳</span><span>2,420円</span></li>
-          <li><span data-l10n="menu-item-2">ロースかつ御膳</span><span>2,420円</span></li>
-          <li><span data-l10n="menu-item-3">上ロースかつ御膳</span><span>2,970円</span></li>
-          <li><span data-l10n="menu-item-4">黒毛和牛かつ御膳</span><span>3,630円</span></li>
-          <li><span data-l10n="menu-item-5">鶏親子かつ御膳</span><span>2,420円</span></li>
-          <li><span data-l10n="menu-item-6">ミックス御膳（ヒレ/海老/茄子/半熟卵）</span><span>2,915円</span></li>
-          <li><span data-l10n="menu-item-7">たれかつ丼</span><span>2,200円</span></li>
-        </ul>
-        <p class="note" data-l10n="menu-note">価格は税込。限定のトマホークかつは事前予約にて承ります。</p>
       </div>
-      <div>
-        <h3 data-l10n="menu-hours-heading">営業時間</h3>
-        <p data-l10n="menu-hours-body">ランチ 11:00-15:00<br>ディナー 17:00-21:00<br>定休日：水曜日<br>ラストオーダー設定なし</p>
-        <h3 style="margin-top:28px;" data-l10n="menu-guide-heading">ご案内</h3>
-        <p data-l10n="menu-guide-body">席数 14席（カウンター主体）<br>ご予約：お電話のみ<br>お支払い：現金 / 各種クレジット / QR決済</p>
+    </section>
+
+    <section class="section" id="signature">
+      <div class="container">
+        <span class="eyebrow reveal">Signature</span>
+        <h2 class="section-title reveal">恒之助を象徴する、<br>3つの入口。</h2>
+        <p class="section-copy reveal">
+          まず選んでいただきたいのは、黒の上ヒレ、白の上ロース、そして食べ比べ。ブランドの核が最も伝わる構成です。
+        </p>
+
+        <div class="signature-grid">
+          <article class="signature-card reveal">
+            <div class="signature-image" style="background-image: url('src/black-rose.jpg');"></div>
+            <div class="signature-card-body">
+              <div class="signature-kicker"><span class="dot black"></span>Signature Black</div>
+              <h3>黒 上ヒレかつ御膳</h3>
+              <p>黒胡麻を纏った、恒之助のシグネチャー。香ばしさと軽さを両立した、新しいとんかつのかたち。</p>
+              <div class="price">¥2,970</div>
+            </div>
+          </article>
+
+          <article class="signature-card reveal">
+            <div class="signature-image" style="background-image: url('src/rosekatsu.jpg');"></div>
+            <div class="signature-card-body">
+              <div class="signature-kicker"><span class="dot white"></span>Clean White</div>
+              <h3>白 上ロースかつ御膳</h3>
+              <p>肉の甘みと脂の余韻をまっすぐ楽しめる、王道の一皿。白だからこそ分かるクリアな仕上がり。</p>
+              <div class="price">¥2,970</div>
+            </div>
+          </article>
+
+          <article class="signature-card reveal">
+            <div class="signature-image" style="background-image: url('src/black-tomahawk.jpg');"></div>
+            <div class="signature-card-body">
+              <div class="signature-kicker"><span class="dot black"></span><span class="dot white"></span>Compare</div>
+              <h3>黒 トマホーク御膳</h3>
+              <p>インパクト・味・ボリュームの全てが整った恒之助ならではの一品。</p>
+              <div class="price">おすすめ導線として掲載</div>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="craft" class="section">
-    <h2 data-l10n="craft-heading">仕立て</h2>
-    <p class="meta" data-l10n="craft-meta">Craft</p>
-    <div class="craft-grid">
-      <article class="craft-card">
-        <h3 data-l10n="craft-card1-title">低温 × 高温</h3>
-        <p data-l10n="craft-card1-body">火入れの前後で油温を切り替え、中心温度と衣の香りを分離。揚げもの特有の重さを取り払います。</p>
-      </article>
-      <article class="craft-card">
-        <h3 data-l10n="craft-card2-title">休ませの設計</h3>
-        <p data-l10n="craft-card2-body">肉を休ませる時間を gram ごとに定義。提供直前に再度火入れを入れ、旨味を閉じ込めます。</p>
-      </article>
-      <article class="craft-card">
-        <h3 data-l10n="craft-card3-title">仕込みの透明化</h3>
-        <p data-l10n="craft-card3-body">下拵えから盛り付けまでを温度ログで管理。誰が立っても同じ仕上がりになるようナレッジ化。</p>
-      </article>
-      <article class="craft-card">
-        <h3 data-l10n="craft-card4-title">器と空間</h3>
-        <p data-l10n="craft-card4-body">金属×木のコントラストを効かせた14席。余白のある和モダン空間で、一皿に集中できます。</p>
-      </article>
-    </div>
-  </section>
+    <section class="section" id="compare">
+      <div class="container">
+        <span class="eyebrow reveal">Black or White</span>
+        <h2 class="section-title reveal">黒は、見た目だけではない。</h2>
+        <p class="section-copy reveal">
+          同じ部位でも、衣が変われば印象が変わる。見た目のインパクトだけでなく、香りと余韻の設計に違いがあります。
+        </p>
 
-  <section class="space">
-    <div>
-      <h2 style="color: var(--amber);" data-l10n="space-heading">空間</h2>
-      <p data-l10n="space-body">浅草・伝法院通りの喧騒から一歩離れた、14席限定のカウンター。木曽檜と鉄・石を組み合わせた静かな設えでお迎えします。</p>
-    </div>
-    <img src="src/asakusa-konosuke.jpg">
-  </section>
+        <div class="compare-wrap reveal">
+          <div class="compare-tabs">
+            <button class="compare-tab active" type="button" data-tab="black">黒</button>
+            <button class="compare-tab" type="button" data-tab="white">白</button>
+          </div>
 
-  <section id="access" class="section">
-    <h2 data-l10n="access-heading">アクセス</h2>
-    <p class="meta" data-l10n="access-meta">Access</p>
-    <div class="access">
-      <div>
-        <h3 data-l10n="access-address-title">所在地</h3>
-        <p data-l10n="access-address-body">〒111-0032<br>東京都台東区浅草2-12-6</p>
-        <p data-l10n="access-transport">つくばエクスプレス「浅草駅」徒歩1分<br>銀座線 / 東武「浅草駅」徒歩10分</p>
-        <p style="margin-top: 22px;" data-l10n="access-reservation">ご予約：<a href="tel:0300000000" style="color: var(--amber); text-decoration: none;">03-0000-0000</a></p>
+          <div class="compare-panels">
+            <div class="compare-panel active" data-panel="black">
+              <div class="compare-visual" style="background-image: url('src/black-rose.jpg');"></div>
+              <div class="compare-copy">
+                <h3>黒</h3>
+                <p>
+                  黒胡麻を使った衣が生むのは、見た目の個性だけではありません。香ばしい立ち上がりと、噛むほどに広がるコク。
+                  それでいて、最後まで重さを感じさせないバランスを目指しています。
+                </p>
+                <div class="compare-list">
+                  <div class="compare-list-item">
+                    <strong>印象</strong>
+                    <span>香ばしい / 立体感がある / 記憶に残る</span>
+                  </div>
+                  <div class="compare-list-item">
+                    <strong>おすすめ</strong>
+                    <span>初来店の方、恒之助らしさを最初に体験したい方</span>
+                  </div>
+                  <div class="compare-list-item">
+                    <strong>相性</strong>
+                    <span>上ヒレ、上ロース、限定のトマホークかつ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="compare-panel" data-panel="white">
+              <div class="compare-visual" style="background-image: url('src/hirekatsu2.jpg');"></div>
+              <div class="compare-copy">
+                <h3>白</h3>
+                <p>
+                  余計な重さを抑えた、まっすぐな王道。肉の質感や甘み、脂のバランスをクリアに感じたい方には白がおすすめです。
+                  黒と比べることで、その繊細さがより際立ちます。
+                </p>
+                <div class="compare-list">
+                  <div class="compare-list-item">
+                    <strong>印象</strong>
+                    <span>軽やか / クリア / 素材感が伝わる</span>
+                  </div>
+                  <div class="compare-list-item">
+                    <strong>おすすめ</strong>
+                    <span>王道派の方、肉本来のニュアンスを楽しみたい方</span>
+                  </div>
+                  <div class="compare-list-item">
+                    <strong>相性</strong>
+                    <span>上ロース、ヒレ、食べ比べ御膳の白側</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.4497248865223!2d139.79289839999998!3d35.7151567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188faceedca5ab%3A0x6c96f9ee611e979b!2z5rWF6I2JIOOBi-OBpOOChCDmgZLkuYvliqk!5e0!3m2!1sja!2ssg!4v1770869164740!5m2!1sja!2ssg" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
-  </section>
+    </section>
 
-  <footer data-l10n="footer">© 2026 恒之助 - Asakusa Tonkatsu</footer>
+    <section class="section" id="menu">
+      <div class="container">
+        <span class="eyebrow reveal">Menu</span>
+        <h2 class="section-title reveal">黒と白を軸に、<br>お品書きを再構成。</h2>
+        <p class="section-copy reveal">
+          実際の価格や構成に合わせて更新しやすいよう、黒・白・比較・定番の4ブロックで整理しています。
+        </p>
+
+        <div class="menu-section-wrap">
+          <div class="menu-board reveal">
+            <div class="menu-group">
+              <h3>黒</h3>
+              <div class="menu-item">
+                <div>
+                  <strong>黒 上ヒレかつ御膳</strong>
+                  <small>黒胡麻の香ばしさとしっとりした火入れの組み合わせ。</small>
+                </div>
+                <div class="menu-price">¥2,970</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong>黒 上ロースかつ御膳</strong>
+                  <small>脂の甘みと黒の香ばしさが重なり、印象に残る一皿。</small>
+                </div>
+                <div class="menu-price">¥2,970</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong>黒 トマホークかつ御膳</strong>
+                  <small>限定。事前予約でご案内。骨付きならではの存在感を黒で仕上げます。</small>
+                </div>
+                <div class="menu-price">¥4,400〜</div>
+              </div>
+            </div>
+
+            <div class="menu-group">
+              <h3>白</h3>
+              <div class="menu-item">
+                <div>
+                  <strong>白 上ヒレかつ御膳</strong>
+                  <small>繊細な質感と軽さを楽しむ、王道の白。</small>
+                </div>
+                <div class="menu-price">¥2,970</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong>白 上ロースかつ御膳</strong>
+                  <small>素材の甘みと脂のバランスをストレートに感じられる一皿。</small>
+                </div>
+                <div class="menu-price">¥2,970</div>
+              </div>
+            </div>
+
+            <div class="menu-group">
+              <h3>食べ比べ・おすすめ</h3>
+              <div class="menu-item">
+                <div>
+                  <strong>黒と白の食べ比べ御膳</strong>
+                  <small>恒之助を最も理解できるおすすめ構成。初来店の方に。</small>
+                </div>
+                <div class="menu-price">価格調整</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong>たれかつ丼</strong>
+                  <small>甘辛いたれを絡めた、恒之助の人気どんぶり。</small>
+                </div>
+                <div class="menu-price">¥2,200</div>
+              </div>
+            </div>
+
+            <div class="menu-group">
+              <h3>定番</h3>
+              <div class="menu-item">
+                <div>
+                  <strong>ヒレかつ御膳</strong>
+                  <small>全ての定食にご飯・味噌汁・キャベツ・漬物付き。</small>
+                </div>
+                <div class="menu-price">¥2,420</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong>ロースかつ御膳</strong>
+                  <small>ご飯とキャベツはおかわり可能。</small>
+                </div>
+                <div class="menu-price">¥2,420</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-aside reveal">
+            <div class="aside-card">
+              <h3>ご案内</h3>
+              <ul>
+                <li>営業時間：11:00–15:00 / 17:00–21:00</li>
+                <li>定休日：水曜日</li>
+                <li>席数：14席（カウンター主体）</li>
+                <li>ご予約：お電話にて承ります</li>
+              </ul>
+            </div>
+
+            <div class="aside-card">
+              <h3>ブランドの見せ方</h3>
+              <p>
+                WEB上では「黒上ヒレ」「食べ比べ」を上に置くと、初見でもブランドの特徴が伝わりやすくなります。
+                デリバリーやSNSとの整合も取りやすい構成です。
+              </p>
+            </div>
+
+            <div class="aside-card">
+              <h3>備考</h3>
+              <p>
+                価格や商品名はこのブロックだけ差し替えれば更新可能です。実運用では、限定メニューだけ別色タグを追加しても見やすいです。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="craft">
+      <div class="container">
+        <span class="eyebrow reveal">Craft</span>
+        <h2 class="section-title reveal">技術を語るより、<br>違いが伝わる設計へ。</h2>
+        <p class="section-copy reveal">
+          低温や高温といった調理技術を前面に出しすぎず、黒と白の違いが自然に伝わる言葉に置き換えています。
+        </p>
+
+        <div class="craft-grid">
+          <article class="craft-card reveal">
+            <div class="craft-index">01</div>
+            <h3>黒と白の衣</h3>
+            <p>黒胡麻を使った“黒”と、軽やかに仕上げる“白”。同じ肉でも、印象の異なる一皿になります。</p>
+          </article>
+          <article class="craft-card reveal">
+            <div class="craft-index">02</div>
+            <h3>揚げの軽さ</h3>
+            <p>見た目に反して重くない。最後まで食べ切れるよう、油・温度・時間のバランスを整えています。</p>
+          </article>
+          <article class="craft-card reveal">
+            <div class="craft-index">03</div>
+            <h3>部位ごとの最適化</h3>
+            <p>ヒレ、ロース、骨付き。部位ごとに食感や脂の出方を見極めて、最適な仕立てに整えます。</p>
+          </article>
+          <article class="craft-card reveal">
+            <div class="craft-index">04</div>
+            <h3>浅草で味わう余韻</h3>
+            <p>路地の静けさの中で、一皿に集中する。空間も含めて、恒之助らしい体験をつくります。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="access">
+      <div class="container">
+        <span class="eyebrow reveal">Access</span>
+        <h2 class="section-title reveal">浅草で、黒と白を。</h2>
+        <p class="section-copy reveal">
+          伝法院通りから少し入った場所で、静かに一皿と向き合える空間です。
+        </p>
+
+        <div class="access-wrap">
+          <div class="access-card reveal">
+            <h3>店舗情報</h3>
+            <p>〒111-0032<br>東京都台東区浅草2-12-6</p>
+            <p>つくばエクスプレス「浅草駅」徒歩1分<br>銀座線 / 東武「浅草駅」徒歩10分</p>
+            <p>営業時間：11:00–15:00 / 17:00–21:00<br>定休日：水曜日</p>
+            <p>ご予約・お問い合わせ：<br><a class="tel" href="tel:0368218089">03-6821-8089</a></p>
+          </div>
+
+          <div class="map reveal">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.4497248865223!2d139.79289839999998!3d35.7151567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188faceedca5ab%3A0x6c96f9ee611e979b!2z5rWF6I2JIOOBi-OBpOOChCDmgZLkuYvliqk!5e0!3m2!1sja!2ssg!4v1770869164740!5m2!1sja!2ssg" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <div class="cta-band reveal">
+          <div>
+            <h3>まずは、黒からでも。白からでも。</h3>
+            <p>ブランドの核が伝わるように、サイト全体を「黒と白」で再設計しています。</p>
+          </div>
+          <a class="btn btn-primary" href="tel:0368218089">ご予約はこちら</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 恒之助 / KONOSUKE — Black & White Tonkatsu
+  </footer>
 
   <script>
-    const translations = {
-      brand: { ja: '恒之助', en: 'KONOSUKE' },
-      'nav-signature': { ja: '代表メニュー', en: 'Signature' },
-      'nav-menu': { ja: 'お品書き', en: 'Menu' },
-      'nav-craft': { ja: '仕立て', en: 'Craft' },
-      'nav-access': { ja: 'アクセス', en: 'Visit' },
-      'hero-badge': { ja: '浅草 / モダンとんかつ', en: 'ASAKUSA / MODERN TONKATSU' },
-      'hero-title': { ja: '一枚に、覚悟を込める。', en: 'One plate, infinite intent.' },
-      'hero-copy': {
-        ja: '特上ロースと上ヒレ。素材・温度・油・休ませ方までを設計し、揚げものの概念を塗り替える14席のとんかつ専門店です。浅草・伝法院通りから少し入った静かな路地で、余韻の残る一皿をお届けします。',
-        en: 'Premium loin and tenderloin, engineered through temperature curves, oil profiles, and resting time. A fourteen-seat tonkatsu counter tucked off Denboin Street in Asakusa, delivering plates that linger without heaviness.'
-      },
-      'hero-cta-primary': { ja: 'ご予約 03-0000-0000', en: 'Call +81-3-0000-0000' },
-      'hero-cta-secondary': { ja: 'お品書きを見る', en: 'View Menu' },
-      'hero-meta-1': { ja: '席数 14席（カウンター主体）', en: '14 seats · counter focused' },
-      'hero-meta-2': { ja: 'ランチ 11:00-15:00', en: 'Lunch 11:00–15:00' },
-      'hero-meta-3': { ja: 'ディナー 17:00-21:00', en: 'Dinner 17:00–21:00' },
-      'hero-meta-4': { ja: '定休日：水曜日', en: 'Closed on Wednesdays' },
-      'signature-heading': { ja: '代表作', en: 'Signature Cuts' },
-      'signature-meta': { ja: 'Signature Cuts', en: 'Hero dishes' },
-      'signature-card1-price': { ja: '6,490円 / 限定', en: '¥6,490 / Limited' },
-      'signature-card1-title': { ja: 'トマホークかつ（特上ロース）御膳', en: 'Tomahawk Loin Set' },
-      'signature-card1-body': {
-        ja: '骨付きカットを低温でゆっくり火入れし、仕上げに高温で香りを纏わせる一枚。事前予約で500g以上も対応。',
-        en: 'Bone-in premium loin fried low and slow, finished hot for aroma. Advance bookings allow 500g+ portions.'
-      },
-      'signature-card2-price': { ja: '2,970円', en: '¥2,970' },
-      'signature-card2-title': { ja: '上ヒレかつ御膳', en: 'Premium Tenderloin Set' },
-      'signature-card2-body': {
-        ja: '火入れ温度と休ませ時間を1℃単位で管理。驚くほどしっとりとした食感と、軽い余韻が続きます。',
-        en: 'Temperature and resting time managed to the degree for a silk-like interior and clean finish.'
-      },
-      'menu-heading': { ja: 'お品書き', en: 'Menu' },
-      'menu-meta': {
-        ja: '全ての定食にご飯・味噌汁・キャベツ・漬物が付きます。ご飯とキャベツはおかわり自由。',
-        en: 'All sets include rice, miso soup, shredded cabbage, and pickles. Complimentary refills on rice & cabbage.'
-      },
-      'menu-item-1': { ja: 'ヒレかつ御膳', en: 'Tenderloin Set' },
-      'menu-item-2': { ja: 'ロースかつ御膳', en: 'Loin Set' },
-      'menu-item-3': { ja: '上ロースかつ御膳', en: 'Premium Loin Set' },
-      'menu-item-4': { ja: '黒毛和牛かつ御膳', en: 'Japanese Black Wagyu Katsu' },
-      'menu-item-5': { ja: '鶏親子かつ御膳', en: 'Chicken “Oyakatsu” Set' },
-      'menu-item-6': { ja: 'ミックス御膳（ヒレ/海老/茄子/半熟卵）', en: 'Mixed Set (tenderloin / prawn / eggplant / soft-boiled egg)' },
-      'menu-item-7': { ja: 'たれかつ丼', en: 'Sauce Katsu Bowl' },
-      'menu-note': { ja: '価格は税込。限定のトマホークかつは事前予約にて承ります。', en: 'Prices include tax. Limited tomahawk portions available with reservation.' },
-      'menu-hours-heading': { ja: '営業時間', en: 'Hours & Booking' },
-      'menu-hours-body': {
-        ja: 'ランチ 11:00-15:00<br>ディナー 17:00-21:00<br>定休日：水曜日<br>ラストオーダー設定なし',
-        en: 'Lunch 11:00–15:00<br>Dinner 17:00–21:00<br>Closed Wednesdays<br>No strict last orders.'
-      },
-      'menu-guide-heading': { ja: 'ご案内', en: 'Seats & Payment' },
-      'menu-guide-body': {
-        ja: '席数 14席（カウンター主体）<br>ご予約：お電話のみ<br>お支払い：現金 / 各種クレジット / QR決済',
-        en: '14 seats, counter-driven.<br>Reservations by phone only.<br>Cash / major credit cards / QR payments accepted.'
-      },
-      'craft-heading': { ja: '仕立て', en: 'Craft Notes' },
-      'craft-meta': { ja: 'Craft', en: 'Behind the plate' },
-      'craft-card1-title': { ja: '低温 × 高温', en: 'Two-stage Frying' },
-      'craft-card1-body': {
-        ja: '火入れの前後で油温を切り替え、中心温度と衣の香りを分離。揚げもの特有の重さを取り払います。',
-        en: 'Low heat sets the core, flash heat blooms aroma. Weightless crust, juicy center.'
-      },
-      'craft-card2-title': { ja: '休ませの設計', en: 'Resting Protocols' },
-      'craft-card2-body': {
-        ja: '肉を休ませる時間を gram ごとに定義。提供直前に再度火入れを入れ、旨味を閉じ込めます。',
-        en: 'Resting time defined by gram. Reheated before slicing to seal in juices.'
-      },
-      'craft-card3-title': { ja: '仕込みの透明化', en: 'Transparent Prep' },
-      'craft-card3-body': {
-        ja: '下拵えから盛り付けまでを温度ログで管理。誰が立っても同じ仕上がりになるようナレッジ化。',
-        en: 'Every step logged by temperature so recipes stay consistent regardless of the cook.'
-      },
-      'craft-card4-title': { ja: '器と空間', en: 'Space & Tableware' },
-      'craft-card4-body': {
-        ja: '金属×木のコントラストを効かせた14席。余白のある和モダン空間で、一皿に集中できます。',
-        en: 'Metal meets wood across a calm room of fourteen seats, keeping focus on the cut in front of you.'
-      },
-      'space-heading': { ja: '空間', en: 'The Room' },
-      'space-body': {
-        ja: '浅草・伝法院通りの喧騒から一歩離れた、14席限定のカウンター。木曽檜と鉄・石を組み合わせた静かな設えでお迎えします。',
-        en: 'Steps away from Denboin Street, a fourteen-seat counter lined with cypress, iron, and stone invites quiet focus.'
-      },
-      'access-heading': { ja: 'アクセス', en: 'Visit' },
-      'access-meta': { ja: 'Access', en: 'Access' },
-      'access-address-title': { ja: '所在地', en: 'Address' },
-      'access-address-body': { ja: '〒111-0032<br>東京都台東区浅草2-12-6', en: '2-12-6 Asakusa, Taito-ku, Tokyo 111-0032' },
-      'access-transport': {
-        ja: 'つくばエクスプレス「浅草駅」徒歩1分<br>銀座線 / 東武「浅草駅」徒歩10分',
-        en: 'TX Asakusa Station · 1 min walk<br>Ginza Line / Tobu Asakusa · 10 min'
-      },
-      'access-reservation': {
-        ja: 'ご予約：<a href="tel:0368218089" style="color: var(--amber); text-decoration: none;">03-6821-8089</a>',
-        en: 'Reservations: <a href="tel:+81368218089" style="color: var(--amber); text-decoration: none;">+81-3-6821-8089</a>'
-      },
-      footer: { ja: '© 2026 恒之助 - Asakusa Tonkatsu', en: '© 2026 Konosuke — Asakusa Tonkatsu' }
-    };
+    const menuToggle = document.getElementById('menuToggle');
+    const siteNav = document.getElementById('siteNav');
 
-    const buttons = document.querySelectorAll('[data-set-lang]');
-    const elements = document.querySelectorAll('[data-l10n]');
-
-    function applyLanguage(lang) {
-      document.documentElement.setAttribute('lang', lang === 'ja' ? 'ja' : 'en');
-      document.body.dataset.lang = lang;
-      buttons.forEach(btn => btn.classList.toggle('active', btn.dataset.setLang === lang));
-      elements.forEach(el => {
-        const key = el.dataset.l10n;
-        const translation = translations[key]?.[lang];
-        if (translation !== undefined) {
-          el.innerHTML = translation;
-        }
+    if (menuToggle && siteNav) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = siteNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
       });
-      localStorage.setItem('konosuke-lang', lang);
+
+      siteNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          siteNav.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
     }
 
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => applyLanguage(btn.dataset.setLang));
+    const tabs = document.querySelectorAll('.compare-tab');
+    const panels = document.querySelectorAll('.compare-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const key = tab.dataset.tab;
+
+        tabs.forEach(t => t.classList.toggle('active', t === tab));
+        panels.forEach(panel => {
+          panel.classList.toggle('active', panel.dataset.panel === key);
+        });
+      });
     });
 
-    const saved = localStorage.getItem('konosuke-lang');
-    applyLanguage(saved === 'en' ? 'en' : 'ja');
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav a');
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          const isMatch = link.getAttribute('href') === `#${id}`;
+          link.classList.toggle('active', isMatch);
+        });
+      });
+    }, {
+      threshold: 0.45
+    });
+
+    sections.forEach(section => sectionObserver.observe(section));
   </script>
 </body>
 </html>

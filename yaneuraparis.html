@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>屋根裏のパリ食堂</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Serif+JP:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================
+       CSS Reset & Base
+    ============================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:    #f5f0e8;
+      --warm:     #ede4d3;
+      --gold:     #b8976a;
+      --dark-gold:#8a6d46;
+      --brown:    #3d2b1f;
+      --charcoal: #2a2420;
+      --text:     #3a3028;
+      --muted:    #7a6a5a;
+      --white:    #fefcf8;
+      --accent:   #c9a86c;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Serif JP', serif;
+      background-color: var(--cream);
+      color: var(--text);
+      line-height: 1.8;
+    }
+
+    img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ============================
+       Navigation
+    ============================ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(61, 43, 31, 0.92);
+      backdrop-filter: blur(8px);
+      transition: background 0.3s;
+    }
+
+    nav .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    nav ul li a {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--warm);
+      transition: color 0.2s;
+    }
+
+    nav ul li a:hover { color: var(--accent); }
+
+    .nav-reserve {
+      background: var(--gold);
+      color: var(--white) !important;
+      padding: 8px 20px;
+      border-radius: 2px;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.1em;
+      transition: background 0.2s !important;
+    }
+
+    .nav-reserve:hover { background: var(--dark-gold) !important; }
+
+    /* ============================
+       Hero
+    ============================ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 640px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Tabelog images as background layers */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to bottom, rgba(30,18,10,0.55) 0%, rgba(30,18,10,0.3) 40%, rgba(30,18,10,0.7) 100%);
+      background-color: #1e120a;
+    }
+
+    /* Try to load tabelog restaurant image */
+    .hero-bg-img {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://tblg.k-img.com/restaurant/images/Yer/13141729/200x200_square_fixedwidth_1.jpg');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.55) saturate(1.1);
+    }
+
+    /* Fallback atmospheric pattern */
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 30% 60%, rgba(184,151,106,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 30%, rgba(184,151,106,0.12) 0%, transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--white);
+      padding: 20px;
+    }
+
+    .hero-eyebrow {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.35em;
+      color: var(--accent);
+      margin-bottom: 20px;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+
+    .hero-title-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      font-weight: 300;
+      letter-spacing: 0.5em;
+      color: rgba(255,255,255,0.85);
+      margin-bottom: 36px;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 auto 32px;
+    }
+
+    .hero-desc {
+      font-size: 0.92rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.78);
+      max-width: 380px;
+      margin: 0 auto 48px;
+      line-height: 2;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      padding: 16px 44px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      transition: background 0.25s, color 0.25s;
+    }
+
+    .hero-cta:hover {
+      background: var(--accent);
+      color: var(--charcoal);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      animation: float 2s ease-in-out infinite;
+    }
+
+    .hero-scroll span { display: block; width: 1px; height: 40px; background: rgba(255,255,255,0.35); }
+
+    @keyframes float {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ============================
+       Section Base
+    ============================ */
+    section { padding: 96px 24px; }
+
+    .section-inner { max-width: 1080px; margin: 0 auto; }
+
+    .section-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 4vw, 2.8rem);
+      font-weight: 400;
+      color: var(--brown);
+      line-height: 1.3;
+      margin-bottom: 20px;
+    }
+
+    .section-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin-bottom: 36px;
+    }
+
+    /* ============================
+       About / Concept
+    ============================ */
+    #about { background: var(--white); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .about-text p {
+      font-size: 0.92rem;
+      color: var(--muted);
+      line-height: 2.2;
+      margin-bottom: 20px;
+    }
+
+    .about-image-wrap {
+      position: relative;
+      height: 480px;
+    }
+
+    .about-image-wrap::before {
+      content: '';
+      position: absolute;
+      top: -16px; right: -16px;
+      width: 100%; height: 100%;
+      border: 1px solid var(--gold);
+      z-index: 0;
+    }
+
+    .about-image {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Fallback gradient for about image */
+    .about-image-fallback {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #8a6d46 0%, #3d2b1f 50%, #b8976a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.3);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-style: italic;
+    }
+
+    /* ============================
+       Gallery
+    ============================ */
+    #gallery { background: var(--cream); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 280px 280px;
+      gap: 12px;
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      position: relative;
+      background: var(--warm);
+    }
+
+    .gallery-item:first-child {
+      grid-row: 1 / 3;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    /* Fallback overlays with French text */
+    .gallery-fallback {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.4rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .gi-1 { background: linear-gradient(160deg, #5a3e2b, #2a1e15); }
+    .gi-2 { background: linear-gradient(160deg, #7a5c40, #3d2b1f); }
+    .gi-3 { background: linear-gradient(160deg, #6b4f35, #2e2018); }
+    .gi-4 { background: linear-gradient(160deg, #8a6d4a, #4a3325); }
+    .gi-5 { background: linear-gradient(160deg, #5e4530, #352519); }
+
+    /* ============================
+       Menu
+    ============================ */
+    #menu { background: var(--brown); color: var(--cream); }
+
+    #menu .section-title { color: var(--accent); }
+    #menu .section-label { color: rgba(201,168,108,0.7); }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 14px;
+      gap: 12px;
+    }
+
+    .menu-item-name {
+      font-size: 0.87rem;
+      color: rgba(245,240,232,0.85);
+      letter-spacing: 0.05em;
+      flex: 1;
+    }
+
+    .menu-item-dots {
+      flex: 1;
+      border-bottom: 1px dotted rgba(184,151,106,0.25);
+      margin: 0 8px;
+      min-width: 20px;
+    }
+
+    .menu-item-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.92rem;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    /* 旧 menu-grid は不要になったため削除、新スタイルへ */
+    .menu-category-block {
+      margin-bottom: 44px;
+    }
+
+    .menu-cat-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.88rem;
+      font-style: normal;
+      color: var(--cream);
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .menu-cat-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .menu-items-list {
+      border-top: 1px solid rgba(184,151,106,0.15);
+    }
+
+    .menu-items-list .menu-item {
+      border-bottom: 1px solid rgba(184,151,106,0.1);
+      padding: 12px 0;
+      margin-bottom: 0;
+    }
+
+    .menu-note {
+      margin-top: 36px;
+      padding: 20px;
+      border: 1px solid rgba(184,151,106,0.2);
+      font-size: 0.8rem;
+      color: rgba(245,240,232,0.5);
+      line-height: 2;
+      letter-spacing: 0.08em;
+    }
+
+    /* ============================
+       Wine
+    ============================ */
+    #wine { background: var(--warm); }
+
+    .wine-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .wine-image {
+      height: 420px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .wine-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .wine-image-fallback {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, #3d2b1f 0%, #6b4f35 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wine-icon {
+      font-size: 5rem;
+      opacity: 0.15;
+    }
+
+    .wine-text p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 2.2;
+      margin-bottom: 20px;
+    }
+
+    .wine-stats {
+      display: flex;
+      gap: 36px;
+      margin-top: 36px;
+    }
+
+    .wine-stat {
+      text-align: center;
+    }
+
+    .wine-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      color: var(--gold);
+      line-height: 1;
+      font-weight: 300;
+    }
+
+    .wine-stat-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.15em;
+      margin-top: 6px;
+    }
+
+    /* ============================
+       Reserve CTA
+    ============================ */
+    #reserve {
+      background: linear-gradient(135deg, var(--charcoal) 0%, var(--brown) 100%);
+      text-align: center;
+      padding: 120px 24px;
+    }
+
+    #reserve .section-label { color: rgba(201,168,108,0.7); text-align: center; }
+
+    #reserve .section-title { color: var(--white); text-align: center; }
+
+    #reserve .section-rule { margin: 0 auto 36px; }
+
+    .reserve-text {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.12em;
+      max-width: 420px;
+      margin: 0 auto 48px;
+      line-height: 2.2;
+    }
+
+    .reserve-btn {
+      display: inline-block;
+      padding: 18px 56px;
+      background: var(--gold);
+      color: var(--white);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      transition: background 0.25s, transform 0.2s;
+    }
+
+    .reserve-btn:hover {
+      background: var(--dark-gold);
+      transform: translateY(-2px);
+    }
+
+    .reserve-phone {
+      margin-top: 28px;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.12em;
+    }
+
+    .reserve-phone a {
+      color: var(--accent);
+    }
+
+    /* ============================
+       Info & Map
+    ============================ */
+    #info { background: var(--white); }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+    }
+
+    .info-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .info-table tr {
+      border-bottom: 1px solid rgba(184,151,106,0.15);
+    }
+
+    .info-table td {
+      padding: 16px 0;
+      font-size: 0.87rem;
+      vertical-align: top;
+      line-height: 1.9;
+    }
+
+    .info-table td:first-child {
+      width: 100px;
+      color: var(--gold);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      padding-right: 16px;
+      white-space: nowrap;
+    }
+
+    .info-table td:last-child {
+      color: var(--muted);
+    }
+
+    .map-wrap {
+      height: 380px;
+      overflow: hidden;
+      border: 1px solid rgba(184,151,106,0.2);
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* ============================
+       Footer
+    ============================ */
+    footer {
+      background: var(--charcoal);
+      text-align: center;
+      padding: 56px 24px;
+      color: rgba(245,240,232,0.35);
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .footer-logo-ja {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.3em;
+      color: rgba(245,240,232,0.4);
+      margin-bottom: 28px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 28px;
+    }
+
+    .footer-links a {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: rgba(245,240,232,0.35);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-copy {
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* ============================
+       Responsive
+    ============================ */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      nav ul { gap: 16px; }
+      nav ul li:not(:last-child) { display: none; }
+
+      section { padding: 72px 20px; }
+
+      .about-grid,
+      .wine-content,
+      .info-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .about-image-wrap { height: 320px; }
+      .about-image-wrap::before { display: none; }
+
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 200px 200px 200px;
+      }
+      .gallery-item:first-child { grid-row: auto; }
+
+      .menu-grid { grid-template-columns: 1fr; gap: 40px; }
+
+      .wine-image { height: 280px; }
+
+      .map-wrap { height: 280px; }
+
+      .wine-stats { justify-content: center; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav>
+    <div class="nav-logo">Yaneura no Paris Shokudo</div>
+    <ul>
+      <li><a href="#about">コンセプト</a></li>
+      <li><a href="#gallery">ギャラリー</a></li>
+      <li><a href="#menu">メニュー</a></li>
+      <li><a href="#wine">ワイン</a></li>
+      <li><a href="#info">アクセス</a></li>
+      <li><a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13141729" target="_blank" class="nav-reserve">ご予約</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-bg-img"></div>
+    </div>
+    <div class="hero-pattern"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow">Nakameguro, Tokyo</p>
+      <h1 class="hero-title">Yaneura no<br>Paris Shokudo</h1>
+      <p class="hero-title-ja">屋根裏のパリ食堂</p>
+      <div class="hero-divider"></div>
+      <p class="hero-desc">目黒川の裏路地に佇む、<br>ナチュラルワインとビストロ料理の小さな食堂</p>
+      <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13141729" target="_blank" class="hero-cta">ご予約はこちら</a>
+    </div>
+
+    <div class="hero-scroll">
+      <span></span>
+      scroll
+    </div>
+  </section>
+
+  <!-- ===== About ===== -->
+  <section id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-text">
+          <p class="section-label">Notre Concept</p>
+          <h2 class="section-title">パリの屋根裏部屋へ、<br>ようこそ</h2>
+          <div class="section-rule"></div>
+          <p>
+            中目黒駅から徒歩5分、目黒川を越えた裏路地に、その店はひっそりと佇んでいます。
+            青葉台117ビルの3階へ上がると、まるでパリの屋根裏部屋に迷い込んだような空間が広がります。
+          </p>
+          <p>
+            グリーンとブラウンを基調とした自然体のインテリア、天井を彩るドライフラワー。
+            そしてテラス席からは、中目黒の静かな街並みを一望できます。
+          </p>
+          <p>
+            ソムリエが厳選した100種以上のナチュラルワインと、
+            旬の素材を大切にしたフレンチベースのビストロ料理。
+            まるで友人の家を訪ねるような、温かくて居心地の良い時間をお過ごしください。
+          </p>
+        </div>
+
+        <div class="about-image-wrap">
+          <div class="about-image">
+            <!-- tabelog store photo -->
+            <img
+              src="src/paris/terrace.jpg"
+              alt="屋根裏のパリ食堂 店内"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="about-image-fallback" style="display:none;">
+              Bistrot Parisien
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Gallery ===== -->
+  <section id="gallery">
+    <div class="section-inner">
+      <p class="section-label">Gallery</p>
+      <h2 class="section-title">フォトギャラリー</h2>
+      <div class="section-rule"></div>
+
+      <div class="gallery-grid">
+        <!-- Large left -->
+        <div class="gallery-item gi-1">
+          <img
+            src="src/paris/inside.jpg"
+            alt="店内の様子"
+            onerror="this.style.display='none';"
+          />
+          <div class="gallery-fallback">Intérieur</div>
+        </div>
+
+        <!-- Top center -->
+        <div class="gallery-item gi-2">
+          <img
+            src="src/paris/Cusine1.jpg"
+            alt="料理"
+            onerror="this.style.display='none';"
+          />
+          <div class="gallery-fallback">Cuisine</div>
+        </div>
+
+        <!-- Top right -->
+        <div class="gallery-item gi-3">
+          <img
+            src="src/paris/Cusine2.jpg"
+            alt="ワイン"
+            onerror="this.style.display='none';"
+          />
+          <div class="gallery-fallback">Vins naturels</div>
+        </div>
+
+        <!-- Bottom center -->
+        <div class="gallery-item gi-4">
+          <img
+            src="src/paris/terrace2.jpg"
+            alt="テラス席"
+            onerror="this.style.display='none';"
+          />
+          <div class="gallery-fallback">Terrasse</div>
+        </div>
+
+        <!-- Bottom right -->
+        <div class="gallery-item gi-5">
+          <img
+            src="src/paris/dessart.jpg"
+            alt="料理"
+            onerror="this.style.display='none';"
+          />
+          <div class="gallery-fallback">Plats du jour</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Menu ===== -->
+  <section id="menu">
+    <div class="section-inner">
+      <p class="section-label">Notre Menu</p>
+      <h2 class="section-title">メニュー</h2>
+      <div class="section-rule"></div>
+      <p style="font-size:0.78rem;color:rgba(245,240,232,0.4);text-align:right;margin-bottom:32px;letter-spacing:0.08em;">税込価格</p>
+
+      <!-- スピードメニュー -->
+      <div class="menu-category-block">
+        <h3 class="menu-cat-title"><span class="menu-cat-dot"></span>スピードメニュー</h3>
+        <div class="menu-items-list">
+          <div class="menu-item">
+            <span class="menu-item-name">アペタイザー3種盛り合わせ</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥1,780</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">生ハム盛り</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥1,100</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">パリ食堂のリエット</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥950</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">ミックスナッツ</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥700</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">チーズ2種盛り合わせ</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥1,300</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 冷菜 -->
+      <div class="menu-category-block">
+        <h3 class="menu-cat-title"><span class="menu-cat-dot"></span>冷菜</h3>
+        <div class="menu-items-list">
+          <div class="menu-item">
+            <span class="menu-item-name">数量限定！ブッラータチーズ　生ハム　季節のフルーツ</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥3,200</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">カツオのカルパッチョ　焼き茄子のソース</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥1,400</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">馬刺しのカルパッチョ</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥1,500</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">鴨の燻製　柚子の香り</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥1,500</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 温菜 -->
+      <div class="menu-category-block">
+        <h3 class="menu-cat-title"><span class="menu-cat-dot"></span>温菜</h3>
+        <div class="menu-items-list">
+          <div class="menu-item">
+            <span class="menu-item-name">鉄板トリュフチーズオムレツ</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥1,780</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">イカときのこの温かいサラダ　パセリバター</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥1,780</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">旬魚と桜えびと春野菜のアクアパッツァ</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥1,840</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">さつまいもフライドポテト</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥980</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">ソフトシェルシュリンプのいそべ揚げ</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥1,350</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- メイン -->
+      <div class="menu-category-block">
+        <h3 class="menu-cat-title"><span class="menu-cat-dot"></span>メイン</h3>
+        <div class="menu-items-list">
+          <div class="menu-item">
+            <span class="menu-item-name">牛ほほ肉の赤ワイン煮</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥3,200</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">鴨のポワレ　ごぼう　林檎のソース</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥3,500</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">北海道産牛イチボのステーキ　ヴァンルージュソースとマスタード</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥3,900</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- リゾット -->
+      <div class="menu-category-block">
+        <h3 class="menu-cat-title" style="padding-left:0;"><span style="display:none;"></span>リゾット</h3>
+        <div class="menu-items-list">
+          <div class="menu-item">
+            <span class="menu-item-name">カニといくらのビスクリゾット</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥2,000</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">4種のチーズリゾット</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥1,800</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- デザート -->
+      <div class="menu-category-block">
+        <h3 class="menu-cat-title"><span class="menu-cat-dot"></span>デザート</h3>
+        <div class="menu-items-list">
+          <div class="menu-item">
+            <span class="menu-item-name">塩キャラメルクレームブリュレ</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥1,100</span>
+          </div>
+          <div class="menu-item">
+            <span class="menu-item-name">マスカルポーネ&amp;バニラアイス　季節のフルーツ</span>
+            <span class="menu-item-dots"></span>
+            <span class="menu-item-price">¥880</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="menu-note">
+        ※ メニューは季節・仕入れにより変更になる場合がございます。<br>
+        ※ 表示価格はすべて税込みです。サービス料は別途いただいておりません。<br>
+        ※ アレルギーのある方はスタッフまでお気軽にご相談ください。
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Wine ===== -->
+  <section id="wine">
+    <div class="section-inner">
+      <div class="wine-content">
+        <div class="wine-image">
+          <img
+            src="src/paris/wine.jpg"
+            alt="ナチュラルワイン"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+          />
+          <div class="wine-image-fallback" style="display:none;">
+            <div class="wine-icon">🍷</div>
+          </div>
+        </div>
+
+        <div class="wine-text">
+          <p class="section-label">Vins Naturels</p>
+          <h2 class="section-title">ソムリエ厳選の<br>ナチュラルワイン</h2>
+          <div class="section-rule"></div>
+          <p>
+            ソムリエが世界中から厳選した100種類以上のナチュラルワインを常時ご用意しています。
+            農薬や化学肥料を使わずに育てたブドウで造られた、自然本来の風味豊かなワインたち。
+          </p>
+          <p>
+            グラスワイン700円〜、ボトルは4,000円〜。
+            ビストロ料理との相性も抜群で、スタッフがお料理に合わせたペアリングをご提案いたします。
+            ワインが初めての方も、お気軽にご相談ください。
+          </p>
+
+          <div class="wine-stats">
+            <div class="wine-stat">
+              <div class="wine-stat-num">100+</div>
+              <div class="wine-stat-label">種類のワイン</div>
+            </div>
+            <div class="wine-stat">
+              <div class="wine-stat-num">¥700</div>
+              <div class="wine-stat-label">グラスワイン〜</div>
+            </div>
+            <div class="wine-stat">
+              <div class="wine-stat-num">3F</div>
+              <div class="wine-stat-label">テラス席あり</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Reserve CTA ===== -->
+  <section id="reserve">
+    <div class="section-inner" style="text-align:center;">
+      <p class="section-label">Réservation</p>
+      <h2 class="section-title">ご予約</h2>
+      <div class="section-rule" style="margin:0 auto 36px;"></div>
+      <p class="reserve-text">
+        特別な夜のために、またはいつものあの席のために。<br>
+        ネット予約はいつでもご利用いただけます。
+      </p>
+      <a
+        href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13141729"
+        target="_blank"
+        class="reserve-btn"
+      >
+        ネット予約する
+      </a>
+      <p class="reserve-phone">
+        お電話でのご予約：<a href="tel:0337707052">03-3770-7052</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ===== Info & Map ===== -->
+  <section id="info">
+    <div class="section-inner">
+      <p class="section-label">Access &amp; Info</p>
+      <h2 class="section-title">アクセス・店舗情報</h2>
+      <div class="section-rule"></div>
+
+      <div class="info-grid">
+        <div>
+          <table class="info-table">
+            <tbody>
+              <tr>
+                <td>住所</td>
+                <td>
+                  東京都目黒区青葉台1-17-2<br>
+                  青葉台117ビル 3F
+                </td>
+              </tr>
+              <tr>
+                <td>アクセス</td>
+                <td>
+                  東急東横線・東京メトロ日比谷線<br>
+                  中目黒駅 徒歩5分
+                </td>
+              </tr>
+              <tr>
+                <td>電話</td>
+                <td><a href="tel:0337707052" style="color:var(--gold);">03-3770-7052</a></td>
+              </tr>
+              <tr>
+                <td>営業時間</td>
+                <td>
+                  月〜土・祝前日：18:00 〜 24:00<br>
+                  日・祝日：12:00〜15:00 / 18:00〜24:00
+                </td>
+              </tr>
+              <tr>
+                <td>定休日</td>
+                <td>火曜日</td>
+              </tr>
+              <tr>
+                <td>席数</td>
+                <td>約30席（テラス席あり）</td>
+              </tr>
+              <tr>
+                <td>予算</td>
+                <td>ディナー ¥5,000〜¥5,999</td>
+              </tr>
+              <tr>
+                <td>予約</td>
+                <td>
+                  <a
+                    href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13141729"
+                    target="_blank"
+                    style="color:var(--gold);"
+                  >ネット予約はこちら →</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div>
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.2104701218664!2d139.6971702!3d35.647185799999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b4e640e1253%3A0x386b52503f79812a!2z5bGL5qC56KOP44Oe44PA44Oq6aOf5aCC!5e0!3m2!1sja!2ssg!4v1776410254648!5m2!1sja!2ssg"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p class="footer-logo">Yaneura no Paris Shokudo</p>
+    <p class="footer-logo-ja">屋根裏のパリ食堂</p>
+    <nav class="footer-links">
+      <a href="#about">コンセプト</a>
+      <a href="#gallery">ギャラリー</a>
+      <a href="#menu">メニュー</a>
+      <a href="#wine">ワイン</a>
+      <a href="#info">アクセス</a>
+      <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13141729" target="_blank">ご予約</a>
+    </nav>
+    <p class="footer-copy">© 2024 屋根裏のパリ食堂 All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>

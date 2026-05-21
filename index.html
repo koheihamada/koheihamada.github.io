@@ -3,40 +3,868 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>株式会社Basic | 食の未来をつなぐ</title>
-  <meta name="description" content="株式会社Basicは、飲食店の承継・M&A・新規立ち上げを手がけるF&Bカンパニーです。" />
-  <link rel="canonical" href="https://www.basic-fnb.com/" />
- 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
- <!-- SEO Meta Tags -->
-  <meta name="description" content="株式会社Basicは、飲食店の運営・M&A・コンサルティングを通して、飲食業の未来を切り拓く会社です。" />
-  <meta name="keywords" content="株式会社Basic, 飲食M&A, 飲食コンサル, レストラン経営, 飲食店運営, 食の未来, ビストロ, 焼肉, 飲食スタートアップ" />
-  <meta name="author" content="株式会社Basic" />
+  <title>恒之助 | 黒と白のとんかつ</title>
+  <meta name="description" content="浅草のとんかつ専門店 恒之助。黒胡麻を纏った&quot;黒&quot;と、軽やかに仕上げる&quot;白&quot;。選ぶ楽しさのある一皿をご提供します。" />
+  <meta name="keywords" content="恒之助, 浅草とんかつ, 黒胡麻とんかつ, とんかつ専門店, 浅草グルメ, 黒と白のとんかつ, KONOSUKE, 浅草2丁目" id="metaKeywords" />
+  <meta name="author" content="恒之助 / KONOSUKE" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.basic-fnb.com/" />
+  <link rel="canonical" href="https://basic-fnb.com/konosuke" />
 
-  <!-- Google Fonts -->
+  <link rel="alternate" hreflang="ja" href="?lang=ja" />
+  <link rel="alternate" hreflang="en" href="?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="." />
+
+  <meta property="og:type" content="restaurant" />
+  <meta property="og:title" content="恒之助 | 黒と白のとんかつ" id="ogTitle" />
+  <meta property="og:description" content="浅草のとんかつ専門店 恒之助。黒胡麻を纏った黒と、軽やかに仕上げる白。" id="ogDesc" />
+  <meta property="og:image" content="https://basic-fnb.com/src/black-hire.jpg" />
+  <meta property="og:url" content="https://basic-fnb.com/konosuke" />
+  <meta property="og:site_name" content="恒之助 / KONOSUKE" />
+  <meta property="og:locale" content="ja_JP" id="ogLocale" />
+  <meta property="og:locale:alternate" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="恒之助 | 黒と白のとんかつ" id="twTitle" />
+  <meta name="twitter:description" content="浅草のとんかつ専門店 恒之助。黒胡麻を纏った黒と、軽やかに仕上げる白。" id="twDesc" />
+  <meta name="twitter:image" content="https://basic-fnb.com/src/black-hire.jpg" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "恒之助",
+    "alternateName": "KONOSUKE",
+    "description": "浅草のとんかつ専門店。黒胡麻を纏った黒と、軽やかに仕上げる白。",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "浅草2-12-6",
+      "addressLocality": "台東区",
+      "addressRegion": "東京都",
+      "postalCode": "111-0032",
+      "addressCountry": "JP"
+    },
+    "telephone": "+81-3-6821-8089",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "11:00",
+        "closes": "15:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Thursday","Friday","Saturday","Sunday"],
+        "opens": "17:00",
+        "closes": "21:00"
+      }
+    ],
+    "servesCuisine": "Japanese",
+    "priceRange": "¥¥"
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'KouzanBrushFONT';
+      src: url('/fonts/KouzanMouhituFontOTF.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
 
+    :root {
+      --bg: #0b0a09;
+      --bg-soft: #151210;
+      --panel: rgba(255,255,255,0.04);
+      --panel-strong: rgba(255,255,255,0.08);
+      --text: #f5efe7;
+      --muted: #c2b29c;
+      --line: rgba(255,255,255,0.12);
+      --gold: #c69352;
+      --gold-soft: rgba(198,147,82,0.18);
+      --black-katsu: #141210;
+      --white-katsu: #e8dcc7;
+      --max: 1180px;
+      --radius: 22px;
+      --shadow: 0 30px 80px rgba(0,0,0,0.35);
+    }
 
-  <!-- OGP Meta Tags -->
-  <meta property="og:title" content="株式会社Basic | 食の未来をつなぐ" />
-  <meta property="og:description" content="飲食店の価値を高め、人を大切にし、次の世代へ食文化をつなぐ。飲食M&A・新規立ち上げ・コンサルティングなら株式会社Basic。" />
-  <meta property="og:image" content="https://www.basic-fnb.com/src/bolero-1.jpg" />
-  <meta property="og:url" content="https://www.basic-fnb.com/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="株式会社Basic" />
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(198,147,82,0.10), transparent 30%),
+        linear-gradient(180deg, #0a0908 0%, #0d0b0a 100%);
+      color: var(--text);
+      font-family: 'Inter', 'Shippori Mincho', 'Noto Sans JP', sans-serif;
+      line-height: 1.75;
+      letter-spacing: 0.02em;
+    }
 
-  <!-- Twitter Card Meta -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="株式会社Basic | 食の未来をつなぐ" />
-  <meta name="twitter:description" content="飲食業の常識にとらわれず、新しい価値を創出。人と食に真摯に向き合う飲食スタートアップです。" />
-  <meta name="twitter:image" content="https://www.basic-fnb.com/src/bolero-1.jpg" />
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
 
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 104px 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 0.82rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      margin: 0 0 18px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(2rem, 3.8vw, 3.2rem);
+      line-height: 1.2;
+      letter-spacing: 0.12em;
+    }
+
+    .section-copy {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 9, 8, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .header-inner {
+      width: min(calc(100% - 32px), var(--max));
+      height: 78px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand {
+      font-family: 'KouzanBrushFONT', 'Shippori Mincho', serif;
+      font-size: 1.95rem;
+      letter-spacing: 0.18em;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-size: 0.7rem;
+      color: var(--muted);
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 0.92rem;
+      letter-spacing: 0.18em;
+      position: relative;
+      white-space: nowrap;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 100%;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.2s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a.active::after { transform: scaleX(1); }
+
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.16em;
+      cursor: pointer;
+      transition: border-color 0.2s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .lang-btn:hover { border-color: rgba(255,255,255,0.3); }
+
+    .lang-option { transition: color 0.15s ease; }
+    .lang-option.active { color: var(--text); font-weight: 700; }
+    .lang-sep { color: var(--line); }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      min-height: calc(100vh - 78px);
+      display: flex;
+      align-items: center;
+      padding: 72px 0 56px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(110deg, rgba(9,8,7,0.96) 12%, rgba(9,8,7,0.66) 52%, rgba(9,8,7,0.88) 100%),
+        url('src/tomahawk.jpg') center/cover;
+      filter: saturate(0.78) brightness(0.62);
+      transform: scale(1.03);
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: auto -10% -20% 25%;
+      height: 380px;
+      background: radial-gradient(circle, rgba(198,147,82,0.18), transparent 68%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 34px;
+      align-items: end;
+    }
+
+    .hero-copybox { max-width: 760px; }
+
+    .hero h1 {
+      margin: 0;
+      font-family: 'KouzanBrushFONT', 'Shippori Mincho', serif;
+      font-size: clamp(2.9rem, 7vw, 5.4rem);
+      line-height: 1.04;
+      letter-spacing: 0.08em;
+    }
+
+    .hero h1 .gold {
+      color: var(--gold);
+      display: inline-block;
+    }
+
+    .hero p {
+      margin: 26px 0 0;
+      max-width: 660px;
+      color: #d7c8b2;
+      font-size: 1.04rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.84rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: 1px solid var(--line);
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--gold);
+      color: #111;
+      border-color: var(--gold);
+      font-weight: 700;
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .hero-meta {
+      margin-top: 34px;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      max-width: 700px;
+    }
+
+    .hero-meta-item {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 16px 18px;
+    }
+
+    .hero-meta-item small {
+      display: block;
+      color: var(--muted);
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .hero-meta-item strong { font-size: 0.98rem; font-weight: 600; }
+
+    .hero-sidecard {
+      justify-self: end;
+      width: min(420px, 100%);
+      padding: 24px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.10), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-sidecard h2 {
+      margin: 0 0 14px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.45rem;
+      letter-spacing: 0.08em;
+    }
+
+    .hero-sidecard p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .choice-pills { display: grid; gap: 12px; margin-top: 18px; }
+
+    .choice-pill {
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.18);
+      display: grid;
+      gap: 8px;
+    }
+
+    .choice-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .choice-name {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+    }
+
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      flex: 0 0 auto;
+      border: 1px solid rgba(255,255,255,0.28);
+    }
+
+    .dot.black { background: var(--black-katsu); }
+    .dot.white { background: var(--white-katsu); }
+
+    .choice-pill p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 38px;
+      align-items: center;
+      margin-top: 44px;
+    }
+
+    .intro-image {
+      position: relative;
+      min-height: 480px;
+      border-radius: 28px;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.04), rgba(0,0,0,0.38)),
+        url('src/asakusa-konosuke.jpg') center/cover;
+      box-shadow: var(--shadow);
+    }
+
+    .intro-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.09);
+      border-radius: 28px;
+      padding: 34px;
+    }
+
+    .intro-card p { margin: 0 0 20px; color: var(--muted); }
+
+    .point-list { display: grid; gap: 14px; margin-top: 28px; }
+
+    .point-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .point-num {
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: var(--gold-soft);
+      border: 1px solid rgba(198,147,82,0.36);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.88rem;
+    }
+
+    .point-item strong { display: block; margin-bottom: 4px; font-size: 1rem; }
+    .point-item p { margin: 0; color: var(--muted); font-size: 0.94rem; }
+
+    .signature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 44px;
+    }
+
+    .signature-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.09);
+      min-height: 100%;
+    }
+
+    .signature-image {
+      aspect-ratio: 4 / 3;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .signature-image::after {
+      content: '';
+      position: absolute;
+      inset: auto 0 0;
+      height: 50%;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,0.42));
+    }
+
+    .signature-card-body { padding: 22px 22px 24px; }
+
+    .signature-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 10px;
+      color: var(--gold);
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .signature-card h3 { margin: 0 0 10px; font-size: 1.18rem; font-weight: 700; line-height: 1.5; }
+    .signature-card p { margin: 0 0 16px; color: var(--muted); font-size: 0.94rem; }
+    .price { color: var(--text); font-weight: 700; letter-spacing: 0.06em; }
+
+    .compare-wrap {
+      margin-top: 42px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.09);
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      box-shadow: var(--shadow);
+    }
+
+    .compare-tabs {
+      display: flex;
+      border-bottom: 1px solid rgba(255,255,255,0.09);
+      background: rgba(0,0,0,0.16);
+    }
+
+    .compare-tab {
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      flex: 1;
+      min-height: 64px;
+      padding: 0 20px;
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .compare-tab.active {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .compare-panels { padding: 30px; }
+
+    .compare-panel {
+      display: none;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .compare-panel.active { display: grid; }
+
+    .compare-visual {
+      min-height: 340px;
+      border-radius: 24px;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .compare-visual::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.34));
+    }
+
+    .compare-copy {
+      padding: 10px 4px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .compare-copy h3 {
+      margin: 0 0 14px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 2rem;
+      letter-spacing: 0.1em;
+    }
+
+    .compare-copy p { margin: 0 0 22px; color: var(--muted); font-size: 0.98rem; }
+
+    .compare-list { display: grid; gap: 12px; }
+
+    .compare-list-item {
+      padding: 14px 16px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .compare-list-item strong { display: block; margin-bottom: 4px; font-size: 0.98rem; }
+    .compare-list-item span { color: var(--muted); font-size: 0.92rem; }
+
+    .menu-section-wrap {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .menu-board {
+      padding: 28px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.09);
+    }
+
+    .menu-group + .menu-group {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .menu-group h3 {
+      margin: 0 0 14px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.08em;
+    }
+
+    .menu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 14px;
+      align-items: end;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .menu-item:last-child { border-bottom: 0; }
+    .menu-item strong { display: block; margin-bottom: 4px; font-size: 1rem; }
+    .menu-item small { color: var(--muted); font-size: 0.88rem; line-height: 1.6; }
+    .menu-price { font-weight: 700; letter-spacing: 0.06em; white-space: nowrap; }
+
+    .menu-aside { display: grid; gap: 20px; }
+
+    .aside-card {
+      padding: 24px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .aside-card h3 {
+      margin: 0 0 14px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.16rem;
+      letter-spacing: 0.06em;
+    }
+
+    .aside-card p,
+    .aside-card li { margin: 0; color: var(--muted); font-size: 0.94rem; }
+
+    .aside-card ul {
+      padding-left: 18px;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .craft-grid {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .craft-card {
+      padding: 24px;
+      border-radius: 22px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .craft-card .craft-index {
+      display: inline-flex;
+      width: 36px;
+      height: 36px;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-bottom: 14px;
+      font-size: 0.78rem;
+      color: var(--gold);
+      border: 1px solid rgba(198,147,82,0.36);
+      background: rgba(198,147,82,0.12);
+    }
+
+    .craft-card h3 { margin: 0 0 10px; font-size: 1.04rem; line-height: 1.5; }
+    .craft-card p { margin: 0; color: var(--muted); font-size: 0.92rem; }
+
+    .access-wrap {
+      margin-top: 44px;
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .access-card {
+      padding: 30px;
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .access-card h3 {
+      margin: 0 0 16px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.28rem;
+      letter-spacing: 0.08em;
+    }
+
+    .access-card p { margin: 0 0 14px; color: var(--muted); }
+    .access-card .tel { color: var(--gold); text-decoration: none; font-weight: 700; }
+
+    .map {
+      min-height: 420px;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .map iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      min-height: 420px;
+      display: block;
+    }
+
+    .cta-band {
+      padding: 42px;
+      border-radius: 30px;
+      background: linear-gradient(135deg, rgba(198,147,82,0.16), rgba(255,255,255,0.04));
+      border: 1px solid rgba(198,147,82,0.28);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+      margin-top: 44px;
+    }
+
+    .cta-band h3 {
+      margin: 0 0 8px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.08em;
+    }
+
+    .cta-band p { margin: 0; color: var(--muted); }
+
+    footer {
+      padding: 34px 0 56px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.84rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 1080px) {
+      .hero-inner,
+      .intro-grid,
+      .compare-panel,
+      .menu-section-wrap,
+      .access-wrap { grid-template-columns: 1fr; }
+
+      .hero-sidecard { justify-self: start; }
+      .signature-grid { grid-template-columns: 1fr 1fr; }
+      .craft-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 760px) {
+      .section { padding: 84px 0; }
+      .header-inner { height: 72px; }
+
+      .nav {
+        position: absolute;
+        top: 72px;
+        right: 16px;
+        left: 16px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 12px;
+        background: rgba(14, 12, 10, 0.97);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 18px;
+      }
+
+      .nav.open { display: flex; }
+      .nav a { width: 100%; padding: 12px 10px; }
+      .nav a::after { display: none; }
+      .menu-toggle { display: inline-flex; }
+
+      .hero { min-height: auto; padding: 58px 0 40px; }
+      .hero-meta { grid-template-columns: 1fr; }
+      .signature-grid,
+      .craft-grid { grid-template-columns: 1fr; }
+      .compare-tabs { flex-direction: column; }
+      .compare-panels { padding: 22px; }
+      .cta-band { grid-template-columns: 1fr; padding: 28px; }
+      .intro-card,
+      .menu-board,
+      .access-card,
+      .aside-card,
+      .hero-sidecard { padding: 22px; }
+      .intro-image { min-height: 320px; }
+    }
+  </style>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CV445LCX0"></script>
   <script>
@@ -45,862 +873,820 @@
     gtag('js', new Date());
     gtag('config', 'G-5CV445LCX0');
   </script>
-
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
- 
-    :root {
-      --ink:     #1a1714;
-      --ink-mid: #5a534d;
-      --ink-faint:#a09890;
-      --paper:   #f4f1ec;
-      --paper-2: #ede9e2;
-      --rule:    rgba(26,23,20,0.12);
-      --rule-strong: rgba(26,23,20,0.22);
-      --accent:  #8b3a2a;
-      --max: 1120px;
-      --serif: 'Shippori Mincho', 'Georgia', serif;
-      --display: 'Cormorant Garamond', 'Georgia', serif;
-      --sans: 'DM Sans', system-ui, sans-serif;
-    }
- 
-    html { scroll-behavior: smooth; font-size: 16px; }
- 
-    body {
-      font-family: var(--sans);
-      background: var(--paper);
-      color: var(--ink);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
- 
-    /* ── NAV ── */
-    nav {
-      position: fixed; top: 0; left: 0; width: 100%; z-index: 50;
-      border-bottom: 1px solid var(--rule);
-      background: rgba(244,241,236,0.96);
-      backdrop-filter: blur(8px);
-    }
-    .nav-inner {
-      max-width: var(--max); margin: 0 auto;
-      padding: 0 40px;
-      display: flex; align-items: center; justify-content: space-between;
-      height: 56px;
-    }
-    .nav-logo {
-      font-family: var(--sans);
-      font-size: 13px; font-weight: 500;
-      letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--ink); text-decoration: none;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .nav-logo img { width: 26px; height: 26px; border-radius: 4px; object-fit: cover; }
-    .nav-links {
-      display: flex; align-items: center; gap: 32px;
-      list-style: none; padding: 0; margin: 0;
-    }
-    .nav-links li { list-style: none; padding: 0; margin: 0; }
-    .nav-links a {
-      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--ink-mid); text-decoration: none;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--ink); }
-    .nav-contact {
-      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--accent); text-decoration: none;
-      border-bottom: 1px solid var(--accent);
-      padding-bottom: 1px;
-      transition: opacity 0.2s;
-    }
-    .nav-contact:hover { opacity: 0.7; }
- 
-    /* ── HERO ── */
-    .hero {
-      min-height: 100svh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      padding-top: 56px;
-    }
-    .hero-left {
-      display: flex; flex-direction: column; justify-content: flex-end;
-      padding: 80px 60px 80px 40px;
-      border-right: 1px solid var(--rule);
-    }
-    .hero-eyebrow {
-      font-family: var(--sans);
-      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--ink-faint);
-      margin-bottom: 32px;
-    }
-    .hero-title {
-      font-family: var(--serif);
-      font-size: clamp(44px, 5.5vw, 76px);
-      font-weight: 500;
-      line-height: 1.15;
-      color: var(--ink);
-      margin-bottom: 40px;
-    }
-    .hero-title em {
-      font-style: normal;
-      color: var(--accent);
-    }
-    .hero-body {
-      font-size: 15px; line-height: 1.9;
-      color: var(--ink-mid);
-      max-width: 420px;
-      margin-bottom: 56px;
-    }
-    .hero-stats {
-      display: grid; grid-template-columns: repeat(3, auto);
-      gap: 0;
-      border-top: 1px solid var(--rule);
-      padding-top: 32px;
-      width: fit-content;
-    }
-    .hero-stat {
-      padding-right: 40px;
-      border-right: 1px solid var(--rule);
-      margin-right: 40px;
-    }
-    .hero-stat:last-child { border-right: none; margin-right: 0; }
-    .hero-stat-num {
-      font-family: var(--display);
-      font-size: 36px; font-weight: 400;
-      color: var(--ink);
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-    .hero-stat-label {
-      font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--ink-faint);
-    }
- 
-    .hero-right {
-      position: relative;
-      overflow: hidden;
-      background: var(--paper-2);
-    }
-    .hero-right-img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-      opacity: 0.85;
-      /* fallback when no image */
-      background: linear-gradient(160deg, #d4ccc0 0%, #b8afa3 100%);
-    }
-    .hero-caption {
-      position: absolute; bottom: 32px; right: 32px;
-      font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: rgba(255,255,255,0.7);
-      writing-mode: vertical-rl;
-    }
-    /* placeholder visual for hero-right */
-    .hero-placeholder {
-      width: 100%; height: 100%;
-      display: flex; align-items: center; justify-content: center;
-      background: linear-gradient(160deg, #c8c0b4 0%, #a89f93 100%);
-      position: relative;
-    }
-    .hero-placeholder-text {
-      font-family: var(--serif);
-      font-size: clamp(48px, 8vw, 96px);
-      color: rgba(255,255,255,0.18);
-      letter-spacing: -0.02em;
-      user-select: none;
-    }
- 
-    /* ── SECTION BASE ── */
-    section { border-top: 1px solid var(--rule); }
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 40px; }
- 
-    .section-header {
-      display: flex; align-items: baseline; gap: 24px;
-      padding: 40px 0 0;
-    }
-    .section-num {
-      font-family: var(--display);
-      font-size: 13px; font-style: italic;
-      color: var(--ink-faint);
-      min-width: 32px;
-    }
-    .section-label {
-      font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: var(--ink-faint);
-    }
- 
-    /* ── ABOUT ── */
-    .about { padding: 0 0 120px; }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 2fr 3fr;
-      gap: 80px;
-      padding-top: 64px;
-    }
-    .about-heading {
-      font-family: var(--serif);
-      font-size: clamp(28px, 3vw, 40px);
-      font-weight: 500;
-      line-height: 1.4;
-      color: var(--ink);
-      position: sticky; top: 80px;
-    }
-    .about-copy {
-      font-size: 16px; line-height: 2;
-      color: var(--ink-mid);
-    }
-    .about-copy p + p { margin-top: 1.6em; }
-    .about-copy strong { color: var(--ink); font-weight: 500; }
- 
-    /* ── PORTFOLIO ── */
-    .portfolio { padding-bottom: 120px; }
-    .portfolio-intro {
-      padding: 64px 0 48px;
-      max-width: 560px;
-      font-size: 15px; line-height: 1.9; color: var(--ink-mid);
-    }
- 
-    .portfolio-list { display: flex; flex-direction: column; }
-    .portfolio-item {
-      display: grid;
-      grid-template-columns: 48px 1fr 200px auto;
-      align-items: center;
-      gap: 32px;
-      padding: 28px 0;
-      border-top: 1px solid var(--rule);
-      text-decoration: none;
-      color: inherit;
-      transition: background 0.2s;
-      cursor: pointer;
-    }
-    .portfolio-item:last-child { border-bottom: 1px solid var(--rule); }
-    .portfolio-item:hover { background: rgba(26,23,20,0.025); }
-    .portfolio-item:hover .pi-arrow { transform: translateX(4px); }
- 
-    .pi-num {
-      font-family: var(--display);
-      font-size: 13px; font-style: italic;
-      color: var(--ink-faint);
-    }
-    .pi-info {}
-    .pi-name {
-      font-family: var(--serif);
-      font-size: 22px; font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 4px;
-    }
-    .pi-meta {
-      font-size: 12px; letter-spacing: 0.08em;
-      color: var(--ink-faint);
-      text-transform: uppercase;
-    }
-    .pi-desc {
-      font-size: 14px; line-height: 1.7;
-      color: var(--ink-mid);
-    }
-    .pi-arrow {
-      font-size: 18px; color: var(--ink-faint);
-      transition: transform 0.2s;
-      justify-self: end;
-    }
-    .pi-tag {
-      display: inline-block;
-      font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent);
-      border: 1px solid rgba(139,58,42,0.3);
-      padding: 3px 8px; border-radius: 2px;
-      margin-right: 6px; margin-bottom: 4px;
-    }
- 
-    /* Coming soon row */
-    .portfolio-item.coming {
-      opacity: 0.45;
-      cursor: default;
-      pointer-events: none;
-    }
- 
-    /* ── APPROACH / WHAT WE DO ── */
-    .approach { padding-bottom: 120px; }
-    .approach-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      border-left: 1px solid var(--rule);
-      margin-top: 64px;
-    }
-    .approach-col {
-      border-right: 1px solid var(--rule);
-      padding: 40px 36px 40px 32px;
-    }
-    .approach-col-num {
-      font-family: var(--display);
-      font-size: 48px; font-style: italic;
-      color: var(--paper-2);
-      line-height: 1;
-      margin-bottom: 24px;
-      /* visible outline */
-      -webkit-text-stroke: 1px var(--rule-strong);
-    }
-    .approach-col-title {
-      font-family: var(--serif);
-      font-size: 20px; font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 16px;
-    }
-    .approach-col-body {
-      font-size: 14px; line-height: 1.85;
-      color: var(--ink-mid);
-    }
- 
-    /* ── EDITORIAL QUOTE ── */
-    .quote-section {
-      background: var(--ink);
-      padding: 100px 40px;
-    }
-    .quote-inner {
-      max-width: 800px; margin: 0 auto;
-      text-align: center;
-    }
-    .quote-mark {
-      font-family: var(--display);
-      font-size: 80px; line-height: 0.6;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 32px;
-    }
-    .quote-text {
-      font-family: var(--serif);
-      font-size: clamp(24px, 3.5vw, 42px);
-      font-weight: 400;
-      line-height: 1.6;
-      color: rgba(244,241,236,0.92);
-      margin-bottom: 40px;
-    }
-    .quote-attr {
-      font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
-      color: rgba(244,241,236,0.35);
-    }
- 
-    /* ── RECRUIT ── */
-    .recruit { padding-bottom: 120px; }
-    .recruit-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-      margin-top: 64px;
-      border: 1px solid var(--rule);
-    }
-    .recruit-left {
-      padding: 56px 56px 56px 10px;
-      border-right: 1px solid var(--rule);
-    }
-    .recruit-right {
-      padding: 56px 0 56px 56px;
-    }
-    .recruit-heading {
-      font-family: var(--serif);
-      font-size: 28px; font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 24px;
-      line-height: 1.4;
-    }
-    .recruit-body {
-      font-size: 15px; line-height: 1.9;
-      color: var(--ink-mid);
-      margin-bottom: 32px;
-    }
-    .recruit-roles {
-      display: flex; flex-wrap: wrap; gap: 8px;
-      margin-bottom: 40px;
-    }
-    .recruit-role {
-      font-size: 12px; letter-spacing: 0.06em;
-      color: var(--ink-mid);
-      border: 1px solid var(--rule-strong);
-      padding: 6px 14px; border-radius: 2px;
-    }
-    .btn-apply {
-      display: inline-flex; align-items: center; gap: 10px;
-      text-decoration: none;
-      font-size: 13px; letter-spacing: 0.12em; text-transform: uppercase;
-      color: var(--paper);
-      background: var(--ink);
-      padding: 14px 28px;
-      border-radius: 2px;
-      transition: background 0.2s, transform 0.15s;
-    }
-    .btn-apply:hover { background: var(--accent); transform: translateY(-1px); }
- 
-    /* ── COMPANY ── */
-    .company { padding-bottom: 120px; }
-    .company-table {
-      margin-top: 64px;
-      border-top: 1px solid var(--rule);
-    }
-    .company-row {
-      display: grid;
-      grid-template-columns: 200px 1fr;
-      border-bottom: 1px solid var(--rule);
-    }
-    .company-key {
-      padding: 20px 0;
-      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--ink-faint);
-    }
-    .company-val {
-      padding: 20px 0;
-      font-size: 15px; color: var(--ink);
-      border-left: 1px solid var(--rule);
-      padding-left: 40px;
-    }
- 
-    /* ── FOOTER ── */
-    footer {
-      border-top: 1px solid var(--rule);
-      padding: 32px 40px;
-    }
-    .footer-inner {
-      max-width: var(--max); margin: 0 auto;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .footer-logo {
-      font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
-      color: var(--ink-faint);
-    }
-    .footer-copy {
-      font-size: 12px; color: var(--ink-faint);
-    }
-    .footer-nav { display: flex; gap: 24px; }
-    .footer-nav a {
-      font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
-      color: var(--ink-faint); text-decoration: none;
-      transition: color 0.2s;
-    }
-    .footer-nav a:hover { color: var(--ink); }
- 
-    /* ── SCROLL REVEAL ── */
-    .reveal {
-      opacity: 0; transform: translateY(24px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .reveal.in { opacity: 1; transform: none; }
- 
-    /* ── MOBILE ── */
-    @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-left { padding: 48px 24px; border-right: none; }
-      .hero-right { height: 260px; }
-      .about-grid { grid-template-columns: 1fr; gap: 32px; }
-      .about-heading { position: static; font-size: 28px; }
-      .portfolio-item { grid-template-columns: 32px 1fr; }
-      .pi-desc, .pi-arrow { display: none; }
-      .approach-grid { grid-template-columns: 1fr 1fr; border-left: none; }
-      .approach-col { border-right: none; border-top: 1px solid var(--rule); padding: 32px 16px 32px 0; }
-      @media (max-width: 600px) {
-        .approach-grid { grid-template-columns: 1fr; }
-      }
-      .recruit-grid { grid-template-columns: 1fr; }
-      .recruit-left { border-right: none; padding: 40px 0; border-bottom: 1px solid var(--rule); }
-      .recruit-right { padding: 40px 0; }
-      .company-row { grid-template-columns: 140px 1fr; }
-      .company-val { padding-left: 20px; }
-      .footer-inner { flex-direction: column; gap: 16px; text-align: center; }
-      .footer-nav { flex-wrap: wrap; justify-content: center; }
-      .wrap { padding: 0 24px; }
-      .quote-section { padding: 64px 24px; }
-      footer { padding: 32px 24px; }
-    }
-  </style>
 </head>
 <body>
- 
-<!-- NAV -->
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <img src="/src/basic-logo.png" alt="" onerror="this.style.display='none'">
-      Basic
-    </a>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#approach">Approach</a></li>
-      <li><a href="#recruit">Recruit</a></li>
-      <li><a href="#company">Company</a></li>
-    </ul>
-    <a href="#recruit" class="nav-contact">Join Us</a>
-  </div>
-</nav>
- 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-left">
-    <p class="hero-eyebrow">F&amp;B Group — Tokyo</p>
-    <h1 class="hero-title">
-      店を、<br>
-      次の時代へ。<br>
-      <em>受け継ぎ、</em><br>
-      <em>再び灯す。</em>
-    </h1>
-    <p class="hero-body">
-      閉じようとしていた店に、もう一度火を入れる。<br>
-      Basic は、承継と立ち上げを軸に、東京の食を前へ動かすF&amp;Bカンパニーです。
-    </p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="hero-stat-num">4</div>
-        <div class="hero-stat-label">Brands</div>
+  <header>
+    <div class="header-inner">
+      <div class="brand-wrap">
+        <div class="brand">恒之助</div>
+        <div class="brand-sub">KONOSUKE / TONKATSU</div>
       </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">41</div>
-        <div class="hero-stat-label">People</div>
-      </div>
-      <div class="hero-stat">
-        <div class="hero-stat-num">¥50M</div>
-        <div class="hero-stat-label">Monthly</div>
+
+      <div class="header-right">
+        <button class="menu-toggle" id="menuToggle" aria-label="メニューを開く" aria-expanded="false">MENU</button>
+
+        <nav class="nav" id="siteNav">
+          <a href="#concept" data-i18n="nav.concept">コンセプト</a>
+          <a href="#signature" data-i18n="nav.signature">代表メニュー</a>
+          <a href="#compare" data-i18n="nav.compare">黒と白</a>
+          <a href="#menu" data-i18n="nav.menu">お品書き</a>
+          <a href="#access" data-i18n="nav.access">アクセス</a>
+        </nav>
+
+        <button class="lang-btn" id="langBtn" aria-label="言語切替 / Switch language">
+          <span class="lang-option" data-lang-opt="ja">JA</span>
+          <span class="lang-sep">/</span>
+          <span class="lang-option" data-lang-opt="en">EN</span>
+        </button>
       </div>
     </div>
-  </div>
-  <div class="hero-right">
-    <img
-      src="/src/bolero-1.jpg"
-      alt="Bistro Bolero, Nakameguro"
-      class="hero-right-img"
-      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-    />
-    <div class="hero-placeholder" style="display:none;">
-      <span class="hero-placeholder-text">食</span>
-    </div>
-    <span class="hero-caption">Bistro Bolero, Nakameguro</span>
-  </div>
-</section>
- 
-<!-- ABOUT -->
-<section id="about" class="about reveal">
-  <div class="wrap">
-    <div class="section-header">
-      <span class="section-num">01</span>
-      <span class="section-label">About</span>
-    </div>
-    <div class="about-grid">
-      <h2 class="about-heading">
-        現場から、<br>飲食を<br>
-        もう一度<br>誇れるものに。
-      </h2>
-      <div class="about-copy">
-        <p>
-          飲食店が閉まるとき、消えるのはメニューだけじゃない。
-          仕込みの癖、常連との距離感、厨房の温度——そういうものが、一緒になくなる。
-        </p>
-        <p>
-          Basic は、そこに踏み込む会社です。
-          <strong>承継</strong>した店を磨き直し、<strong>新しいブランド</strong>を立ち上げ、
-          オペレーションと数字の両方で「持続できる飲食」を設計します。
-        </p>
-        <p>
-          浅草・中目黒・下北沢を拠点に、現在4ブランドを運営。
-          M&amp;A・コンサルティング・独立支援を通じて、外から飲食業界の構造にも手を入れています。
-        </p>
-        <p>
-          きれいごとじゃなく、現場で数字を動かす。
-          それが Basic の仕事です。
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
- 
-<!-- MISSION / VISION / VALUES -->
-<section id="mission" class="about reveal" style="padding-bottom:120px;">
-  <div class="wrap">
-    <div class="section-header">
-      <span class="section-num">02</span>
-      <span class="section-label">Mission &amp; Vision &amp; Values</span>
-    </div>
- 
-    <!-- Mission -->
-    <div class="about-grid" style="padding-top:64px;margin-bottom:80px;">
-      <h2 class="about-heading" style="font-size:clamp(22px,2.4vw,32px);line-height:1.5;">
-        Mission<br>
-        <span style="font-size:clamp(18px,2vw,26px);color:var(--accent);">「食の未来をつなぎ、広げる」</span>
-      </h2>
-      <div class="about-copy">
-        <p>受け継いだ店舗の価値を守りながら、ナレッジ・デザイン・数字を再構築し、「食の未来をつなぎ、広げる」ための仕組みをつくり続けます。</p>
-      </div>
-    </div>
- 
-    <!-- Vision -->
-    <div class="about-grid" style="margin-bottom:80px;border-top:1px solid var(--rule);padding-top:64px;">
-      <h2 class="about-heading" style="font-size:clamp(22px,2.4vw,32px);line-height:1.5;">
-        Vision<br>
-        <span style="font-size:clamp(18px,2vw,26px);color:var(--accent);">「飲食業を、もっと誇れる仕事に」</span>
-      </h2>
-      <div class="about-copy">
-        <p>労働環境と収益性のギャップをなくし、飲食を誇り高い専門職に戻す。現場の技術と経営指標を同じテーブルに載せることで、持続可能なモデルを世界へ輸出します。</p>
-      </div>
-    </div>
- 
-    <!-- Values -->
-    <div style="border-top:1px solid var(--rule);padding-top:64px;">
-      <p style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:48px;">Values — 価値観・行動指針</p>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule);">
-        <div style="padding:40px 40px 40px 32px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);">
-          <div style="font-family:var(--display);font-size:40px;font-style:italic;color:var(--paper-2);-webkit-text-stroke:1px var(--rule-strong);line-height:1;margin-bottom:20px;">01</div>
-          <h3 style="font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:14px;">継承 × 進化</h3>
-          <p style="font-size:14px;line-height:1.85;color:var(--ink-mid);">受け継いだレシピやブランドの良さを尊重しながら、データと現場の声をもとにアップデートを重ね、新しい価値を生み出します。</p>
-        </div>
-        <div style="padding:40px 40px 40px 32px;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule);">
-          <div style="font-family:var(--display);font-size:40px;font-style:italic;color:var(--paper-2);-webkit-text-stroke:1px var(--rule-strong);line-height:1;margin-bottom:20px;">02</div>
-          <h3 style="font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:14px;">人を大切にする</h3>
-          <p style="font-size:14px;line-height:1.85;color:var(--ink-mid);">社員・アルバイト・パートナー・お客様。関わるすべての人に誇れる環境と成果を届けることを、ビジネスの前提とします。</p>
-        </div>
-        <div style="padding:40px 40px 40px 32px;border-right:1px solid var(--rule);">
-          <div style="font-family:var(--display);font-size:40px;font-style:italic;color:var(--paper-2);-webkit-text-stroke:1px var(--rule-strong);line-height:1;margin-bottom:20px;">03</div>
-          <h3 style="font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:14px;">挑戦を恐れない</h3>
-          <p style="font-size:14px;line-height:1.85;color:var(--ink-mid);">小さく試し、早く学び、柔軟に変える。常に新しいフォーマット・オペレーション・ブランドに挑戦し続けます。</p>
-        </div>
-        <div style="padding:40px 40px 40px 32px;border-right:1px solid var(--rule);">
-          <div style="font-family:var(--display);font-size:40px;font-style:italic;color:var(--paper-2);-webkit-text-stroke:1px var(--rule-strong);line-height:1;margin-bottom:20px;">04</div>
-          <h3 style="font-family:var(--serif);font-size:20px;font-weight:500;color:var(--ink);margin-bottom:14px;">世界に誇れる食文化の創造</h3>
-          <p style="font-size:14px;line-height:1.85;color:var(--ink-mid);">東京から世界へ。日本の食文化とホスピタリティを、海外にも通用するブランドとオペレーションで発信していきます。</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
- 
-<!-- PORTFOLIO -->
-<section id="portfolio" class="portfolio reveal">
-  <div class="wrap">
-    <div class="section-header">
-      <span class="section-num">03</span>
-      <span class="section-label">Portfolio</span>
-    </div>
-    <p class="portfolio-intro">
-      受け継いだ店と、ゼロから立ち上げた店。それぞれに文脈があり、それぞれに覚悟がある。
-    </p>
- 
-    <div class="portfolio-list">
- 
-      <a href="/bolero" class="portfolio-item">
-        <span class="pi-num">I</span>
-        <div class="pi-info">
-          <div class="pi-name">Bistro Bolero</div>
-          <div class="pi-meta">中目黒 &nbsp;·&nbsp; ビストロ</div>
-          <span class="pi-tag">運営</span>
-        </div>
-        <p class="pi-desc">中目黒の路地裏に構える小さなビストロ。ワインと料理が、カジュアルに交差する夜。</p>
-        <span class="pi-arrow">→</span>
-      </a>
- 
-      <a href="/kiyota" class="portfolio-item">
-        <span class="pi-num">II</span>
-        <div class="pi-info">
-          <div class="pi-name">清田焼肉店</div>
-          <div class="pi-meta">下北沢 &nbsp;·&nbsp; 焼肉</div>
-          <span class="pi-tag">承継</span>
-        </div>
-        <p class="pi-desc">街に根づいてきた焼肉店の火を、引き継いだ。「ちゃんと美味しい」を守り続ける。</p>
-        <span class="pi-arrow">→</span>
-      </a>
- 
-      <a href="/yanosuke" class="portfolio-item">
-        <span class="pi-num">III</span>
-        <div class="pi-info">
-          <div class="pi-name">弥之助</div>
-          <div class="pi-meta">中目黒 &nbsp;·&nbsp; 居酒屋</div>
-          <span class="pi-tag">承継</span>
-        </div>
-        <p class="pi-desc">土鍋ご飯と丁寧な和食。隠れ家という言葉が、ここでは本当に似合う。</p>
-        <span class="pi-arrow">→</span>
-      </a>
- 
-      <a href="/konosuke" class="portfolio-item">
-        <span class="pi-num">IV</span>
-        <div class="pi-info">
-          <div class="pi-name">かつや 恒之助</div>
-          <div class="pi-meta">浅草 &nbsp;·&nbsp; とんかつ</div>
-          <span class="pi-tag">承継</span>
-        </div>
-        <p class="pi-desc">一枚に、覚悟を込める。素材と火入れで、ただそれだけで勝負するとんかつ専門店。</p>
-        <span class="pi-arrow">→</span>
-      </a>
- 
-      <div class="portfolio-item coming">
-        <span class="pi-num">V</span>
-        <div class="pi-info">
-          <div class="pi-name">Next Brand</div>
-          <div class="pi-meta">Tokyo &nbsp;·&nbsp; 準備中</div>
-        </div>
-        <p class="pi-desc">現在、フルプロデュースで進行中。</p>
-        <span class="pi-arrow">—</span>
-      </div>
- 
-    </div>
-  </div>
-</section>
- 
-<!-- QUOTE -->
-<div class="quote-section reveal">
-  <div class="quote-inner">
-    <span class="quote-mark">"</span>
-    <p class="quote-text">
-      閉じようとしていた店に、<br>もう一度火を入れる仕事。
-    </p>
-    <p class="quote-attr">Basic — F&amp;B Group Tokyo</p>
-  </div>
-</div>
- 
-<!-- APPROACH -->
-<section id="approach" class="approach reveal">
-  <div class="wrap">
-    <div class="section-header">
-      <span class="section-num">04</span>
-      <span class="section-label">What We Do</span>
-    </div>
- 
-    <div class="approach-grid">
-      <div class="approach-col">
-        <div class="approach-col-num">01</div>
-        <h3 class="approach-col-title">店舗承継 &amp; M&amp;A</h3>
-        <p class="approach-col-body">
-          閉店・事業継続困難な飲食店のM&amp;Aを手がけます。ブランドの歴史を尊重しながら、収益構造を再設計。
-          デューデリジェンスから引き渡し後のPMIまで、一気通貫で対応します。
-        </p>
-      </div>
-      <div class="approach-col">
-        <div class="approach-col-num">02</div>
-        <h3 class="approach-col-title">新規ブランド立ち上げ</h3>
-        <p class="approach-col-body">
-          コンセプト設計から物件取得・スタッフ採用・オペレーション構築まで。
-          「開けるだけ」で終わらせない、走り続けられる仕組みを最初から設計します。
-        </p>
-      </div>
-      <div class="approach-col">
-        <div class="approach-col-num">03</div>
-        <h3 class="approach-col-title">独立 &amp; コンサルティング</h3>
-        <p class="approach-col-body">
-          飲食店を開きたい方への伴走支援。また、既存の飲食企業への収益改善・組織設計のコンサルティングも行います。
-          現場と数字、両方から入ります。
-        </p>
-      </div>
-      <div class="approach-col">
-        <div class="approach-col-num">04</div>
-        <h3 class="approach-col-title">店舗運営代行</h3>
-        <p class="approach-col-body">
-          「店はあるが、回す人がいない」——そういう相談を受けます。
-          オーナーに代わり、スタッフ管理・数値管理・販促まで現場を丸ごと引き受けます。
-          Basic の運営ノウハウを、外部の店舗にそのまま展開します。
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
- 
-<!-- RECRUIT -->
-<section id="recruit" class="recruit reveal">
-  <div class="wrap">
-    <div class="section-header">
-      <span class="section-num">05</span>
-      <span class="section-label">Recruit</span>
-    </div>
-    <div class="recruit-grid">
-      <div class="recruit-left">
-        <h2 class="recruit-heading">
-          飲食を、<br>仕事として<br>誇れる人と働きたい。
-        </h2>
-        <p class="recruit-body">
-          現場で手を動かしながら、数字も読める人。<br>
-          店のことを、自分ごととして考えられる人。<br>
-          そういう仲間を探しています。
-        </p>
-        <div class="recruit-roles">
-          <span class="recruit-role">シェフ</span>
-          <span class="recruit-role">調理スタッフ</span>
-          <span class="recruit-role">ホールスタッフ</span>
-          <span class="recruit-role">立ち上げメンバー</span>
-        </div>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdT-6FJFN-UMQPUdtRw4fm8ZGZWX31EUl0-nG3CJbjxxTkBww/viewform" target="_blank" class="btn-apply">
-          応募フォームへ →
-        </a>
-      </div>
-      <div class="recruit-right">
-        <p style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:32px;">Open Positions</p>
-        <div style="display:flex;flex-direction:column;gap:0;">
-          <div style="padding:20px 0;border-bottom:1px solid var(--rule);">
-            <div style="font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:4px;">店舗スタッフ全般</div>
-            <div style="font-size:12px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;">浅草・中目黒・下北沢</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-copybox reveal">
+          <h1 data-i18n-html="hero.h1">黒で揚げる、<br><span class="gold">という選択。</span></h1>
+          <p data-i18n-html="hero.copy">
+            黒胡麻を纏った"黒"と、軽やかに仕上げる"白"。<br>
+            同じとんかつでも、選択で体験が変わる。恒之助は、衣から設計する浅草のとんかつ専門店です。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#menu" data-i18n="hero.btn.menu">お品書きを見る</a>
+            <a class="btn btn-secondary" href="tel:0368218089">03-6821-8089</a>
           </div>
-          <div style="padding:20px 0;border-bottom:1px solid var(--rule);">
-            <div style="font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:4px;">新規立ち上げメンバー</div>
-            <div style="font-size:12px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;">東京 / フルタイム</div>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <small data-i18n="hero.meta.seats.label">Seats</small>
+              <strong data-i18n="hero.meta.seats">14席・カウンター主体</strong>
+            </div>
+            <div class="hero-meta-item">
+              <small data-i18n="hero.meta.hours.label">Hours</small>
+              <strong>11:00–15:00 / 17:00–21:00</strong>
+            </div>
+            <div class="hero-meta-item">
+              <small data-i18n="hero.meta.style.label">Style</small>
+              <strong data-i18n="hero.meta.style">黒と白、2つの衣から選ぶ</strong>
+            </div>
+            <div class="hero-meta-item">
+              <small data-i18n="hero.meta.booking.label">Booking</small>
+              <strong data-i18n="hero.meta.booking">ご予約はお電話にて</strong>
+            </div>
           </div>
-          <div style="padding:20px 0;">
-            <div style="font-family:var(--serif);font-size:18px;color:var(--ink);margin-bottom:4px;">料理長候補</div>
-            <div style="font-size:12px;color:var(--ink-faint);letter-spacing:.08em;text-transform:uppercase;">次期ブランド / 準備中</div>
+        </div>
+
+        <aside class="hero-sidecard reveal">
+          <h2 data-i18n="hero.sidecard.h2">まずは黒胡麻の一皿から。</h2>
+          <p data-i18n="hero.sidecard.p">
+            恒之助では、衣によって味わいが変わります。はじめての方には、黒胡麻の香ばしさが際立つ一皿をおすすめしています。軽やかな白は、お好みに応じてご注文ください。
+          </p>
+
+          <div class="choice-pills">
+            <div class="choice-pill">
+              <div class="choice-top">
+                <div class="choice-name">
+                  <span class="dot black"></span>
+                  <span data-i18n="hero.black.name">黒</span>
+                </div>
+              </div>
+              <p data-i18n="hero.black.desc">黒胡麻の香ばしさとコク。まずはこの一皿からお試しください。</p>
+            </div>
+
+            <div class="choice-pill">
+              <div class="choice-top">
+                <div class="choice-name">
+                  <span class="dot white"></span>
+                  <span data-i18n="hero.white.name">白</span>
+                </div>
+              </div>
+              <p data-i18n="hero.white.desc">素材の味を引き立てる軽やかな仕上がり。お好みに応じてご注文いただけます。</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" id="concept">
+      <div class="container">
+        <span class="eyebrow reveal" data-i18n="concept.eyebrow">Concept</span>
+        <h2 class="section-title reveal" data-i18n-html="concept.title">"とんかつを選ぶ"から、<br>"体験を選ぶ"へ。</h2>
+        <p class="section-copy reveal" data-i18n="concept.copy">
+          恒之助の軸は、ただ上質な肉を揚げることではありません。黒胡麻を使った"黒"と、軽やかな"白"。
+          衣の違いで香り、印象、余韻まで変わるからこそ、同じ部位でもまったく違う楽しみ方が生まれます。
+        </p>
+
+        <div class="intro-grid">
+          <div class="intro-image reveal" aria-hidden="true"></div>
+          <div class="intro-card reveal">
+            <p data-i18n="concept.intro.p">
+              一口目の印象で惹き込み、食べ進めるほどに軽さで驚かせる。
+              見た目のインパクトだけでなく、最後まで食べ切れる軽やかさを大切にしています。
+            </p>
+
+            <div class="point-list">
+              <div class="point-item">
+                <div class="point-num">01</div>
+                <div>
+                  <strong data-i18n="concept.point1.title">黒胡麻を纏う"黒"</strong>
+                  <p data-i18n="concept.point1.p">シグネチャーは黒。香ばしさと個性が立ち、SNSでも一目で伝わる一皿です。</p>
+                </div>
+              </div>
+              <div class="point-item">
+                <div class="point-num">02</div>
+                <div>
+                  <strong data-i18n="concept.point2.title">王道の魅力を磨いた"白"</strong>
+                  <p data-i18n="concept.point2.p">軽やかでクリアな後味。肉そのものの甘みや繊細さを引き出します。</p>
+                </div>
+              </div>
+              <div class="point-item">
+                <div class="point-num">03</div>
+                <div>
+                  <strong data-i18n="concept.point3.title">選べるから、記憶に残る</strong>
+                  <p data-i18n="concept.point3.p">同じ部位でも、衣によって印象が変わります。一度だけでなく、違いもお楽しみください。</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
- 
-<!-- COMPANY -->
-<section id="company" class="company reveal">
-  <div class="wrap">
-    <div class="section-header">
-      <span class="section-num">06</span>
-      <span class="section-label">Company</span>
-    </div>
-    <div class="company-table">
-      <div class="company-row">
-        <div class="company-key">Company</div>
-        <div class="company-val">株式会社 Basic</div>
+    </section>
+
+    <section class="section" id="signature">
+      <div class="container">
+        <span class="eyebrow reveal" data-i18n="signature.eyebrow">Signature</span>
+        <h2 class="section-title reveal" data-i18n-html="signature.title">恒之助を象徴する、<br>3つの入口。</h2>
+        <p class="section-copy reveal" data-i18n="signature.copy">
+          まず選んでいただきたいのは、黒の上ヒレ、白の上ロース。
+        </p>
+
+        <div class="signature-grid">
+          <article class="signature-card reveal">
+            <div class="signature-image" style="background-image: url('src/black-hire.jpg');"></div>
+            <div class="signature-card-body">
+              <div class="signature-kicker">
+                <span class="dot black"></span>
+                <span data-i18n="sig1.kicker">Signature Black</span>
+              </div>
+              <h3 data-i18n="sig1.title">黒 上ヒレかつ御膳</h3>
+              <p data-i18n="sig1.desc">黒胡麻を纏った、恒之助のシグネチャー。香ばしさと軽さを両立した、新しいとんかつのかたち。</p>
+              <div class="price">¥2,970</div>
+            </div>
+          </article>
+
+          <article class="signature-card reveal">
+            <div class="signature-image" style="background-image: url('src/rosekatsu.jpg');"></div>
+            <div class="signature-card-body">
+              <div class="signature-kicker">
+                <span class="dot white"></span>
+                <span data-i18n="sig2.kicker">Clean White</span>
+              </div>
+              <h3 data-i18n="sig2.title">白 上ロースかつ御膳</h3>
+              <p data-i18n="sig2.desc">肉の甘みと脂の余韻をまっすぐ楽しめる、王道の一皿。白だからこそ分かるクリアな仕上がり。</p>
+              <div class="price">¥2,970</div>
+            </div>
+          </article>
+
+          <article class="signature-card reveal">
+            <div class="signature-image" style="background-image: url('src/black-tomahawk.jpg');"></div>
+            <div class="signature-card-body">
+              <div class="signature-kicker">
+                <span class="dot black"></span>
+                <span class="dot white"></span>
+                <span data-i18n="sig3.kicker">Compare</span>
+              </div>
+              <h3 data-i18n="sig3.title">黒 トマホーク御膳</h3>
+              <p data-i18n="sig3.desc">インパクト・味・ボリュームの全てが整った恒之助ならではの一品。</p>
+              <div class="price">Ask</div>
+            </div>
+          </article>
+        </div>
       </div>
-      <div class="company-row">
-        <div class="company-key">代表取締役</div>
-        <div class="company-val">福田雄太</div>
+    </section>
+
+    <section class="section" id="compare">
+      <div class="container">
+        <span class="eyebrow reveal" data-i18n="compare.eyebrow">Black or White</span>
+        <h2 class="section-title reveal" data-i18n="compare.title">黒は、見た目だけではない。</h2>
+        <p class="section-copy reveal" data-i18n="compare.copy">
+          同じ部位でも、衣が変われば印象が変わる。見た目のインパクトだけでなく、香りと余韻の設計に違いがあります。
+        </p>
+
+        <div class="compare-wrap reveal">
+          <div class="compare-tabs">
+            <button class="compare-tab active" type="button" data-tab="black" data-i18n="compare.tab.black">黒</button>
+            <button class="compare-tab" type="button" data-tab="white" data-i18n="compare.tab.white">白</button>
+          </div>
+
+          <div class="compare-panels">
+            <div class="compare-panel active" data-panel="black">
+              <div class="compare-visual" style="background-image: url('src/black-rose.jpg');"></div>
+              <div class="compare-copy">
+                <h3 data-i18n="compare.black.h3">黒</h3>
+                <p data-i18n="compare.black.p">
+                  黒胡麻を使った衣が生むのは、見た目の個性だけではありません。香ばしい立ち上がりと、噛むほどに広がるコク。
+                  それでいて、最後まで重さを感じさせないバランスを目指しています。
+                </p>
+                <div class="compare-list">
+                  <div class="compare-list-item">
+                    <strong data-i18n="compare.black.item1.label">印象</strong>
+                    <span data-i18n="compare.black.item1.desc">香ばしい / 立体感がある / 記憶に残る</span>
+                  </div>
+                  <div class="compare-list-item">
+                    <strong data-i18n="compare.black.item2.label">おすすめ</strong>
+                    <span data-i18n="compare.black.item2.desc">初来店の方、恒之助らしさを最初に体験したい方</span>
+                  </div>
+                  <div class="compare-list-item">
+                    <strong data-i18n="compare.black.item3.label">相性</strong>
+                    <span data-i18n="compare.black.item3.desc">上ヒレ、上ロース、限定のトマホークかつ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="compare-panel" data-panel="white">
+              <div class="compare-visual" style="background-image: url('src/hirekatsu2.jpg');"></div>
+              <div class="compare-copy">
+                <h3 data-i18n="compare.white.h3">白</h3>
+                <p data-i18n="compare.white.p">
+                  余計な重さを抑えた、まっすぐな王道。肉の質感や甘み、脂のバランスをクリアに感じたい方には白がおすすめです。
+                  黒と比べることで、その繊細さがより際立ちます。
+                </p>
+                <div class="compare-list">
+                  <div class="compare-list-item">
+                    <strong data-i18n="compare.white.item1.label">印象</strong>
+                    <span data-i18n="compare.white.item1.desc">軽やか / クリア / 素材感が伝わる</span>
+                  </div>
+                  <div class="compare-list-item">
+                    <strong data-i18n="compare.white.item2.label">おすすめ</strong>
+                    <span data-i18n="compare.white.item2.desc">王道派の方、肉本来のニュアンスを楽しみたい方</span>
+                  </div>
+                  <div class="compare-list-item">
+                    <strong data-i18n="compare.white.item3.label">相性</strong>
+                    <span data-i18n="compare.white.item3.desc">上ロース、ヒレ</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="company-row">
-        <div class="company-key">Founded</div>
-        <div class="company-val">2024年1月</div>
+    </section>
+
+    <section class="section" id="menu">
+      <div class="container">
+        <span class="eyebrow reveal" data-i18n="menu.eyebrow">Menu</span>
+        <h2 class="section-title reveal" data-i18n="menu.title">まずは黒から。</h2>
+        <p class="section-copy reveal" data-i18n="menu.copy">
+          まずは黒から。黒胡麻の香ばしさが立つ一皿と、軽やかに仕上げる一皿。お好みに合わせてお選びください。
+        </p>
+
+        <div class="menu-section-wrap">
+          <div class="menu-board reveal">
+            <div class="menu-group">
+              <h3 data-i18n="menu.group.black">黒</h3>
+              <div class="menu-item">
+                <div>
+                  <strong data-i18n="menu.black1.name">黒 上ヒレかつ御膳</strong>
+                  <small data-i18n="menu.black1.desc">黒胡麻の香ばしさとしっとりした火入れの組み合わせ。</small>
+                </div>
+                <div class="menu-price">¥2,970</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong data-i18n="menu.black2.name">黒 上ロースかつ御膳</strong>
+                  <small data-i18n="menu.black2.desc">脂の甘みと黒の香ばしさが重なり、印象に残る一皿。</small>
+                </div>
+                <div class="menu-price">¥2,970</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong data-i18n="menu.black3.name">黒 トマホークかつ御膳</strong>
+                  <small data-i18n="menu.black3.desc">限定。事前予約でご案内。骨付きならではの存在感を黒で仕上げます。</small>
+                </div>
+                <div class="menu-price">¥4,400〜</div>
+              </div>
+            </div>
+
+            <div class="menu-group">
+              <h3 data-i18n="menu.group.white">白</h3>
+              <div class="menu-item">
+                <div>
+                  <strong data-i18n="menu.white1.name">白 上ヒレかつ御膳</strong>
+                  <small data-i18n="menu.white1.desc">繊細な質感と軽さを楽しむ、王道の白。</small>
+                </div>
+                <div class="menu-price">¥2,970</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong data-i18n="menu.white2.name">白 上ロースかつ御膳</strong>
+                  <small data-i18n="menu.white2.desc">素材の甘みと脂のバランスをストレートに感じられる一皿。</small>
+                </div>
+                <div class="menu-price">¥2,970</div>
+              </div>
+            </div>
+
+            <div class="menu-group">
+              <h3 data-i18n="menu.group.other">その他</h3>
+              <div class="menu-item">
+                <div>
+                  <strong data-i18n="menu.other1.name">黒毛和牛かつ御膳(黒・白)</strong>
+                  <small data-i18n="menu.other1.desc">厳選した部位を使った黒毛和牛の牛かつ御膳。</small>
+                </div>
+                <div class="menu-price">¥3,630</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong data-i18n="menu.other2.name">上ミックス御膳(黒・白)</strong>
+                  <small data-i18n="menu.other2.desc">ヒレ、海老、野菜二種、半熟卵などが入った御膳。</small>
+                </div>
+                <div class="menu-price">¥2,750</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong data-i18n="menu.other3.name">たれかつ丼</strong>
+                  <small data-i18n="menu.other3.desc">甘辛いたれを絡めた、恒之助の人気どんぶり。</small>
+                </div>
+                <div class="menu-price">¥2,200</div>
+              </div>
+            </div>
+
+            <div class="menu-group">
+              <h3 data-i18n="menu.group.standard">定番</h3>
+              <div class="menu-item">
+                <div>
+                  <strong data-i18n="menu.std1.name">ヒレかつ御膳</strong>
+                  <small data-i18n="menu.std1.desc">全ての定食にご飯・味噌汁・キャベツ・漬物付き。</small>
+                </div>
+                <div class="menu-price">¥2,420</div>
+              </div>
+              <div class="menu-item">
+                <div>
+                  <strong data-i18n="menu.std2.name">ロースかつ御膳</strong>
+                  <small data-i18n="menu.std2.desc">ご飯とキャベツはおかわり可能。</small>
+                </div>
+                <div class="menu-price">¥2,420</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="menu-aside reveal">
+            <div class="aside-card">
+              <h3 data-i18n="aside.info.title">ご案内</h3>
+              <ul>
+                <li data-i18n="aside.info.hours">営業時間：11:00–15:00 / 17:00–21:00</li>
+                <li data-i18n="aside.info.closed">定休日：水曜日</li>
+                <li data-i18n="aside.info.seats">席数：14席（カウンター主体）</li>
+                <li data-i18n="aside.info.booking">ご予約：お電話にて承ります</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="company-row">
-        <div class="company-key">Location</div>
-        <div class="company-val">東京都目黒区駒場2丁目9-9</div>
+    </section>
+
+    <section class="section" id="craft">
+      <div class="container">
+        <span class="eyebrow reveal" data-i18n="craft.eyebrow">Craft</span>
+        <h2 class="section-title reveal" data-i18n-html="craft.title">技術を語るより、<br>違いが伝わる設計へ。</h2>
+        <p class="section-copy reveal" data-i18n="craft.copy">
+          黒は香ばしく、白は軽やかに。それぞれの違いをお楽しみいただけます。
+        </p>
+
+        <div class="craft-grid">
+          <article class="craft-card reveal">
+            <div class="craft-index">01</div>
+            <h3 data-i18n="craft1.title">黒と白の衣</h3>
+            <p data-i18n="craft1.p">黒胡麻を使った"黒"と、軽やかに仕上げる"白"。同じ肉でも、印象の異なる一皿になります。</p>
+          </article>
+          <article class="craft-card reveal">
+            <div class="craft-index">02</div>
+            <h3 data-i18n="craft2.title">揚げの軽さ</h3>
+            <p data-i18n="craft2.p">見た目に反して重くない。最後まで食べ切れるよう、油・温度・時間のバランスを整えています。</p>
+          </article>
+          <article class="craft-card reveal">
+            <div class="craft-index">03</div>
+            <h3 data-i18n="craft3.title">部位ごとの最適化</h3>
+            <p data-i18n="craft3.p">ヒレ、ロース、骨付き。部位ごとに食感や脂の出方を見極めて、最適な仕立てに整えます。</p>
+          </article>
+          <article class="craft-card reveal">
+            <div class="craft-index">04</div>
+            <h3 data-i18n="craft4.title">浅草で味わう余韻</h3>
+            <p data-i18n="craft4.p">路地の静けさの中で、一皿に集中する。空間も含めて、恒之助らしい体験をつくります。</p>
+          </article>
+        </div>
       </div>
-      <div class="company-row">
-        <div class="company-key">Business</div>
-        <div class="company-val">飲食店の運営・承継・M&amp;A・コンサルティング</div>
+    </section>
+
+    <section class="section" id="access">
+      <div class="container">
+        <span class="eyebrow reveal" data-i18n="access.eyebrow">Access</span>
+        <h2 class="section-title reveal" data-i18n="access.title">浅草で、黒と白を。</h2>
+        <p class="section-copy reveal" data-i18n="access.copy">
+          伝法院通りから少し入った場所で、静かに一皿と向き合える空間です。
+        </p>
+
+        <div class="access-wrap">
+          <div class="access-card reveal">
+            <h3 data-i18n="access.card.title">店舗情報</h3>
+            <p data-i18n-html="access.addr">〒111-0032<br>東京都台東区浅草2-12-6</p>
+            <p data-i18n-html="access.transit">つくばエクスプレス「浅草駅」徒歩1分<br>銀座線 / 東武「浅草駅」徒歩10分</p>
+            <p data-i18n-html="access.hours">営業時間：11:00–15:00 / 17:00–21:00<br>定休日：水曜日</p>
+            <p><span data-i18n="access.tel.label">ご予約・お問い合わせ：</span><br><a class="tel" href="tel:0368218089">03-6821-8089</a></p>
+          </div>
+
+          <div class="map reveal">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3239.4497248865223!2d139.79289839999998!3d35.7151567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188faceedca5ab%3A0x6c96f9ee611e979b!2z5rWF6I2JIOOBi-OBpOOChCDmgZLkuYvliqk!5e0!3m2!1sja!2ssg!4v1770869164740!5m2!1sja!2ssg" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+
+        <div class="cta-band reveal">
+          <div>
+            <h3 data-i18n="cta.title">まずは、黒から。白からでも。</h3>
+          </div>
+          <a class="btn btn-primary" href="tel:0368218089" data-i18n="cta.btn">ご予約はこちら</a>
+        </div>
       </div>
-      <div class="company-row">
-        <div class="company-key">Brands</div>
-        <div class="company-val">Bistro Bolero / 清田焼肉店 / 弥之助 / かつや恒之助</div>
-      </div>
-    </div>
-  </div>
-</section>
- 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <span class="footer-logo">Basic inc.</span>
-    <div class="footer-nav">
-      <a href="#about">About</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#approach">Approach</a>
-      <a href="#recruit">Recruit</a>
-      <a href="#company">Company</a>
-    </div>
-    <span class="footer-copy">© 2025 株式会社Basic</span>
-  </div>
-</footer>
- 
-<script>
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); } });
-  }, { threshold: 0.08 });
-  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
-</script>
+    </section>
+  </main>
+
+  <footer>
+    <span data-i18n="footer.copy">© 2026 恒之助 / KONOSUKE — Black & White Tonkatsu</span>
+  </footer>
+
+  <script>
+    const T = {
+      ja: {
+        'page.title': '恒之助 | 黒と白のとんかつ',
+        'page.description': '浅草のとんかつ専門店 恒之助。黒胡麻を纏った"黒"と、軽やかに仕上げる"白"。選ぶ楽しさのある一皿をご提供します。',
+        'page.keywords': '恒之助, 浅草とんかつ, 黒胡麻とんかつ, とんかつ専門店, 浅草グルメ, 黒と白のとんかつ, KONOSUKE, 浅草2丁目',
+        'nav.concept': 'コンセプト',
+        'nav.signature': '代表メニュー',
+        'nav.compare': '黒と白',
+        'nav.menu': 'お品書き',
+        'nav.access': 'アクセス',
+        'hero.h1': '黒で揚げる、<br><span class="gold">という選択。</span>',
+        'hero.copy': '黒胡麻を纏った"黒"と、軽やかに仕上げる"白"。<br>同じとんかつでも、選択で体験が変わる。恒之助は、衣から設計する浅草のとんかつ専門店です。',
+        'hero.btn.menu': 'お品書きを見る',
+        'hero.meta.seats.label': 'Seats',
+        'hero.meta.seats': '14席・カウンター主体',
+        'hero.meta.hours.label': 'Hours',
+        'hero.meta.style.label': 'Style',
+        'hero.meta.style': '黒と白、2つの衣から選ぶ',
+        'hero.meta.booking.label': 'Booking',
+        'hero.meta.booking': 'ご予約はお電話にて',
+        'hero.sidecard.h2': 'まずは黒胡麻の一皿から。',
+        'hero.sidecard.p': '恒之助では、衣によって味わいが変わります。はじめての方には、黒胡麻の香ばしさが際立つ一皿をおすすめしています。軽やかな白は、お好みに応じてご注文ください。',
+        'hero.black.name': '黒',
+        'hero.black.desc': '黒胡麻の香ばしさとコク。まずはこの一皿からお試しください。',
+        'hero.white.name': '白',
+        'hero.white.desc': '素材の味を引き立てる軽やかな仕上がり。お好みに応じてご注文いただけます。',
+        'concept.eyebrow': 'Concept',
+        'concept.title': '"とんかつを選ぶ"から、<br>"体験を選ぶ"へ。',
+        'concept.copy': '恒之助の軸は、ただ上質な肉を揚げることではありません。黒胡麻を使った"黒"と、軽やかな"白"。衣の違いで香り、印象、余韻まで変わるからこそ、同じ部位でもまったく違う楽しみ方が生まれます。',
+        'concept.intro.p': '一口目の印象で惹き込み、食べ進めるほどに軽さで驚かせる。見た目のインパクトだけでなく、最後まで食べ切れる軽やかさを大切にしています。',
+        'concept.point1.title': '黒胡麻を纏う"黒"',
+        'concept.point1.p': 'シグネチャーは黒。香ばしさと個性が立ち、SNSでも一目で伝わる一皿です。',
+        'concept.point2.title': '王道の魅力を磨いた"白"',
+        'concept.point2.p': '軽やかでクリアな後味。肉そのものの甘みや繊細さを引き出します。',
+        'concept.point3.title': '選べるから、記憶に残る',
+        'concept.point3.p': '同じ部位でも、衣によって印象が変わります。一度だけでなく、違いもお楽しみください。',
+        'signature.eyebrow': 'Signature',
+        'signature.title': '恒之助を象徴する、<br>3つの入口。',
+        'signature.copy': 'まず選んでいただきたいのは、黒の上ヒレ、白の上ロース。',
+        'sig1.kicker': 'Signature Black',
+        'sig1.title': '黒 上ヒレかつ御膳',
+        'sig1.desc': '黒胡麻を纏った、恒之助のシグネチャー。香ばしさと軽さを両立した、新しいとんかつのかたち。',
+        'sig2.kicker': 'Clean White',
+        'sig2.title': '白 上ロースかつ御膳',
+        'sig2.desc': '肉の甘みと脂の余韻をまっすぐ楽しめる、王道の一皿。白だからこそ分かるクリアな仕上がり。',
+        'sig3.kicker': 'Compare',
+        'sig3.title': '黒 トマホーク御膳',
+        'sig3.desc': 'インパクト・味・ボリュームの全てが整った恒之助ならではの一品。',
+        'compare.eyebrow': 'Black or White',
+        'compare.title': '黒は、見た目だけではない。',
+        'compare.copy': '同じ部位でも、衣が変われば印象が変わる。見た目のインパクトだけでなく、香りと余韻の設計に違いがあります。',
+        'compare.tab.black': '黒',
+        'compare.tab.white': '白',
+        'compare.black.h3': '黒',
+        'compare.black.p': '黒胡麻を使った衣が生むのは、見た目の個性だけではありません。香ばしい立ち上がりと、噛むほどに広がるコク。それでいて、最後まで重さを感じさせないバランスを目指しています。',
+        'compare.black.item1.label': '印象',
+        'compare.black.item1.desc': '香ばしい / 立体感がある / 記憶に残る',
+        'compare.black.item2.label': 'おすすめ',
+        'compare.black.item2.desc': '初来店の方、恒之助らしさを最初に体験したい方',
+        'compare.black.item3.label': '相性',
+        'compare.black.item3.desc': '上ヒレ、上ロース、限定のトマホークかつ',
+        'compare.white.h3': '白',
+        'compare.white.p': '余計な重さを抑えた、まっすぐな王道。肉の質感や甘み、脂のバランスをクリアに感じたい方には白がおすすめです。黒と比べることで、その繊細さがより際立ちます。',
+        'compare.white.item1.label': '印象',
+        'compare.white.item1.desc': '軽やか / クリア / 素材感が伝わる',
+        'compare.white.item2.label': 'おすすめ',
+        'compare.white.item2.desc': '王道派の方、肉本来のニュアンスを楽しみたい方',
+        'compare.white.item3.label': '相性',
+        'compare.white.item3.desc': '上ロース、ヒレ',
+        'menu.eyebrow': 'Menu',
+        'menu.title': 'まずは黒から。',
+        'menu.copy': 'まずは黒から。黒胡麻の香ばしさが立つ一皿と、軽やかに仕上げる一皿。お好みに合わせてお選びください。',
+        'menu.group.black': '黒',
+        'menu.black1.name': '黒 上ヒレかつ御膳',
+        'menu.black1.desc': '黒胡麻の香ばしさとしっとりした火入れの組み合わせ。',
+        'menu.black2.name': '黒 上ロースかつ御膳',
+        'menu.black2.desc': '脂の甘みと黒の香ばしさが重なり、印象に残る一皿。',
+        'menu.black3.name': '黒 トマホークかつ御膳',
+        'menu.black3.desc': '限定。事前予約でご案内。骨付きならではの存在感を黒で仕上げます。',
+        'menu.group.white': '白',
+        'menu.white1.name': '白 上ヒレかつ御膳',
+        'menu.white1.desc': '繊細な質感と軽さを楽しむ、王道の白。',
+        'menu.white2.name': '白 上ロースかつ御膳',
+        'menu.white2.desc': '素材の甘みと脂のバランスをストレートに感じられる一皿。',
+        'menu.group.other': 'その他',
+        'menu.other1.name': '黒毛和牛かつ御膳(黒・白)',
+        'menu.other1.desc': '厳選した部位を使った黒毛和牛の牛かつ御膳。',
+        'menu.other2.name': '上ミックス御膳(黒・白)',
+        'menu.other2.desc': 'ヒレ、海老、野菜二種、半熟卵などが入った御膳。',
+        'menu.other3.name': 'たれかつ丼',
+        'menu.other3.desc': '甘辛いたれを絡めた、恒之助の人気どんぶり。',
+        'menu.group.standard': '定番',
+        'menu.std1.name': 'ヒレかつ御膳',
+        'menu.std1.desc': '全ての定食にご飯・味噌汁・キャベツ・漬物付き。',
+        'menu.std2.name': 'ロースかつ御膳',
+        'menu.std2.desc': 'ご飯とキャベツはおかわり可能。',
+        'aside.info.title': 'ご案内',
+        'aside.info.hours': '営業時間：11:00–15:00 / 17:00–21:00',
+        'aside.info.closed': '定休日：水曜日',
+        'aside.info.seats': '席数：14席（カウンター主体）',
+        'aside.info.booking': 'ご予約：お電話にて承ります',
+        'craft.eyebrow': 'Craft',
+        'craft.title': '技術を語るより、<br>違いが伝わる設計へ。',
+        'craft.copy': '黒は香ばしく、白は軽やかに。それぞれの違いをお楽しみいただけます。',
+        'craft1.title': '黒と白の衣',
+        'craft1.p': '黒胡麻を使った"黒"と、軽やかに仕上げる"白"。同じ肉でも、印象の異なる一皿になります。',
+        'craft2.title': '揚げの軽さ',
+        'craft2.p': '見た目に反して重くない。最後まで食べ切れるよう、油・温度・時間のバランスを整えています。',
+        'craft3.title': '部位ごとの最適化',
+        'craft3.p': 'ヒレ、ロース、骨付き。部位ごとに食感や脂の出方を見極めて、最適な仕立てに整えます。',
+        'craft4.title': '浅草で味わう余韻',
+        'craft4.p': '路地の静けさの中で、一皿に集中する。空間も含めて、恒之助らしい体験をつくります。',
+        'access.eyebrow': 'Access',
+        'access.title': '浅草で、黒と白を。',
+        'access.copy': '伝法院通りから少し入った場所で、静かに一皿と向き合える空間です。',
+        'access.card.title': '店舗情報',
+        'access.addr': '〒111-0032<br>東京都台東区浅草2-12-6',
+        'access.transit': 'つくばエクスプレス「浅草駅」徒歩1分<br>銀座線 / 東武「浅草駅」徒歩10分',
+        'access.hours': '営業時間：11:00–15:00 / 17:00–21:00<br>定休日：水曜日',
+        'access.tel.label': 'ご予約・お問い合わせ：',
+        'cta.title': 'まずは、黒から。白からでも。',
+        'cta.btn': 'ご予約はこちら',
+        'footer.copy': '© 2026 恒之助 / KONOSUKE — Black & White Tonkatsu',
+      },
+      en: {
+        'page.title': 'KONOSUKE | Black & White Tonkatsu, Asakusa',
+        'page.description': 'A tonkatsu specialist in Asakusa, Tokyo. Bold "Black" with black sesame crust, or refined "White." Two crusts, one unforgettable experience.',
+        'page.keywords': 'KONOSUKE, Asakusa tonkatsu, black sesame katsu, tonkatsu specialist, Asakusa restaurant, black and white tonkatsu, Japanese pork cutlet, Tokyo',
+        'nav.concept': 'Concept',
+        'nav.signature': 'Signature',
+        'nav.compare': 'Black & White',
+        'nav.menu': 'Menu',
+        'nav.access': 'Access',
+        'hero.h1': 'Fried in Black.<br><span class="gold">A bold choice.</span>',
+        'hero.copy': 'Bold "Black" with black sesame, or refined "White" — same pork, entirely different experience.<br>At KONOSUKE in Asakusa, every choice starts with the crust.',
+        'hero.btn.menu': 'View Menu',
+        'hero.meta.seats.label': 'Seats',
+        'hero.meta.seats': '14 Seats · Counter-Style',
+        'hero.meta.hours.label': 'Hours',
+        'hero.meta.style.label': 'Style',
+        'hero.meta.style': 'Choose: Black or White Crust',
+        'hero.meta.booking.label': 'Booking',
+        'hero.meta.booking': 'Reservations by phone',
+        'hero.sidecard.h2': 'Start with our Black Sesame Katsu.',
+        'hero.sidecard.p': 'At KONOSUKE, the crust defines the experience. First-timers, we recommend the bold, nutty aroma of the Black. Prefer something lighter? The White is always there for you.',
+        'hero.black.name': 'Black',
+        'hero.black.desc': 'Nutty, aromatic, and unforgettable. Your first choice.',
+        'hero.white.name': 'White',
+        'hero.white.desc': 'Light and clean — lets the pork speak for itself.',
+        'concept.eyebrow': 'Concept',
+        'concept.title': 'From choosing tonkatsu<br>to choosing an experience.',
+        'concept.copy': 'KONOSUKE is not just about frying great pork. The "Black" crust with black sesame and the light "White" crust create entirely different impressions — different aromas, textures, and aftertastes from the exact same cut.',
+        'concept.intro.p': 'The first bite hooks you; the lightness surprises you by the last. We care as much about how it finishes as how it begins.',
+        'concept.point1.title': '"Black" — Wrapped in Black Sesame',
+        'concept.point1.p': 'Our signature. Aromatic and distinctive — instantly recognizable and unforgettable.',
+        'concept.point2.title': '"White" — The Refined Classic',
+        'concept.point2.p': 'Light, clean finish. Draws out the natural sweetness and delicacy of the pork.',
+        'concept.point3.title': 'Choice makes it memorable',
+        'concept.point3.p': 'Same cut, different impression. Come back and explore the difference.',
+        'signature.eyebrow': 'Signature',
+        'signature.title': 'Three doors into<br>the KONOSUKE experience.',
+        'signature.copy': 'We suggest starting with the Black Hire or White Rosu.',
+        'sig1.kicker': 'Signature Black',
+        'sig1.title': 'Black Premium Hire Katsu Set',
+        'sig1.desc': "KONOSUKE's signature. Black sesame crust meets perfectly cooked tenderloin — bold aroma, surprising lightness.",
+        'sig2.kicker': 'Clean White',
+        'sig2.title': 'White Premium Rosu Katsu Set',
+        'sig2.desc': "The classic done right. White crust lets the pork's sweetness and fat shine through, clean and clear.",
+        'sig3.kicker': 'Compare',
+        'sig3.title': 'Black Tomahawk Katsu Set',
+        'sig3.desc': "Impact, flavor, and volume — all in one. KONOSUKE's most dramatic plate.",
+        'compare.eyebrow': 'Black or White',
+        'compare.title': 'Black is more than a look.',
+        'compare.copy': 'Same cut, different crust — different impression. The difference goes beyond appearance, into aroma, texture, and finish.',
+        'compare.tab.black': 'Black',
+        'compare.tab.white': 'White',
+        'compare.black.h3': 'Black',
+        'compare.black.p': 'The black sesame crust brings more than visual drama. It opens with a toasty aroma and builds into a rich, layered depth — yet stays surprisingly light all the way through.',
+        'compare.black.item1.label': 'Character',
+        'compare.black.item1.desc': 'Toasty / Layered / Unforgettable',
+        'compare.black.item2.label': 'Best for',
+        'compare.black.item2.desc': 'First-timers, those who want the full KONOSUKE experience',
+        'compare.black.item3.label': 'Pairs with',
+        'compare.black.item3.desc': 'Hire (tenderloin), Rosu (loin), limited Tomahawk',
+        'compare.white.h3': 'White',
+        'compare.white.p': 'Clean and straightforward. If you want to taste the pork itself — its texture, sweetness, and fat balance — White delivers without distraction. Compare it to Black and the refinement becomes even clearer.',
+        'compare.white.item1.label': 'Character',
+        'compare.white.item1.desc': 'Light / Clean / True to the meat',
+        'compare.white.item2.label': 'Best for',
+        'compare.white.item2.desc': 'Classic lovers, those who want to taste the pork',
+        'compare.white.item3.label': 'Pairs with',
+        'compare.white.item3.desc': 'Rosu (loin), Hire (tenderloin)',
+        'menu.eyebrow': 'Menu',
+        'menu.title': 'Start with Black.',
+        'menu.copy': 'Bold and aromatic, or light and clean — your call.',
+        'menu.group.black': 'Black',
+        'menu.black1.name': 'Black Premium Hire Katsu Set',
+        'menu.black1.desc': 'Black sesame crust meets tender, juicy hire (tenderloin).',
+        'menu.black2.name': 'Black Premium Rosu Katsu Set',
+        'menu.black2.desc': "Rosu's rich fat and the toasty black crust — a lasting impression.",
+        'menu.black3.name': 'Black Tomahawk Katsu Set',
+        'menu.black3.desc': 'Limited. Advance reservation required. Bone-in drama, finished in Black.',
+        'menu.group.white': 'White',
+        'menu.white1.name': 'White Premium Hire Katsu Set',
+        'menu.white1.desc': 'Clean and delicate — the classic White hire experience.',
+        'menu.white2.name': 'White Premium Rosu Katsu Set',
+        'menu.white2.desc': "Pork's natural sweetness and fat, straight and unadorned.",
+        'menu.group.other': 'Others',
+        'menu.other1.name': 'Wagyu Katsu Set (Black / White)',
+        'menu.other1.desc': 'Select Japanese Wagyu beef katsu set.',
+        'menu.other2.name': 'Premium Mix Set (Black / White)',
+        'menu.other2.desc': 'Hire, prawn, two vegetables, soft-boiled egg, and more.',
+        'menu.other3.name': 'Tare Katsu Don',
+        'menu.other3.desc': 'Katsu in a savory-sweet tare sauce over rice. A KONOSUKE favorite.',
+        'menu.group.standard': 'Classic',
+        'menu.std1.name': 'Hire Katsu Set',
+        'menu.std1.desc': 'All sets include rice, miso soup, cabbage, and pickles.',
+        'menu.std2.name': 'Rosu Katsu Set',
+        'menu.std2.desc': 'Free refills of rice and cabbage.',
+        'aside.info.title': 'Info',
+        'aside.info.hours': 'Hours: 11:00–15:00 / 17:00–21:00',
+        'aside.info.closed': 'Closed: Wednesdays',
+        'aside.info.seats': 'Seats: 14 (counter-style)',
+        'aside.info.booking': 'Reservations: by phone',
+        'craft.eyebrow': 'Craft',
+        'craft.title': 'Less talk about technique.<br>More difference you can taste.',
+        'craft.copy': 'Black is toasty. White is light. Feel the difference for yourself.',
+        'craft1.title': 'Two Crusts',
+        'craft1.p': 'Black sesame or classic breadcrumb — same pork, entirely different impressions.',
+        'craft2.title': 'Surprising Lightness',
+        'craft2.p': "Don't let the black crust fool you. We balance oil, temperature, and time so you finish every piece.",
+        'craft3.title': 'Cut-by-Cut Calibration',
+        'craft3.p': 'Hire, Rosu, bone-in Tomahawk. Each cut has its own texture and fat profile — we tune each one.',
+        'craft4.title': 'The Asakusa Finish',
+        'craft4.p': 'Tucked into a quiet alley, away from the crowd. The space is part of the experience.',
+        'access.eyebrow': 'Access',
+        'access.title': 'Find us in Asakusa.',
+        'access.copy': 'A quiet counter just off Denboin-dori, where you can focus on the plate.',
+        'access.card.title': 'Location',
+        'access.addr': '2-12-6 Asakusa, Taito-ku,<br>Tokyo 111-0032',
+        'access.transit': '1 min walk from Tsukuba Express "Asakusa"<br>10 min walk from Ginza Line / Tobu "Asakusa"',
+        'access.hours': 'Hours: 11:00–15:00 / 17:00–21:00<br>Closed: Wednesdays',
+        'access.tel.label': 'Reservations & Inquiries:',
+        'cta.title': 'Black first. Or White first. Your call.',
+        'cta.btn': 'Reserve a Seat',
+        'footer.copy': '© 2026 恒之助 / KONOSUKE — Black & White Tonkatsu',
+      }
+    };
+
+    let currentLang = 'ja';
+
+    function detectLang() {
+      const param = new URLSearchParams(location.search).get('lang');
+      if (param === 'ja' || param === 'en') return param;
+      const stored = localStorage.getItem('konosuke-lang');
+      if (stored === 'ja' || stored === 'en') return stored;
+      return navigator.language.startsWith('ja') ? 'ja' : 'en';
+    }
+
+    function applyLang(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      document.title = T[lang]['page.title'];
+
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) metaDesc.content = T[lang]['page.description'];
+      const ogTitle = document.getElementById('ogTitle');
+      if (ogTitle) ogTitle.content = T[lang]['page.title'];
+      const ogDesc = document.getElementById('ogDesc');
+      if (ogDesc) ogDesc.content = T[lang]['page.description'];
+      const ogLocale = document.getElementById('ogLocale');
+      if (ogLocale) ogLocale.content = lang === 'ja' ? 'ja_JP' : 'en_US';
+      const metaKeywords = document.getElementById('metaKeywords');
+      if (metaKeywords) metaKeywords.content = T[lang]['page.keywords'];
+      const twTitle = document.getElementById('twTitle');
+      if (twTitle) twTitle.content = T[lang]['page.title'];
+      const twDesc = document.getElementById('twDesc');
+      if (twDesc) twDesc.content = T[lang]['page.description'];
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const v = T[lang][el.dataset.i18n];
+        if (v != null) el.textContent = v;
+      });
+
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const v = T[lang][el.dataset.i18nHtml];
+        if (v != null) el.innerHTML = v;
+      });
+
+      document.querySelectorAll('.lang-option').forEach(opt => {
+        opt.classList.toggle('active', opt.dataset.langOpt === lang);
+      });
+
+      const url = new URL(location.href);
+      url.searchParams.set('lang', lang);
+      history.replaceState(null, '', url);
+      localStorage.setItem('konosuke-lang', lang);
+    }
+
+    document.getElementById('langBtn').addEventListener('click', () => {
+      applyLang(currentLang === 'ja' ? 'en' : 'ja');
+    });
+
+    // Mobile nav
+    const menuToggle = document.getElementById('menuToggle');
+    const siteNav = document.getElementById('siteNav');
+
+    if (menuToggle && siteNav) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = siteNav.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+
+      siteNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          siteNav.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    // Compare tabs
+    const tabs = document.querySelectorAll('.compare-tab');
+    const panels = document.querySelectorAll('.compare-panel');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const key = tab.dataset.tab;
+        tabs.forEach(t => t.classList.toggle('active', t === tab));
+        panels.forEach(p => p.classList.toggle('active', p.dataset.panel === key));
+      });
+    });
+
+    // Scroll reveal
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Active nav highlight
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nav a');
+
+    new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        });
+      });
+    }, { threshold: 0.45 }).observe;
+
+    sections.forEach(s => {
+      new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+          });
+        });
+      }, { threshold: 0.45 }).observe(s);
+    });
+
+    // Init
+    applyLang(detectLang());
+  </script>
 </body>
 </html>

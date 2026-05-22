@@ -10,19 +10,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
- <!-- SEO Meta Tags -->
-  <meta name="description" content="株式会社Basicは、飲食店の運営・M&A・コンサルティングを通して、飲食業の未来を切り拓く会社です。" />
+ 
+  <!-- SEO Meta Tags -->
   <meta name="keywords" content="株式会社Basic, 飲食M&A, 飲食コンサル, レストラン経営, 飲食店運営, 食の未来, ビストロ, 焼肉, 飲食スタートアップ" />
   <meta name="author" content="株式会社Basic" />
   <meta name="robots" content="index, follow" />
-  <link rel="canonical" href="https://www.basic-fnb.com/" />
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
-
-
+ 
   <!-- OGP Meta Tags -->
   <meta property="og:title" content="株式会社Basic | 食の未来をつなぐ" />
   <meta property="og:description" content="飲食店の価値を高め、人を大切にし、次の世代へ食文化をつなぐ。飲食M&A・新規立ち上げ・コンサルティングなら株式会社Basic。" />
@@ -30,13 +23,13 @@
   <meta property="og:url" content="https://www.basic-fnb.com/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="株式会社Basic" />
-
+ 
   <!-- Twitter Card Meta -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="株式会社Basic | 食の未来をつなぐ" />
   <meta name="twitter:description" content="飲食業の常識にとらわれず、新しい価値を創出。人と食に真摯に向き合う飲食スタートアップです。" />
   <meta name="twitter:image" content="https://www.basic-fnb.com/src/bolero-1.jpg" />
-
+ 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CV445LCX0"></script>
   <script>
@@ -45,7 +38,7 @@
     gtag('js', new Date());
     gtag('config', 'G-5CV445LCX0');
   </script>
-
+ 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
  
@@ -186,8 +179,6 @@
       object-fit: cover;
       display: block;
       opacity: 0.85;
-      /* fallback when no image */
-      background: linear-gradient(160deg, #d4ccc0 0%, #b8afa3 100%);
     }
     .hero-caption {
       position: absolute; bottom: 32px; right: 32px;
@@ -195,7 +186,6 @@
       color: rgba(255,255,255,0.7);
       writing-mode: vertical-rl;
     }
-    /* placeholder visual for hero-right */
     .hero-placeholder {
       width: 100%; height: 100%;
       display: flex; align-items: center; justify-content: center;
@@ -282,7 +272,6 @@
       font-size: 13px; font-style: italic;
       color: var(--ink-faint);
     }
-    .pi-info {}
     .pi-name {
       font-family: var(--serif);
       font-size: 22px; font-weight: 500;
@@ -311,15 +300,13 @@
       padding: 3px 8px; border-radius: 2px;
       margin-right: 6px; margin-bottom: 4px;
     }
- 
-    /* Coming soon row */
     .portfolio-item.coming {
       opacity: 0.45;
       cursor: default;
       pointer-events: none;
     }
  
-    /* ── APPROACH / WHAT WE DO ── */
+    /* ── APPROACH ── */
     .approach { padding-bottom: 120px; }
     .approach-grid {
       display: grid;
@@ -337,7 +324,6 @@
       color: var(--paper-2);
       line-height: 1;
       margin-bottom: 24px;
-      /* visible outline */
       -webkit-text-stroke: 1px var(--rule-strong);
     }
     .approach-col-title {
@@ -349,6 +335,86 @@
     .approach-col-body {
       font-size: 14px; line-height: 1.85;
       color: var(--ink-mid);
+    }
+ 
+    /* ── BASIC SUPPORT ── */
+    .support { padding-bottom: 120px; }
+    .support-inner {
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: 2fr 3fr;
+      gap: 0;
+      border: 1px solid var(--rule);
+    }
+    .support-left {
+      padding: 56px 48px 56px 15px;
+      border-right: 1px solid var(--rule);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .support-heading {
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.8vw, 36px);
+      font-weight: 500;
+      line-height: 1.4;
+      color: var(--ink);
+      margin-bottom: 20px;
+    }
+    .support-sub {
+      font-size: 15px; line-height: 1.9;
+      color: var(--ink-mid);
+      margin-bottom: 40px;
+    }
+    .support-link {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(139,58,42,0.4);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
+      width: fit-content;
+    }
+    .support-link:hover { opacity: 0.65; }
+    .support-right {
+      padding: 56px 0 56px 48px;
+    }
+    .support-items {
+      display: flex; flex-direction: column; gap: 0;
+    }
+    .support-item {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .support-item:first-child { border-top: 1px solid var(--rule); }
+    .support-item-num {
+      font-family: var(--display);
+      font-size: 13px; font-style: italic;
+      color: var(--ink-faint);
+      padding-top: 3px;
+    }
+    .support-item-title {
+      font-family: var(--serif);
+      font-size: 17px; font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .support-item-body {
+      font-size: 13px; line-height: 1.75;
+      color: var(--ink-mid);
+    }
+    .support-badge {
+      display: inline-block;
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent);
+      border: 1px solid rgba(139,58,42,0.3);
+      padding: 3px 8px; border-radius: 2px;
+      margin-top: 8px;
     }
  
     /* ── EDITORIAL QUOTE ── */
@@ -496,11 +562,11 @@
       .pi-desc, .pi-arrow { display: none; }
       .approach-grid { grid-template-columns: 1fr 1fr; border-left: none; }
       .approach-col { border-right: none; border-top: 1px solid var(--rule); padding: 32px 16px 32px 0; }
-      @media (max-width: 600px) {
-        .approach-grid { grid-template-columns: 1fr; }
-      }
+      .support-inner { grid-template-columns: 1fr; }
+      .support-left { border-right: none; padding: 40px 10px; border-bottom: 1px solid var(--rule); }
+      .support-right { padding: 40px 0; }
       .recruit-grid { grid-template-columns: 1fr; }
-      .recruit-left { border-right: none; padding: 40px 0; border-bottom: 1px solid var(--rule); }
+      .recruit-left { border-right: none; padding: 40px 10px; border-bottom: 1px solid var(--rule); }
       .recruit-right { padding: 40px 0; }
       .company-row { grid-template-columns: 140px 1fr; }
       .company-val { padding-left: 20px; }
@@ -509,6 +575,9 @@
       .wrap { padding: 0 24px; }
       .quote-section { padding: 64px 24px; }
       footer { padding: 32px 24px; }
+    }
+    @media (max-width: 600px) {
+      .approach-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -525,6 +594,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#portfolio">Portfolio</a></li>
       <li><a href="#approach">Approach</a></li>
+      <li><a href="#support">Support</a></li>
       <li><a href="#recruit">Recruit</a></li>
       <li><a href="#company">Company</a></li>
     </ul>
@@ -617,8 +687,6 @@
       <span class="section-num">02</span>
       <span class="section-label">Mission &amp; Vision &amp; Values</span>
     </div>
- 
-    <!-- Mission -->
     <div class="about-grid" style="padding-top:64px;margin-bottom:80px;">
       <h2 class="about-heading" style="font-size:clamp(22px,2.4vw,32px);line-height:1.5;">
         Mission<br>
@@ -628,8 +696,6 @@
         <p>受け継いだ店舗の価値を守りながら、ナレッジ・デザイン・数字を再構築し、「食の未来をつなぎ、広げる」ための仕組みをつくり続けます。</p>
       </div>
     </div>
- 
-    <!-- Vision -->
     <div class="about-grid" style="margin-bottom:80px;border-top:1px solid var(--rule);padding-top:64px;">
       <h2 class="about-heading" style="font-size:clamp(22px,2.4vw,32px);line-height:1.5;">
         Vision<br>
@@ -639,8 +705,6 @@
         <p>労働環境と収益性のギャップをなくし、飲食を誇り高い専門職に戻す。現場の技術と経営指標を同じテーブルに載せることで、持続可能なモデルを世界へ輸出します。</p>
       </div>
     </div>
- 
-    <!-- Values -->
     <div style="border-top:1px solid var(--rule);padding-top:64px;">
       <p style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:48px;">Values — 価値観・行動指針</p>
       <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--rule);border-left:1px solid var(--rule);">
@@ -679,9 +743,7 @@
     <p class="portfolio-intro">
       受け継いだ店と、ゼロから立ち上げた店。それぞれに文脈があり、それぞれに覚悟がある。
     </p>
- 
     <div class="portfolio-list">
- 
       <a href="/bolero" class="portfolio-item">
         <span class="pi-num">I</span>
         <div class="pi-info">
@@ -692,7 +754,6 @@
         <p class="pi-desc">中目黒の路地裏に構える小さなビストロ。ワインと料理が、カジュアルに交差する夜。</p>
         <span class="pi-arrow">→</span>
       </a>
- 
       <a href="/kiyota" class="portfolio-item">
         <span class="pi-num">II</span>
         <div class="pi-info">
@@ -703,7 +764,6 @@
         <p class="pi-desc">街に根づいてきた焼肉店の火を、引き継いだ。「ちゃんと美味しい」を守り続ける。</p>
         <span class="pi-arrow">→</span>
       </a>
- 
       <a href="/yanosuke" class="portfolio-item">
         <span class="pi-num">III</span>
         <div class="pi-info">
@@ -714,7 +774,6 @@
         <p class="pi-desc">土鍋ご飯と丁寧な和食。隠れ家という言葉が、ここでは本当に似合う。</p>
         <span class="pi-arrow">→</span>
       </a>
- 
       <a href="/konosuke" class="portfolio-item">
         <span class="pi-num">IV</span>
         <div class="pi-info">
@@ -725,7 +784,6 @@
         <p class="pi-desc">一枚に、覚悟を込める。素材と火入れで、ただそれだけで勝負するとんかつ専門店。</p>
         <span class="pi-arrow">→</span>
       </a>
- 
       <div class="portfolio-item coming">
         <span class="pi-num">V</span>
         <div class="pi-info">
@@ -735,7 +793,6 @@
         <p class="pi-desc">現在、フルプロデュースで進行中。</p>
         <span class="pi-arrow">—</span>
       </div>
- 
     </div>
   </div>
 </section>
@@ -758,7 +815,6 @@
       <span class="section-num">04</span>
       <span class="section-label">What We Do</span>
     </div>
- 
     <div class="approach-grid">
       <div class="approach-col">
         <div class="approach-col-num">01</div>
@@ -797,11 +853,75 @@
   </div>
 </section>
  
+<!-- BASIC SUPPORT -->
+<section id="support" class="support reveal">
+  <div class="wrap">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <span class="section-label">Basic Support</span>
+    </div>
+    <div class="support-inner">
+      <div class="support-left">
+        <div>
+          <h2 class="support-heading">
+            飲食店を<br>出したい人へ、<br>
+            出資から<br>伴走まで。
+          </h2>
+          <p class="support-sub">
+            「やってみたい」という想いを、資金とノウハウの両輪で支えます。
+            Basic は出資1,000〜5,000万円に加え、物件・採用・経営までワンストップで伴走する
+            出資型開業支援プログラム「Basic Support」を提供しています。
+          </p>
+          <p class="support-sub" style="margin-top:-16px;">
+            まだ構想レベルでも、話だけ聞きたいという段階でも歓迎しています。
+          </p>
+        </div>
+        <a href="https://basic-support.basic-fnb.com" target="_blank" class="support-link">
+          Basic Support の詳細を見る &nbsp;→
+        </a>
+      </div>
+      <div class="support-right">
+        <div class="support-items">
+          <div class="support-item">
+            <span class="support-item-num">i</span>
+            <div>
+              <div class="support-item-title">出資 1,000〜5,000万円</div>
+              <p class="support-item-body">店舗規模に応じて出資します。借入と異なり返済義務はなく、利益配分・買取独立など事業の成長に合わせて柔軟に設計します。</p>
+            </div>
+          </div>
+          <div class="support-item">
+            <span class="support-item-num">ii</span>
+            <div>
+              <div class="support-item-title">物件・内装・採用サポート</div>
+              <p class="support-item-body">物件取得から内装監修、スタッフ採用まで一貫して対応。コンセプト設計からオープンまで平均1.5〜4ヶ月。</p>
+            </div>
+          </div>
+          <div class="support-item">
+            <span class="support-item-num">iii</span>
+            <div>
+              <div class="support-item-title">経営伴走 &amp; オペレーション構築</div>
+              <p class="support-item-body">メニュー・POS・数値管理・販促まで、現場で一緒に動きます。オープン後も継続的にサポートします。</p>
+            </div>
+          </div>
+          <div class="support-item">
+            <span class="support-item-num">iv</span>
+            <div>
+              <div class="support-item-title">3年後の独立 or 継続パートナー</div>
+              <p class="support-item-body">軌道に乗ったら買取型の完全独立も選択可能。長期でのパートナー継続も歓迎します。</p>
+              <span class="support-badge">未経験歓迎</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
 <!-- RECRUIT -->
 <section id="recruit" class="recruit reveal">
   <div class="wrap">
     <div class="section-header">
-      <span class="section-num">05</span>
+      <span class="section-num">06</span>
       <span class="section-label">Recruit</span>
     </div>
     <div class="recruit-grid">
@@ -849,7 +969,7 @@
 <section id="company" class="company reveal">
   <div class="wrap">
     <div class="section-header">
-      <span class="section-num">06</span>
+      <span class="section-num">07</span>
       <span class="section-label">Company</span>
     </div>
     <div class="company-table">
@@ -889,6 +1009,7 @@
       <a href="#about">About</a>
       <a href="#portfolio">Portfolio</a>
       <a href="#approach">Approach</a>
+      <a href="#support">Support</a>
       <a href="#recruit">Recruit</a>
       <a href="#company">Company</a>
     </div>

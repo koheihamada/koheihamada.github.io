@@ -49,6 +49,13 @@
       --accent-dark: #8a7a62;
     }
 
+    @font-face {
+      font-family: 'Kaishoku';
+      src: url('/fonts/HOT-GFKaishokk-E.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     html { scroll-behavior: smooth; }
@@ -78,7 +85,7 @@
     }
 
     .nav-brand {
-      font-family: 'Shippori Mincho', serif;
+      font-family: 'Kaishoku', 'Noto Sans JP', sans-serif;
       color: var(--bone);
       font-size: 1.05rem;
       letter-spacing: 0.12em;
@@ -193,7 +200,7 @@
     }
 
     .hero-title {
-      font-family: 'Shippori Mincho', serif;
+      font-family: 'Kaishoku', 'Noto Sans JP', sans-serif;
       font-size: clamp(2.8rem, 6vw, 4.8rem);
       font-weight: 700;
       color: var(--white);

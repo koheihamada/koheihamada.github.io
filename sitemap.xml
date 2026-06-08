@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- コーポレートサイト -->
+  <url>
+    <loc>https://www.basic-fnb.com/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Basic Support LP -->
+  <url>
+    <loc>https://www.basic-fnb.com/basic-open</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Bistro Bolero -->
+  <url>
+    <loc>https://www.basic-fnb.com/bolero</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.basic-fnb.com/bolero-menu</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- 清田焼肉店 -->
+  <url>
+    <loc>https://www.basic-fnb.com/kiyota</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- 弥之助 -->
+  <url>
+    <loc>https://www.basic-fnb.com/yanosuke</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- かつや恒之助 -->
+  <url>
+    <loc>https://www.basic-fnb.com/konosuke</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>

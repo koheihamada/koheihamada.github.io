@@ -5,91 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>清田焼肉店 | タンとハラミにこだわった下北沢のモダン大阪焼肉</title>
 
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="下北沢『清田』は、昔ながらの焼肉屋を現代風にモダナイズ。。厳選されたタンやハラミを中心に、最高の焼肉体験をお楽しみいただけます。" />
+  <meta name="description" content="下北沢『清田』は、昔ながらの焼肉屋を現代風にモダナイズ。厳選されたタンやハラミを中心に、最高の焼肉体験をお楽しみいただけます。" />
   <meta name="keywords" content="清田, 下北沢 焼肉, 清田焼肉, タン, ハラミ, 和牛, 焼肉, 下北沢ディナー, 落ち着いた焼肉店" />
   <meta name="author" content="清田焼肉店" />
   <meta name="robots" content="index, follow" />
   <link rel="canonical" href="https://www.basic-fnb.com/kiyota" />
 
-  <!-- OGP Meta Tags -->
   <meta property="og:title" content="清田焼肉店 | タンとハラミにこだわった下北沢のモダン大阪焼肉" />
-  <meta property="og:description" content="下北沢『清田』は、昔ながらの焼肉屋を現代風にモダナイズ。。厳選されたタンやハラミを中心に、最高の焼肉体験をお楽しみいただけます。" />
+  <meta property="og:description" content="下北沢『清田』は、昔ながらの焼肉屋を現代風にモダナイズ。厳選されたタンやハラミを中心に、最高の焼肉体験をお楽しみいただけます。" />
   <meta property="og:image" content="https://www.basic-fnb.com/images/kiyota-og.jpg" />
   <meta property="og:url" content="https://www.basic-fnb.com/kiyota" />
   <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="清田 - 職人焼肉" />
+  <meta property="og:site_name" content="清田焼肉店" />
 
-  <!-- Twitter Card Meta -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="清田焼肉店 | タンとハラミにこだわった下北沢のモダン大阪焼肉" />
-  <meta name="twitter:description" content="下北沢『清田』は、昔ながらの焼肉屋を現代風にモダナイズ。。厳選されたタンやハラミを中心に、最高の焼肉体験をお楽しみいただけます。" />
+  <meta name="twitter:description" content="下北沢『清田』は、昔ながらの焼肉屋を現代風にモダナイズ。厳選されたタンやハラミを中心に、最高の焼肉体験をお楽しみいただけます。" />
   <meta name="twitter:image" content="https://www.basic-fnb.com/images/kiyota-og.jpg" />
+
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CV445LCX0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-  
     gtag('config', 'G-5CV445LCX0');
   </script>
+
   <style>
-    html {
-      scroll-behavior: smooth;
+    :root {
+      --charcoal: #1a1a18;
+      --carbon: #242420;
+      --ash: #3a3a35;
+      --smoke: #6b6b64;
+      --fog: #a8a89e;
+      --bone: #e8e4dc;
+      --chalk: #f2efe8;
+      --white: #faf9f7;
+      --accent: #c8b89a;
+      --accent-dark: #8a7a62;
     }
-    @font-face {
-      font-family: 'Kaishoku';
-      src: url('/fonts/HOT-GFKaishokk-E.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
-    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      margin: 0;
-      font-family: 'Kaishoku', 'Noto Sans JP', sans-serif;
-      color: #333;
-      background-color: #fff;
-    }
-    
-
-    header {
-      background: url('src/kiyota-1.jpg') no-repeat center center/cover;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      color: var(--charcoal);
+      background: var(--white);
+      overflow-x: hidden;
     }
 
-    header::after {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.4);
-      z-index: 1;
-    }
-
-    header h1, header p {
-      z-index: 2;
-    }
-
-    header h1 {
-      font-family: 'Kaishoku', 'Noto Sans JP', sans-serif;
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      letter-spacing: 0.2rem;
-    }
-
-    header p {
-      font-size: 1.2rem;
-    }
-
+    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0;
@@ -97,46 +69,44 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.6);
+      padding: 0 40px;
+      height: 64px;
+      background: rgba(26,26,24,0.88);
+      backdrop-filter: blur(8px);
       z-index: 1000;
+      border-bottom: 1px solid rgba(200,184,154,0.15);
     }
 
     .nav-brand {
-      font-family: 'Kaishoku', 'Noto Sans JP', sans-serif;
-      color: white;
-      font-weight: bold;
-      font-size: 1.1rem;
-      margin-left: 10px;
-      z-index: 3;
-    }
-
-    .nav-toggle {
-      display: none;
-      font-size: 1.5rem;
-      color: white;
-      background: none;
-      border: none;
-      cursor: pointer;
-      margin-right: 10px;
-      z-index: 3;
+      font-family: 'Shippori Mincho', serif;
+      color: var(--bone);
+      font-size: 1.05rem;
+      letter-spacing: 0.12em;
     }
 
     .nav-links {
       display: flex;
-      gap: 20px;
+      gap: 32px;
       align-items: center;
     }
 
     .nav-links a {
-      color: white;
+      color: var(--fog);
       text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.3s;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      transition: color 0.25s;
     }
 
-    .nav-links a:hover {
-      color: #c00;
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--bone);
+      font-size: 1.3rem;
+      cursor: pointer;
     }
 
     .fullscreen-menu {
@@ -145,240 +115,722 @@
       justify-content: center;
       align-items: center;
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.95);
+      inset: 0;
+      background: rgba(26,26,24,0.97);
       z-index: 2000;
+      gap: 28px;
     }
+
+    .fullscreen-menu.show { display: flex; }
 
     .fullscreen-menu a {
-      color: white;
+      font-family: 'Shippori Mincho', serif;
+      color: var(--bone);
       text-decoration: none;
       font-size: 1.5rem;
-      margin: 15px 0;
+      letter-spacing: 0.15em;
+      transition: color 0.2s;
     }
 
-    .fullscreen-menu a:hover {
-      color: #c00;
-    }
+    .fullscreen-menu a:hover { color: var(--accent); }
 
-    .fullscreen-menu .close-btn {
+    .close-btn {
       position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 2rem;
-      color: white;
+      top: 24px;
+      right: 36px;
+      font-size: 1.8rem;
+      color: var(--fog);
       cursor: pointer;
-      display: none;
+      background: none;
+      border: none;
+      line-height: 1;
     }
 
-    .fullscreen-menu.show .close-btn {
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: url('src/kiyota-1.jpg') center center / cover no-repeat;
+      transform: scale(1.04);
+      transition: transform 8s ease;
+    }
+
+    .hero-bg.loaded { transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(26,26,24,0.92) 0%,
+        rgba(26,26,24,0.4) 50%,
+        rgba(26,26,24,0.2) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 60px 72px;
+      max-width: 720px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.15;
+      letter-spacing: 0.05em;
+      margin-bottom: 24px;
+    }
+
+    .hero-title span {
       display: block;
+      font-size: 0.48em;
+      font-weight: 400;
+      color: var(--bone);
+      letter-spacing: 0.18em;
+      margin-top: 12px;
     }
 
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-      .nav-toggle {
-        display: block;
-      }
+    .hero-body {
+      font-size: 0.88rem;
+      line-height: 2;
+      color: rgba(232,228,220,0.75);
+      letter-spacing: 0.06em;
+      max-width: 420px;
     }
 
-    .container {
-      max-width: 960px;
-      margin: auto;
-      padding: 100px 20px 60px;
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      right: 48px;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--fog);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+    }
+
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 48px;
+      background: var(--accent-dark);
+      animation: scrollline 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollline {
+      0%,100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 1; transform: scaleY(0.6); }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 40px; }
+
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.35em;
+      color: var(--accent-dark);
+      text-transform: uppercase;
+      margin-bottom: 16px;
     }
 
     .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 40px;
-      border-bottom: 2px solid #ccc;
-      display: inline-block;
-      padding-bottom: 10px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 500;
+      color: var(--charcoal);
+      line-height: 1.3;
+      letter-spacing: 0.04em;
+      margin-bottom: 32px;
     }
 
-    .photo {
-      width: 100%;
-      height: 400px;
-      background-color: #eee;
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #aaa;
-      font-size: 1.2rem;
-    }
-
-    .footer {
-      background-color: #222;
-      color: #aaa;
-      text-align: center;
-      padding: 40px 20px;
+    .section-body {
       font-size: 0.9rem;
+      line-height: 2.1;
+      color: var(--smoke);
+      letter-spacing: 0.05em;
+      max-width: 520px;
     }
 
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 24px 0;
+    }
+
+    /* ── CONCEPT ── */
+    #concept {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .concept-visual {
+      position: relative;
+      height: 500px;
+    }
+
+    .concept-img-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 80%;
+      height: 85%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .concept-img-accent {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 50%;
+      height: 45%;
+      object-fit: cover;
+      border: 4px solid var(--white);
+      display: block;
+    }
+
+    .concept-num {
+      position: absolute;
+      top: -20px;
+      left: -16px;
+      font-family: 'Shippori Mincho', serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: rgba(200,184,154,0.12);
+      line-height: 1;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    /* ── MEAT ── */
+    #meat {
+      background: var(--charcoal);
+      padding: 100px 40px;
+    }
+
+    #meat .section-title { color: var(--bone); }
+    #meat .section-body { color: var(--fog); }
+    #meat .section-label { color: var(--accent); }
+
+    .meat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 48px;
+      max-width: 1100px;
+    }
+
+    .meat-item {
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      cursor: pointer;
+    }
+
+    .meat-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+      display: block;
+    }
+
+    .meat-item:hover img { transform: scale(1.06); }
+
+    .meat-item-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 32px 20px 20px;
+      background: linear-gradient(to top, rgba(26,26,24,0.9), transparent);
+      color: var(--bone);
+      font-family: 'Shippori Mincho', serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.12em;
+    }
+
+    .meat-item-label span {
+      display: block;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 0.68rem;
+      color: var(--fog);
+      letter-spacing: 0.15em;
+      margin-top: 4px;
+    }
+
+    .meat-content {
+      max-width: 1100px;
+    }
+
+    /* ── STORE ── */
+    #store {
+      background: var(--chalk);
+      max-width: 100%;
+    }
+
+    .store-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .store-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 3px;
+      margin-top: 48px;
+    }
+
+    .store-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .store-grid .main-img {
+      grid-row: 1 / 3;
+      height: 480px;
+    }
+
+    .store-grid .sub-img {
+      height: 235px;
+    }
+
+    /* ── ACCESS ── */
+    #access {
+      background: var(--carbon);
+      padding: 100px 40px;
+    }
+
+    #access .section-title { color: var(--bone); }
+    #access .section-label { color: var(--accent); }
+
+    .access-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .access-info {
+      color: var(--fog);
+      font-size: 0.88rem;
+      line-height: 2.2;
+      letter-spacing: 0.06em;
+    }
+
+    .access-info strong {
+      display: block;
+      color: var(--bone);
+      font-weight: 400;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+      margin-top: 24px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+    }
+
+    .access-hours {
+      border-top: 1px solid rgba(200,184,154,0.15);
+      margin-top: 16px;
+      padding-top: 16px;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      font-size: 0.82rem;
+    }
+
+    .hours-row.closed { color: var(--ash); text-decoration: line-through; }
+
+    .map-wrap {
+      aspect-ratio: 4/3;
+    }
+
+    .map-wrap iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      filter: grayscale(1) contrast(1.1);
+    }
+
+    /* ── RESERVE ── */
+    #reserve {
+      background: var(--white);
+      text-align: center;
+      padding: 120px 40px;
+    }
+
+    .reserve-inner { max-width: 600px; margin: 0 auto; }
+
+    .reserve-cta {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 16px 48px;
+      background: var(--charcoal);
+      color: var(--bone);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      border: 1px solid var(--ash);
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+
+    .reserve-cta:hover {
+      background: var(--accent);
+      color: var(--charcoal);
+      border-color: var(--accent);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      padding: 48px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(200,184,154,0.1);
+    }
+
+    .footer-brand {
+      font-family: 'Shippori Mincho', serif;
+      color: var(--bone);
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .footer-links a {
+      color: var(--smoke);
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-copy {
+      color: var(--ash);
+      font-size: 0.72rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── FADE IN ── */
     .fade-in {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 1s ease, transform 1s ease;
+      transform: translateY(28px);
+      transition: opacity 0.9s ease, transform 0.9s ease;
     }
 
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
-    .photo-gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
 
-    .photo-gallery img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      object-fit: cover;
-    }
-
+    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .photo-gallery img {
-        max-width: 100%;
+      .nav-links { display: none; }
+      .nav-toggle { display: block; }
+      nav { padding: 0 20px; }
+
+      .hero-content { padding: 0 24px 56px; }
+
+      #concept {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        padding: 72px 24px;
+      }
+
+      .concept-visual { height: 320px; }
+
+      section { padding: 72px 24px; }
+
+      .meat-grid { grid-template-columns: 1fr; }
+      .meat-item { aspect-ratio: 4/3; }
+
+      .store-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .store-grid .main-img { grid-row: auto; height: 260px; }
+      .store-grid .sub-img { height: 200px; }
+
+      .access-inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .footer-links { flex-wrap: wrap; justify-content: center; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div class="nav-brand">清田焼肉店</div>
-      <button class="nav-toggle" onclick="openMenu()">
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="nav-links">
-        <a href="#concept">コンセプト</a>
-        <a href="#meat">お肉</a>
-        <a href="#store">店舗</a>
-        <a href="#access">アクセス</a>
-        <a href="#reserve">予約</a>
-        <a href="https://basic-fnb.com/" target="_blank">会社概要</a>
-        <a href="https://www.instagram.com/kiyotayakiniku/" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-      </div>
-    </nav>
 
-    <div class="fullscreen-menu" id="fullscreenMenu">
-      <div class="close-btn" onclick="closeMenu()">&times;</div>
-      <a href="#concept" onclick="closeMenu()">コンセプト</a>
-      <a href="#meat" onclick="closeMenu()">お肉</a>
-      <a href="#store" onclick="closeMenu()">店舗</a>
-      <a href="#access" onclick="closeMenu()">アクセス</a>
-      <a href="#reserve" onclick="closeMenu()">予約</a>
-      <a href="https://basic-fnb.com/" target="_blank" onclick="closeMenu()">会社概要</a>
-      <a href="https://www.instagram.com/kiyotayakiniku/" target="_blank" onclick="closeMenu()">
-        Instagram <i class="fab fa-instagram"></i>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-brand">清田焼肉店</div>
+    <button class="nav-toggle" onclick="openMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="#concept">コンセプト</a>
+      <a href="#meat">お肉</a>
+      <a href="#store">店舗</a>
+      <a href="#access">アクセス</a>
+      <a href="#reserve">ご予約</a>
+      <a href="https://basic-fnb.com/" target="_blank">会社概要</a>
+      <a href="https://www.instagram.com/kiyotayakiniku/" target="_blank">
+        <i class="fab fa-instagram"></i>
       </a>
     </div>
+  </nav>
 
-    <h1>清田焼肉店</h1>
-    <p>昔ながらの焼肉屋を、モダナイズして。</p>
+  <!-- FULLSCREEN MENU -->
+  <div class="fullscreen-menu" id="fullscreenMenu">
+    <button class="close-btn" onclick="closeMenu()">×</button>
+    <a href="#concept" onclick="closeMenu()">コンセプト</a>
+    <a href="#meat" onclick="closeMenu()">お肉</a>
+    <a href="#store" onclick="closeMenu()">店舗</a>
+    <a href="#access" onclick="closeMenu()">アクセス</a>
+    <a href="#reserve" onclick="closeMenu()">ご予約</a>
+    <a href="https://basic-fnb.com/" target="_blank" onclick="closeMenu()">会社概要</a>
+    <a href="https://www.instagram.com/kiyotayakiniku/" target="_blank" onclick="closeMenu()">
+      Instagram <i class="fab fa-instagram"></i>
+    </a>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content fade-in visible">
+      <p class="hero-eyebrow">Shimokitazawa — Yakiniku</p>
+      <h1 class="hero-title">
+        清田焼肉店
+        <span>昔の味を、今の形で。</span>
+      </h1>
+      <p class="hero-body">
+        大阪焼肉の流儀を、下北沢の街に。<br>
+        厳選のタン・ハラミ、無煙の清潔な空間。<br>
+        昔ながらの焼肉屋を、現代にモダナイズする。
+      </p>
+    </div>
+    <div class="hero-scroll">SCROLL</div>
   </header>
 
-  <div class="container">
-    <section id="concept" class="fade-in">
-      <h2 class="section-title">CONCEPT</h2>
-      <p>
-        昔ながらの焼肉屋を現代風にモダナイズ。<br>
-        国産和牛とプライム・アンガスビーフの“いいところだけ”を厳選。<br>
-        肉焼き職人が厳選した肉を、コストパフォーマンス良くご提供。<br>
-        モクモクを抑えた清潔な店内で、大阪焼肉の魅力を東京・下北沢で体験してください。
+  <!-- CONCEPT -->
+  <section id="concept" class="fade-in">
+    <div class="concept-visual">
+      <div class="concept-num">01</div>
+      <img class="concept-img-main" src="src/kiyota-5.jpg" alt="清田焼肉店 店内" />
+      <img class="concept-img-accent" src="src/kiyota-2.jpg" alt="清田焼肉店 お肉" />
+    </div>
+    <div>
+      <p class="section-label">Concept</p>
+      <h2 class="section-title">昔ながらの焼肉屋を、<br>現代に更新する。</h2>
+      <div class="divider"></div>
+      <p class="section-body">
+        国産和牛とプライム・アンガスビーフの"いいとこどり"。<br>
+        大阪焼肉の技と哲学を東京・下北沢で再解釈した、モダンな一軒。<br><br>
+        無煙ロースターを完備し、煙を抑えた清潔な空間。<br>
+        コストパフォーマンスを守りながら、素材と火入れで勝負する。
       </p>
-    </section>
+    </div>
+  </section>
 
-    <section id="meat" class="fade-in">
-      <h2 class="section-title">OUR MEAT</h2>
-     <div class="photo-gallery">
+  <!-- MEAT -->
+  <section id="meat">
+    <div class="meat-content fade-in">
+      <p class="section-label">Our Meat</p>
+      <h2 class="section-title">タンとハラミ、<br>二枚看板。</h2>
+      <div class="divider"></div>
+      <p class="section-body">
+        肉焼き職人が目利きした、自慢の二枚看板。<br>
+        旨味と柔らかさが際立つフレッシュな仕入れを、驚きの価格でお届けする。
+      </p>
+    </div>
+    <div class="meat-grid fade-in">
+      <div class="meat-item">
         <img src="src/kiyota-2.jpg" alt="ハラミ" />
-        <img src="src/kiyota-3.jpg" alt="タン" />
-        <img src="src/kiyota-4.jpg" alt="盛り合わせ" />
-    　</div>
-      <p>
-        自慢のハラミ・タンは、肉の旨味と柔らかさが際立つ逸品。<br>
-        フレッシュで上質なお肉を、驚きのコストパフォーマンスでご提供します。
-      </p>
-    </section>
-
-    <section id="store" class="fade-in">
-      <h2 class="section-title">STORE</h2>
-      <div class="photo-gallery">
-        <img src="src/kiyota-5.jpg" alt="外観1" />
-        <img src="src/kiyota-6.jpg" alt="内観" />
-        <img src="src/kiyota-7.jpg" alt="外観2" />
+        <div class="meat-item-label">
+          ハラミ
+          <span>HARAMI</span>
+        </div>
       </div>
-      <p>
-        無煙ロースターを完備し、煙を抑えた清潔感のある空間。<br>
-        木目と黒を基調にした落ち着いた内装で、居心地の良さを演出しています。
-      </p>
-    </section>
+      <div class="meat-item">
+        <img src="src/kiyota-3.jpg" alt="タン" />
+        <div class="meat-item-label">
+          タン
+          <span>TAN</span>
+        </div>
+      </div>
+      <div class="meat-item">
+        <img src="src/kiyota-4.jpg" alt="盛り合わせ" />
+        <div class="meat-item-label">
+          盛り合わせ
+          <span>ASSORTMENT</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="access" class="fade-in">
-      <h2 class="section-title">ACCESS</h2>
-      <p>
-        東京都世田谷区北沢2-25-4<br>
-        毎日営業（ランチ営業あり）<br>
-        小田急線・京王井の頭線「下北沢駅」より徒歩2分
-      </p>
-      <div style="margin-top:20px;">
+  <!-- STORE -->
+  <section id="store">
+    <div class="store-inner">
+      <div class="fade-in">
+        <p class="section-label">Store</p>
+        <h2 class="section-title">下北沢駅徒歩1分、<br>路地裏の一軒。</h2>
+        <div class="divider"></div>
+        <p class="section-body">
+          木目と黒を基調にした落ち着いた空間。<br>
+          無煙ロースターで、服に匂いがつかない清潔感。
+        </p>
+      </div>
+      <div class="store-grid fade-in">
+        <img class="main-img" src="src/kiyota-6.jpg" alt="店内" />
+        <img class="sub-img" src="src/kiyota-5.jpg" alt="外観" />
+        <img class="sub-img" src="src/kiyota-7.jpg" alt="外観2" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ACCESS -->
+  <section id="access">
+    <div class="access-inner">
+      <div class="fade-in">
+        <p class="section-label">Access</p>
+        <h2 class="section-title">アクセス</h2>
+        <div class="divider" style="background: var(--accent-dark);"></div>
+        <div class="access-info">
+          東京都世田谷区北沢2-25-4<br>
+          下北沢駅より徒歩1分
+          <strong>営業時間</strong>
+          <div class="access-hours">
+            <div class="hours-row"><span>月曜日</span><span>17:30~23:00</span></div>
+            <div class="hours-row"><span>火曜日</span><span>17:30~23:00</span></div>
+            <div class="hours-row"><span>水曜日</span><span>17:30~23:00</span></div>
+            <div class="hours-row"><span>木曜日</span><span>17:30~23:00</span></div>
+            <div class="hours-row"><span>金曜日</span><span>17:30~23:00</span></div>
+            <div class="hours-row"><span>土曜日</span><span>12:00~14:30,17:00~23:00</span></div>
+            <div class="hours-row"><span>日曜日</span><span>12:00~14:30,17:30~23:00</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="map-wrap fade-in">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.620241007473!2d139.66422847578684!3d35.66172697259355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6018f3768a4ceab7%3A0x92c7a29023ac3ce7!2z5riF55Sw54S86IKJ5bqX!5e0!3m2!1sja!2sjp!4v1744615806299!5m2!1sja!2sjp"
-          width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+          allowfullscreen="" loading="lazy">
         </iframe>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="reserve" class="fade-in">
-      <h2 class="section-title">RESERVE</h2>
-      <p>ご予約は下記リンクよりお願いします。</p>
-      <p><a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13308579" target="_blank">▶ 予約ページへ</a></p>
-    </section>
-  </div>
+  <!-- RESERVE -->
+  <section id="reserve">
+    <div class="reserve-inner fade-in">
+      <p class="section-label" style="text-align:center;">Reserve</p>
+      <h2 class="section-title" style="text-align:center;">ご予約</h2>
+      <div class="divider" style="margin: 24px auto;"></div>
+      <p class="section-body" style="margin: 0 auto; text-align:center;">
+        ご予約はお電話またはオンラインにて。<br>
+        当日のご来店も歓迎しております。
+      </p>
+      <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13308579"
+         target="_blank"
+         class="reserve-cta">
+        オンラインで予約する
+      </a>
+    </div>
+  </section>
 
-  <div class="footer">
-    &copy; 2025 清田焼肉店 - All rights reserved.
-  </div>
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">清田焼肉店</div>
+    <div class="footer-links">
+      <a href="https://basic-fnb.com/" target="_blank">株式会社Basic</a>
+      <a href="https://www.instagram.com/kiyotayakiniku/" target="_blank">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </div>
+    <p class="footer-copy">© 2025 清田焼肉店</p>
+  </footer>
 
   <script>
+    // Hero bg load animation
+    const heroBg = document.getElementById('heroBg');
+    const img = new Image();
+    img.onload = () => heroBg.classList.add('loaded');
+    img.src = 'src/kiyota-1.jpg';
+
+    // Fade in on scroll
     const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    };
-
-    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
       });
-    }, appearOptions);
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-    faders.forEach(fader => {
-      appearOnScroll.observe(fader);
-    });
+    faders.forEach(f => { if (!f.classList.contains('visible')) observer.observe(f); });
 
+    // Fullscreen menu
     function openMenu() {
-      document.getElementById('fullscreenMenu').style.display = 'flex';
+      document.getElementById('fullscreenMenu').classList.add('show');
     }
-
     function closeMenu() {
-      document.getElementById('fullscreenMenu').style.display = 'none';
+      document.getElementById('fullscreenMenu').classList.remove('show');
     }
   </script>
 </body>

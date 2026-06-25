@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>中目黒 弥之助｜Nakameguro YANOSUKE</title>
+  <title>中目黒 弥之助｜創作和食 Nakameguro YANOSUKE</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
-   <!-- Google tag (gtag.js) -->
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500;600;700;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-5CV445LCX0"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -18,398 +18,264 @@
 
   <style>
     :root{
-      --ink:#1b1b1b;
-      --bg:#faf8f3;
-      --card:#ffffff;
-      --accent:#d6a154;
-      --accent-2:#7a5530;
-      --line:#eee7db;
+      --paper:#f3f1ea;       /* 和紙 washi ground */
+      --paper-2:#ece9e0;     /* raised */
+      --concrete:#dcd8cf;    /* コンクリート panel */
+      --card:#fbfaf6;        /* card surface */
+      --ink:#201d18;         /* 墨 sumi */
+      --ink-2:#4b463d;
+      --muted:#8d877a;       /* 灰 */
+      --faint:#b4ae9f;
+      --line:rgba(32,29,24,.13);
+      --line-soft:rgba(32,29,24,.07);
+      --pine:#3a5641;        /* 松葉 deep green accent */
+      --pine-2:#4e7257;      /* hover */
+      --pine-soft:rgba(58,86,65,.10);
+      --serif:"Shippori Mincho B1","Noto Serif JP",serif;
+      --sans:"Zen Kaku Gothic New",system-ui,-apple-system,sans-serif;
     }
     *{box-sizing:border-box}
     html,body{
-      margin:0;
-      padding:0;
-      background:var(--bg);
+      margin:0;padding:0;
+      background:var(--paper);
       color:var(--ink);
-      font-family:Inter, system-ui, -apple-system, "Noto Sans JP", sans-serif;
+      font-family:var(--sans);
+      -webkit-font-smoothing:antialiased;
+      line-height:1.85;
     }
     a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .container{max-width:1120px;margin:0 auto;padding:0 24px}
+    ::selection{background:rgba(58,86,65,.22)}
 
     @font-face {
       font-family: 'Kouzan';
       src: url('/fonts/KouzanMouhituFontOTF.otf') format('opentype');
-      font-weight: normal;
-      font-style: normal;
+      font-weight: normal; font-style: normal; font-display:swap;
     }
 
-    /* NAV */
+    /* utility: latin micro-label */
+    .latin{font-family:var(--sans);text-transform:uppercase;letter-spacing:.28em;font-weight:500}
+
+    /* ---------- NAV ---------- */
     .nav{
-      position:fixed;
-      top:0;left:0;right:0;
-      height:64px;
-      display:flex;
-      align-items:center;
-      z-index:3000;
-      transition:background .3s, box-shadow .3s;
+      position:fixed;top:0;left:0;right:0;height:74px;display:flex;align-items:center;z-index:3000;
+      transition:background .4s ease, box-shadow .4s ease, height .4s ease, border-color .4s ease;
+      border-bottom:1px solid transparent;
     }
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      width:100%;
-    }
-    .brand{display:flex;align-items:baseline;gap:12px;font-weight:800}
-    .brand__jp{font-family:"Kouzan", serif;font-weight:700;letter-spacing:.2em}
-    .brand__en{opacity:.7;font-size:.9rem}
-    .nav-links{display:flex;gap:22px;font-weight:600}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%}
+    .brand{display:flex;align-items:baseline;gap:12px}
+    .brand__jp{font-family:var(--serif);font-weight:700;letter-spacing:.18em;font-size:1.34rem}
+    .brand__en{font-family:var(--sans);text-transform:uppercase;letter-spacing:.24em;font-size:.66rem;opacity:.62;font-weight:500}
+    .nav .brand__jp,.nav .brand__en{color:#fff}
+    .nav.scrolled .brand__jp{color:var(--ink)}
+    .nav.scrolled .brand__en{color:var(--muted)}
+    .nav-links{display:flex;gap:30px;font-weight:500;font-size:.9rem;letter-spacing:.06em}
+    .nav-links a{color:rgba(255,255,255,.86)}
+    .nav.scrolled .nav-links a{color:var(--ink-2)}
     .nav.scrolled{
-      background:rgba(255,255,255,.92);
-      backdrop-filter:saturate(180%) blur(8px);
-      box-shadow:0 6px 18px rgba(0,0,0,.08);
+      height:62px;background:rgba(243,241,234,.86);
+      backdrop-filter:saturate(140%) blur(12px);-webkit-backdrop-filter:saturate(140%) blur(12px);
+      border-bottom:1px solid var(--line);
     }
-    .nav a{position:relative}
-    .nav a:after{
-      content:"";
-      position:absolute;
-      left:0;right:0;bottom:-6px;height:2px;
-      background:linear-gradient(90deg,var(--accent),transparent);
-      transform:scaleX(0);
-      transform-origin:left;
-      transition:transform .25s;
+    .nav-links a{position:relative}
+    .nav-links a:after{
+      content:"";position:absolute;left:0;right:0;bottom:-7px;height:1.5px;background:var(--pine);
+      transform:scaleX(0);transform-origin:left;transition:transform .3s ease;
     }
-    .nav a:hover:after,.nav a.active:after{transform:scaleX(1)}
-    .nav.menu-open{
-      background:rgba(255,255,255,.98);
-      backdrop-filter:saturate(180%) blur(8px);
-      box-shadow:0 6px 18px rgba(0,0,0,.12);
-    }
-    .nav.menu-open .hamburger span{ background:var(--ink) !important; }
+    .nav-links a:hover:after,.nav-links a.active:after{transform:scaleX(1)}
+    .nav.scrolled .nav-links a.active{color:var(--ink)}
+    .nav.menu-open{background:rgba(243,241,234,.98)}
 
     /* HAMBURGER */
     .hamburger{
-      position:relative;
-      display:none;
-      align-items:center;
-      justify-content:center;
-      width:44px;height:44px;
-      padding:0;border:none;background:transparent;
-      border-radius:12px;cursor:pointer;outline:none;
-      transition:background .2s, box-shadow .2s;
-      z-index:3100;
-    }
-    .hamburger:active{transform:translateY(1px)}
-    .hamburger span{
-      position:absolute;left:50%;
-      width:22px;height:2px;border-radius:2px;
-      transform:translateX(-50%);
-      transition:transform .25s ease, opacity .2s ease, top .25s ease, background .2s ease;
-    }
-    .nav:not(.scrolled) .hamburger span{ background:#fff; }
-    .nav.scrolled .hamburger span{ background:var(--ink); }
-    .hamburger span:nth-child(1){ top:16px; }
-    .hamburger span:nth-child(2){ top:21px; }
-    .hamburger span:nth-child(3){ top:26px; }
-    .hamburger.is-open span:nth-child(1){ top:21px; transform:translateX(-50%) rotate(45deg); }
-    .hamburger.is-open span:nth-child(2){ opacity:0; }
-    .hamburger.is-open span:nth-child(3){ top:21px; transform:translateX(-50%) rotate(-45deg); }
+      position:relative;display:none;align-items:center;justify-content:center;width:46px;height:46px;
+      padding:0;border:1px solid rgba(255,255,255,.4);background:transparent;border-radius:999px;cursor:pointer;outline:none;z-index:3100;transition:border-color .3s}
+    .nav.scrolled .hamburger,.nav.menu-open .hamburger{border-color:var(--line)}
+    .hamburger span{position:absolute;left:50%;width:20px;height:1.6px;border-radius:2px;background:#fff;transform:translateX(-50%);transition:transform .28s ease, opacity .2s ease, top .28s ease, background .3s ease}
+    .nav.scrolled .hamburger span,.nav.menu-open .hamburger span{background:var(--ink)}
+    .hamburger span:nth-child(1){top:18px}
+    .hamburger span:nth-child(2){top:23px}
+    .hamburger span:nth-child(3){top:28px}
+    .hamburger.is-open span:nth-child(1){top:23px;transform:translateX(-50%) rotate(45deg)}
+    .hamburger.is-open span:nth-child(2){opacity:0}
+    .hamburger.is-open span:nth-child(3){top:23px;transform:translateX(-50%) rotate(-45deg)}
 
-    /* HERO */
-    .hero{
-      position: relative;
-      display: grid;
-      place-items: center;
-      height: 88vh;
-      min-height: 560px;
-      overflow: hidden;
-      color: #fff;
-    }
-    .hero-video{ opacity:0; transition:opacity .35s ease; }
-    .hero-video.is-ready{ opacity:1; }
-
-    @media (prefers-reduced-data: reduce){
-      .hero-video{ display:none; }
-      .hero{ background: url('/src/hero-fallback.jpg') center/cover no-repeat; }
-    }
-
-    .hero-video,
+    /* ---------- HERO ---------- */
+    .hero{position:relative;display:grid;align-items:end;min-height:100svh;overflow:hidden;color:#fff;padding-bottom:11vh}
+    .hero-video{opacity:0;transition:opacity .9s ease}
+    .hero-video.is-ready{opacity:1}
+    .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
     .hero-overlay{
-      position: absolute;
-      inset: 0;
+      position:absolute;inset:0;z-index:1;
+      background:linear-gradient(180deg, rgba(20,18,14,.5) 0%, rgba(20,18,14,.12) 34%, rgba(20,18,14,.55) 78%, rgba(20,18,14,.78) 100%);
     }
-    .hero-video{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-    }
-    .hero-overlay{
-      z-index: 1;
-      background: rgba(0,0,0,.45);
-    }
-    .hero-content{
-      position: relative;
-      z-index: 2;
-      max-width: 1100px;
-      width:100%;
-      padding: 0 20px;
-    }
+    .hero-content{position:relative;z-index:2;max-width:1120px;width:100%;margin:0 auto;padding:0 24px}
+    .hero-eyebrow{font-size:.74rem;letter-spacing:.3em;color:rgba(255,255,255,.82);margin:0 0 22px;display:flex;align-items:center;gap:14px;text-transform:uppercase;font-weight:500}
+    .hero-eyebrow::before{content:"";width:34px;height:1px;background:rgba(255,255,255,.6)}
     .hero h1{
-      font-family: "Kouzan", serif;
-      font-weight: 700;
-      letter-spacing: .18em;
-      font-size: clamp(28px, 4vw, 44px);
-      margin: 0 0 10px;
+      font-family:var(--serif);font-weight:700;letter-spacing:.07em;line-height:1.5;
+      font-size:clamp(31px,5.6vw,62px);margin:0 0 22px;text-shadow:0 2px 36px rgba(0,0,0,.4);
     }
-    .hero p{
-      max-width: 680px;
-      margin: 0 0 24px;
-      opacity: .95;
-    }
-    .cta{
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
-    }
-    .btn{
-      display:inline-block;
-      padding:12px 18px;
-      border-radius:999px;
-      font-weight:700;
-      border:1px solid transparent;
-      line-height:1;
-    }
-    .btn--primary{ background:var(--accent); color:#1b1207; }
-    .btn--ghost{
-      background:rgba(255,255,255,.1);
-      border-color:rgba(255,255,255,.35);
-      color:#fff;
-    }
-    .btn:focus-visible{
-      outline:2px solid rgba(255,255,255,.8);
-      outline-offset:2px;
-    }
-    .btn:hover{ filter:brightness(1.05); }
+    .hero p{font-family:var(--serif);font-weight:500;max-width:600px;margin:0 0 34px;font-size:clamp(14.5px,1.55vw,17px);line-height:2.1;color:rgba(255,255,255,.92);letter-spacing:.03em}
+    .cta{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:15px 28px;border-radius:2px;font-weight:700;font-size:.92rem;letter-spacing:.06em;border:1px solid transparent;line-height:1;transition:transform .15s ease, box-shadow .25s ease, background .25s ease, color .2s ease, border-color .2s ease;font-family:var(--sans)}
+    .btn--primary{background:var(--pine);color:#f6f4ee;box-shadow:0 12px 30px rgba(58,86,65,.32)}
+    .btn--primary:hover{background:var(--pine-2);transform:translateY(-2px);box-shadow:0 16px 38px rgba(58,86,65,.4)}
+    .btn--ghost{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.42);color:#fff}
+    .btn--ghost:hover{border-color:#fff;background:rgba(255,255,255,.14)}
+    .btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
 
-    @media (prefers-reduced-motion: reduce){
-      .hero-video{ display:none; }
-      .hero-overlay{ background: rgba(0,0,0,.55); }
+    /* vertical label on hero */
+    .hero-vlabel{
+      position:absolute;right:40px;top:50%;transform:translateY(-50%);z-index:2;
+      writing-mode:vertical-rl;font-family:var(--serif);font-weight:600;letter-spacing:.3em;font-size:.94rem;
+      color:rgba(255,255,255,.78);
     }
+    .hero-vlabel::before{content:"";position:absolute;left:50%;top:-26px;transform:translateX(-50%);width:1px;height:18px;background:rgba(255,255,255,.5)}
 
-    /* SECTIONS */
-    section{padding:80px 0}
-    h2.section-title{
-      font-family:"Noto Serif JP", serif;
-      font-weight:700;
-      letter-spacing:.18em;
-      margin:0 0 10px;
-    }
-    .subtitle{color:#6a6a6a;margin:0 0 28px}
-    .card{
-      background:var(--card);
-      border-radius:18px;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-    }
+    .scroll-cue{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);z-index:2;font-size:.64rem;letter-spacing:.3em;color:rgba(255,255,255,.6);text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:9px}
+    .scroll-cue::after{content:"";width:1px;height:32px;background:linear-gradient(rgba(255,255,255,.7),transparent);animation:cueDrop 2.2s ease-in-out infinite}
+    @keyframes cueDrop{0%{transform:scaleY(.3);transform-origin:top;opacity:.4}50%{transform:scaleY(1);opacity:1}100%{transform:scaleY(.3);transform-origin:bottom;opacity:.4}}
 
-    /* CONCEPT */
-    .concept{display:grid;grid-template-columns:1.2fr .8fr;gap:28px}
-    .concept .image{border-radius:16px;overflow:hidden}
-    .concept img{width:100%;height:100%;object-fit:cover;display:block}
-    @media (max-width:900px){.concept{grid-template-columns:1fr}}
+    /* ---------- NOREN divider ---------- */
+    .noren{display:flex;justify-content:center;gap:6px;height:34px;margin:0 auto;max-width:200px;opacity:.9}
+    .noren span{flex:1;background:linear-gradient(180deg,var(--pine),rgba(58,86,65,.55));border-radius:0 0 3px 3px}
+    .noren span:nth-child(2){opacity:.82}
+    .noren span:nth-child(3){opacity:.66}
 
-    /* GALLERY */
+    /* ---------- SECTIONS ---------- */
+    section{padding:104px 0;position:relative}
+    .sec-head{margin-bottom:42px}
+    .eyebrow{font-size:.7rem;letter-spacing:.3em;color:var(--pine);text-transform:uppercase;font-weight:500;display:flex;align-items:center;gap:13px;margin-bottom:15px}
+    .eyebrow::before{content:"";width:24px;height:1px;background:var(--pine)}
+    h2.section-title{font-family:var(--serif);font-weight:700;letter-spacing:.1em;font-size:clamp(24px,3vw,35px);margin:0;line-height:1.45}
+    .subtitle{color:var(--muted);margin:14px 0 0;font-size:.95rem;line-height:1.95;max-width:640px}
+
+    .card{background:var(--card);border:1px solid var(--line);border-radius:4px;box-shadow:0 18px 44px rgba(32,29,24,.06)}
+
+    /* ---------- CONCEPT ---------- */
+    .concept{display:grid;grid-template-columns:1.12fr .88fr;gap:50px;align-items:center}
+    .concept .lede{font-family:var(--serif);font-size:1.04rem;line-height:2.25;color:var(--ink-2);margin:0 0 28px}
+    .concept ul{list-style:none;padding:0;margin:0;display:grid;gap:15px}
+    .concept li{display:flex;align-items:flex-start;gap:14px;font-size:.96rem;color:var(--ink-2);padding-bottom:15px;border-bottom:1px solid var(--line-soft)}
+    .concept li:last-child{border-bottom:0;padding-bottom:0}
+    .concept li::before{content:"";width:7px;height:7px;flex:0 0 7px;margin-top:11px;transform:rotate(45deg);background:var(--pine)}
+    .concept li strong{color:var(--ink);font-weight:700}
+    .concept .image{border-radius:4px;overflow:hidden;position:relative;aspect-ratio:4/5}
+    .concept img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.02)}
+    @media (max-width:900px){.concept{grid-template-columns:1fr;gap:34px}.concept .image{aspect-ratio:16/10}}
+
+    /* positioning scale — the signature */
+    .position{margin-top:64px;background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:40px 44px}
+    .position-h{font-family:var(--serif);font-weight:700;font-size:1.12rem;letter-spacing:.06em;margin:0 0 30px;display:flex;align-items:baseline;gap:12px}
+    .position-h .en{font-size:.64rem;letter-spacing:.26em;color:var(--pine);text-transform:uppercase;font-family:var(--sans)}
+    .scale{position:relative;margin:0 8px}
+    .scale-track{position:relative;height:2px;background:var(--line);margin:38px 0 14px}
+    .scale-track::before,.scale-track::after{content:"";position:absolute;top:50%;width:7px;height:7px;border-radius:999px;background:var(--muted);transform:translateY(-50%)}
+    .scale-track::before{left:0}
+    .scale-track::after{right:0}
+    .scale-fill{position:absolute;left:0;top:0;height:2px;width:57%;background:var(--pine)}
+    .scale-dot{position:absolute;left:57%;top:50%;width:15px;height:15px;border-radius:999px;background:var(--pine);transform:translate(-50%,-50%);box-shadow:0 0 0 5px rgba(58,86,65,.16)}
+    .scale-dot::after{content:"弥之助";position:absolute;left:50%;bottom:24px;transform:translateX(-50%);white-space:nowrap;font-family:var(--serif);font-weight:700;font-size:.84rem;letter-spacing:.12em;color:var(--ink)}
+    .scale-ends{display:flex;justify-content:space-between;font-family:var(--serif);font-size:.92rem;color:var(--ink-2);letter-spacing:.08em}
+    .position-notes{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+    .pnote{padding-top:18px;border-top:1px solid var(--line)}
+    .pnote .k{font-size:.66rem;letter-spacing:.26em;color:var(--pine);text-transform:uppercase;margin-bottom:8px}
+    .pnote .v{font-family:var(--serif);font-size:1.16rem;font-weight:700;letter-spacing:.04em}
+    .pnote .v small{font-size:.82rem;color:var(--muted);font-weight:500;margin-left:8px;letter-spacing:0}
+    @media (max-width:620px){.position{padding:30px 24px}.position-notes{grid-template-columns:1fr;gap:14px}}
+
+    /* ---------- GALLERY ---------- */
     .gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
-    .gallery img{width:100%;height:100%;object-fit:cover;border-radius:14px;cursor:pointer}
-    .carousel-btn{ display:none; }
-
-    @media (max-width:900px){
-      .gallery{grid-template-columns:1fr 1fr}
+    .gallery img{width:100%;height:100%;object-fit:cover;border-radius:4px;cursor:pointer}
+    .carousel-btn{display:none}
+    @media (max-width:900px){.gallery{grid-template-columns:1fr 1fr}}
+    @media (min-width:901px){
+      .carousel-btn{display:block}
+      .gallery-wrap{position:relative}
+      .gallery{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:6px 8px 14px;-webkit-mask-image:linear-gradient(to right,transparent 0,black 28px,black calc(100% - 28px),transparent 100%);mask-image:linear-gradient(to right,transparent 0,black 28px,black calc(100% - 28px),transparent 100%)}
+      .gallery img{flex:0 0 auto;height:380px;aspect-ratio:4/3;width:auto;object-fit:cover;border-radius:4px;scroll-snap-align:start;border:1px solid var(--line-soft)}
+      .carousel-btn{position:absolute;top:50%;translate:0 -50%;width:46px;height:46px;border:1px solid var(--line);border-radius:999px;background:rgba(251,250,246,.94);backdrop-filter:blur(6px);color:var(--ink);font-size:22px;font-weight:600;line-height:44px;cursor:pointer;transition:transform .15s ease, border-color .2s ease, color .2s ease}
+      .carousel-btn:hover{transform:translateY(-50%) scale(1.06);border-color:var(--pine);color:var(--pine)}
+      .carousel-btn.prev{left:-10px}.carousel-btn.next{right:-10px}
+      .gallery::-webkit-scrollbar{height:6px}
+      .gallery::-webkit-scrollbar-thumb{background:rgba(32,29,24,.16);border-radius:8px}
+      .gallery{scrollbar-color:rgba(32,29,24,.16) transparent;scrollbar-width:thin}
     }
 
-    @media (min-width: 901px){
-      .carousel-btn{ display:block; }
+    /* ---------- MENU ---------- */
+    .featured-menu{margin-bottom:34px;padding:34px 32px !important;position:relative;overflow:hidden;background:var(--card)}
+    .featured-menu::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--pine)}
+    .featured-menu h3{margin:0 0 22px;font-family:var(--serif);font-weight:700;font-size:1.2rem;letter-spacing:.1em;display:flex;align-items:baseline;gap:12px}
+    .featured-menu h3 .en{font-size:.64rem;letter-spacing:.26em;color:var(--pine);text-transform:uppercase;font-family:var(--sans)}
+    .featured-grid{display:grid;gap:13px}
 
-      .gallery-wrap{ position: relative; }
-      .gallery{
-        display:flex;
-        gap:16px;
-        overflow-x:auto;
-        scroll-snap-type:x mandatory;
-        -webkit-overflow-scrolling: touch;
-        padding:6px 8px 10px;
-        -webkit-mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
-        mask-image: linear-gradient(to right, transparent 0, black 24px, black calc(100% - 24px), transparent 100%);
-      }
-      .gallery img{
-        flex:0 0 auto;
-        height:360px;
-        aspect-ratio:4 / 3;
-        width:auto;
-        object-fit:cover;
-        border-radius:14px;
-        scroll-snap-align:start;
-      }
-      .carousel-btn{
-        position:absolute;
-        top:50%;
-        translate:0 -50%;
-        width:40px;height:40px;border:0;
-        border-radius:999px;
-        background:rgba(255,255,255,.9);
-        box-shadow:0 8px 20px rgba(0,0,0,.12);
-        font-size:22px;font-weight:700;line-height:40px;
-        cursor:pointer;
-        transition:transform .12s ease, background .2s ease;
-      }
-      .carousel-btn:hover{ transform:translateY(-50%) scale(1.05); }
-      .carousel-btn:active{ transform:translateY(-50%) scale(.97); }
-      .carousel-btn.prev{ left:-6px; }
-      .carousel-btn.next{ right:-6px; }
+    .tabs{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
+    .chip{padding:10px 22px;border-radius:999px;background:transparent;border:1px solid var(--line);color:var(--ink-2);font-weight:500;font-size:.95rem;letter-spacing:.08em;cursor:pointer;transition:all .2s ease;font-family:var(--serif)}
+    .chip:hover{border-color:var(--pine);color:var(--pine)}
+    .chip.active{background:var(--pine);color:#f6f4ee;border-color:transparent;font-weight:700}
 
-      .gallery::-webkit-scrollbar{ height:8px; }
-      .gallery::-webkit-scrollbar-thumb{ background:#ddd; border-radius:8px; }
-      .gallery{ scrollbar-color:#ddd transparent; scrollbar-width:thin; }
-    }
-
-    /* MENU */
-    .featured-menu{margin-bottom:22px}
-    .featured-grid{display:grid;gap:14px}
-    .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-    .chip{
-      padding:8px 12px;
-      border-radius:999px;
-      background:#f1ece3;
-      border:1px solid #e3dacb;
-      font-weight:600;
-      cursor:pointer;
-    }
-    .chip.active{background:var(--accent);color:#20150b}
-
-    .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .menu-item{
-      padding:14px 16px;
-      border-radius:14px;
-      background:var(--card);
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
-      border:1px solid var(--line);
-    }
+    .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+    .menu-item{padding:18px 20px;border-radius:4px;background:var(--card);display:flex;justify-content:space-between;align-items:flex-start;gap:14px;border:1px solid var(--line-soft);transition:border-color .2s ease, transform .2s ease, box-shadow .2s ease}
+    .menu-item:hover{border-color:var(--line);transform:translateY(-2px);box-shadow:0 12px 26px rgba(32,29,24,.06)}
     .menu-item__body{flex:1;min-width:0}
-    .menu-item__name{
-      font-weight:700;
-      line-height:1.55;
-      word-break:break-word;
-    }
-    .menu-item__desc{
-      font-size:.88rem;
-      color:#6a6a6a;
-      margin-top:6px;
-      line-height:1.7;
-    }
-    .menu-item__price{
-      white-space:nowrap;
-      font-weight:700;
-      padding-left:8px;
-    }
-    .menu-badge{
-      display:inline-block;
-      font-size:.72rem;
-      font-weight:700;
-      color:#b7791f;
-      background:#fff7e8;
-      border:1px solid #f0dfba;
-      border-radius:999px;
-      padding:4px 8px;
-      margin-bottom:8px;
-    }
-    @media (max-width:760px){
-      .menu-grid{grid-template-columns:1fr}
-    }
+    .menu-item__name{font-family:var(--serif);font-weight:600;line-height:1.6;color:var(--ink);font-size:1rem;word-break:break-word}
+    .menu-item__desc{font-size:.85rem;color:var(--muted);margin-top:8px;line-height:1.8}
+    .menu-item__price{white-space:nowrap;font-weight:700;font-size:1.04rem;color:var(--pine);padding-left:10px;letter-spacing:.01em;font-family:var(--sans)}
+    .menu-badge{display:inline-block;font-size:.66rem;font-weight:700;letter-spacing:.12em;color:var(--pine);background:var(--pine-soft);border:1px solid rgba(58,86,65,.3);border-radius:999px;padding:3px 10px;margin-bottom:10px}
+    @media (max-width:760px){.menu-grid{grid-template-columns:1fr}}
 
-    /* ACCESS */
-    .access-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-    .map{
-      border:0;
-      width:100%;
-      height:320px;
-      border-radius:14px;
-      box-shadow:0 10px 30px rgba(0,0,0,.06);
-    }
-    @media (max-width:900px){
-      .access-grid{grid-template-columns:1fr}
-    }
+    /* ---------- ACCESS / PANELS ---------- */
+    .access-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .info-card{padding:34px 32px !important}
+    .info-card .row{padding:18px 0;border-bottom:1px solid var(--line-soft);display:grid;grid-template-columns:96px 1fr;gap:16px;align-items:baseline}
+    .info-card .row:last-child{border-bottom:0;padding-bottom:0}
+    .info-card .row:first-child{padding-top:0}
+    .info-card .k{font-family:var(--serif);font-size:.84rem;color:var(--pine);letter-spacing:.14em}
+    .info-card .v{font-size:.95rem;color:var(--ink-2);line-height:1.85}
+    .info-card .v strong{color:var(--ink)}
+    .map{border:1px solid var(--line);width:100%;height:100%;min-height:360px;border-radius:4px;filter:grayscale(.35) contrast(1.02)}
+    @media (max-width:900px){.access-grid{grid-template-columns:1fr}.map{min-height:300px}}
 
-    /* FOOTER */
-    footer{padding:60px 0;background:#13100d;color:#f1ebe2}
-    .floating-reserve{
-      position:fixed;
-      right:18px;bottom:18px;
-      padding:14px 18px;
-      border-radius:999px;
-      background:var(--accent);
-      font-weight:800;
-      box-shadow:0 12px 24px rgba(0,0,0,.18);
-      z-index:2500;
-    }
+    .panel{padding:38px 34px !important}
+    .panel p{margin:0 0 14px;color:var(--ink-2)}
+    .panel .tel{font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:.04em;font-family:var(--serif)}
+    .panel .fine{font-size:.84rem;color:var(--muted);margin-top:18px}
+    .panel a.inline-link{color:var(--pine);border-bottom:1px solid rgba(58,86,65,.4)}
 
-    /* REVEAL */
-    .reveal{
-      opacity:0;
-      transform:translateY(22px);
-      transition:opacity .6s ease, transform .6s ease;
-    }
+    /* ---------- FOOTER ---------- */
+    footer{padding:70px 0 56px;background:var(--ink);color:#e9e5da}
+    .foot-inner{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
+    .foot-inner .brand__jp{color:#f3f1ea;font-size:1.4rem}
+    .foot-inner .brand__en{color:rgba(243,241,234,.55)}
+    .foot-copy{color:rgba(243,241,234,.5);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+
+    .floating-reserve{position:fixed;right:22px;bottom:22px;padding:16px 26px;border-radius:999px;background:var(--pine);color:#f6f4ee;font-weight:700;letter-spacing:.08em;box-shadow:0 14px 32px rgba(58,86,65,.4);z-index:2500;transition:transform .15s ease, background .2s ease}
+    .floating-reserve:hover{transform:translateY(-3px);background:var(--pine-2)}
+
+    .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease, transform .8s ease}
     .reveal.on{opacity:1;transform:none}
 
     @media (prefers-reduced-motion: reduce){
-      .reveal{transition:none}
-      .nav a:after{display:none}
+      .reveal{transition:none;opacity:1;transform:none}
+      .scroll-cue::after{animation:none}
+      .nav-links a:after{display:none}
     }
 
-    /* MOBILE NAV */
-    .nav-scrim{
-      display:none;
-    }
-
-    @media (max-width:860px){
+    /* ---------- MOBILE NAV ---------- */
+    .nav-scrim{display:none}
+    @media (max-width:880px){
+      .hero-vlabel{display:none}
       .hamburger{display:flex}
-      .nav-links{
-        position:fixed;
-        inset:64px 0 auto 0;
-        display:grid;
-        gap:10px;
-        padding:18px 20px 28px;
-        background:rgba(255,255,255,.98);
-        box-shadow:0 20px 40px rgba(0,0,0,.12);
-        transform:translateY(-8px);
-        opacity:0;
-        pointer-events:none;
-        transition:opacity .2s ease, transform .2s ease;
-        z-index:2900;
-      }
-      .nav-links a{padding:14px 2px;font-weight:700}
-      .nav-links.open{
-        opacity:1;
-        transform:none;
-        pointer-events:auto;
-      }
-      .nav-scrim{
-        position:fixed;
-        inset:64px 0 0 0;
-        background:rgba(0,0,0,.25);
-        opacity:0;
-        pointer-events:none;
-        transition:opacity .2s ease;
-        z-index:2800;
-        display:block;
-      }
-      .nav-scrim.show{
-        opacity:1;
-        pointer-events:auto;
-      }
-      html.no-scroll, body.no-scroll{ overflow:hidden; }
+      .nav-links{position:fixed;inset:74px 0 auto 0;display:grid;gap:4px;padding:20px 24px 30px;background:rgba(243,241,234,.98);backdrop-filter:blur(12px);box-shadow:0 24px 48px rgba(32,29,24,.16);border-bottom:1px solid var(--line);transform:translateY(-10px);opacity:0;pointer-events:none;transition:opacity .25s ease, transform .25s ease;z-index:2900}
+      .nav-links a{padding:16px 4px;font-weight:600;font-size:1.05rem;font-family:var(--serif);color:var(--ink) !important;border-bottom:1px solid var(--line-soft)}
+      .nav-links a:last-child{border-bottom:0}
+      .nav-links.open{opacity:1;transform:none;pointer-events:auto}
+      .nav-scrim{position:fixed;inset:74px 0 0 0;background:rgba(0,0,0,.35);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:2800;display:block}
+      .nav-scrim.show{opacity:1;pointer-events:auto}
+      html.no-scroll,body.no-scroll{overflow:hidden}
+      section{padding:78px 0}
+      .scroll-cue{display:none}
     }
   </style>
 </head>
@@ -423,11 +289,11 @@
 
       <div class="nav-links" id="navLinks">
         <a href="#concept" data-spy>コンセプト</a>
-        <a href="#interior" data-spy>店内紹介</a>
-        <a href="#menu" data-spy>メニュー</a>
+        <a href="#interior" data-spy>店内</a>
+        <a href="#menu" data-spy>お品書き</a>
         <a href="#access" data-spy>アクセス</a>
         <a href="#company" data-spy>店舗概要</a>
-        <a href="#reservation" data-spy>予約</a>
+        <a href="#reservation" data-spy>ご予約</a>
       </div>
 
       <button class="hamburger" id="hamburger" aria-label="メニュー" aria-controls="navLinks" aria-expanded="false">
@@ -439,69 +305,99 @@
   <div class="nav-scrim" id="navScrim"></div>
 
   <section class="hero" aria-label="Hero">
-    <video
-      class="hero-video"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      poster="/src/donabe-2.jpg"
-    >
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/src/donabe-2.jpg">
       <source src="/src/donabe.webm" type="video/webm">
       <source src="/src/donabe.mp4" type="video/mp4">
     </video>
     <div class="hero-overlay"></div>
+
+    <div class="hero-vlabel" aria-hidden="true">創作和食 ・ 中目黒</div>
+
     <div class="hero-content">
-      <h1>14席カウンターと個室、職人が躍る夜。</h1>
-      <p style="font-family:Kouzan;">火の音、包丁の走る音、立ちのぼる香り。弥之助はライブキッチンの臨場感と、四季の味覚を楽しむ大人の居酒屋です。</p>
+      <p class="hero-eyebrow">中目黒 — 大人の隠れ家</p>
+      <h1>居酒屋の気軽さで、<br>割烹の一皿を。</h1>
+      <p>旬の食材を、出汁と手仕事で端正に。肩肘張らず、それでいて記憶に残る。中目黒の路地裏で味わう、創作和食です。</p>
       <div class="cta">
-        <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13312586" class="btn btn--primary" target="_blank" rel="noopener">予約する</a>
-        <a href="#menu" class="btn btn--ghost">メニューを見る</a>
+        <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13312586" class="btn btn--primary" target="_blank" rel="noopener">席を予約する</a>
+        <a href="#menu" class="btn btn--ghost">お品書きを見る</a>
       </div>
     </div>
+
+    <div class="scroll-cue" aria-hidden="true">Scroll</div>
   </section>
 
-  <section id="concept" class="container" style="margin-top:15px;">
-    <h2 class="section-title">コンセプト</h2>
-    <p class="subtitle">14席のカウンターと個室に集まる熱と匂い、職人の手元まで愉しむ“ライブ”が主役。</p>
+  <div style="padding:46px 0 0"><div class="noren reveal" aria-hidden="true"><span></span><span></span><span></span></div></div>
+
+  <section id="concept" class="container" style="padding-top:58px">
+    <div class="sec-head reveal">
+      <div class="eyebrow">Concept</div>
+      <h2 class="section-title">居酒屋以上、割烹未満。</h2>
+      <p class="subtitle">気軽な価格で、割烹の手仕事を。旬の食材を出汁と鉄板で端正に仕立てる、中目黒の隠れ家・創作和食です。</p>
+    </div>
+
     <div class="concept reveal">
       <div>
-        <p>弥之助は、料理人の所作がそのままご馳走になる店。旬の食材を、鉄板・出汁で端正に。肩肘張らず、それでいて記憶に残る一皿を目指しています。</p>
+        <p class="lede">弥之助は、料理人の所作がそのままご馳走になる店。コンクリート打ちっぱなしの空間に、上質な暖簾。14席のカウンターで手元を間近に愉しみながら、肩肘張らず、記憶に残る一皿をお出しします。</p>
         <ul>
-          <li>目の前で仕上がる <strong>鉄板焼き・出汁仕事</strong></li>
-          <li>季節の食材を愉しむ <strong>土鍋ご飯</strong></li>
+          <li><span>目の前で仕上がる <strong>鉄板焼き・出汁仕事</strong></span></li>
+          <li><span>季節の食材を炊き上げる <strong>土鍋ご飯</strong></span></li>
+          <li><span>打ちっぱなしと暖簾の <strong>隠れ家空間</strong></span></li>
         </ul>
       </div>
       <div class="image">
         <img src="/src/aji-fry.jpg" alt="料理イメージ">
       </div>
     </div>
+
+    <div class="position reveal">
+      <h3 class="position-h">弥之助の立ち位置 <span class="en">Positioning</span></h3>
+      <div class="scale">
+        <div class="scale-track">
+          <div class="scale-fill"></div>
+          <div class="scale-dot"></div>
+        </div>
+        <div class="scale-ends"><span>居酒屋</span><span>割烹</span></div>
+      </div>
+      <div class="position-notes">
+        <div class="pnote">
+          <div class="k">Price</div>
+          <div class="v">価格は、居酒屋。<small>気軽に通える一品から</small></div>
+        </div>
+        <div class="pnote">
+          <div class="k">Quality</div>
+          <div class="v">質は、割烹。<small>素材と手仕事に妥協なく</small></div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="interior" class="container">
-    <h2 class="section-title">店内紹介</h2>
-    <p class="subtitle">木の温もりと柔らかな陰影。14席のカウンターで、熱の“最前列”へ。</p>
+    <div class="sec-head reveal">
+      <div class="eyebrow">Interior</div>
+      <h2 class="section-title">店内紹介</h2>
+      <p class="subtitle">コンクリート打ちっぱなしに、上質な暖簾。14席のカウンターで、料理人の手元を間近に。</p>
+    </div>
 
-    <div class="gallery-wrap">
+    <div class="gallery-wrap reveal">
       <button class="carousel-btn prev" type="button" aria-label="前へ" data-gallery-btn="prev">‹</button>
-
-      <div class="gallery reveal" id="gallery">
+      <div class="gallery" id="gallery">
         <img src="/src/counter-seat.jpg" alt="カウンター全景">
         <img src="/src/donabe.jpg" alt="料理の並び">
         <img src="/src/mackrel-fry.jpg" alt="キッチンの様子">
         <img src="/src/private-seat.jpg" alt="個室の写真">
       </div>
-
       <button class="carousel-btn next" type="button" aria-label="次へ" data-gallery-btn="next">›</button>
     </div>
   </section>
 
   <section id="menu" class="container">
-    <h2 class="section-title">メニュー</h2>
+    <div class="sec-head reveal">
+      <div class="eyebrow">Menu</div>
+      <h2 class="section-title">お品書き</h2>
+    </div>
 
-    <div class="card reveal featured-menu" style="padding:18px;">
-      <h3 style="margin:0 0 14px;font-family:'Noto Serif JP', serif;">おすすめ</h3>
+    <div class="card reveal featured-menu">
+      <h3>名物 <span class="en">Signature</span></h3>
       <div class="featured-grid" id="featuredGrid"></div>
     </div>
 
@@ -515,63 +411,65 @@
       <button class="chip" data-tab="sweet" type="button">甘</button>
     </div>
 
-    <p class="subtitle" style="margin-bottom:16px;">※メニュー内容は季節やその日の仕入れ状況により変更する場合がございます。</p>
+    <p class="subtitle" style="margin:0 0 20px">※メニュー内容は季節やその日の仕入れ状況により変更する場合がございます。</p>
     <div class="menu-grid reveal" id="menuGrid"></div>
   </section>
 
   <section id="access" class="container">
-    <h2 class="section-title">アクセス</h2>
+    <div class="sec-head reveal">
+      <div class="eyebrow">Access</div>
+      <h2 class="section-title">アクセス</h2>
+    </div>
     <div class="access-grid reveal">
-      <div class="card" style="padding:18px 18px 6px">
-        <p><strong>住所</strong><br>東京都目黒区上目黒3-32-5 カーサデラソル 2F</p>
-        <p><strong>最寄り</strong><br>東急東横線・東京メトロ日比谷線「中目黒」徒歩5分</p>
-        <p><strong>営業時間</strong><br>17:30〜23:00（L.O.22:00）／<strong>定休</strong>：日曜</p>
-        <p><strong>席数</strong>：カウンター14席、テーブル席2席と個室3部屋あり</p>
+      <div class="card info-card">
+        <div class="row"><div class="k">住所</div><div class="v">東京都目黒区上目黒3-32-5<br>カーサデラソル 2F</div></div>
+        <div class="row"><div class="k">最寄り</div><div class="v">東急東横線・東京メトロ日比谷線<br>「中目黒」駅 徒歩5分</div></div>
+        <div class="row"><div class="k">営業時間</div><div class="v">17:30〜23:00（L.O.22:00）<br><strong>定休日</strong>：日曜</div></div>
+        <div class="row"><div class="k">席数</div><div class="v">カウンター14席・テーブル2席<br>個室3部屋</div></div>
       </div>
-      <iframe
-        class="map"
-        title="Google Map"
+      <iframe class="map" title="Google Map"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d220.09590755595204!2d139.6963294861533!3d35.64272169397791!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b89aea61fad%3A0x5dbec2dfc54862c3!2z5Lit55uu6buSIOW8peS5i-WKqQ!5e0!3m2!1sen!2ssg!4v1754615121260!5m2!1sen!2ssg"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </section>
 
   <section id="reservation" class="container">
-    <h2 class="section-title">予約</h2>
-    <div class="card reveal" style="padding:18px">
-      <p>お電話またはオンラインで承ります。</p>
-      <p><strong>TEL：</strong><a href="tel:03-6452-3277">03-6452-3277</a></p>
-      <p><a class="btn btn--primary" href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13312586" target="_blank" rel="noopener">WEB予約へ</a></p>
-      <p style="font-size:.88rem;color:#6a6a6a">※コース／アレルギー等のご要望は備考欄へ。キャンセルは前日までにご連絡ください。</p>
+    <div class="sec-head reveal">
+      <div class="eyebrow">Reservation</div>
+      <h2 class="section-title">ご予約</h2>
+    </div>
+    <div class="card reveal panel">
+      <p>お電話、またはオンラインにて承ります。</p>
+      <p class="tel"><a href="tel:03-6452-3277">03-6452-3277</a></p>
+      <p style="margin-top:22px"><a class="btn btn--primary" href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13312586" target="_blank" rel="noopener">WEBで予約する</a></p>
+      <p class="fine">※コース／アレルギー等のご要望は備考欄へ。キャンセルは前日までにご連絡ください。</p>
     </div>
   </section>
 
-  <section id="company" class="container" style="margin-bottom:10px">
-    <h2 class="section-title">店舗概要</h2>
-    <div class="card reveal" style="padding:18px">
-      <p><strong>店舗名：</strong>中目黒 弥之助</p>
-      <p><strong>オープン日：</strong>2025年8月18日</p>
-      <p><strong>住所：</strong>東京都目黒区上目黒3-32-5 カーサデラソル 2F</p>
-      <p><strong>運営会社：</strong><a href="https://www.basic-fnb.com/" target="_blank" rel="noopener">こちら</a></p>
+  <section id="company" class="container" style="padding-bottom:94px">
+    <div class="sec-head reveal">
+      <div class="eyebrow">About</div>
+      <h2 class="section-title">店舗概要</h2>
+    </div>
+    <div class="card reveal info-card">
+      <div class="row"><div class="k">店舗名</div><div class="v"><strong>中目黒 弥之助</strong></div></div>
+      <div class="row"><div class="k">オープン</div><div class="v">2025年8月18日</div></div>
+      <div class="row"><div class="k">住所</div><div class="v">東京都目黒区上目黒3-32-5 カーサデラソル 2F</div></div>
+      <div class="row"><div class="k">運営会社</div><div class="v"><a class="inline-link" href="https://www.basic-fnb.com/" target="_blank" rel="noopener">株式会社Basic</a></div></div>
     </div>
   </section>
 
   <footer>
-    <div class="container">
-      <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
-        <div class="brand">
-          <div class="brand__jp">弥之助</div>
-          <div class="brand__en">Yanosuke</div>
-        </div>
-        <div style="opacity:.7">© 2025 YANOSUKE</div>
+    <div class="container foot-inner">
+      <div class="brand">
+        <div class="brand__jp">弥之助</div>
+        <div class="brand__en">Yanosuke</div>
       </div>
+      <div class="foot-copy">© 2025 Yanosuke — Nakameguro</div>
     </div>
   </footer>
 
-  <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13312586" class="floating-reserve" target="_blank" rel="noopener">予約する</a>
+  <a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13312586" class="floating-reserve" target="_blank" rel="noopener">ご予約</a>
 
   <script>
     const nav = document.getElementById('nav');
@@ -582,65 +480,54 @@
     const menuGrid = document.getElementById('menuGrid');
     const featuredGrid = document.getElementById('featuredGrid');
 
+    /* 最新メニュー（食べログ 2026/06/12 更新版 反映） */
     const MENU = {
       featured: [
-        {
-          name: '手羽先 “赤”“白” 唐揚げ',
-          price: '418円',
-          desc: '王道にカリッとジューシーな手羽先を特製のスパイスであえた、人気No.1メニューです！'
-        },
-        {
-          name: '厚切り牛タンの鉄板焼き',
-          price: '2,948円',
-          desc: '贅沢な厚切り牛タンを熟練の火入れでご提供いたします。正直、居酒屋のクオリティではないです！'
-        },
-        {
-          name: '弥之助の土鍋飯',
-          price: '2,840円',
-          desc: '季節の食材を使った土鍋ご飯です。2人前で提供しております。'
-        }
+        { name: '弥之助の土鍋飯', price: '', desc: '季節の食材を使った土鍋ご飯です。2人前で提供しております。' },
+        { name: '手羽先 “赤”“白” 唐揚げ', price: '418円', desc: '王道にカリッとジューシーな手羽先を特製のスパイスであえた、人気No.1メニューです！' },
+        { name: '厚切り牛タンの鉄板焼き', price: '2,948円', desc: '贅沢な厚切り牛タンを熟練の火入れでご提供いたします。正直、居酒屋のクオリティではないです！' },
+        { name: '弥之助のホタテメンチ', price: '1,364円', desc: '隠し味に自家製カレータルタルを使ってます。' }
       ],
       otsumami: [
         { name: '長芋のあまから揚げ', price: '594円', desc: '', recommended: true },
-        { name: '沖縄 ざるもずく', price: '594円', desc: '', recommended: false },
-        { name: '牡蠣のアーリオ・オーリオ', price: '748円', desc: '', recommended: false },
-        { name: 'オクラの山葵漬け', price: '715円', desc: '', recommended: false },
-        { name: 'おつまみ 自家製生八味', price: '539円', desc: '', recommended: true }
+        { name: 'つぶ貝ともずくのキムチ', price: '638円', desc: '', recommended: false },
+        { name: 'ホタルイカの沖漬けと鬼おろし', price: '638円', desc: '', recommended: false },
+        { name: '海鮮ユッケ', price: '979円', desc: '', recommended: false },
+        { name: 'おつまみ 自家製生八味', price: '539円', desc: '', recommended: true },
+        { name: '自家製厚揚げ', price: '495円', desc: '', recommended: false }
       ],
       reisa: [
         { name: '弥之助特製 塩だれサラダ', price: '1,089円', desc: '', recommended: false },
-        { name: '弥之助の刺盛り 三種（一人前）', price: '979円', desc: '', recommended: true },
-        { name: '弥之助の刺盛り 五種（一人前）', price: '1,639円', desc: '', recommended: true },
-        { name: 'せとか蜜柑と菜花の白和え', price: '858円', desc: '', recommended: false },
+        { name: '弥之助の刺盛り 三種（一人前）', price: '1,078円', desc: '', recommended: true },
+        { name: '弥之助の刺盛り 特選（一人前）', price: '2,046円', desc: '', recommended: true },
+        { name: 'マンゴーとルッコラの落花生白和え', price: '858円', desc: '', recommended: false },
         { name: '和牛の炙り刺し', price: '1,419円', desc: '', recommended: false },
-        { name: '茄子と生八味のお浸し', price: '858円', desc: '', recommended: false },
-        { name: '特製 炙り〆鯖', price: '946円', desc: '', recommended: false },
+        { name: '北海道水ダコとトマトの薬味和え', price: '924円', desc: '', recommended: false },
         { name: '真鯵のなめろう', price: '748円', desc: '', recommended: false }
       ],
       onsai: [
         { name: '揚げ出汁玉子', price: '748円', desc: '', recommended: false },
-        { name: '自家製おでんの盛り合わせ', price: '1,628円', desc: '', recommended: false },
+        { name: '実山椒と筍の自家製焼売', price: '792円', desc: '', recommended: false },
         { name: 'レタスと香味野菜の胡椒しゃぶしゃぶ', price: '979円', desc: '', recommended: false },
-        { name: '白子と唐墨のグラタン仕立て', price: '1,364円', desc: '', recommended: true },
         { name: '鮮魚とアサリの煎り酒蒸し', price: '1,298円', desc: '', recommended: true }
       ],
       age: [
-        { name: '弥之助アジフライ', price: '1,419円', desc: '', recommended: false },
         { name: '手羽先スパイス唐揚げ "赤" 一ヶ〜', price: '418円', desc: '1個あたりの値段です', recommended: true },
         { name: '手羽先スパイス唐揚げ "白" 一ヶ〜', price: '418円', desc: '1個あたりの値段です', recommended: true },
-        { name: '特選 和牛カツ', price: '1,749円', desc: '', recommended: false },
+        { name: '弥之助のホタテメンチ', price: '1,364円', desc: '隠し味に自家製カレータルタルを使ってます。', recommended: true },
+        { name: '生姜と大葉のミルフィーユかつ', price: '1,298円', desc: '', recommended: false },
         { name: 'ヤゲン軟骨の唐揚げ', price: '836円', desc: '', recommended: false }
       ],
       yaki: [
         { name: '黒毛和牛ウチモモの鉄板焼', price: '2,618円', desc: '', recommended: false },
-        { name: '厚切り牛タンの鉄板焼', price: '2,948円', desc: '贅沢な厚切り牛タンを熟練の火入れでご提供いたします。正直、居酒屋のクオリティではないです！', recommended: true },
+        { name: '厚切り牛タンの鉄板焼', price: '2,948円', desc: '', recommended: true },
         { name: '熟成豚の鉄板焼き 香味だれと黒にんにく', price: '1,518円', desc: '', recommended: true },
         { name: '岩手鴨の黒七味焼', price: '1,859円', desc: '', recommended: false }
       ],
       shokuji: [
-        { name: '土鍋飯 ズワイ蟹とセリのばらちらし', price: '2,840円', desc: '今月はこちらをご用意しています。', recommended: true },
-        { name: '岩手鴨と九条ねぎの土鍋飯', price: '2,178円', desc: '', recommended: true },
-        { name: '土鍋飯 季節食材と黒毛和牛', price: '4,048円', desc: '', recommended: true }
+        { name: 'トウモロコシと海苔、明日葉の土鍋飯', price: '2,948円', desc: '今月の土鍋ご飯です', recommended: true },
+        { name: '岩手鴨と九条ねぎの土鍋飯', price: '2,178円', desc: '', recommended: false },
+        { name: '土鍋飯 季節食材と黒毛和牛', price: '4,048円', desc: '', recommended: false }
       ],
       sweet: [
         { name: '塩ミルクアイスとオリーブオイル', price: '550円', desc: '', recommended: false },
@@ -648,37 +535,26 @@
       ]
     };
 
-    function escapeHtml(str) {
-      return String(str)
-        .replaceAll('&', '&amp;')
-        .replaceAll('<', '&lt;')
-        .replaceAll('>', '&gt;')
-        .replaceAll('"', '&quot;')
-        .replaceAll("'", '&#39;');
+    function escapeHtml(str){
+      return String(str).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
     }
-
-    function menuItemTemplate(item, isFeatured = false) {
+    function menuItemTemplate(item, isFeatured = false){
+      const badge = (isFeatured || item.recommended) ? '<div class="menu-badge">おすすめ</div>' : '';
+      const price = item.price ? `<div class="menu-item__price">${escapeHtml(item.price)}</div>` : '';
       return `
         <div class="menu-item">
           <div class="menu-item__body">
-            <div class="menu-badge">${isFeatured || item.recommended ? 'おすすめ' : ''}</div>
+            ${badge}
             <div class="menu-item__name">${escapeHtml(item.name)}</div>
             ${item.desc ? `<div class="menu-item__desc">${escapeHtml(item.desc)}</div>` : ''}
           </div>
-          <div class="menu-item__price">${escapeHtml(item.price)}</div>
-        </div>
-      `.replace('<div class="menu-badge"></div>', '');
+          ${price}
+        </div>`;
     }
+    function renderFeatured(){ featuredGrid.innerHTML = MENU.featured.map(item => menuItemTemplate(item, true)).join(''); }
+    function renderMenu(key){ menuGrid.innerHTML = MENU[key].map(item => menuItemTemplate(item, false)).join(''); }
 
-    function renderFeatured() {
-      featuredGrid.innerHTML = MENU.featured.map(item => menuItemTemplate(item, true)).join('');
-    }
-
-    function renderMenu(key) {
-      menuGrid.innerHTML = MENU[key].map(item => menuItemTemplate(item, false)).join('');
-    }
-
-    function setMenu(open) {
+    function setMenu(open){
       navLinks.classList.toggle('open', open);
       hamburger.classList.toggle('is-open', open);
       hamburger.setAttribute('aria-expanded', String(open));
@@ -687,22 +563,12 @@
       document.documentElement.classList.toggle('no-scroll', open);
       document.body.classList.toggle('no-scroll', open);
     }
+    function closeMenu(){ setMenu(false); }
 
-    function closeMenu() {
-      setMenu(false);
-    }
-
-    hamburger.addEventListener('click', () => {
-      setMenu(!navLinks.classList.contains('open'));
-    });
-
+    hamburger.addEventListener('click', () => setMenu(!navLinks.classList.contains('open')));
     navScrim.addEventListener('click', closeMenu);
-    window.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeMenu();
-    });
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 860) closeMenu();
-    });
+    window.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+    window.addEventListener('resize', () => { if (window.innerWidth > 880) closeMenu(); });
 
     const setScrolled = () => {
       if (window.scrollY > 10) nav.classList.add('scrolled');
@@ -711,20 +577,15 @@
     setScrolled();
     window.addEventListener('scroll', setScrolled, { passive: true });
 
-    if (heroVideo) {
+    if (heroVideo){
       const showVideo = () => heroVideo.classList.add('is-ready');
       heroVideo.addEventListener('loadeddata', showVideo, { once: true });
       heroVideo.addEventListener('canplay', showVideo, { once: true });
-      setTimeout(() => {
-        if (heroVideo.readyState >= 2) showVideo();
-      }, 1200);
+      setTimeout(() => { if (heroVideo.readyState >= 2) showVideo(); }, 1200);
     }
 
     const spyLinks = document.querySelectorAll('[data-spy]');
-    const sections = Array.from(spyLinks)
-      .map(a => document.querySelector(a.getAttribute('href')))
-      .filter(Boolean);
-
+    const sections = Array.from(spyLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
     const spyObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
@@ -733,23 +594,17 @@
         const link = document.querySelector(`.nav a[href="${id}"]`);
         if (link) link.classList.add('active');
       });
-    }, {
-      rootMargin: '-50% 0px -45% 0px',
-      threshold: 0
-    });
-
+    }, { rootMargin: '-50% 0px -45% 0px', threshold: 0 });
     sections.forEach(section => spyObserver.observe(section));
 
     document.addEventListener('click', (e) => {
       const link = e.target.closest('[data-spy]');
-      if (link && window.innerWidth <= 860) closeMenu();
+      if (link && window.innerWidth <= 880) closeMenu();
     });
 
     const revealEls = document.querySelectorAll('.reveal');
     const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('on');
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('on'); });
     }, { threshold: 0.15 });
     revealEls.forEach(el => revealObserver.observe(el));
 
@@ -764,16 +619,13 @@
     (() => {
       const gallery = document.getElementById('gallery');
       if (!gallery) return;
-
       const step = () => Math.max(280, Math.floor(gallery.clientWidth * 0.9));
-
       document.querySelectorAll('[data-gallery-btn]').forEach(btn => {
         btn.addEventListener('click', () => {
           const dir = btn.dataset.galleryBtn === 'next' ? 1 : -1;
           gallery.scrollBy({ left: dir * step(), behavior: 'smooth' });
         });
       });
-
       gallery.setAttribute('tabindex', '0');
       gallery.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowRight') gallery.scrollBy({ left: step(), behavior: 'smooth' });

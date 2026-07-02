@@ -10,7 +10,7 @@
 <meta property="og:type" content="restaurant">
 <meta property="og:title" content="バルデビス | 恵比寿のモダンスパニッシュ Since 2011" id="ogTitle">
 <meta property="og:description" content="2011年から恵比寿の路地に灯りをともすスペインバル。和のテイストを少しだけまとって、モダンスパニッシュへ。恵比寿駅徒歩4分。" id="ogDesc">
-<meta property="og:image" content="https://basic-fnb.com/src/bardebis-og.jpg">
+<meta property="og:image" content="https://basic-fnb.com/src/bardebis-arroz.jpg"><!-- TODO: 実際のOG画像URLに差し替え(推奨1200x630) -->
 <meta property="og:url" content="https://basic-fnb.com/bardebis">
 <meta property="og:site_name" content="バルデビス / BARDEBIS">
 <meta property="og:locale" content="ja_JP" id="ogLocale">
@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="バルデビス | 恵比寿のモダンスパニッシュ Since 2011" id="twTitle">
 <meta name="twitter:description" content="2011年から続く恵比寿の隠れ家スペインバルが、和のテイストを少しだけまとってリニューアル。" id="twDesc">
-<meta name="twitter:image" content="https://basic-fnb.com/src/bardebis-og.jpg">
+<meta name="twitter:image" content="https://basic-fnb.com/src/bardebis-arroz.jpg">
 <!-- 構造化データ -->
 <script type="application/ld+json">
 {
@@ -29,7 +29,7 @@
   "alternateName": "BARDEBIS",
   "description": "2011年から恵比寿の路地に灯りをともすスペインバル。和のテイストを少しだけ入れたモダンスパニッシュ。",
   "url": "https://basic-fnb.com/bardebis",
-  "image": "https://basic-fnb.com/src/bardebis-og.jpg",
+  "image": "https://basic-fnb.com/src/bardebis-arroz.jpg",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "恵比寿1-22-14 石井ビル B1F",
@@ -213,13 +213,17 @@ h1{font-family:var(--lat);font-weight:400;font-size:clamp(50px,11vw,120px);lette
 .info .eyebrow{color:var(--bengara)}
 .info .eyebrow::after{background:var(--bengara)}
 .info-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:70px;margin-top:50px}
+.info-grid>*{min-width:0}
 .info dl{display:grid;grid-template-columns:110px 1fr;row-gap:18px;font-size:14px}
 .info dt{font-family:var(--lat);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--bengara);padding-top:4px}
-.info dd{color:#3d3730}
+.info dd{color:#3d3730;overflow-wrap:break-word}
 .info dd small{color:#8f8676;font-size:12px;display:block;line-height:1.9}
-.map{aspect-ratio:4/3;border:1px solid var(--line)}
-.map iframe{width:100%;height:100%;border:0;filter:grayscale(.4) sepia(.12)}
-@media(max-width:820px){.info-grid{grid-template-columns:1fr}}
+.map{width:100%;max-width:100%}
+.map-frame{aspect-ratio:4/3;border:1px solid var(--line);overflow:hidden}
+.map-frame iframe{display:block;width:100%;height:100%;border:0;filter:grayscale(.4) sepia(.12)}
+.map-link{margin-top:12px;font-size:12px}
+.map-link a{color:var(--bengara);letter-spacing:.1em}
+@media(max-width:820px){.info-grid{grid-template-columns:1fr;gap:50px}}
 
 /* ---------- 予約 ---------- */
 .reserve{text-align:center;position:relative;overflow:hidden}
@@ -396,8 +400,10 @@ footer a:hover{color:var(--saffron)}
         <dt>Tel</dt><dd><a href="tel:0364502774" style="color:inherit">03-6450-2774</a></dd>
       </dl>
       <div class="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.245123602994!2d139.7146037!3d35.6463319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b14da890a8b%3A0x7887ca489f5711a0!2sBARDEBIS!5e0!3m2!1sen!2sjp!4v1782972869726!5m2!1sen!2sjp" allowfullscreen="" loading="lazy" title="バルデビスの地図" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        <p style="margin-top:12px;font-size:12px"><a href="https://maps.google.com/?q=BARDEBIS+%E6%81%B5%E6%AF%94%E5%AF%BF" target="_blank" rel="noopener" style="color:#96442e;letter-spacing:.1em">Googleマップで開く →</a></p>
+        <div class="map-frame">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3242.245123602994!2d139.7146037!3d35.6463319!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b14da890a8b%3A0x7887ca489f5711a0!2sBARDEBIS!5e0!3m2!1sen!2sjp!4v1782972869726!5m2!1sen!2sjp" allowfullscreen="" loading="lazy" title="バルデビスの地図" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <p class="map-link"><a href="https://maps.google.com/?q=BARDEBIS+%E6%81%B5%E6%AF%94%E5%AF%BF" target="_blank" rel="noopener">Googleマップで開く →</a></p>
       </div>
     </div>
   </div>

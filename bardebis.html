@@ -48,20 +48,14 @@
   "openingHoursSpecification": [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-      "opens": "16:00",
-      "closes": "23:30"
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Saturday"],
-      "opens": "15:00",
+      "dayOfWeek": ["Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "17:00",
       "closes": "23:30"
     },
     {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": ["Sunday"],
-      "opens": "15:00",
+      "opens": "17:00",
       "closes": "23:00"
     }
   ],
@@ -71,7 +65,7 @@
   "foundingDate": "2011-02-01",
   "smokingAllowed": false,
   "sameAs": [
-    "https://www.instagram.com/bardebis2011",
+    "https://www.instagram.com/bardebis_2011",
     "https://tabelog.com/tokyo/A1303/A130302/13122562/"
   ],
   "parentOrganization": {
@@ -172,7 +166,8 @@ h1{font-family:var(--lat);font-weight:400;font-size:clamp(50px,11vw,120px);lette
 .cuisine .eyebrow{color:var(--bengara)}
 .cuisine .eyebrow::after{background:var(--bengara)}
 .cuisine .jp-note{color:#7a7263}
-.signature{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:60px}
+.signature{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:60px}
+.ph{background:linear-gradient(150deg,#efe9dd,#ddd4c2)}
 .sig-card .ph{aspect-ratio:4/3}
 .sig-card h3{font-family:var(--min);font-weight:500;font-size:18px;letter-spacing:.16em;margin:20px 0 8px}
 .sig-card p{font-size:13.5px;color:#5c5344}
@@ -299,54 +294,81 @@ footer a:hover{color:var(--saffron)}
 <section class="cuisine light" id="cuisine">
   <div class="wrap">
     <p class="eyebrow">Cuisine</p>
-    <h2>スペイン × 和。<br>米と火の料理。</h2>
-    <p class="jp-note" style="margin-top:20px">名物のパエリアとアヒージョは健在。土鍋の炊き込みとアロスの間を行き来する、バルデビスの米料理をぜひ。</p>
+    <h2>スペイン × 和。<br>名物はパエリア。</h2>
+    <p class="jp-note" style="margin-top:20px">西瓜と梅、鱧と大葉、和牛と焦がし醤油。スペイン料理の骨格に和の食材を重ねた、バルデビスの新しい定番です。</p>
 
     <div class="signature">
       <div class="sig-card">
-        <figure class="ph"><img src="/src/paella-beef.jpg" alt="和牛の土鍋パエリア 炭火焼きの和牛と焦がし醤油" loading="lazy"></figure>
-        <p class="en">Signature 01</p>
-        <h3>和牛の土鍋パエリア 焦がし醤油</h3>
-        <p>スペインの米料理アロスに、炭火で焼き上げた和牛と焦がし醤油のソースを。おこげの香ばしさは、パエリアと土鍋ご飯の共通言語です。</p>
+        <figure class="ph"><img src="/src/paella-burratta.jpg" alt="海老とブッラータチーズのビスクパエリア" loading="lazy"></figure>
+        <p class="en">Signature — Paella 01</p>
+        <h3>海老とブッラータのビスク ¥3,680</h3>
+        <p>海老の旨みを煮詰めた濃厚ビスクで炊き上げ、仕上げにとろけるブッラータを。バルデビスの新章を象徴する看板パエリアです。</p>
       </div>
       <div class="sig-card">
-        <figure class="ph"><img src="/src/paella-ayu.jpg" alt="鮎の土鍋パエリア ディルと胡瓜" loading="lazy"></figure>
-        <p class="en">Signature 02</p>
-        <h3>季節の川魚の土鍋パエリア</h3>
-        <p>鮎などの季節の魚を丸ごと一尾。ディルと胡瓜の青い香りを重ねた、和の炊き込みご飯のようなアロス。季節ごとに主役が替わります。</p>
+        <figure class="ph"><img src="/src/paella-beef.jpg" alt="和牛ランプとレンコンのパエリア" loading="lazy"></figure>
+        <p class="en">Paella 02</p>
+        <h3>和牛ランプとレンコン ¥2,780</h3>
+        <p>炭火の香りをまとった和牛ランプに、焦がし醤油のソースを。おこげの香ばしさは、パエリアと土鍋ご飯の共通言語です。</p>
+      </div>
+      <div class="sig-card">
+        <figure class="ph"><img src="/src/paella-ayu.jpg" alt="季節の鮎とキュウリのパエリア" loading="lazy"></figure>
+        <p class="en">Paella 03</p>
+        <h3>季節の鮎とキュウリ ¥2,580</h3>
+        <p>季節の鮎を丸ごと一尾。ディルと胡瓜の青い香りが、焼き目に寄り添います。季節ごとに主役が替わる一皿。</p>
       </div>
     </div>
 
     <div class="menu-grid">
       <div class="menu-col">
         <h3>Tapas</h3>
-        <p class="h3jp">タパス・前菜</p>
-        <div class="dish"><p class="dish-name">前菜の盛り合わせ<small>Surtido de tapas — まずはこれから</small></p><p class="dish-price">¥1,980</p></div>
-        <div class="dish"><p class="dish-name">ハモンイベリコとマッシュルームのアヒージョ<small>名物 / 自家製パンとともに</small></p><p class="dish-price">¥1,280</p></div>
-        <div class="dish"><p class="dish-name">ムール貝の米詰め シェリー蒸し<small>Mejillones rellenos</small></p><p class="dish-price">¥1,080</p></div>
-        <div class="dish"><p class="dish-name">ふわとろオムレツ ソブラサーダ<small>Tortilla / 焼きパプリカ</small></p><p class="dish-price">¥1,180</p></div>
-        <div class="dish"><p class="dish-name">毎日焼きたて 自家製パン<small>Pan de la casa</small></p><p class="dish-price">¥380</p></div>
+        <p class="h3jp">タパス</p>
+        <div class="dish"><p class="dish-name">７種のタパス盛り合わせ(1人前)<small>まずはこれから — 気合いNo.1の一皿</small></p><p class="dish-price">¥1,400</p></div>
+        <div class="dish"><p class="dish-name">西瓜と梅のガスパチョ / パン・コン・トマテ ほか<small>盛り合わせの7種は単品でも</small></p><p class="dish-price">各 ¥540</p></div>
+
+        <h3 style="margin-top:44px">Cold Dish</h3>
+        <p class="h3jp">冷菜</p>
+        <div class="dish"><p class="dish-name">生マッシュルームとペコリーノのサラダ</p><p class="dish-price">¥1,380</p></div>
+        <div class="dish"><p class="dish-name">真鯛と赤エビの青唐セビーチェ</p><p class="dish-price">¥1,540</p></div>
+        <div class="dish"><p class="dish-name">白桃と自家製リコッタムース 生ハム</p><p class="dish-price">¥1,380</p></div>
+
+        <h3 style="margin-top:44px">Ajillo</h3>
+        <p class="h3jp">アヒージョ</p>
+        <div class="dish"><p class="dish-name">鱧と梅の大葉ジェノベーゼ</p><p class="dish-price">¥1,380</p></div>
+        <div class="dish"><p class="dish-name">桜エビと黄ニラのかきたま</p><p class="dish-price">¥1,380</p></div>
+        <div class="dish"><p class="dish-name">マッシュルームとチョリソーのチリ</p><p class="dish-price">¥1,280</p></div>
       </div>
       <div class="menu-col">
-        <h3>Arroz & Plates</h3>
-        <p class="h3jp">米料理・メイン</p>
-        <div class="dish"><p class="dish-name">魚介のパエリア<small>名物 / 2名様から</small></p><p class="dish-price">¥2,800</p></div>
-        <div class="dish"><p class="dish-name">和牛の土鍋パエリア 焦がし醤油<small>Arroz de wagyu</small></p><p class="dish-price">¥3,200</p></div>
-        <div class="dish"><p class="dish-name">季節の川魚の土鍋パエリア<small>Arroz del día — 季節替わり</small></p><p class="dish-price">¥2,600</p></div>
-        <div class="dish"><p class="dish-name">本日の魚のプランチャ<small>Pescado a la plancha</small></p><p class="dish-price">¥2,200</p></div>
-        <div class="dish"><p class="dish-name">バスクチーズケーキ<small>Tarta de queso</small></p><p class="dish-price">¥780</p></div>
+        <h3>Hot Dish</h3>
+        <p class="h3jp">温菜</p>
+        <div class="dish"><p class="dish-name">ハチノスとギアラのカジョス</p><p class="dish-price">¥1,180</p></div>
+        <div class="dish"><p class="dish-name">トウモロコシのチーズオムレツ</p><p class="dish-price">¥1,460</p></div>
+        <div class="dish"><p class="dish-name">フォアグラオムレツ</p><p class="dish-price">¥2,180</p></div>
+        <div class="dish"><p class="dish-name">和牛ランプとレンコンのステーキ</p><p class="dish-price">¥2,460</p></div>
+        <div class="dish"><p class="dish-name">タコのガリシア風</p><p class="dish-price">¥2,480</p></div>
+
+        <h3 style="margin-top:44px">Paella</h3>
+        <p class="h3jp">パエリア</p>
+        <div class="dish"><p class="dish-name">海老とブッラータチーズのビスク<small>おすすめ — 濃厚ビスクにとろけるブッラータ</small></p><p class="dish-price">¥3,680</p></div>
+        <div class="dish"><p class="dish-name">和牛ランプとレンコン</p><p class="dish-price">¥2,780</p></div>
+        <div class="dish"><p class="dish-name">季節の鮎とキュウリ</p><p class="dish-price">¥2,580</p></div>
+
+        <h3 style="margin-top:44px">Dessert</h3>
+        <p class="h3jp">デザート</p>
+        <div class="dish"><p class="dish-name">レアバスクチーズケーキ</p><p class="dish-price">¥840</p></div>
+        <div class="dish"><p class="dish-name">プリンとシェリー酒</p><p class="dish-price">¥780</p></div>
       </div>
     </div>
-    <p class="menu-note">※ メニューは一例です。仕入れにより内容・価格が変わります。すべて税込・お通し代¥550。化学調味料は一切使用していません。</p>
+    <p class="menu-note">※ 価格はすべて税込。チャージ料 ¥550。仕入れにより内容が変わる場合があります。</p>
 
     <div class="course">
-      <div class="course-price">¥6,500<small>Course / person</small></div>
+      <div class="course-price">¥6,500<small>Per person</small></div>
       <div class="course-body">
-        <h3>おまかせタパスコース</h3>
-        <p>前菜盛り合わせ・タパス3品・アロスまたはパエリア・デザートの全6品ほど。歓送迎会や女子会、ちょっといい日の集まりに。+¥3,000でワインペアリングも。</p>
+        <h3>おすすめの楽しみ方</h3>
+        <p>７種のタパス盛り合わせにアヒージョを一皿、締めにパエリアをシェアして、デザートまで。ワイン2杯とあわせて、おひとり¥6,500ほどが目安です。</p>
       </div>
-      <a href="#reserve">コースを予約する</a>
+      <a href="#reserve">席を予約する</a>
     </div>
+
   </div>
 </section>
 
@@ -363,7 +385,7 @@ footer a:hover{color:var(--saffron)}
         </div>
         <div class="drinks-item">
           <h4>シェリー &amp; ベルモット</h4>
-          <p>フィノからペドロ・ヒメネスまで。ムール貝のシェリー蒸しと合わせて。食前にも食後にも。</p>
+          <p>フィノからペドロ・ヒメネスまで。食前の一杯から、デザートの「プリンとシェリー酒」まで。</p>
         </div>
         <div class="drinks-item">
           <h4>日本酒・和のハイボール</h4>
@@ -393,10 +415,10 @@ footer a:hover{color:var(--saffron)}
       <dl>
         <dt>Shop</dt><dd>バルデビス(BARDEBIS)</dd>
         <dt>Address</dt><dd>東京都渋谷区恵比寿1-22-14 石井ビル B1F<small>JR・東京メトロ日比谷線 恵比寿駅より徒歩4分</small></dd>
-        <dt>Hours</dt><dd>月〜金 16:00 – 23:30<small>土 15:00 – 23:30 / 日祝 15:00 – 23:00<br>L.O. 料理は閉店1時間前・ドリンクは30分前</small></dd>
-        <dt>Closed</dt><dd>なし(年末年始を除く)</dd>
+        <dt>Hours</dt><dd>火〜土・祝前後日 17:00 – 23:30<small>日・祝 17:00 – 23:00<br>L.O. 料理は閉店1時間前・ドリンクは30分前</small></dd>
+        <dt>Closed</dt><dd>月曜日</dd>
         <dt>Seats</dt><dd>23席<small>カウンター7席 / テーブル16席・全席禁煙</small></dd>
-        <dt>Budget</dt><dd>ディナー ¥6,500前後<small>お通し代 ¥550 / カード各種可</small></dd>
+        <dt>Budget</dt><dd>ディナー ¥6,500前後<small>チャージ料 ¥550 / カード・電子マネー・QR決済可</small></dd>
         <dt>Tel</dt><dd><a href="tel:0364502774" style="color:inherit">03-6450-2774</a></dd>
       </dl>
       <div class="map">
@@ -414,18 +436,17 @@ footer a:hover{color:var(--saffron)}
   <div class="wrap">
     <div class="kumiko" aria-hidden="true"><span></span></div>
     <h2>今夜、一杯だけでも。</h2>
-    <p>2名様までのご利用は、ご予約なしでもカウンターへどうぞ。16時から開いています。</p>
+    <p>17時オープン。ネット予約が確実です。混雑時は2時間制となります。</p>
     <div class="btn-row">
       <a class="btn solid" href="https://tabelog.com/tokyo/A1303/A130302/13122562/" target="_blank" rel="noopener">Webで予約する</a>
       <a class="btn" href="tel:0364502774">03-6450-2774</a>
     </div>
-    <p class="tel-note">満席表示でも空きがある場合があります。お気軽にお電話ください。</p>
   </div>
 </section>
 
 <footer>
   <a class="brand" href="#top">BARDE<em>BIS</em></a>
-  <p>Since 2011 · Ebisu, Tokyo · <a href="https://www.instagram.com/bardebis2011" target="_blank" rel="noopener">Instagram</a> · <a href="https://basic-fnb.com/" target="_blank" rel="noopener">Operated by 株式会社Basic</a></p>
+  <p>Since 2011 · Ebisu, Tokyo · <a href="https://www.instagram.com/bardebis_2011" target="_blank" rel="noopener">Instagram</a> · <a href="https://basic-fnb.com/" target="_blank" rel="noopener">Operated by 株式会社Basic</a></p>
   <p>© 2026 Bardebis</p>
 </footer>
 

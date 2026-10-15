@@ -320,6 +320,40 @@
     .gallery-grid img:hover { transform: scale(1.03); filter: brightness(1); }
     .gallery-grid .tall { grid-row: span 2; }
 
+
+    /* ── MENU ── */
+    .menu-section { background: var(--charcoal-mid); }
+    .menu-lead { font-size: 0.85rem; opacity: 0.7; }
+    .course-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin: 2.5rem 0 3rem; }
+    .course-card { border: 1px solid rgba(200,169,110,0.25); padding: 1.8rem 1.5rem; }
+    .course-name { font-family: var(--serif); font-size: 1.6rem; color: var(--gold-light); }
+    .course-sub { font-size: 0.8rem; opacity: 0.7; margin-top: 0.2rem; }
+    .course-price { font-family: var(--serif); font-size: 1.4rem; margin: 1rem 0; }
+    .course-items { font-size: 0.82rem; line-height: 1.9; opacity: 0.85; }
+    .course-items small { display: block; margin-top: 0.5rem; color: var(--gold); }
+    .events { border-top: 1px solid rgba(200,169,110,0.15); border-bottom: 1px solid rgba(200,169,110,0.15); padding: 1.5rem 0; margin-bottom: 2.5rem; }
+    .events-title { font-size: 0.62rem; letter-spacing: 0.3em; color: var(--gold); margin-bottom: 1rem; }
+    .events ul { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .events li { font-size: 0.9rem; }
+    .events li span { display: block; font-family: var(--serif); font-style: italic; font-size: 1.3rem; color: var(--gold-light); }
+    .events li small { display: block; font-size: 0.78rem; opacity: 0.65; margin-top: 0.3rem; }
+    .menu-more { border-bottom: 1px solid rgba(200,169,110,0.15); }
+    .menu-more summary { cursor: pointer; list-style: none; padding: 1.3rem 0; font-size: 0.95rem; letter-spacing: 0.1em; display: flex; justify-content: space-between; }
+    .menu-more summary::-webkit-details-marker { display: none; }
+    .menu-more summary::after { content: "+"; color: var(--gold); font-size: 1.2rem; }
+    .menu-more[open] summary::after { content: "−"; }
+    .menu-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 4rem; padding-bottom: 2rem; }
+    .menu-group { margin-top: 1.5rem; }
+    .menu-cat { font-family: var(--serif); font-weight: 400; font-size: 1.3rem; color: var(--gold-light); letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .menu-cat span { font-family: var(--sans); font-size: 0.75rem; color: var(--cream); opacity: 0.6; margin-left: 0.5rem; }
+    .menu-note { font-size: 0.78rem; opacity: 0.65; margin: 0.5rem 0; }
+    .menu-list { list-style: none; }
+    .menu-list li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.7rem 0; border-bottom: 1px solid rgba(200,169,110,0.1); font-size: 0.9rem; }
+    .mi-desc { display: block; font-size: 0.75rem; opacity: 0.6; margin-top: 0.2rem; }
+    .mi-price { white-space: nowrap; color: var(--gold-light); }
+    .menu-foot { margin-top: 2rem; font-size: 0.8rem; opacity: 0.75; }
+    .menu-foot a { color: var(--gold-light); }
+
     /* ── HOURS ── */
     .hours-section { background: var(--charcoal-light); }
     .hours-grid {
@@ -343,6 +377,7 @@
     .hours-table li:last-child { border-bottom: none; }
     .hours-table .day { opacity: 0.65; letter-spacing: 0.05em; }
     .hours-table .time { color: var(--gold-light); font-weight: 400; }
+    .hours-note { font-size: 0.78rem; opacity: 0.6; margin-top: 0.8rem; }
     .hours-table .closed { opacity: 0.35; font-style: italic; font-family: var(--serif); }
     .map-wrap {
       position: relative;
@@ -482,6 +517,8 @@
       .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; }
       .gallery-grid .tall { grid-row: span 1; }
       .hours-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .course-grid, .events ul, .menu-cols { grid-template-columns: 1fr; }
+      .course-grid { gap: 1rem; }
       footer { flex-direction: column; text-align: center; padding: 2rem 1.5rem; }
     }
 
@@ -507,7 +544,7 @@
     </div>
     <ul class="nav-links" id="navLinks">
       <li><a href="/bolero">ホーム</a></li>
-      <li><a href="/bolero-menu">メニュー</a></li>
+      <li><a href="#menu">メニュー</a></li>
       <li><a href="/">会社概要</a></li>
       <li><a href="https://yoyaku.tabelog.com/yoyaku/net_booking_form/index?rcd=13182463" class="reserve-btn">ご予約</a></li>
     </ul>
@@ -544,6 +581,174 @@
     </div>
   </section>
 
+  <!-- MENU -->
+  <section id="menu" class="menu-section">
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">Menu</p>
+        <h2 class="section-title">メニュー</h2>
+        <div class="divider"></div>
+        <p class="menu-lead">表記はすべて税込価格です。テーブルチャージ 500円／人</p>
+      </div>
+
+      <div class="course-grid reveal">
+          <div class="course-card">
+            <p class="course-name">Chef’s Short</p>
+            <p class="course-sub">お手頃にボレロを楽しむシンプルなコース</p>
+            <p class="course-price">5,900円</p>
+            <p class="course-items">アミューズスープ／アペタイザー／冷たい料理／温かい料理／和牛の赤ワイン煮込み／デザート<br><small>＋600円で和牛ランプステーキに変更できます</small></p>
+          </div>
+          <div class="course-card">
+            <p class="course-name">Chef’s Omakase</p>
+            <p class="course-sub">厳選 シェフのおまかせコース</p>
+            <p class="course-price">7,900円</p>
+            <p class="course-items">アミューズスープ／アペタイザー／冷たい料理／温かい料理／本日の魚料理／和牛ランプステーキ／デザート</p>
+          </div>
+          <div class="course-card">
+            <p class="course-name">Chef’s Special</p>
+            <p class="course-sub">〆のパスタまで付くフルコース</p>
+            <p class="course-price">9,600円</p>
+            <p class="course-items">ウェルカムスパークリング／アミューズスープ／アペタイザー／冷たい料理／温かい料理／本日の魚料理／和牛ランプステーキ／〆のパスタ／デザート</p>
+          </div>
+      </div>
+
+      <div class="events reveal">
+        <p class="events-title">曜日限定イベント</p>
+        <ul>
+          <li><span>Tue</span>ワインボトル30%OFF Day<small>8,000円以下のボトルワインが30%OFF</small></li>
+          <li><span>Wed</span>オイスター Day<small>生牡蠣 1p 200円（4pからオーダー）ほか限定牡蠣メニュー</small></li>
+          <li><span>Thu</span>前菜盛り合わせ半額 Day<small>前菜盛り合わせが半額</small></li>
+        </ul>
+      </div>
+
+      <details class="menu-more reveal">
+        <summary>アラカルトを見る</summary>
+        <p class="menu-note">おすすめの楽しみ方（2名様の場合）：前菜を1品、冷菜と温菜から3品、メインを1品。お腹に余裕があれば〆のパスタもぜひ。</p>
+        <div class="menu-cols">
+          <div class="menu-group">
+            <h3 class="menu-cat">APPETIZER <span>ボレロの前菜</span></h3>
+            <ul class="menu-list">
+              <li><span class="mi-name">前菜盛り合わせ 3種<span class="mi-desc">その日に合った前菜を盛り付けました</span></span><span class="mi-price">1,650円</span></li>
+              <li><span class="mi-name">自家製オリーブマリネ<span class="mi-desc">香草やスパイスでマリネした自家製オリーブ</span></span><span class="mi-price">680円</span></li>
+              <li><span class="mi-name">ニンジンとオレンジのラペ<span class="mi-desc">レモンだけでなくオレンジも入れたラペ</span></span><span class="mi-price">580円</span></li>
+              <li><span class="mi-name">マスカルポーネとラムレーズン<span class="mi-desc">前菜だけどちょっと甘い、大人なマスカルポーネ</span></span><span class="mi-price">780円</span></li>
+              <li><span class="mi-name">たらこのムース<span class="mi-desc">たらこのほどよい塩味とコクをなめらかに仕上げた一皿</span></span><span class="mi-price">880円</span></li>
+              <li><span class="mi-name">水ダコの低温調理 翡翠ソース<span class="mi-desc">タコの旨味と弾力、ソースの爽やかさが合わさった前菜</span></span><span class="mi-price">980円</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <h3 class="menu-cat">COLD DISHES <span>冷たい料理</span></h3>
+            <ul class="menu-list">
+              <li><span class="mi-name">パテ・ド・カンパーニュ<span class="mi-desc">ビストロの定番メニュー</span></span><span class="mi-price">980円</span></li>
+              <li><span class="mi-name">秋刀魚のカルパッチョ 梅とベリーのソース<span class="mi-desc">旬の秋刀魚に、梅の爽やかな酸味とベリーの甘酸っぱさを合わせて</span></span><span class="mi-price">1,850円</span></li>
+              <li><span class="mi-name">ラムタンのカルパッチョ 大葉ジェノベーゼ<span class="mi-desc">大葉の爽やかさとナッツのコクがアクセント</span></span><span class="mi-price">1,480円</span></li>
+              <li><span class="mi-name">黒毛和牛のタルタルとサブレー<span class="mi-desc">銘柄和牛のA5ランク肉を使用</span></span><span class="mi-price">1,580円</span></li>
+              <li><span class="mi-name">ブラータチーズと季節のフルーツ<span class="mi-desc">季節のフルーツはスタッフにお伺いください</span></span><span class="mi-price">2,400円</span></li>
+              <li><span class="mi-name">サニーレタスとパルミジャーノのサラダ<span class="mi-desc">香味野菜ドレッシングで仕立てたシンプルサラダ</span></span><span class="mi-price">980円</span></li>
+              <li><span class="mi-name">生牡蠣と自家製タバスコ（4pc）<span class="mi-desc">新鮮な国産牡蠣をお好みで自家製タバスコと一緒に</span></span><span class="mi-price">2,400円</span></li>
+              <li><span class="mi-name">チーズ盛り合わせ<span class="mi-desc">シェフのおすすめチーズ3種盛り合わせ</span></span><span class="mi-price">1,580円</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <h3 class="menu-cat">HOT DISHES <span>温かい料理</span></h3>
+            <ul class="menu-list">
+              <li><span class="mi-name">トリュフオムレツ<span class="mi-desc">ボレロでのオーダー率No.1！ たっぷりのトリュフとマデラソース</span></span><span class="mi-price">1,950円</span></li>
+              <li><span class="mi-name">ビストロの牡蠣バター 焦がしバターソース<span class="mi-desc">香ばしく焦がした濃厚なレモンバターソース</span></span><span class="mi-price">1,750円</span></li>
+              <li><span class="mi-name">蝦夷鹿のフランクフルトとカスレ<span class="mi-desc">自家製フランクフルトと白いんげん豆をじっくり煮込んで</span></span><span class="mi-price">1,580円</span></li>
+              <li><span class="mi-name">黒舞茸と銀杏の素揚げとチョリソー<span class="mi-desc">香ばしい素揚げに、チョリソーの旨味と辛味を添えて</span></span><span class="mi-price">1,380円</span></li>
+              <li><span class="mi-name">2年熟成ポテトのフリット<span class="mi-desc">2年熟成ならではの旨味と甘み、香ばしくクリスピーに</span></span><span class="mi-price">1,180円</span></li>
+              <li><span class="mi-name">【限定3食】エビのパイ包み アメリケーヌソース<span class="mi-desc">香ばしく焼き上げた海老のパイ包みに、濃厚なアメリケーヌソース</span></span><span class="mi-price">2,480円</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <h3 class="menu-cat">MAIN <span>絶対食べてほしいメイン</span></h3>
+            <p class="menu-note">※メインのお肉料理はご提供までに約30分ほどお時間をいただきます。</p>
+            <ul class="menu-list">
+              <li><span class="mi-name">銘柄和牛ランプのステーキ<span class="mi-desc">ジューシーな赤身の和牛を厳選しました</span></span><span class="mi-price">4,380円</span></li>
+              <li><span class="mi-name">蝦夷鹿のロースト 3種のペッパーソース<span class="mi-desc">3種のペッパーの芳香と辛味を効かせたソース</span></span><span class="mi-price">3,780円</span></li>
+              <li><span class="mi-name">鴨肉のロースト 蜂蜜とスパイスのソース<span class="mi-desc">香ばしく焼き上げた鴨肉に、スパイスと酸味を効かせたソース</span></span><span class="mi-price">3,680円</span></li>
+              <li><span class="mi-name">和牛の赤ワイン煮込みとイチジク<span class="mi-desc">じっくり煮込んだ和牛に、イチジクのやさしい甘み</span></span><span class="mi-price">3,200円</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <h3 class="menu-cat">PASTA <span>ビストロの〆の一品</span></h3>
+            <ul class="menu-list">
+              <li><span class="mi-name">ポルチーニ茸の白いボロネーゼ<span class="mi-desc">ポルチーニの芳醇な香りと肉の旨味を引き出した一皿</span></span><span class="mi-price">2,380円</span></li>
+              <li><span class="mi-name">イタリアで教わった癖になるパスタ<span class="mi-desc">カラスミの塩気とコクに、ニンニク・チーズ・クリーム</span></span><span class="mi-price">2,080円</span></li>
+              <li><span class="mi-name">激辛アラビアータ<span class="mi-desc">小辛・中辛・大辛に調整できます</span></span><span class="mi-price">1,750円</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <h3 class="menu-cat">DESSERT <span>ビストロのデザート</span></h3>
+            <ul class="menu-list">
+              <li><span class="mi-name">アサイーとヨーグルトの自家製ジェラート<span class="mi-desc">果実の甘酸っぱさと爽やかな酸味</span></span><span class="mi-price">780円</span></li>
+              <li><span class="mi-name">アールグレイのクレームブリュレ<span class="mi-desc">とろけるカスタードに、パリッと香ばしいキャラメル</span></span><span class="mi-price">880円</span></li>
+              <li><span class="mi-name">Boleroバスクチーズケーキ<span class="mi-desc">なめらかな口どけと、ほのかな苦みの焼き色</span></span><span class="mi-price">980円</span></li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <details class="menu-more reveal">
+        <summary>ドリンクを見る</summary>
+        <div class="menu-cols">
+          <div class="menu-group">
+            <h3 class="menu-cat">GLASS WINE <span>グラスワイン</span></h3>
+            <p class="menu-note">ボトルワインは泡・白・赤・オレンジを各種ご用意しています。<a href="/src/bolero-menu.pdf" target="_blank" rel="noopener">ボトルワインリスト（PDF）</a></p>
+            <ul class="menu-list">
+              <li><span class="mi-name">スパークリング（泡）<span class="mi-desc">VINO SPUMANTE BRUT（Italy）</span></span><span class="mi-price">900円</span></li>
+              <li><span class="mi-name">ハウスワイン（白／赤）</span><span class="mi-price">800円</span></li>
+              <li><span class="mi-name">ソーヴィニヨン・ブラン（白）<span class="mi-desc">LORON &amp; FILS（France）</span></span><span class="mi-price">950円</span></li>
+              <li><span class="mi-name">シャルドネ（白）<span class="mi-desc">CA66（Austria）</span></span><span class="mi-price">1,200円</span></li>
+              <li><span class="mi-name">カベルネ・ソーヴィニヨン（赤）<span class="mi-desc">ADULATION（USA）</span></span><span class="mi-price">1,000円</span></li>
+              <li><span class="mi-name">ピノ・ノワール（赤）<span class="mi-desc">LORON &amp; FILS（France）</span></span><span class="mi-price">1,100円</span></li>
+              <li><span class="mi-name">本日のナチュール<span class="mi-desc">スタッフにお伺いください</span></span><span class="mi-price">1,100円〜</span></li>
+              <li><span class="mi-name">デザートワイン<span class="mi-desc">Lheraud Pineau Charentes Blanc</span></span><span class="mi-price">900円</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <h3 class="menu-cat">ALCOHOL <span>お酒</span></h3>
+            <ul class="menu-list">
+              <li><span class="mi-name">ビール</span><span class="mi-price">770円</span></li>
+              <li><span class="mi-name">角ハイボール</span><span class="mi-price">770円</span></li>
+              <li><span class="mi-name">山崎／白州／響ハイボール</span><span class="mi-price">1,350円</span></li>
+              <li><span class="mi-name">ジントニック</span><span class="mi-price">770円</span></li>
+              <li><span class="mi-name">ビストロのスパイスレモンサワー</span><span class="mi-price">850円</span></li>
+              <li><span class="mi-name">梅酒サングリア</span><span class="mi-price">880円</span></li>
+              <li><span class="mi-name">赤葡萄のティツィアーノ</span><span class="mi-price">900円</span></li>
+              <li><span class="mi-name">濁りラフランスソーダ</span><span class="mi-price">900円</span></li>
+              <li><span class="mi-name">アップルティースパークリング</span><span class="mi-price">950円</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <h3 class="menu-cat">MOCKTAIL <span>ノンアルコール</span></h3>
+            <ul class="menu-list">
+              <li><span class="mi-name">ノンアルコールビール</span><span class="mi-price">700円</span></li>
+              <li><span class="mi-name">ノンアルシャンパン</span><span class="mi-price">800円</span></li>
+              <li><span class="mi-name">ビターレモンソーダ</span><span class="mi-price">800円</span></li>
+              <li><span class="mi-name">ザクロ・ティー</span><span class="mi-price">800円</span></li>
+              <li><span class="mi-name">ワイン醸造用 赤葡萄ジュース</span><span class="mi-price">900円</span></li>
+            </ul>
+          </div>
+          <div class="menu-group">
+            <h3 class="menu-cat">SOFT DRINK <span>ソフトドリンク</span></h3>
+            <ul class="menu-list">
+              <li><span class="mi-name">コーラ</span><span class="mi-price">500円</span></li>
+              <li><span class="mi-name">ジンジャエール（甘口／辛口）</span><span class="mi-price">500円</span></li>
+              <li><span class="mi-name">ウーロン茶</span><span class="mi-price">500円</span></li>
+              <li><span class="mi-name">アップルジュース</span><span class="mi-price">500円</span></li>
+              <li><span class="mi-name">ペリエ（炭酸水）330mlボトル</span><span class="mi-price">600円</span></li>
+              <li><span class="mi-name">珈琲／紅茶</span><span class="mi-price">600円</span></li>
+              <li><span class="mi-name">ハーブティー</span><span class="mi-price">700円</span></li>
+            </ul>
+          </div>
+        </div>
+      </details>
+
+      <p class="menu-foot reveal">メニューは仕入れにより変更になる場合があります。 <a href="/src/bolero-menu.pdf" target="_blank" rel="noopener">メニュー全文（PDF・ボトルワインリスト含む）</a></p>
+    </div>
+  </section>
+
   <!-- GALLERY -->
   <div class="gallery-section">
     <div class="gallery-grid reveal">
@@ -568,13 +773,11 @@
           </div>
           <ul class="hours-table">
             <li><span class="day">月曜日</span><span class="closed">定休日</span></li>
-            <li><span class="day">火曜日</span><span class="time">18:00 – 23:00</span></li>
-            <li><span class="day">水曜日</span><span class="time">18:00 – 23:00</span></li>
-            <li><span class="day">木曜日</span><span class="time">18:00 – 23:00</span></li>
-            <li><span class="day">金曜日</span><span class="time">17:30 – 23:00</span></li>
-            <li><span class="day">土曜日</span><span class="time">17:30 – 23:00</span></li>
-            <li><span class="day">日曜日</span><span class="time">17:30 – 23:00</span></li>
+            <li><span class="day">火〜金曜日</span><span class="time">18:00 – 23:00</span></li>
+            <li><span class="day">土・日・祝 ランチ</span><span class="time">12:00 – 15:00</span></li>
+            <li><span class="day">土・日・祝 ディナー</span><span class="time">17:30 – 23:00</span></li>
           </ul>
+          <p class="hours-note">平日のラストオーダーは 22:00</p>
         </div>
         <div class="reveal">
           <div class="map-wrap">

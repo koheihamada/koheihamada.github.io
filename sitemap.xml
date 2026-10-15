@@ -50,6 +50,13 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- このすけ -->
+  <url>
+    <loc>https://www.basic-fnb.com/conosuke</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- 採用情報 -->
   <url>
     <loc>https://www.basic-fnb.com/recruit</loc>

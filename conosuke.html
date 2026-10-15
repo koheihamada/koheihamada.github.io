@@ -31,16 +31,30 @@
   <style>
     :root { --ink:#141414; --mute:#6b6760; --paper:#fbfaf7; --paper-2:#f2efe8; --rule:rgba(20,20,20,.14); --red:#e0302b; }
     *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
-    html { scroll-behavior:smooth; }
+    html { scroll-behavior:smooth; scroll-padding-top:72px; }
     body { background:var(--paper); color:var(--ink); font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif; line-height:1.9; }
     a { color:inherit; }
 
-    header.top { position:sticky; top:0; z-index:10; display:flex; justify-content:space-between; align-items:center; padding:14px 24px; background:rgba(251,250,247,.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--rule); }
+    header.top { position:sticky; top:0; z-index:30; display:flex; justify-content:space-between; align-items:center; padding:14px 24px; background:rgba(251,250,247,.94); backdrop-filter:blur(6px); border-bottom:1px solid var(--rule); }
     .brand { font-size:15px; letter-spacing:.3em; text-decoration:none; }
     .brand small { font-size:10px; letter-spacing:.25em; color:var(--mute); margin-left:10px; }
-    header nav { display:flex; gap:24px; font-size:13px; letter-spacing:.15em; }
-    header nav a { text-decoration:none; }
+    header .pc-nav { display:flex; gap:24px; font-size:13px; letter-spacing:.15em; }
+    header .pc-nav a { text-decoration:none; }
 
+    .menu-btn { display:none; width:44px; height:44px; border:0; background:none; cursor:pointer; flex-direction:column; justify-content:center; align-items:center; gap:6px; position:relative; z-index:30; }
+    .menu-btn span { display:block; width:24px; height:1.5px; background:var(--ink); transition:transform .3s, opacity .3s; }
+    .menu-btn[aria-expanded="true"] span:nth-child(1) { transform:translateY(7.5px) rotate(45deg); }
+    .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity:0; }
+    .menu-btn[aria-expanded="true"] span:nth-child(3) { transform:translateY(-7.5px) rotate(-45deg); }
+    .overlay { position:fixed; inset:0; background:rgba(20,20,20,.35); z-index:20; }
+    .drawer { position:fixed; top:0; right:0; bottom:0; width:min(80vw,320px); background:var(--paper); z-index:25; transform:translateX(100%); transition:transform .35s ease; padding:88px 32px 32px; display:flex; flex-direction:column; border-left:1px solid var(--rule); overflow-y:auto; }
+    .drawer.open { transform:none; }
+    .drawer-logo { height:120px; width:auto; align-self:flex-start; margin-bottom:32px; }
+    .drawer nav { display:flex; flex-direction:column; }
+    .drawer nav a { text-decoration:none; font-size:18px; letter-spacing:.2em; padding:16px 0; border-bottom:1px solid var(--rule); display:flex; justify-content:space-between; align-items:baseline; }
+    .drawer nav a small { font-size:10px; letter-spacing:.3em; color:var(--red); text-transform:uppercase; }
+    .drawer-foot { margin-top:auto; padding-top:32px; font-size:12px; color:var(--mute); line-height:2; }
+    body.locked { overflow:hidden; }
     .hero { min-height:88svh; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:6vw; padding:64px 10vw; }
     .hero-logo { justify-self:center; height:min(62svh,560px); width:auto; }
     .hero-copy .open { display:inline-block; color:var(--red); border:1px solid var(--red); font-size:13px; letter-spacing:.2em; padding:4px 14px; margin-bottom:28px; }
@@ -83,7 +97,8 @@
     footer a { margin:0 10px; }
 
     @media (max-width:800px) {
-      header nav { display:none; }
+      header .pc-nav { display:none; }
+      .menu-btn { display:flex; }
       .hero { grid-template-columns:1fr; padding:48px 16px 64px; text-align:center; gap:32px; }
       .hero-logo { height:46svh; }
       section.block { padding:72px 16px; }
@@ -98,8 +113,21 @@
 <body>
   <header class="top">
     <a class="brand" href="#top">このすけ<small>CONOSUKE</small></a>
-    <nav><a href="#concept">店について</a><a href="#menu">お品書き</a><a href="#access">アクセス</a><a href="/recruit#new-store">求人</a></nav>
+    <nav class="pc-nav"><a href="#concept">コンセプト</a><a href="#menu">お品書き</a><a href="#access">アクセス</a><a href="/recruit#new-store">求人</a></nav>
+    <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   </header>
+
+  <div class="overlay" id="overlay" hidden></div>
+  <aside class="drawer" id="drawer" aria-hidden="true">
+    <img src="/src/conosuke/logo.png" alt="このすけ" class="drawer-logo" width="303" height="900">
+    <nav>
+      <a href="#concept">コンセプト<small>Concept</small></a>
+      <a href="#menu">お品書き<small>Menu</small></a>
+      <a href="#access">アクセス<small>Access</small></a>
+      <a href="/recruit#new-store">求人<small>Recruit</small></a>
+    </nav>
+    <p class="drawer-foot">せいろと飯と酒 このすけ<br>2026年11月 池尻大橋にオープン</p>
+  </aside>
 
   <main id="top">
     <section class="hero">
@@ -218,5 +246,23 @@
     <a href="/">株式会社Basic</a><a href="/yanosuke">弥之助</a><a href="/privacy">プライバシーポリシー</a>
     <p style="margin-top:12px;">© 2026 Conosuke</p>
   </footer>
+  <script>
+    (function () {
+      var btn = document.getElementById('menuBtn'), drawer = document.getElementById('drawer'), overlay = document.getElementById('overlay');
+      function set(open) {
+        btn.setAttribute('aria-expanded', open);
+        btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く');
+        drawer.classList.toggle('open', open);
+        drawer.setAttribute('aria-hidden', !open);
+        overlay.hidden = !open;
+        document.body.classList.toggle('locked', open);
+      }
+      btn.addEventListener('click', function () { set(btn.getAttribute('aria-expanded') !== 'true'); });
+      overlay.addEventListener('click', function () { set(false); });
+      drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+      window.addEventListener('resize', function () { if (window.innerWidth > 800) set(false); });
+    })();
+  </script>
 </body>
 </html>

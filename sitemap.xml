@@ -4,6 +4,7 @@
   <!-- コーポレートサイト -->
   <url>
     <loc>https://www.basic-fnb.com/</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -11,6 +12,7 @@
   <!-- Basic Support LP -->
   <url>
     <loc>https://www.basic-fnb.com/basic-open</loc>
+    <lastmod>2026-10-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -18,6 +20,7 @@
   <!-- Bistro Bolero -->
   <url>
     <loc>https://www.basic-fnb.com/bolero</loc>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -25,6 +28,7 @@
   <!-- 清田焼肉店 -->
   <url>
     <loc>https://www.basic-fnb.com/kiyota</loc>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -32,6 +36,7 @@
   <!-- 弥之助 -->
   <url>
     <loc>https://www.basic-fnb.com/yanosuke</loc>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -39,6 +44,7 @@
   <!-- かつや恒之助 -->
   <url>
     <loc>https://www.basic-fnb.com/konosuke</loc>
+    <lastmod>2026-09-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -46,6 +52,7 @@
     <!-- 屋根裏のパリ食堂 -->
   <url>
     <loc>https://www.basic-fnb.com/yaneuraparis</loc>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -53,6 +60,7 @@
   <!-- このすけ -->
   <url>
     <loc>https://www.basic-fnb.com/conosuke</loc>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -60,6 +68,7 @@
   <!-- 採用情報 -->
   <url>
     <loc>https://www.basic-fnb.com/recruit</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -67,6 +76,7 @@
   <!-- バルデビス -->
   <url>
     <loc>https://www.basic-fnb.com/bardebis</loc>
+    <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -74,6 +84,7 @@
   <!-- プライバシーポリシー -->
   <url>
     <loc>https://www.basic-fnb.com/privacy</loc>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

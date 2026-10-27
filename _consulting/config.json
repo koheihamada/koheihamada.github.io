@@ -5,8 +5,8 @@
   "service_name_en": "BANSO",
   "site_url": "https://www.basic-fnb.com/consulting/",
   "path": "/consulting/",
-  "noindex": true,
-  "noindex_note": "公開前の確認事項が済むまで true（検索に出さない）。正式公開時に false にしてビルドし、sitemap.xml に /consulting/ を追加する。",
+  "noindex": false,
+  "noindex_note": "true にすると検索に出さない。",
   "colors": {
     "bg": "#F8F8F5",
     "text": "#1C2524",

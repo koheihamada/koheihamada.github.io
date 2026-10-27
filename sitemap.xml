@@ -65,6 +65,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- 飲食店経営コンサル -->
+  <url>
+    <loc>https://www.basic-fnb.com/consulting/</loc>
+    <lastmod>2026-10-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- 採用情報 -->
   <url>
     <loc>https://www.basic-fnb.com/recruit</loc>

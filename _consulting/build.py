@@ -120,7 +120,7 @@ def llms_txt():
              "利益改善・財務／資金繰り改善・借入／財務戦略・多店舗展開を、分析から実行まで伴走して支援する。"
              "初回相談無料・着手金0円・成果報酬型（適用には事前審査あり。成果指標・測定期間・報酬条件・実費負担は契約前に個別合意）。", "",
              f"- ページ: {cfg['site_url']}", f"- 無料相談: {cfg['site_url']}#contact", "",
-             "## 自社運営店舗の実績", "", cfg["case"]["lead"],
+             "## 支援事例", "", cfg["case"]["lead"],
              "、".join(f"{k['label']} {k['value']}{k['unit']}（{k['sub']}）" for k in cfg["case"]["kpis"]), cfg["case"]["note"], "",
              "## よくある質問", ""]
     for f in cfg["faq"]:

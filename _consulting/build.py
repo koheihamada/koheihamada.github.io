@@ -51,15 +51,25 @@ def stats_html():
 
 
 def brands_html():
-    out = []
-    for b in cfg["brands"]:
-        out.append(
-            '          <li class="brand">'
-            f'<img src="assets/img/{b["img"]}-800.webp" width="{b["w"]}" height="{b["h"]}" alt="{e(b["name"])}（{e(b["area"])}・{e(b["genre"])}）" loading="lazy">'
-            f'<div class="brand-body"><p class="brand-meta">{e(b["area"])} · {e(b["genre"])}</p>'
-            f'<p class="brand-name">{e(b["name"])}</p><p class="brand-desc">{e(b["desc"])}</p></div></li>'
-        )
-    return "\n".join(out)
+    return "\n".join(
+        f'              <tr><th scope="row">{e(b["name"])}</th><td>{e(b["area"])}・{e(b["genre"])}</td><td>{e(b["desc"])}</td></tr>'
+        for b in cfg["brands"])
+
+
+def case_parts():
+    cs = cfg["case"]
+    kpis = "\n".join(
+        f'            <div class="kpi"><p class="kpi-l">{e(k["label"])}</p><p class="kpi-v">{e(k["value"])}<small>{e(k["unit"])}</small></p><p class="kpi-s">{e(k["sub"])}</p></div>'
+        for k in cs["kpis"])
+    top = max(cs["before"] + cs["after"])
+    bars = "\n".join(
+        f'              <div class="m"><div class="m-bars"><span class="b0" style="--h:{b / top * 100:.1f}%" title="{e(cs["before_label"])} {m} {b}万円"></span>'
+        f'<span class="b1" style="--h:{a / top * 100:.1f}%" title="{e(cs["after_label"])} {m} {a}万円"><em>{a}</em></span></div><p>{e(m)}</p></div>'
+        for m, b, a in zip(cs["months"], cs["before"], cs["after"]))
+    alt = "月ごとの売上。" + "、".join(f'{m} {b}万円→{a}万円' for m, b, a in zip(cs["months"], cs["before"], cs["after"]))
+    return {"CASE_LABEL": e(cs["label"]), "CASE_LEAD": e(cs["lead"]), "CASE_KPIS": kpis, "CASE_BARS": bars,
+            "CASE_BEFORE_LABEL": e(cs["before_label"]), "CASE_AFTER_LABEL": e(cs["after_label"]),
+            "CASE_CHART_ALT": e(alt), "CASE_NOTE": e(cs["note"])}
 
 
 def faq_html():
@@ -109,7 +119,10 @@ def llms_txt():
              f"> 運営：{cfg['company']['name']}（自社でも複数の飲食ブランドを経営）。すでに飲食店を経営している事業者向けに、"
              "利益改善・財務／資金繰り改善・借入／財務戦略・多店舗展開を、分析から実行まで伴走して支援する。"
              "初回相談無料・着手金0円・成果報酬型（適用には事前審査あり。成果指標・測定期間・報酬条件・実費負担は契約前に個別合意）。", "",
-             f"- ページ: {cfg['site_url']}", f"- 無料相談: {cfg['site_url']}#contact", "", "## よくある質問", ""]
+             f"- ページ: {cfg['site_url']}", f"- 無料相談: {cfg['site_url']}#contact", "",
+             "## 自社運営店舗の実績", "", cfg["case"]["lead"],
+             "、".join(f"{k['label']} {k['value']}{k['unit']}（{k['sub']}）" for k in cfg["case"]["kpis"]), cfg["case"]["note"], "",
+             "## よくある質問", ""]
     for f in cfg["faq"]:
         lines += [f"### {f['q']}", f["a"], ""]
     return "\n".join(lines)
@@ -127,10 +140,12 @@ def main():
         "C_BORDER": c["border"], "C_WHITE": c["white"],
         "ROBOTS": "noindex, nofollow" if cfg.get("noindex") else "index, follow, max-image-preview:large",
         "STATS": stats_html(), "STATS_DISCLAIMER": e(cfg["stats_disclaimer"]),
-        "BRANDS": brands_html(), "FAQ": faq_html(), "JSONLD": jsonld(), "GA": ga(), "LOGO_MARK": LOGO_MARK,
-        "CONFIG_JS": json.dumps({"endpoint": cfg.get("endpoint", ""),
-                                 "ads_conversion_send_to": cfg.get("ads_conversion_send_to", "")}),
+        "BRANDS": brands_html(), "REPLY_NOTE": e(cfg.get("reply_note", "")), "FAQ": faq_html(), "JSONLD": jsonld(), "GA": ga(), "LOGO_MARK": LOGO_MARK,
+        "GOOGLE_FORM_URL": cfg["google_form_url"],
+        "GOOGLE_FORM_EMBED": cfg["google_form_url"] + "?embedded=true",
+        "CONFIG_JS": json.dumps({"ads_conversion_send_to": cfg.get("ads_conversion_send_to", "")}),
     }
+    repl.update(case_parts())
     for k, v in ICONS.items():
         repl["ICON_" + k] = v
 

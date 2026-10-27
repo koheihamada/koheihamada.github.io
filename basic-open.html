@@ -489,6 +489,11 @@
 
     /* ── CONTACT ── */
     .contact { padding-bottom: 120px; }
+    .contact-form { margin-top: 64px; border-top: 1px solid var(--rule); padding-top: 48px; }
+    .contact-form iframe { display: block; width: 100%; max-width: 760px; height: 1900px; margin: 0 auto; border: 0; }
+    .contact-form-fallback { max-width: 760px; margin: 12px auto 0; font-size: 13px; color: var(--ink-faint, #888); }
+    .contact-form-fallback a { color: inherit; }
+
     .contact-inner {
       margin-top: 64px;
       display: grid;
@@ -599,6 +604,8 @@
       .contact-inner { grid-template-columns: 1fr; }
       .contact-left { border-right: none; padding: 48px 0; border-bottom: 1px solid var(--rule); }
       .contact-right { padding: 40px 0; }
+      .contact-form { margin-top: 24px; padding-top: 32px; }
+      .contact-form iframe { height: 2450px; }
       .footer-inner { flex-direction: column; gap: 12px; text-align: center; }
       .wrap { padding: 0 24px; }
       .quote-section { padding: 64px 24px; }
@@ -640,7 +647,7 @@
       「まだ構想レベル」「話だけ聞きたい」という段階から歓迎しています。
     </p>
     <div class="hero-cta-group">
-      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdw74qlwZKj0KCV3iJ3zdfxGNgyHy5xSYryhpblZABSUNT39Q/viewform?usp=dialog" target="_blank" class="btn-main">
+      <a href="#contact-form" class="btn-main">
         まずは相談してみる &nbsp;→
       </a>
       <a href="#cases" class="btn-sub">成功事例を見る &nbsp;↓</a>
@@ -932,8 +939,8 @@
           そういう段階でも構いません。<br>
           面談は無料です。
         </p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdw74qlwZKj0KCV3iJ3zdfxGNgyHy5xSYryhpblZABSUNT39Q/viewform?usp=dialog" target="_blank" class="contact-cta">
-          相談フォームへ &nbsp;→
+        <a href="#contact-form" class="contact-cta">
+          下のフォームから相談する &nbsp;↓
         </a>
       </div>
       <div class="contact-right">
@@ -966,6 +973,10 @@
         </div>
       </div>
     </div>
+    <div class="contact-form" id="contact-form">
+      <iframe id="gform" src="https://docs.google.com/forms/d/e/1FAIpQLSdw74qlwZKj0KCV3iJ3zdfxGNgyHy5xSYryhpblZABSUNT39Q/viewform?embedded=true" title="Basic Support 相談フォーム" loading="lazy">読み込んでいます…</iframe>
+      <p class="contact-form-fallback">フォームが表示されない場合は<a href="https://docs.google.com/forms/d/e/1FAIpQLSdw74qlwZKj0KCV3iJ3zdfxGNgyHy5xSYryhpblZABSUNT39Q/viewform" target="_blank" rel="noopener">こちらから開いてください</a>。</p>
+    </div>
   </div>
 </section>
 
@@ -994,6 +1005,17 @@
       if (!isOpen) item.classList.add('open');
     });
   });
+
+  // 埋め込みフォーム：2回目の読み込み＝送信後の完了画面
+  (function () {
+    var f = document.getElementById('gform'); if (!f) return; var n = 0;
+    f.addEventListener('load', function () {
+      n += 1;
+      if (typeof gtag !== 'function') return;
+      gtag('event', n === 1 ? 'form_view' : 'form_success', { form: 'basic_support' });
+      if (n > 1) document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth' });
+    });
+  })();
 </script>
 </body>
 </html>

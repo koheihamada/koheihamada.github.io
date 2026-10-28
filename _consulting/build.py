@@ -88,7 +88,7 @@ def jsonld():
                        "addressRegion": "東京都", "addressCountry": "JP"}}
     service = {
         "@type": "ProfessionalService", "@id": url + "#service", "name": cfg["service_name"], "url": url,
-        "description": "飲食店専門の成果報酬型経営コンサルティング。店舗別PL・原価・人件費・BS・キャッシュフローを分析し、利益改善、財務・資金繰り改善、借入・財務戦略、多店舗展開を、改善施策の実行まで伴走して支援する。",
+        "description": "飲食店専門の成果報酬型経営コンサルティング。店舗別PL・原価・人件費・BS・キャッシュフローを分析し、利益改善、財務・資金繰り改善、借入・財務戦略、多店舗展開に加え、メニューの再構築、原価率の適正化、客単価の見直し、集客（MEO・SEO）、スタッフ教育、採用まで、店舗の現場の改善を実行まで伴走して支援する。",
         "provider": {"@id": org["@id"]}, "areaServed": {"@type": "Country", "name": "日本"},
         "audience": {"@type": "BusinessAudience", "audienceType": "飲食店を経営する事業者"},
         "serviceType": "飲食店 経営改善コンサルティング",

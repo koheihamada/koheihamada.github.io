@@ -137,6 +137,9 @@ h1, h2, h3, .logo-name, .kpi-v, .fees strong, .terms dd {
 .service h3 span { color: var(--accent); margin-right: 12px; }
 .service p { font-size: 15px; }
 .service .note { font-size: 12px; color: var(--sub); margin-top: 8px; }
+.services-lead { margin-bottom: 8px; }
+.service-group { grid-column: 1 / -1; margin: 40px 0 0; padding-bottom: 14px; font-size: 13px; font-weight: 700; letter-spacing: .16em; color: var(--accent); }
+.service-group:first-child { margin-top: 24px; }
 
 /* about */
 .photo-strip { display: grid; grid-template-columns: 1.2fr 1fr 1.2fr; gap: 6px; margin-bottom: 88px; }

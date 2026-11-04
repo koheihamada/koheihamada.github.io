@@ -88,6 +88,7 @@ h1, h2, h3, .logo-name, .kpi-v, .fees strong, .terms dd {
 .section-dark .lead, .section-dark .fine, .section-dark .split-sub { color: rgba(255,255,255,.8); }
 .split { display: grid; grid-template-columns: 340px 1fr; gap: 72px; align-items: start; }
 .split-head h2 { font-size: clamp(28px, 3vw, 40px); font-weight: 800; line-height: 1.5; letter-spacing: .04em; }
+.about-illust { display: block; width: 260px; height: auto; margin-top: 72px; }
 .split-sub { margin-top: 16px; font-size: 14px; color: var(--sub); }
 .lead { max-width: 40em; }
 .split-body > * + * { margin-top: 32px; }
@@ -232,6 +233,7 @@ input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--accent);
 /* ============ responsive ============ */
 @media (max-width: 1000px) {
   .split { grid-template-columns: 1fr; gap: 28px; }
+  .about-illust { display: none; }
   .pc { display: none; }
 }
 @media (max-width: 900px) {

@@ -85,7 +85,7 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Marcellus&family=Zen+Old+Mincho:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#211d1a;          /* 墨 — 深い暖色チャコール */
@@ -100,6 +100,8 @@
   --lat:'Marcellus',serif;
   --min:'Zen Old Mincho',serif;
   --got:'Zen Kaku Gothic New',sans-serif;
+  --chalk:'Caveat',cursive;
+  --slate:#2a2e2b;        /* 黒板(アルドワーズ) */
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -131,6 +133,7 @@ h2{font-family:var(--min);font-weight:500;font-size:clamp(26px,4vw,38px);letter-
 nav{position:fixed;top:0;left:0;right:0;z-index:50;padding:20px 28px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(to bottom,rgba(33,29,26,.92),rgba(33,29,26,0))}
 .brand{font-family:var(--lat);font-size:19px;letter-spacing:.34em}
 .brand em{font-style:normal;color:var(--saffron)}
+.brand-sub{display:block;font-family:var(--chalk);font-size:15px;letter-spacing:.08em;color:var(--saffron);opacity:.85;line-height:1;margin-top:2px}
 nav ul{display:flex;gap:30px;list-style:none}
 nav ul a{font-family:var(--lat);font-size:11.5px;letter-spacing:.28em;text-transform:uppercase;opacity:.75;transition:opacity .3s,color .3s}
 nav ul a:hover{opacity:1;color:var(--saffron)}
@@ -191,16 +194,30 @@ h1{font-family:var(--lat);font-weight:400;font-size:clamp(50px,11vw,120px);lette
 .dish-price{font-family:var(--lat);font-size:13px;letter-spacing:.08em;white-space:nowrap;color:#5c5344}
 .menu-note{margin-top:26px;font-size:12px;color:#8f8676}
 @media(max-width:820px){.menu-grid{grid-template-columns:1fr;gap:56px}}
+.carte-head{margin-top:90px;text-align:center}
+.carte-head .script{font-family:var(--chalk);font-size:clamp(40px,6vw,58px);color:var(--bengara);line-height:1}
+.carte-head p{font-size:13px;color:#7a7263;margin-top:10px}
+.carte-head+.menu-grid{margin-top:50px}
+.menu-col .step{font-family:var(--chalk);font-size:22px;color:var(--bengara);letter-spacing:.04em;line-height:1;margin-bottom:6px}
 
-/* コース帯 */
-.course{margin-top:90px;border:1px solid var(--bengara);padding:54px 44px;display:grid;grid-template-columns:auto 1fr auto;gap:44px;align-items:center;background:var(--paper-deep)}
-.course-price{font-family:var(--lat);font-size:clamp(34px,5vw,48px);letter-spacing:.06em;color:var(--bengara);line-height:1.2}
-.course-price small{display:block;font-size:11px;letter-spacing:.4em;color:#8f8676;text-transform:uppercase;margin-top:6px}
-.course-body h3{font-family:var(--min);font-weight:500;font-size:19px;letter-spacing:.16em;margin-bottom:12px}
-.course-body p{font-size:13.5px;color:#5c5344}
-.course a{border:1px solid var(--bengara);color:var(--bengara);font-family:var(--lat);font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;padding:14px 26px;white-space:nowrap;transition:all .3s}
-.course a:hover{background:var(--bengara);color:var(--paper)}
-@media(max-width:820px){.course{grid-template-columns:1fr;gap:26px;padding:40px 28px}}
+/* 黒板(アルドワーズ) */
+.ardoise{margin-top:90px;background:var(--slate);color:#f1eee6;padding:54px 48px 46px;border:12px solid #6b4a32;box-shadow:inset 0 0 60px rgba(0,0,0,.45),0 18px 40px rgba(33,29,26,.18);position:relative}
+.ardoise::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.05),transparent 60%);pointer-events:none}
+.ardoise-title{font-family:var(--chalk);font-size:clamp(36px,5vw,50px);line-height:1;text-align:center;color:#f6e7c4}
+.ardoise-sub{text-align:center;font-family:var(--min);font-size:14px;letter-spacing:.2em;margin:10px 0 34px;color:rgba(241,238,230,.75)}
+.ardoise ol{list-style:none;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;counter-reset:st}
+.ardoise li{border-top:1px dashed rgba(241,238,230,.35);padding-top:16px}
+.ardoise li .k{font-family:var(--chalk);font-size:26px;color:#f6e7c4;line-height:1}
+.ardoise li .j{display:block;font-size:11px;letter-spacing:.24em;color:rgba(241,238,230,.6);margin:4px 0 10px}
+.ardoise li p{font-size:13.5px;line-height:1.9}
+.ardoise-foot{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;margin-top:38px;padding-top:24px;border-top:1px dashed rgba(241,238,230,.35)}
+.ardoise-foot .price{font-family:var(--chalk);font-size:34px;color:#f6e7c4;line-height:1}
+.ardoise-foot .price small{font-family:var(--got);font-size:12px;color:rgba(241,238,230,.7);margin-left:10px;letter-spacing:.1em}
+.ardoise-foot a{border:1px solid #f6e7c4;color:#f6e7c4;font-family:var(--lat);font-size:11.5px;letter-spacing:.3em;text-transform:uppercase;padding:14px 26px;transition:all .3s}
+.ardoise-foot a:hover{background:#f6e7c4;color:var(--slate)}
+@media(max-width:820px){.ardoise{padding:40px 24px 34px;border-width:8px}.ardoise ol{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ardoise ol{grid-template-columns:1fr}}
+
 
 /* ---------- 酒 ---------- */
 .drinks .wrap{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
@@ -252,7 +269,7 @@ footer a:hover{color:var(--saffron)}
 <body>
 
 <nav>
-  <a class="brand" href="#top">BARDE<em>BIS</em></a>
+  <a class="brand" href="#top">BARDE<em>BIS</em><span class="brand-sub">Bistrot Espagnol</span></a>
   <ul>
     <li><a href="#story">Story</a></li>
     <li><a href="#cuisine">Cuisine</a></li>
@@ -266,10 +283,10 @@ footer a:hover{color:var(--saffron)}
 <header class="hero" id="top">
   <div class="hero-bg" aria-hidden="true"></div>
   <div class="hero-inner">
-    <p class="hero-since">Ebisu, Tokyo — Since 2011</p>
+    <p class="hero-since">Bistrot Espagnol — Ebisu, Tokyo — Since 2011</p>
     <h1>BARDEBIS</h1>
     <p class="hero-tate">スペインの熱に、和のしずけさを。</p>
-    <p class="hero-sub">恵比寿の路地で15年。和×ビストロスパニッシュとして、新しく。</p>
+    <p class="hero-sub">恵比寿の路地で15年。スペインバルから、街のビストロへ。</p>
   </div>
   <div class="hero-scroll">Scroll</div>
 </header>
@@ -287,7 +304,8 @@ footer a:hover{color:var(--saffron)}
       </div>
       <p>バルデビスは、2011年から恵比寿の路地裏で愛されてきたスペインバルです。半地下の扉を開けると、レンガの壁と吊るされた生ハム。ガーリックとオリーブオイルの香り。この店の<strong>良いものは、そのまま残します</strong>。</p>
       <p>そこに重ねるのは、出汁や柚子、山椒といった<strong>和の要素をほんの少し</strong>。主張しすぎない、けれど確かに新しい——和×ビストロスパニッシュとして、バルデビスはもう一度はじまります。</p>
-      <p>特別な日のための店ではなく、仕事帰りの一杯にも、ふらっと使える店のままで。<strong>ひとり¥6,500ほど</strong>で、タパスを数皿とワインを気持ちよく。</p>
+      <p>目指すのは、パリの街角にあるような<strong>ビストロ</strong>。前菜からメイン、デザートまでを自分のペースで組み立てて、グラスワインと一皿ずつ。肩ひじ張らずに通える「街の食堂」を、スペイン料理でつくりたいと考えています。</p>
+      <p>特別な日のための店ではなく、仕事帰りの一杯にも、ふらっと使える店のままで。<strong>ひとり¥6,500ほど</strong>で、前菜を数皿とメイン、ワインを気持ちよく。</p>
     </div>
     <figure class="ph" style="aspect-ratio:4/5">
       <img src="/src/bardebis-appetizer.jpg" alt="前菜の盛り合わせ — 生ハム、ムール貝、ガスパチョ、クロケッタ" loading="lazy">
@@ -301,9 +319,9 @@ footer a:hover{color:var(--saffron)}
 <!-- 料理 -->
 <section class="cuisine light" id="cuisine">
   <div class="wrap">
-    <p class="eyebrow">Cuisine</p>
+    <p class="eyebrow">Cuisine — Bistrot Espagnol</p>
     <h2>スペイン × 和を、<br>ビストロの気軽さで。</h2>
-    <p class="jp-note" style="margin-top:20px">西瓜と梅、鱧と大葉、和牛と焦がし醤油。スペイン料理の骨格に和の食材を重ね、ワインと気軽に合わせられるビストロの一皿に。名物は、パエリアです。</p>
+    <p class="jp-note" style="margin-top:20px">西瓜と梅、鱧と大葉、和牛と焦がし醤油。スペイン料理の骨格に和の食材を重ね、ワインと気軽に合わせられるビストロの一皿に。前菜(アントレ)からメイン(プラ)、デザートまで、コースに縛られずアラカルトで自由にどうぞ。名物は、パエリアです。</p>
 
     <div class="signature">
       <div class="sig-card">
@@ -326,28 +344,35 @@ footer a:hover{color:var(--saffron)}
       </div>
     </div>
 
+    <div class="carte-head">
+      <p class="script">La Carte</p>
+      <p>前菜 → メイン → デザート。ビストロのように、好きな順に、好きなだけ。</p>
+    </div>
+
     <div class="menu-grid">
       <div class="menu-col">
-        <h3>Tapas</h3>
-        <p class="h3jp">タパス</p>
+        <p class="step">Entrées</p>
+        <h3>Tapas &amp; Hors-d’œuvre</h3>
+        <p class="h3jp">タパス・前菜</p>
         <div class="dish"><p class="dish-name">７種のタパス盛り合わせ(1人前)<small>まずはこれから — 気合いNo.1の一皿</small></p><p class="dish-price">¥1,400</p></div>
         <div class="dish"><p class="dish-name">西瓜と梅のガスパチョ / パン・コン・トマテ ほか<small>盛り合わせの7種は単品でも</small></p><p class="dish-price">各 ¥540</p></div>
 
-        <h3 style="margin-top:44px">Cold Dish</h3>
+        <h3 style="margin-top:44px">Entrées Froides</h3>
         <p class="h3jp">冷菜</p>
         <div class="dish"><p class="dish-name">生マッシュルームとペコリーノのサラダ</p><p class="dish-price">¥1,380</p></div>
         <div class="dish"><p class="dish-name">真鯛と赤エビの青唐セビーチェ</p><p class="dish-price">¥1,540</p></div>
         <div class="dish"><p class="dish-name">白桃と自家製リコッタムース 生ハム</p><p class="dish-price">¥1,380</p></div>
 
-        <h3 style="margin-top:44px">Ajillo</h3>
-        <p class="h3jp">アヒージョ</p>
+        <h3 style="margin-top:44px">Cassolettes</h3>
+        <p class="h3jp">アヒージョ(小鍋)</p>
         <div class="dish"><p class="dish-name">鱧と梅の大葉ジェノベーゼ</p><p class="dish-price">¥1,380</p></div>
         <div class="dish"><p class="dish-name">桜エビと黄ニラのかきたま</p><p class="dish-price">¥1,380</p></div>
         <div class="dish"><p class="dish-name">マッシュルームとチョリソーのチリ</p><p class="dish-price">¥1,280</p></div>
       </div>
       <div class="menu-col">
-        <h3>Hot Dish</h3>
-        <p class="h3jp">温菜</p>
+        <p class="step">Plats</p>
+        <h3>Plats Chauds</h3>
+        <p class="h3jp">温菜・メイン</p>
         <div class="dish"><p class="dish-name">ハチノスとギアラのカジョス</p><p class="dish-price">¥1,180</p></div>
         <div class="dish"><p class="dish-name">トウモロコシのチーズオムレツ</p><p class="dish-price">¥1,460</p></div>
         <div class="dish"><p class="dish-name">フォアグラオムレツ</p><p class="dish-price">¥2,180</p></div>
@@ -355,12 +380,12 @@ footer a:hover{color:var(--saffron)}
         <div class="dish"><p class="dish-name">タコのガリシア風</p><p class="dish-price">¥2,480</p></div>
 
         <h3 style="margin-top:44px">Paella</h3>
-        <p class="h3jp">パエリア</p>
+        <p class="h3jp">パエリア(シェアするメイン)</p>
         <div class="dish"><p class="dish-name">海老とブッラータチーズのビスク<small>おすすめ — 濃厚ビスクにとろけるブッラータ</small></p><p class="dish-price">¥3,680</p></div>
         <div class="dish"><p class="dish-name">和牛ランプとレンコン</p><p class="dish-price">¥2,780</p></div>
         <div class="dish"><p class="dish-name">季節の鮎とキュウリ</p><p class="dish-price">¥2,580</p></div>
 
-        <h3 style="margin-top:44px">Dessert</h3>
+        <h3 style="margin-top:44px">Desserts</h3>
         <p class="h3jp">デザート</p>
         <div class="dish"><p class="dish-name">レアバスクチーズケーキ</p><p class="dish-price">¥840</p></div>
         <div class="dish"><p class="dish-name">プリンとシェリー酒</p><p class="dish-price">¥780</p></div>
@@ -368,13 +393,19 @@ footer a:hover{color:var(--saffron)}
     </div>
     <p class="menu-note">※ 価格はすべて税込。チャージ料 ¥550。仕入れにより内容が変わる場合があります。</p>
 
-    <div class="course">
-      <div class="course-price">¥6,500<small>Per person</small></div>
-      <div class="course-body">
-        <h3>おすすめの楽しみ方</h3>
-        <p>７種のタパス盛り合わせにアヒージョを一皿、締めにパエリアをシェアして、デザートまで。ワイン2杯とあわせて、おひとり¥6,500ほどが目安です。</p>
+    <div class="ardoise">
+      <p class="ardoise-title">Menu conseillé</p>
+      <p class="ardoise-sub">おすすめの組み立て方</p>
+      <ol>
+        <li><span class="k">Apéritif</span><span class="j">食前酒</span><p>CAVAかフィノ・シェリーで乾杯。</p></li>
+        <li><span class="k">Entrée</span><span class="j">前菜</span><p>７種のタパス盛り合わせに、アヒージョをひと鍋。</p></li>
+        <li><span class="k">Plat</span><span class="j">メイン</span><p>名物のパエリアを、テーブルでシェア。</p></li>
+        <li><span class="k">Dessert</span><span class="j">デザート</span><p>プリンとシェリー酒で、ゆっくり締めを。</p></li>
+      </ol>
+      <div class="ardoise-foot">
+        <p class="price">¥6,500<small>ワイン2杯込み・おひとりの目安</small></p>
+        <a href="#reserve">席を予約する</a>
       </div>
-      <a href="#reserve">席を予約する</a>
     </div>
 
   </div>

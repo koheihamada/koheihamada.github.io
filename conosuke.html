@@ -74,11 +74,9 @@
     h2 { font-size:clamp(24px,2.6vw,34px); font-weight:600; letter-spacing:.14em; line-height:1.7; margin-bottom:28px; }
     .lead { max-width:640px; font-size:15px; color:#3a3833; }
 
-    .concept-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:6vw; align-items:center; }
-    .concept-photos { display:grid; grid-template-columns:1.4fr 1fr; gap:16px; align-items:end; }
-    .concept-photos .tall img { aspect-ratio:3/4; object-fit:cover; width:100%; }
-    .concept-photos .sm { margin-bottom:12%; }
-    .concept-photos .sm img { aspect-ratio:3/4; object-fit:cover; width:100%; }
+    .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:6vw; align-items:center; }
+    .concept-photo { margin-right:-10vw; }
+    .concept-photo img { width:100%; aspect-ratio:5/6; object-fit:cover; object-position:50% 70%; }
     .points { list-style:none; margin-top:36px; display:grid; gap:14px; max-width:520px; }
     .points li { display:flex; gap:16px; align-items:baseline; font-size:14px; padding-bottom:14px; border-bottom:1px solid var(--rule); }
     .points b { font-weight:600; color:var(--red); letter-spacing:.2em; min-width:3.5em; }
@@ -147,6 +145,8 @@
       .hero-photo img { position:static; aspect-ratio:4/5; }
       .concept-grid, .access-grid { grid-template-columns:1fr; gap:40px; }
       .access-sign { max-width:240px; }
+      .concept-photo { margin:0 -16px; }
+      .concept-photo img { aspect-ratio:4/5; }
       .band { height:56svh; }
       .band p { left:24px; }
       .dishes-grid { grid-template-columns:1fr 1fr; gap:12px; }
@@ -208,10 +208,7 @@
             <li><b>酒</b>料理に合わせて選ぶ、肩肘張らない一杯</li>
           </ul>
         </div>
-        <div class="concept-photos">
-          <figure class="tall"><img src="/src/conosuke/interior.jpg" alt="和紙の照明が灯るテーブル席" width="1052" height="1400" loading="lazy"></figure>
-          <figure class="sm"><img src="/src/conosuke/sign-box.jpg" alt="入口に灯る「このすけ」の行灯" width="1050" height="1400" loading="lazy"></figure>
-        </div>
+        <figure class="concept-photo"><img src="/src/conosuke/interior.jpg" alt="和紙の照明が灯るテーブル席" width="1052" height="1400" loading="lazy"></figure>
       </div>
     </section>
 

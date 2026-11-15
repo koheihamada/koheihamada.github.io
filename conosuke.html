@@ -76,7 +76,16 @@
 
     .concept-grid { display:grid; grid-template-columns:1fr 1fr; gap:6vw; align-items:center; }
     .concept-photo { margin-right:-10vw; }
-    .concept-photo img { width:100%; aspect-ratio:5/6; object-fit:cover; object-position:50% 70%; }
+    .slides { position:relative; aspect-ratio:5/6; overflow:hidden; background:#2a2420; }
+    .slides img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1.2s ease; }
+    .slides img.on { opacity:1; }
+    .slides img.p-interior { object-position:50% 70%; }
+    .slides img.p-sign { object-position:50% 45%; }
+    .dots { display:flex; gap:10px; justify-content:flex-end; margin-top:14px; padding-right:10vw; }
+    .dots button { width:28px; height:16px; border:0; padding:0; background:none; cursor:pointer; position:relative; }
+    .dots button::before { content:""; position:absolute; left:0; right:0; top:7px; height:2px; background:var(--rule); transition:background .3s; }
+    .dots button[aria-current="true"]::before { background:var(--red); }
+    @media (prefers-reduced-motion:reduce) { .slides img { transition:none; } }
     .points { list-style:none; margin-top:36px; display:grid; gap:14px; max-width:520px; }
     .points li { display:flex; gap:16px; align-items:baseline; font-size:14px; padding-bottom:14px; border-bottom:1px solid var(--rule); }
     .points b { font-weight:600; color:var(--red); letter-spacing:.2em; min-width:3.5em; }
@@ -146,7 +155,8 @@
       .concept-grid, .access-grid { grid-template-columns:1fr; gap:40px; }
       .access-sign { max-width:240px; }
       .concept-photo { margin:0 -16px; }
-      .concept-photo img { aspect-ratio:4/5; }
+      .slides { aspect-ratio:4/5; }
+      .dots { padding-right:16px; }
       .band { height:56svh; }
       .band p { left:24px; }
       .dishes-grid { grid-template-columns:1fr 1fr; gap:12px; }
@@ -208,7 +218,13 @@
             <li><b>酒</b>料理に合わせて選ぶ、肩肘張らない一杯</li>
           </ul>
         </div>
-        <figure class="concept-photo"><img src="/src/conosuke/interior.jpg" alt="和紙の照明が灯るテーブル席" width="1052" height="1400" loading="lazy"></figure>
+        <figure class="concept-photo">
+          <div class="slides" id="slides" aria-roledescription="carousel" aria-label="店内と入口の写真">
+            <img class="p-interior on" src="/src/conosuke/interior.jpg" alt="和紙の照明が灯るテーブル席" width="1052" height="1400" loading="lazy">
+            <img class="p-sign" src="/src/conosuke/sign-box.jpg" alt="入口に灯る「このすけ」の行灯" width="1050" height="1400" loading="lazy">
+          </div>
+          <div class="dots" id="dots"><button type="button" aria-label="1枚目：店内" aria-current="true"></button><button type="button" aria-label="2枚目：入口の行灯" aria-current="false"></button></div>
+        </figure>
       </div>
     </section>
 
@@ -359,6 +375,22 @@
       drawer.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { set(false); }); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
       window.addEventListener('resize', function () { if (window.innerWidth > 800) set(false); });
+    })();
+    (function () {
+      var box = document.getElementById('slides'); if (!box) return;
+      var imgs = box.querySelectorAll('img'), dots = document.querySelectorAll('#dots button'), i = 0, timer;
+      var still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function show(n) {
+        i = (n + imgs.length) % imgs.length;
+        imgs.forEach(function (im, k) { im.classList.toggle('on', k === i); });
+        dots.forEach(function (d, k) { d.setAttribute('aria-current', k === i); });
+      }
+      function start() { if (!still) { clearInterval(timer); timer = setInterval(function () { show(i + 1); }, 5000); } }
+      dots.forEach(function (d, k) { d.addEventListener('click', function () { show(k); start(); }); });
+      var x0 = null;
+      box.addEventListener('touchstart', function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+      box.addEventListener('touchend', function (e) { if (x0 === null) return; var dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) { show(i + (dx < 0 ? 1 : -1)); start(); } x0 = null; });
+      start();
     })();
   </script>
 </body>

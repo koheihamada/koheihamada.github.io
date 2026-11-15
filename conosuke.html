@@ -55,8 +55,14 @@
     .drawer nav a small { font-size:10px; letter-spacing:.3em; color:var(--red); text-transform:uppercase; }
     .drawer-foot { margin-top:auto; padding-top:32px; font-size:12px; color:var(--mute); line-height:2; }
     body.locked { overflow:hidden; }
-    .hero { min-height:88svh; display:grid; grid-template-columns:1fr 1fr; align-items:center; gap:6vw; padding:64px 10vw; }
-    .hero-logo { justify-self:center; height:min(62svh,560px); width:auto; }
+    img { display:block; max-width:100%; height:auto; }
+    figure { margin:0; }
+    figcaption { margin-top:10px; font-size:12px; letter-spacing:.12em; color:var(--mute); }
+
+    .hero { min-height:calc(100svh - 61px); display:grid; grid-template-columns:auto 1fr minmax(0,44%); align-items:center; gap:5vw; padding:56px 0 56px 8vw; }
+    .hero-logo { justify-self:center; height:min(58svh,520px); width:auto; }
+    .hero-photo { align-self:stretch; position:relative; overflow:hidden; min-height:520px; }
+    .hero-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
     .hero-copy .open { display:inline-block; color:var(--red); border:1px solid var(--red); font-size:13px; letter-spacing:.2em; padding:4px 14px; margin-bottom:28px; }
     .hero-copy h1 { font-size:clamp(26px,3.2vw,40px); font-weight:600; letter-spacing:.2em; line-height:1.7; margin-bottom:24px; }
     .hero-copy h1 span { display:block; font-size:.55em; letter-spacing:.35em; color:var(--mute); font-weight:400; }
@@ -67,6 +73,33 @@
     .label { font-size:12px; letter-spacing:.4em; color:var(--red); margin-bottom:20px; }
     h2 { font-size:clamp(24px,2.6vw,34px); font-weight:600; letter-spacing:.14em; line-height:1.7; margin-bottom:28px; }
     .lead { max-width:640px; font-size:15px; color:#3a3833; }
+
+    .concept-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:6vw; align-items:center; }
+    .concept-photos { display:grid; grid-template-columns:1.4fr 1fr; gap:16px; align-items:end; }
+    .concept-photos .tall img { aspect-ratio:3/4; object-fit:cover; width:100%; }
+    .concept-photos .sm { margin-bottom:12%; }
+    .concept-photos .sm img { aspect-ratio:3/4; object-fit:cover; width:100%; }
+    .points { list-style:none; margin-top:36px; display:grid; gap:14px; max-width:520px; }
+    .points li { display:flex; gap:16px; align-items:baseline; font-size:14px; padding-bottom:14px; border-bottom:1px solid var(--rule); }
+    .points b { font-weight:600; color:var(--red); letter-spacing:.2em; min-width:3.5em; }
+
+    .band { position:relative; height:min(72svh,640px); overflow:hidden; background:#1d1410; }
+    .band img { width:100%; height:100%; object-fit:cover; }
+    .band::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg, rgba(20,12,8,.7) 0%, rgba(20,12,8,.25) 40%, rgba(20,12,8,0) 65%); }
+    .band p { z-index:1; }
+    .band p { position:absolute; left:10vw; bottom:12%; color:#fff; font-size:clamp(22px,3vw,38px); letter-spacing:.25em; line-height:1.9; writing-mode:vertical-rl; text-shadow:0 2px 18px rgba(0,0,0,.45); top:12%; }
+
+    .dishes-grid { display:grid; grid-template-columns:repeat(12,1fr); gap:20px; margin-top:16px; }
+    .dishes-grid figure img { width:100%; object-fit:cover; }
+    .dishes-grid .d1 { grid-column:1 / 8; grid-row:span 2; }
+    .dishes-grid .d1 { display:flex; flex-direction:column; }
+    .dishes-grid .d1 img { flex:1 1 0; height:0; min-height:320px; }
+    .dishes-grid .d2 { grid-column:8 / 13; }
+    .dishes-grid .d2 img, .dishes-grid .d3 img { aspect-ratio:4/3; }
+    .dishes-grid .d3 { grid-column:8 / 13; }
+    .dishes-grid .d4 { grid-column:1 / 7; }
+    .dishes-grid .d5 { grid-column:7 / 13; }
+    .dishes-grid .d4 img, .dishes-grid .d5 img { aspect-ratio:16/10; }
 
     .menu { background:var(--paper-2); }
     .menu-head { display:flex; justify-content:space-between; align-items:end; flex-wrap:wrap; gap:16px; margin-bottom:48px; }
@@ -83,12 +116,20 @@
     .pr { white-space:nowrap; font-variant-numeric:tabular-nums; }
     .rec { display:inline-block; font-size:10px; letter-spacing:.1em; color:#fff; background:var(--red); padding:0 6px; margin-right:8px; vertical-align:2px; line-height:1.8; }
 
+    .access-grid { display:grid; grid-template-columns:1fr 300px; gap:6vw; align-items:start; }
+    .access-sign img { aspect-ratio:1/2; object-fit:cover; width:100%; }
     .info dl { display:grid; grid-template-columns:140px 1fr; max-width:720px; }
     .info dt, .info dd { padding:16px 0; border-bottom:1px solid var(--rule); font-size:15px; }
     .info dt { color:var(--mute); letter-spacing:.15em; font-size:13px; }
     .map { margin-top:40px; aspect-ratio:16/7; width:100%; border:0; filter:grayscale(.3); }
 
-    .recruit { text-align:center; }
+    .recruit { position:relative; text-align:center; color:#fff; background:#1d1410 url(/src/conosuke/interior.jpg) center 35%/cover no-repeat; overflow:hidden; }
+    .recruit::before { content:""; position:absolute; inset:0; background:rgba(20,16,12,.62); }
+    .recruit > * { position:relative; }
+    .recruit .label { color:#ffb3a8; }
+    .recruit .lead { color:rgba(255,255,255,.88); }
+    .recruit .btn { background:#fff; color:var(--ink); }
+    .recruit .btn:hover { background:var(--red); color:#fff; }
     .recruit .lead { margin:0 auto 32px; }
     .btn { display:inline-block; padding:14px 36px; background:var(--ink); color:var(--paper); text-decoration:none; letter-spacing:.2em; font-size:14px; }
     .btn:hover { background:var(--red); }
@@ -99,8 +140,21 @@
     @media (max-width:800px) {
       header .pc-nav { display:none; }
       .menu-btn { display:flex; }
-      .hero { grid-template-columns:1fr; padding:48px 16px 64px; text-align:center; gap:32px; }
-      .hero-logo { height:46svh; }
+      .hero { grid-template-columns:1fr; padding:40px 16px 0; text-align:center; gap:32px; min-height:0; }
+      .hero-logo { height:40svh; }
+      .romaji { letter-spacing:.25em; font-size:11px; }
+      .hero-photo { margin:0 -16px; min-height:0; }
+      .hero-photo img { position:static; aspect-ratio:4/5; }
+      .concept-grid, .access-grid { grid-template-columns:1fr; gap:40px; }
+      .access-sign { max-width:240px; }
+      .band { height:56svh; }
+      .band p { left:24px; }
+      .dishes-grid { grid-template-columns:1fr 1fr; gap:12px; }
+      .dishes-grid .d1 { grid-column:1 / 3; grid-row:auto; display:block; }
+      .dishes-grid .d1 img { height:auto; min-height:0; aspect-ratio:4/3; }
+      .dishes-grid .d2, .dishes-grid .d3 { grid-column:auto; }
+      .dishes-grid .d4, .dishes-grid .d5 { grid-column:auto; }
+      .dishes-grid .d4 img, .dishes-grid .d5 img { aspect-ratio:4/3; }
       section.block { padding:72px 16px; }
       .seiro { padding:24px 16px; }
       .seiro .cat ul { columns:1; }
@@ -113,7 +167,7 @@
 <body>
   <header class="top">
     <a class="brand" href="#top">このすけ<small>CONOSUKE</small></a>
-    <nav class="pc-nav"><a href="#concept">コンセプト</a><a href="#menu">お品書き</a><a href="#access">アクセス</a><a href="/recruit#new-store">求人</a></nav>
+    <nav class="pc-nav"><a href="#concept">コンセプト</a><a href="#dishes">料理</a><a href="#menu">お品書き</a><a href="#access">アクセス</a><a href="/recruit#new-store">求人</a></nav>
     <button class="menu-btn" id="menuBtn" aria-label="メニューを開く" aria-expanded="false" aria-controls="drawer"><span></span><span></span><span></span></button>
   </header>
 
@@ -122,6 +176,7 @@
     <img src="/src/conosuke/logo.png" alt="このすけ" class="drawer-logo" width="303" height="900">
     <nav>
       <a href="#concept">コンセプト<small>Concept</small></a>
+      <a href="#dishes">料理<small>Dishes</small></a>
       <a href="#menu">お品書き<small>Menu</small></a>
       <a href="#access">アクセス<small>Access</small></a>
       <a href="/recruit#new-store">求人<small>Recruit</small></a>
@@ -138,12 +193,43 @@
         <p>旬の野菜や肉、魚介を、蒸篭で。<br>蒸すことで引き出す素材の甘みと香り、ふっくらとした食感。<br>肩肘張らずに、飯と酒と一緒にどうぞ。</p>
         <p class="romaji">CONOSUKE — IKEJIRI-OHASHI</p>
       </div>
+      <div class="hero-photo"><img src="/src/conosuke/hero-seiro.jpg" alt="鮭といくらを盛った蒸篭" width="1050" height="1400" fetchpriority="high"></div>
     </section>
 
     <section class="block" id="concept">
-      <p class="label">CONCEPT</p>
-      <h2>湯気の向こうに、<br>季節がある。</h2>
-      <p class="lead">せいろ料理を主役に、〆の炊き込みご飯、それに合う酒を。お客さまとの距離が近く、料理にも接客にもきちんと目が届く、30〜40席ほどの店です。中目黒「弥之助」を手がける株式会社Basicの新しい店です。</p>
+      <div class="concept-grid">
+        <div>
+          <p class="label">CONCEPT</p>
+          <h2>湯気の向こうに、<br>季節がある。</h2>
+          <p class="lead">せいろ料理を主役に、〆の炊き込みご飯、それに合う酒を。お客さまとの距離が近く、料理にも接客にもきちんと目が届く、30〜40席ほどの店です。中目黒「弥之助」を手がける株式会社Basicの新しい店です。</p>
+          <ul class="points">
+            <li><b>蒸篭</b>旬の野菜や肉、魚介を蒸して、甘みと香りを引き出す</li>
+            <li><b>飯</b>〆は炊き込みご飯や蒸しおにぎりで</li>
+            <li><b>酒</b>料理に合わせて選ぶ、肩肘張らない一杯</li>
+          </ul>
+        </div>
+        <div class="concept-photos">
+          <figure class="tall"><img src="/src/conosuke/interior.jpg" alt="和紙の照明が灯るテーブル席" width="1052" height="1400" loading="lazy"></figure>
+          <figure class="sm"><img src="/src/conosuke/sign-box.jpg" alt="入口に灯る「このすけ」の行灯" width="1050" height="1400" loading="lazy"></figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="band" role="img" aria-label="蒸篭料理と揚げもの、椀もの">
+      <img src="/src/conosuke/spread.jpg" alt="" width="1400" height="1050" loading="lazy">
+      <p>蒸して、炊いて、<br>酒をひとくち。</p>
+    </div>
+
+    <section class="block" id="dishes">
+      <p class="label">DISHES</p>
+      <h2>蒸篭から立つ、<br>湯気ごと味わう。</h2>
+      <div class="dishes-grid">
+        <figure class="d1"><img src="/src/conosuke/seiro-top.jpg" alt="鮭といくら、きのこを盛った蒸篭" width="1400" height="1050" loading="lazy"><figcaption>蒸篭いっぱいの鮭といくら</figcaption></figure>
+        <figure class="d2"><img src="/src/conosuke/shoronpo.jpg" alt="お猪口に入った包まない小籠包" width="1400" height="1050" loading="lazy"><figcaption>包まない お猪口小籠包</figcaption></figure>
+        <figure class="d3"><img src="/src/conosuke/agemono.jpg" alt="海老と鶏、海苔巻きの揚げもの" width="1400" height="1050" loading="lazy"><figcaption>揚げもの</figcaption></figure>
+        <figure class="d4"><img src="/src/conosuke/wan.jpg" alt="きのこといくらの椀" width="1400" height="1050" loading="lazy"><figcaption>きのこといくらの椀</figcaption></figure>
+        <figure class="d5"><img src="/src/conosuke/seiro-close.jpg" alt="鮭といくらの蒸篭" width="1400" height="1050" loading="lazy"><figcaption>季節の蒸篭</figcaption></figure>
+      </div>
     </section>
 
     <section class="block menu" id="menu">
@@ -223,6 +309,7 @@
     <section class="block info" id="access">
       <p class="label">ACCESS</p>
       <h2>池尻大橋駅から、<br>歩いて七分。</h2>
+      <div class="access-grid">
       <dl>
         <dt>店名</dt><dd>せいろと飯と酒 このすけ</dd>
         <dt>住所</dt><dd>東京都目黒区大橋1-7-12 協立ハイツ<br><a href="https://www.google.com/maps/search/?api=1&amp;query=35.6501306,139.6894823" target="_blank" rel="noopener">Googleマップで開く ↗</a></dd>
@@ -231,6 +318,8 @@
         <dt>営業時間</dt><dd>準備中</dd>
         <dt>席数</dt><dd>30〜40席</dd>
       </dl>
+      <figure class="access-sign"><img src="/src/conosuke/sign.jpg" alt="協立ハイツ前に立つ「居酒屋 このすけ」の看板" width="702" height="1400" loading="lazy"><figcaption>協立ハイツの白い看板が目印です</figcaption></figure>
+      </div>
       <iframe class="map" title="このすけ 地図" loading="lazy" src="https://www.google.com/maps?q=35.6501306,139.6894823&amp;z=17&amp;output=embed"></iframe>
     </section>
 

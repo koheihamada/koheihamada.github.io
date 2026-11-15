@@ -140,6 +140,9 @@
     .recruit .lead { margin:0 auto 32px; }
     .btn { display:inline-block; padding:14px 36px; background:var(--ink); color:var(--paper); text-decoration:none; letter-spacing:.2em; font-size:14px; }
     .btn:hover { background:var(--red); }
+    .actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+    .btn.alt { background:none; color:var(--ink); border:1px solid var(--ink); }
+    .btn.alt:hover { background:var(--ink); color:var(--paper); }
 
     footer { padding:40px 24px; text-align:center; font-size:12px; color:var(--mute); border-top:1px solid var(--rule); }
     footer a { margin:0 10px; }
@@ -334,6 +337,7 @@
       <p class="label">ACCESS</p>
       <h2>池尻大橋駅から、<br>歩いて七分。</h2>
       <div class="access-grid">
+      <div>
       <dl>
         <dt>店名</dt><dd>せいろと飯と酒 このすけ</dd>
         <dt>住所</dt><dd>東京都目黒区大橋1-7-12 協立ハイツ<br><a href="https://www.google.com/maps/search/?api=1&amp;query=35.6501306,139.6894823" target="_blank" rel="noopener">Googleマップで開く ↗</a></dd>
@@ -342,7 +346,10 @@
         <dt>オープン</dt><dd>2026年11月（予定）</dd>
         <dt>営業時間</dt><dd>準備中</dd>
         <dt>席数</dt><dd>30〜40席</dd>
+        <dt>食べログ</dt><dd><a href="https://tabelog.com/tokyo/A1317/A131705/13328775/" target="_blank" rel="noopener">店舗ページを見る ↗</a></dd>
       </dl>
+      <div class="actions"><a class="btn" href="tel:0368200799">電話する</a><a class="btn alt" href="https://tabelog.com/tokyo/A1317/A131705/13328775/" target="_blank" rel="noopener">食べログで見る</a></div>
+      </div>
       <figure class="access-sign"><img src="/src/conosuke/sign.jpg" alt="協立ハイツ前に立つ「居酒屋 このすけ」の看板" width="702" height="1400" loading="lazy"><figcaption>協立ハイツの白い看板が目印です</figcaption></figure>
       </div>
       <iframe class="map" title="このすけ 地図" loading="lazy" src="https://www.google.com/maps?q=35.6501306,139.6894823&amp;z=17&amp;output=embed"></iframe>

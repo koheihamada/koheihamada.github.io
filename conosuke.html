@@ -79,8 +79,6 @@
     .slides { position:relative; aspect-ratio:5/6; overflow:hidden; background:#2a2420; }
     .slides img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity 1.2s ease; }
     .slides img.on { opacity:1; }
-    .slides img.p-interior { object-position:50% 70%; }
-    .slides img.p-sign { object-position:50% 45%; }
     .dots { display:flex; gap:10px; justify-content:flex-end; margin-top:14px; padding-right:10vw; }
     .dots button { width:28px; height:16px; border:0; padding:0; background:none; cursor:pointer; position:relative; }
     .dots button::before { content:""; position:absolute; left:0; right:0; top:7px; height:2px; background:var(--rule); transition:background .3s; }
@@ -104,9 +102,10 @@
     .dishes-grid .d2 { grid-column:8 / 13; }
     .dishes-grid .d2 img, .dishes-grid .d3 img { aspect-ratio:4/3; }
     .dishes-grid .d3 { grid-column:8 / 13; }
-    .dishes-grid .d4 { grid-column:1 / 7; }
-    .dishes-grid .d5 { grid-column:7 / 13; }
-    .dishes-grid .d4 img, .dishes-grid .d5 img { aspect-ratio:16/10; }
+    .dishes-grid .d4 { grid-column:1 / 5; }
+    .dishes-grid .d5 { grid-column:5 / 9; }
+    .dishes-grid .d6 { grid-column:9 / 13; }
+    .dishes-grid .d4 img, .dishes-grid .d5 img, .dishes-grid .d6 img { aspect-ratio:4/3; }
 
     .menu { background:var(--paper-2); }
     .menu-head { display:flex; justify-content:space-between; align-items:end; flex-wrap:wrap; gap:16px; margin-bottom:48px; }
@@ -130,7 +129,7 @@
     .info dt { color:var(--mute); letter-spacing:.15em; font-size:13px; }
     .map { margin-top:40px; aspect-ratio:16/7; width:100%; border:0; filter:grayscale(.3); }
 
-    .recruit { position:relative; text-align:center; color:#fff; background:#1d1410 url(/src/conosuke/interior.jpg) center 35%/cover no-repeat; overflow:hidden; }
+    .recruit { position:relative; text-align:center; color:#fff; background:#1d1410 url(/src/conosuke/room-wide.jpg) center 45%/cover no-repeat; overflow:hidden; }
     .recruit::before { content:""; position:absolute; inset:0; background:rgba(20,16,12,.62); }
     .recruit > * { position:relative; }
     .recruit .label { color:#ffb3a8; }
@@ -166,8 +165,8 @@
       .dishes-grid .d1 { grid-column:1 / 3; grid-row:auto; display:block; }
       .dishes-grid .d1 img { height:auto; min-height:0; aspect-ratio:4/3; }
       .dishes-grid .d2, .dishes-grid .d3 { grid-column:auto; }
-      .dishes-grid .d4, .dishes-grid .d5 { grid-column:auto; }
-      .dishes-grid .d4 img, .dishes-grid .d5 img { aspect-ratio:4/3; }
+      .dishes-grid .d4 { grid-column:1 / 3; }
+      .dishes-grid .d5, .dishes-grid .d6 { grid-column:auto; }
       section.block { padding:72px 16px; }
       .seiro { padding:24px 16px; }
       .seiro .cat ul { columns:1; }
@@ -206,7 +205,7 @@
         <p>旬の野菜や肉、魚介を、蒸篭で。<br>蒸すことで引き出す素材の甘みと香り、ふっくらとした食感。<br>肩肘張らずに、飯と酒と一緒にどうぞ。</p>
         <p class="romaji">CONOSUKE — IKEJIRI-OHASHI</p>
       </div>
-      <div class="hero-photo"><img src="/src/conosuke/hero-seiro.jpg" alt="鮭といくらを盛った蒸篭" width="1050" height="1400" fetchpriority="high"></div>
+      <div class="hero-photo"><img src="/src/conosuke/hero-rice.jpg" alt="丸い蒸篭で炊いた鮭いくらと塩辛の炊き込みご飯" width="1050" height="1400" fetchpriority="high"></div>
     </section>
 
     <section class="block" id="concept">
@@ -223,16 +222,18 @@
         </div>
         <figure class="concept-photo">
           <div class="slides" id="slides" aria-roledescription="carousel" aria-label="店内と入口の写真">
-            <img class="p-interior on" src="/src/conosuke/interior.jpg" alt="和紙の照明が灯るテーブル席" width="1052" height="1400" loading="lazy">
-            <img class="p-sign" src="/src/conosuke/sign-box.jpg" alt="入口に灯る「このすけ」の行灯" width="1050" height="1400" loading="lazy">
+            <img class="on" src="/src/conosuke/room-shoji.jpg" alt="障子に囲まれたテーブル席" width="1050" height="1400" loading="lazy">
+            <img src="/src/conosuke/room-lantern.jpg" alt="和紙の照明が灯る半個室のテーブル席" width="1050" height="1400" loading="lazy">
+            <img src="/src/conosuke/room-counter.jpg" alt="器が並ぶ白木のカウンター" width="1050" height="1400" loading="lazy">
+            <img src="/src/conosuke/room-sign.jpg" alt="入口に灯る「このすけ」の行灯" width="1050" height="1400" loading="lazy">
           </div>
-          <div class="dots" id="dots"><button type="button" aria-label="1枚目：店内" aria-current="true"></button><button type="button" aria-label="2枚目：入口の行灯" aria-current="false"></button></div>
+          <div class="dots" id="dots"><button type="button" aria-label="1枚目：テーブル席" aria-current="true"></button><button type="button" aria-label="2枚目：半個室" aria-current="false"></button><button type="button" aria-label="3枚目：カウンター" aria-current="false"></button><button type="button" aria-label="4枚目：入口の行灯" aria-current="false"></button></div>
         </figure>
       </div>
     </section>
 
-    <div class="band" role="img" aria-label="蒸篭料理と天ぷら、椀もの">
-      <img src="/src/conosuke/spread.jpg" alt="" width="1400" height="1050" loading="lazy">
+    <div class="band" role="img" aria-label="蒸篭の小籠包や串焼きが並ぶテーブル">
+      <img src="/src/conosuke/band-table.jpg" alt="" width="1400" height="1050" loading="lazy">
       <p>蒸して、炊いて、<br>酒をひとくち。</p>
     </div>
 
@@ -240,11 +241,12 @@
       <p class="label">DISHES</p>
       <h2>蒸篭から立つ、<br>湯気ごと味わう。</h2>
       <div class="dishes-grid">
-        <figure class="d1"><img src="/src/conosuke/seiro-top.jpg" alt="鮭といくら、きのこを盛った蒸篭" width="1400" height="1050" loading="lazy"><figcaption>蒸篭いっぱいの鮭といくら</figcaption></figure>
-        <figure class="d2"><img src="/src/conosuke/shoronpo.jpg" alt="お猪口に入った包まない小籠包" width="1400" height="1050" loading="lazy"><figcaption>包まない お猪口小籠包</figcaption></figure>
-        <figure class="d3"><img src="/src/conosuke/agemono.jpg" alt="海老、ささみ、磯辺天の天ぷら盛り" width="1400" height="1050" loading="lazy"><figcaption>季節の天ぷら盛り</figcaption></figure>
-        <figure class="d4"><img src="/src/conosuke/wan.jpg" alt="きのこといくらの椀" width="1400" height="1050" loading="lazy"><figcaption>きのこといくらの椀</figcaption></figure>
-        <figure class="d5"><img src="/src/conosuke/seiro-close.jpg" alt="鮭といくらの蒸篭" width="1400" height="1050" loading="lazy"><figcaption>季節の蒸篭</figcaption></figure>
+        <figure class="d1"><img src="/src/conosuke/dish-sukimushi.jpg" alt="丸い蒸篭で蒸した国産牛のすき蒸しと卵黄" width="1400" height="1050" loading="lazy"><figcaption>国産牛のすき蒸し</figcaption></figure>
+        <figure class="d2"><img src="/src/conosuke/dish-shoronpo.jpg" alt="蒸篭に入ったお猪口の小籠包" width="1400" height="1050" loading="lazy"><figcaption>包まない お猪口小籠包</figcaption></figure>
+        <figure class="d3"><img src="/src/conosuke/dish-ikameshi.jpg" alt="蒸篭から箸で持ち上げたイカ飯" width="1400" height="1050" loading="lazy"><figcaption>特製 イカ飯</figcaption></figure>
+        <figure class="d4"><img src="/src/conosuke/dish-possam.jpg" alt="二段の蒸篭で蒸した豚肩ロースとサンチュ、薬味" width="1400" height="1050" loading="lazy"><figcaption>豚肩ロースのポッサム</figcaption></figure>
+        <figure class="d5"><img src="/src/conosuke/dish-atsuage.jpg" alt="かつお節をのせた自家製厚揚げ豆腐" width="1400" height="1050" loading="lazy"><figcaption>自家製厚揚げ豆腐</figcaption></figure>
+        <figure class="d6"><img src="/src/conosuke/dish-yodaredori.jpg" alt="黒胡麻だれのよだれ鶏" width="1400" height="1050" loading="lazy"><figcaption>黒いよだれ鶏</figcaption></figure>
       </div>
     </section>
 
